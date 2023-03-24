@@ -1,1 +1,1 @@
-wibu nef
+cho wisbu nef
