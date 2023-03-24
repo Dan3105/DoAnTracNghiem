@@ -1,1 +1,1 @@
-wibu nef may
+cho wisbu nef
