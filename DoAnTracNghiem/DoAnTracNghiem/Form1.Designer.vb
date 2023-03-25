@@ -27,41 +27,66 @@
         Me.ribbonControl1 = New DevExpress.XtraBars.Ribbon.RibbonControl()
         Me.ribbonPage1 = New DevExpress.XtraBars.Ribbon.RibbonPage()
         Me.ribbonPageGroup1 = New DevExpress.XtraBars.Ribbon.RibbonPageGroup()
+        Me.TextEdit1 = New DevExpress.XtraEditors.TextEdit()
+        Me.TextEdit2 = New DevExpress.XtraEditors.TextEdit()
         CType(Me.ribbonControl1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.TextEdit1.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.TextEdit2.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
-        ' ribbonControl1
+        'ribbonControl1
         '
         Me.ribbonControl1.ExpandCollapseItem.Id = 0
-        Me.ribbonControl1.Items.AddRange(New DevExpress.XtraBars.BarItem() {Me.ribbonControl1.ExpandCollapseItem})
-        Me.ribbonControl1.Location = New Point(0, 0)
+        Me.ribbonControl1.Items.AddRange(New DevExpress.XtraBars.BarItem() {Me.ribbonControl1.ExpandCollapseItem, Me.ribbonControl1.SearchEditItem})
+        Me.ribbonControl1.Location = New System.Drawing.Point(0, 0)
         Me.ribbonControl1.MaxItemId = 1
         Me.ribbonControl1.Name = "ribbonControl1"
         Me.ribbonControl1.Pages.AddRange(New DevExpress.XtraBars.Ribbon.RibbonPage() {Me.ribbonPage1})
-        Me.ribbonControl1.Size = New Size(758, 144)
+        Me.ribbonControl1.Size = New System.Drawing.Size(758, 158)
         '
-        ' ribbonPage1
+        'ribbonPage1
         '
         Me.ribbonPage1.Groups.AddRange(New DevExpress.XtraBars.Ribbon.RibbonPageGroup() {Me.ribbonPageGroup1})
         Me.ribbonPage1.Name = "ribbonPage1"
         Me.ribbonPage1.Text = "ribbonPage1"
         '
-        ' ribbonPageGroup1
+        'ribbonPageGroup1
         '
         Me.ribbonPageGroup1.Name = "ribbonPageGroup1"
         Me.ribbonPageGroup1.Text = "ribbonPageGroup1"
         '
-        ' Form1
+        'TextEdit1
         '
-        Me.AutoScaleDimensions = New SizeF(6.0F, 13.0F)
-        Me.AutoScaleMode = AutoScaleMode.Font
-        Me.ClientSize = New Size(758, 360)
+        Me.TextEdit1.Location = New System.Drawing.Point(286, 220)
+        Me.TextEdit1.MenuManager = Me.ribbonControl1
+        Me.TextEdit1.Name = "TextEdit1"
+        Me.TextEdit1.Size = New System.Drawing.Size(378, 20)
+        Me.TextEdit1.TabIndex = 1
+        '
+        'TextEdit2
+        '
+        Me.TextEdit2.Location = New System.Drawing.Point(286, 271)
+        Me.TextEdit2.MenuManager = Me.ribbonControl1
+        Me.TextEdit2.Name = "TextEdit2"
+        Me.TextEdit2.Size = New System.Drawing.Size(378, 20)
+        Me.TextEdit2.TabIndex = 2
+        '
+        'Form1
+        '
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
+        Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.ClientSize = New System.Drawing.Size(758, 360)
+        Me.Controls.Add(Me.TextEdit2)
+        Me.Controls.Add(Me.TextEdit1)
         Me.Controls.Add(Me.ribbonControl1)
         Me.Name = "Form1"
         Me.Ribbon = Me.ribbonControl1
         Me.Text = "Form1"
         CType(Me.ribbonControl1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.TextEdit1.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.TextEdit2.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
+        Me.PerformLayout()
 
     End Sub
 
@@ -70,4 +95,6 @@
     Private WithEvents ribbonControl1 As DevExpress.XtraBars.Ribbon.RibbonControl
     Private WithEvents ribbonPage1 As DevExpress.XtraBars.Ribbon.RibbonPage
     Private WithEvents ribbonPageGroup1 As DevExpress.XtraBars.Ribbon.RibbonPageGroup
+    Friend WithEvents TextEdit1 As DevExpress.XtraEditors.TextEdit
+    Friend WithEvents TextEdit2 As DevExpress.XtraEditors.TextEdit
 End Class
