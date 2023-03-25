@@ -1,1 +1,0 @@
-cho wisbu nef
