@@ -35,8 +35,8 @@ namespace QLThiTracNghiem
             da.Fill(dt);
             Program.bds_spm.DataSource = dt;
             cbServer.DataSource = Program.bds_spm;
-            cbServer.DisplayMember = "TENCN";
-            cbServer.ValueMember = "TENSERVER";
+            cbServer.DisplayMember = "MACS";
+            cbServer.ValueMember = "TENCS";
         }
 
         private void btnLogin_Click(object sender, EventArgs e)
@@ -89,7 +89,7 @@ namespace QLThiTracNghiem
             { Console.Write(exc.ToString()); }
         }
 
-        private static string GetServersSql = "Select * From";
+        private static string GetServersSql = "Select * From COSO";
         private void frmDangNhap_Load(object sender, EventArgs e)
         {
             if (Connecto_MainDB() == 0) return;

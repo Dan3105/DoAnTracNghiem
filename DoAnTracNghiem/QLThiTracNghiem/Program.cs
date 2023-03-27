@@ -15,7 +15,7 @@ namespace QLThiTracNghiem
         private static string dbname = "DB_TracNghiem";
         public static SqlConnection conn = new SqlConnection();
         public static string connstr;
-        public static string connstr_publisher = $"Data Source={serverAuthentication};Initial Catalog={dbname};Intergrated Security=True";
+        public static string connstr_publisher = $"Data Source={serverAuthentication};Initial Catalog={dbname};Trusted_Connection=True";
 
         public static SqlDataReader myReader;
         public static string remote_login = "";
