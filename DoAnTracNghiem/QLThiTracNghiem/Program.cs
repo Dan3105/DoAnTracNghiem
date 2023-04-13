@@ -1,5 +1,6 @@
 ﻿using DevExpress.Skins;
 using DevExpress.UserSkins;
+using DevExpress.XtraEditors.NavigatorButtons;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -9,15 +10,23 @@ using System.Windows.Forms;
 
 namespace QLThiTracNghiem
 {
+    public struct DatabaseInformationLogin
+    {
+        public string username;
+        public string fullname;
+        public string facility;
+    }
     internal static class Program
     {
-        private static string serverAuthentication = "DESKTOP-5Q314UD";
+        private static string serverNameBase = "DESKTOP-5Q314UD";
         private static string dbname = "DB_TracNghiem";
+
         public static SqlConnection conn = new SqlConnection();
         public static string connstr;
-        public static string connstr_publisher = $"Data Source={serverAuthentication};Initial Catalog={dbname};Trusted_Connection=True";
+        public static string connstr_publisher = $"Data Source={serverNameBase};Initial Catalog={dbname};Trusted_Connection=True";
 
         public static SqlDataReader myReader;
+        public static SqlDataAdapter da;
         public static string remote_login = "";
         public static string remote_password = "";
 
@@ -38,7 +47,7 @@ namespace QLThiTracNghiem
                 Program.conn.Close();
             try
             {
-                Program.connstr = "Data Source" + Program.servername + ";Initial Catalog="
+                Program.connstr = "Data Source=" + Program.servername + ";Initial Catalog="
                     + Program.dbname + ";User ID=" + Program.mlogin
                     +";password=" + Program.password;
                 Program.conn.ConnectionString = Program.connstr;
@@ -48,6 +57,7 @@ namespace QLThiTracNghiem
             catch(Exception e)
             {
                 Console.WriteLine(e);
+                Console.WriteLine(Program.connstr);
                 Console.WriteLine($"check servername: {Program.servername}, userId = {Program.mlogin} and pssw = {Program.password}");
                 return 0;
             }
@@ -56,7 +66,6 @@ namespace QLThiTracNghiem
         public static SqlDataReader ExecSqlDataReader(String cmd)
         {
             SqlDataReader myreader;
-            //Program.conn = new SqlConnection(connectionstring);
 
             SqlCommand sqlcmd = new SqlCommand();
             sqlcmd.Connection = Program.conn;
@@ -76,7 +85,37 @@ namespace QLThiTracNghiem
             }
         }
 
+        public static DataTable ExecSqlQuery(String cmd, String connectionString)
+        {
+            DataTable dt = new DataTable();
+            conn = new SqlConnection(connectionString);
+            da = new SqlDataAdapter(cmd, conn);
+            da.Fill(dt);
+            return dt;
+        }
 
+        public static int ExecSqlNonQuery(String cmd, String connectionstring)
+        {
+            conn = new SqlConnection(connectionstring);
+            SqlCommand Sqlcmd = new SqlCommand();
+            Sqlcmd.Connection = conn;
+            Sqlcmd.CommandText = cmd;
+            Sqlcmd.CommandTimeout = 600;
+            Sqlcmd.CommandType = CommandType.Text;
+            if (conn.State == ConnectionState.Closed) conn.Open();
+            try
+            {
+
+                Sqlcmd.ExecuteNonQuery(); conn.Close(); return 1;
+            }
+            catch (SqlException ex)
+            {
+                MessageBox.Show(ex.Message);
+                conn.Close();
+                return 0;
+            }
+
+        }
         /// <summary>
         /// The main entry point for the application.
         /// </summary>

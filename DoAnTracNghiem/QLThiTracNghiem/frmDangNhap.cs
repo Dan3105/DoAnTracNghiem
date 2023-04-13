@@ -35,8 +35,8 @@ namespace QLThiTracNghiem
             da.Fill(dt);
             Program.bds_spm.DataSource = dt;
             cbServer.DataSource = Program.bds_spm;
-            cbServer.DisplayMember = "MACS";
-            cbServer.ValueMember = "TENCS";
+            cbServer.DisplayMember = "TeNCS";
+            cbServer.ValueMember = "MaCS";
         }
 
         private void btnLogin_Click(object sender, EventArgs e)
@@ -57,7 +57,7 @@ namespace QLThiTracNghiem
             string strLenh = "EXEC SP_Get_User_Info '" + Program.mlogin + "'";
 
             Program.myReader = Program.ExecSqlDataReader(strLenh);
-            if (Program.myReader != null) return;
+            if (Program.myReader == null) return;
             Program.myReader.Read();
 
             Program.username = Program.myReader.GetString(0);
@@ -89,7 +89,7 @@ namespace QLThiTracNghiem
             { Console.Write(exc.ToString()); }
         }
 
-        private static string GetServersSql = "Select * From COSO";
+        private static string GetServersSql = "Select * From Get_Subscribers";
         private void frmDangNhap_Load(object sender, EventArgs e)
         {
             if (Connecto_MainDB() == 0) return;
@@ -116,5 +116,6 @@ namespace QLThiTracNghiem
             }
             
         }
+
     }
 }
