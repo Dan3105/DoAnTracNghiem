@@ -31,6 +31,7 @@ namespace QLThiTracNghiem
         public static string remote_password = "";
 
         public static string username = "";
+        public static string fullname = "";
         public static string servername = "";
         public static int mservername = 0;
         public static string mloginDN = "";
@@ -39,7 +40,7 @@ namespace QLThiTracNghiem
         public static string password = "";
 
         public static BindingSource bds_spm = new BindingSource();
-        public static Form mainForm;
+        public static FormMain mainForm;
 
         public static int Connect()
         {
@@ -124,7 +125,7 @@ namespace QLThiTracNghiem
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            mainForm = new frmDangNhap();
+            mainForm = new FormMain();
             Application.Run(mainForm);
         }
     }
