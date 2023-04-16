@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DevExpress.CodeParser;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -26,15 +27,17 @@ namespace QLThiTracNghiem
             if (conn_publisher.State == ConnectionState.Closed) conn_publisher.Open();
             SqlDataAdapter da = new SqlDataAdapter(cmd, conn_publisher);
             da.Fill(dt);
-            Program.bds_spm.DataSource = dt;
-            cbServer.DataSource = Program.bds_spm;
-            cbServer.DisplayMember = "TeNCS";
+
+            Program.bds_dspm.DataSource = dt;
+            cbServer.DataSource = Program.bds_dspm;
+            cbServer.DisplayMember = "TenCS";
             cbServer.ValueMember = "MaCS";
+        
         }
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            if(txtUsername.Text.Trim() == "" || txtPassword.Text.Trim() == "")
+            if (txtUsername.Text.Trim() == "" || txtPassword.Text.Trim() == "")
             {
                 MessageBox.Show("Username and Password are not allowed empty");
                 return;
@@ -43,29 +46,27 @@ namespace QLThiTracNghiem
             Program.mlogin = txtUsername.Text;
             Program.password = txtPassword.Text;
             if (Program.Connect() == 0) return;
-
-            Program.mservername = cbServer.SelectedIndex;
-            Program.mloginDN = Program.mlogin;
-            Program.passwordDN = Program.password;
-            string strLenh = "EXEC SP_Get_User_Info '" + Program.mlogin + "'";
-
+            bool isTeacher = this.radioStudentAccount.Checked ? false : true;
+            string strLenh = $"EXEC SP_Get_User_Info '{Program.mlogin}', {(isTeacher ? '1' : '0')}";
             Program.myReader = Program.ExecSqlDataReader(strLenh);
             if (Program.myReader == null) return;
             Program.myReader.Read();
-
-            Program.username = Program.myReader.GetString(0);
-            if(Convert.IsDBNull(Program.username))
+            try
             {
-                MessageBox.Show("Invalid Login, Check your username and password");
-                return;
+                Program.username = Program.myReader.GetString(0);
+                Program.fullname = Program.myReader.GetString(1);
+                Program.mserverSelected = cbServer.SelectedIndex;
+                Program.mloginDN = Program.mlogin;
+                Program.groupLoginType = Simple.ConvertLoginGroup(Program.myReader.GetString(2));
+                Program.mainForm.AssignUserLoginData();
+                Program.myReader.Close();
+                Program.conn.Close();
             }
-
-            Program.username = Program.myReader.GetString(0);
-            Program.fullname = Program.myReader.GetString(1);
-
-            Program.mainForm.AssignUserLoginData();
-            Program.myReader.Close();
-            Program.conn.Close();
+            catch(Exception ex)
+            {
+                Console.WriteLine(ex);
+                MessageBox.Show("Invalid Login, Check your username and password");
+            }
         }
 
         private void btnExit_Click(object sender, EventArgs e)

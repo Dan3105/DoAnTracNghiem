@@ -29,18 +29,20 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormMain));
             this.xtraTabbedMdiManager1 = new DevExpress.XtraTabbedMdi.XtraTabbedMdiManager(this.components);
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.MAUSER = new System.Windows.Forms.ToolStripStatusLabel();
             this.HOTEN = new System.Windows.Forms.ToolStripStatusLabel();
-            this.COSO = new System.Windows.Forms.ToolStripStatusLabel();
-            this.LOAITK = new System.Windows.Forms.ToolStripStatusLabel();
+            this.NHOM = new System.Windows.Forms.ToolStripStatusLabel();
             this.ribbonControl1 = new DevExpress.XtraBars.Ribbon.RibbonControl();
-            this.rbSystem = new DevExpress.XtraBars.Ribbon.RibbonPage();
-            this.rbPageUser = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.btnLogin = new DevExpress.XtraBars.BarButtonItem();
             this.btnSignup = new DevExpress.XtraBars.BarButtonItem();
             this.btnLogout = new DevExpress.XtraBars.BarButtonItem();
+            this.btnMonhoc = new DevExpress.XtraBars.BarButtonItem();
+            this.rbSystem = new DevExpress.XtraBars.Ribbon.RibbonPage();
+            this.rbPageUser = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.rbGroupManager = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabbedMdiManager1)).BeginInit();
             this.statusStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).BeginInit();
@@ -56,8 +58,7 @@
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.MAUSER,
             this.HOTEN,
-            this.COSO,
-            this.LOAITK});
+            this.NHOM});
             this.statusStrip1.Location = new System.Drawing.Point(0, 586);
             this.statusStrip1.Name = "statusStrip1";
             this.statusStrip1.Size = new System.Drawing.Size(879, 26);
@@ -76,47 +77,31 @@
             this.HOTEN.Size = new System.Drawing.Size(57, 20);
             this.HOTEN.Text = "HOTEN";
             // 
-            // COSO
+            // NHOM
             // 
-            this.COSO.Name = "COSO";
-            this.COSO.Size = new System.Drawing.Size(48, 20);
-            this.COSO.Text = "COSO";
-            // 
-            // LOAITK
-            // 
-            this.LOAITK.Name = "LOAITK";
-            this.LOAITK.Size = new System.Drawing.Size(86, 20);
-            this.LOAITK.Text = "GIANGVIEN";
+            this.NHOM.Name = "NHOM";
+            this.NHOM.Size = new System.Drawing.Size(55, 20);
+            this.NHOM.Text = "NHOM";
             // 
             // ribbonControl1
             // 
+            this.ribbonControl1.EmptyAreaImageOptions.ImagePadding = new System.Windows.Forms.Padding(46);
             this.ribbonControl1.ExpandCollapseItem.Id = 0;
             this.ribbonControl1.Items.AddRange(new DevExpress.XtraBars.BarItem[] {
             this.ribbonControl1.ExpandCollapseItem,
             this.ribbonControl1.SearchEditItem,
             this.btnLogin,
             this.btnSignup,
-            this.btnLogout});
+            this.btnLogout,
+            this.btnMonhoc});
             this.ribbonControl1.Location = new System.Drawing.Point(0, 0);
-            this.ribbonControl1.MaxItemId = 4;
+            this.ribbonControl1.Margin = new System.Windows.Forms.Padding(5);
+            this.ribbonControl1.MaxItemId = 6;
             this.ribbonControl1.Name = "ribbonControl1";
+            this.ribbonControl1.OptionsMenuMinWidth = 515;
             this.ribbonControl1.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.rbSystem});
             this.ribbonControl1.Size = new System.Drawing.Size(879, 183);
-            // 
-            // rbSystem
-            // 
-            this.rbSystem.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
-            this.rbPageUser});
-            this.rbSystem.Name = "rbSystem";
-            this.rbSystem.Text = "Hệ Thống";
-            // 
-            // rbPageUser
-            // 
-            this.rbPageUser.ItemLinks.Add(this.btnLogin);
-            this.rbPageUser.ItemLinks.Add(this.btnSignup);
-            this.rbPageUser.ItemLinks.Add(this.btnLogout);
-            this.rbPageUser.Name = "rbPageUser";
             // 
             // btnLogin
             // 
@@ -136,6 +121,36 @@
             this.btnLogout.Caption = "Đăng xuất";
             this.btnLogout.Id = 3;
             this.btnLogout.Name = "btnLogout";
+            this.btnLogout.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnLogout_ItemClick);
+            // 
+            // btnMonhoc
+            // 
+            this.btnMonhoc.Caption = "Quan ly Mon hoc";
+            this.btnMonhoc.Id = 4;
+            this.btnMonhoc.ImageOptions.ImageUri.Uri = "icon%20builder/actions_book";
+            this.btnMonhoc.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnMonhoc.ImageOptions.SvgImage")));
+            this.btnMonhoc.Name = "btnMonhoc";
+            this.btnMonhoc.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnMonhoc_ItemClick);
+            // 
+            // rbSystem
+            // 
+            this.rbSystem.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
+            this.rbPageUser,
+            this.rbGroupManager});
+            this.rbSystem.Name = "rbSystem";
+            this.rbSystem.Text = "Hệ Thống";
+            // 
+            // rbPageUser
+            // 
+            this.rbPageUser.ItemLinks.Add(this.btnLogin);
+            this.rbPageUser.ItemLinks.Add(this.btnSignup);
+            this.rbPageUser.ItemLinks.Add(this.btnLogout);
+            this.rbPageUser.Name = "rbPageUser";
+            // 
+            // rbGroupManager
+            // 
+            this.rbGroupManager.ItemLinks.Add(this.btnMonhoc);
+            this.rbGroupManager.Name = "rbGroupManager";
             // 
             // FormMain
             // 
@@ -147,6 +162,7 @@
             this.IsMdiContainer = true;
             this.Name = "FormMain";
             this.Text = "MainForm";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabbedMdiManager1)).EndInit();
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();
@@ -165,10 +181,11 @@
         private System.Windows.Forms.StatusStrip statusStrip1;
         private System.Windows.Forms.ToolStripStatusLabel MAUSER;
         private System.Windows.Forms.ToolStripStatusLabel HOTEN;
-        private System.Windows.Forms.ToolStripStatusLabel COSO;
-        private System.Windows.Forms.ToolStripStatusLabel LOAITK;
+        private System.Windows.Forms.ToolStripStatusLabel NHOM;
         private DevExpress.XtraBars.BarButtonItem btnLogin;
         private DevExpress.XtraBars.BarButtonItem btnSignup;
         private DevExpress.XtraBars.BarButtonItem btnLogout;
+        private DevExpress.XtraBars.BarButtonItem btnMonhoc;
+        private DevExpress.XtraBars.Ribbon.RibbonPageGroup rbGroupManager;
     }
 }

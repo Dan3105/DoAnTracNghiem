@@ -37,9 +37,9 @@
             this.btnLogin = new DevExpress.XtraEditors.SimpleButton();
             this.btnExit = new DevExpress.XtraEditors.SimpleButton();
             this.gFormLogin = new System.Windows.Forms.GroupBox();
-            this.radioStudentAccount = new System.Windows.Forms.RadioButton();
             this.gAccountType = new System.Windows.Forms.GroupBox();
             this.radioButton1 = new System.Windows.Forms.RadioButton();
+            this.radioStudentAccount = new System.Windows.Forms.RadioButton();
             ((System.ComponentModel.ISupportInitialize)(this.txtUsername.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtPassword.Properties)).BeginInit();
             this.gFormLogin.SuspendLayout();
@@ -123,12 +123,36 @@
             this.gFormLogin.Controls.Add(this.btnLogin);
             this.gFormLogin.Controls.Add(this.txtUsername);
             this.gFormLogin.Controls.Add(this.btnExit);
-            this.gFormLogin.Location = new System.Drawing.Point(12, 12);
+            this.gFormLogin.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gFormLogin.Location = new System.Drawing.Point(0, 0);
             this.gFormLogin.Name = "gFormLogin";
-            this.gFormLogin.Size = new System.Drawing.Size(606, 306);
+            this.gFormLogin.Size = new System.Drawing.Size(626, 338);
             this.gFormLogin.TabIndex = 8;
             this.gFormLogin.TabStop = false;
             this.gFormLogin.Text = "Đăng Nhập";
+            // 
+            // gAccountType
+            // 
+            this.gAccountType.Controls.Add(this.radioButton1);
+            this.gAccountType.Controls.Add(this.radioStudentAccount);
+            this.gAccountType.Location = new System.Drawing.Point(17, 192);
+            this.gAccountType.Name = "gAccountType";
+            this.gAccountType.Size = new System.Drawing.Size(282, 52);
+            this.gAccountType.TabIndex = 9;
+            this.gAccountType.TabStop = false;
+            this.gAccountType.Text = "Loại Tài Khoản";
+            // 
+            // radioButton1
+            // 
+            this.radioButton1.AutoSize = true;
+            this.radioButton1.Checked = true;
+            this.radioButton1.Location = new System.Drawing.Point(139, 21);
+            this.radioButton1.Name = "radioButton1";
+            this.radioButton1.Size = new System.Drawing.Size(94, 20);
+            this.radioButton1.TabIndex = 9;
+            this.radioButton1.TabStop = true;
+            this.radioButton1.Text = "Giảng Viên";
+            this.radioButton1.UseVisualStyleBackColor = true;
             // 
             // radioStudentAccount
             // 
@@ -141,36 +165,16 @@
             this.radioStudentAccount.Text = "Sinh Viên";
             this.radioStudentAccount.UseVisualStyleBackColor = true;
             // 
-            // gAccountType
-            // 
-            this.gAccountType.Controls.Add(this.radioButton1);
-            this.gAccountType.Controls.Add(this.radioStudentAccount);
-            this.gAccountType.Location = new System.Drawing.Point(17, 192);
-            this.gAccountType.Name = "gAccountType";
-            this.gAccountType.Size = new System.Drawing.Size(211, 52);
-            this.gAccountType.TabIndex = 9;
-            this.gAccountType.TabStop = false;
-            this.gAccountType.Text = "Loại Tài Khoản";
-            // 
-            // radioButton1
-            // 
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.Location = new System.Drawing.Point(110, 21);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(94, 20);
-            this.radioButton1.TabIndex = 9;
-            this.radioButton1.TabStop = true;
-            this.radioButton1.Text = "Giảng Viên";
-            this.radioButton1.UseVisualStyleBackColor = true;
-            // 
-            // frmDangNhap
+            // FormDangNhap
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(630, 338);
+            this.AutoSize = true;
+            this.ClientSize = new System.Drawing.Size(626, 338);
             this.Controls.Add(this.gFormLogin);
-            this.Name = "frmDangNhap";
+            this.Name = "FormDangNhap";
             this.Text = "Form Đăng Nhập";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.frmDangNhap_Load);
             ((System.ComponentModel.ISupportInitialize)(this.txtUsername.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtPassword.Properties)).EndInit();

@@ -33,5 +33,16 @@ namespace QLThiTracNghiem.Properties {
                 return ((string)(this["DB_TracNghiemConnectionString"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=DESKTOP-5Q314UD\\SERVER1;Initial Catalog=DB_TracNghiem;Persist Securit" +
+            "y Info=True;User ID=sa")]
+        public string DB_TracNghiemConnectionString1 {
+            get {
+                return ((string)(this["DB_TracNghiemConnectionString1"]));
+            }
+        }
     }
 }

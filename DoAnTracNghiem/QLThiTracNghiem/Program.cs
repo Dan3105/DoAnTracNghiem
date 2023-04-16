@@ -1,6 +1,7 @@
 ﻿using DevExpress.Skins;
 using DevExpress.UserSkins;
 using DevExpress.XtraEditors.NavigatorButtons;
+using QLThiTracNghiem;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -10,12 +11,34 @@ using System.Windows.Forms;
 
 namespace QLThiTracNghiem
 {
-    public struct DatabaseInformationLogin
+    internal class Simple
     {
-        public string username;
-        public string fullname;
-        public string facility;
+        public enum GroupLoginType
+        {
+            NONE,
+            TRUONG,
+            COSO,
+            GIANGVIEN,
+            SINHVIEN,
+        }
+        public static GroupLoginType ConvertLoginGroup(String loginType)
+        {
+            switch (loginType.ToUpper())
+            {
+                case "TRUONG":
+                    return GroupLoginType.TRUONG;
+                case "COSO":
+                    return GroupLoginType.COSO;
+                case "GIANGVIEN":
+                    return GroupLoginType.GIANGVIEN;
+                case "SINHVIEN":
+                    return GroupLoginType.SINHVIEN;
+                default:
+                    return GroupLoginType.NONE;
+            }
+        }
     }
+
     internal static class Program
     {
         private static string serverNameBase = "DESKTOP-5Q314UD";
@@ -33,13 +56,12 @@ namespace QLThiTracNghiem
         public static string username = "";
         public static string fullname = "";
         public static string servername = "";
-        public static int mservername = 0;
+        public static int mserverSelected = 0; // server index selected
         public static string mloginDN = "";
         public static string mlogin = "";
-        public static string passwordDN = "";
         public static string password = "";
-
-        public static BindingSource bds_spm = new BindingSource();
+        public static Simple.GroupLoginType groupLoginType;
+        public static BindingSource bds_dspm = new BindingSource();
         public static FormMain mainForm;
 
         public static int Connect()
@@ -50,12 +72,12 @@ namespace QLThiTracNghiem
             {
                 Program.connstr = "Data Source=" + Program.servername + ";Initial Catalog="
                     + Program.dbname + ";User ID=" + Program.mlogin
-                    +";password=" + Program.password;
+                    + ";password=" + Program.password;
                 Program.conn.ConnectionString = Program.connstr;
                 Program.conn.Open();
                 return 1;
             }
-            catch(Exception e)
+            catch (Exception e)
             {
                 Console.WriteLine(e);
                 Console.WriteLine(Program.connstr);
@@ -116,6 +138,16 @@ namespace QLThiTracNghiem
                 return 0;
             }
 
+        }
+
+        public static void ResetUser()
+        {
+            username = "";
+            fullname = "";
+            mserverSelected = 0;
+            mloginDN = "";
+            mlogin = "";
+            password = "";
         }
         /// <summary>
         /// The main entry point for the application.
