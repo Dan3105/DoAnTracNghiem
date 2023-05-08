@@ -39,10 +39,12 @@
             this.btnLogin = new DevExpress.XtraBars.BarButtonItem();
             this.btnSignup = new DevExpress.XtraBars.BarButtonItem();
             this.btnLogout = new DevExpress.XtraBars.BarButtonItem();
-            this.btnMonhoc = new DevExpress.XtraBars.BarButtonItem();
+            this.btnMONHOC = new DevExpress.XtraBars.BarButtonItem();
+            this.btnKHOA = new DevExpress.XtraBars.BarSubItem();
+            this.barBtnLop = new DevExpress.XtraBars.BarButtonItem();
             this.rbSystem = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.rbPageUser = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-            this.rbGroupManager = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.rbQuanly = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabbedMdiManager1)).BeginInit();
             this.statusStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).BeginInit();
@@ -93,10 +95,12 @@
             this.btnLogin,
             this.btnSignup,
             this.btnLogout,
-            this.btnMonhoc});
+            this.btnMONHOC,
+            this.btnKHOA,
+            this.barBtnLop});
             this.ribbonControl1.Location = new System.Drawing.Point(0, 0);
             this.ribbonControl1.Margin = new System.Windows.Forms.Padding(5);
-            this.ribbonControl1.MaxItemId = 6;
+            this.ribbonControl1.MaxItemId = 13;
             this.ribbonControl1.Name = "ribbonControl1";
             this.ribbonControl1.OptionsMenuMinWidth = 515;
             this.ribbonControl1.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
@@ -123,20 +127,40 @@
             this.btnLogout.Name = "btnLogout";
             this.btnLogout.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnLogout_ItemClick);
             // 
-            // btnMonhoc
+            // btnMONHOC
             // 
-            this.btnMonhoc.Caption = "Quan ly Mon hoc";
-            this.btnMonhoc.Id = 4;
-            this.btnMonhoc.ImageOptions.ImageUri.Uri = "icon%20builder/actions_book";
-            this.btnMonhoc.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnMonhoc.ImageOptions.SvgImage")));
-            this.btnMonhoc.Name = "btnMonhoc";
-            this.btnMonhoc.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnMonhoc_ItemClick);
+            this.btnMONHOC.Caption = "Quan ly Mon hoc";
+            this.btnMONHOC.Id = 4;
+            this.btnMONHOC.ImageOptions.ImageUri.Uri = "icon%20builder/actions_book";
+            this.btnMONHOC.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnMONHOC.ImageOptions.SvgImage")));
+            this.btnMONHOC.LargeWidth = 70;
+            this.btnMONHOC.Name = "btnMONHOC";
+            this.btnMONHOC.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnMonhoc_ItemClick);
+            // 
+            // btnKHOA
+            // 
+            this.btnKHOA.Caption = "Quản lý Khoa";
+            this.btnKHOA.Id = 10;
+            this.btnKHOA.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnKHOA.ImageOptions.SvgImage")));
+            this.btnKHOA.LargeWidth = 79;
+            this.btnKHOA.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
+            new DevExpress.XtraBars.LinkPersistInfo(this.barBtnLop)});
+            this.btnKHOA.Name = "btnKHOA";
+            this.btnKHOA.SmallWithTextWidth = 70;
+            // 
+            // barBtnLop
+            // 
+            this.barBtnLop.Caption = "Quản lý lớp";
+            this.barBtnLop.Id = 12;
+            this.barBtnLop.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("barBtnLop.ImageOptions.SvgImage")));
+            this.barBtnLop.Name = "barBtnLop";
+            this.barBtnLop.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barBtnLop_ItemClick);
             // 
             // rbSystem
             // 
             this.rbSystem.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
             this.rbPageUser,
-            this.rbGroupManager});
+            this.rbQuanly});
             this.rbSystem.Name = "rbSystem";
             this.rbSystem.Text = "Hệ Thống";
             // 
@@ -147,10 +171,12 @@
             this.rbPageUser.ItemLinks.Add(this.btnLogout);
             this.rbPageUser.Name = "rbPageUser";
             // 
-            // rbGroupManager
+            // rbQuanly
             // 
-            this.rbGroupManager.ItemLinks.Add(this.btnMonhoc);
-            this.rbGroupManager.Name = "rbGroupManager";
+            this.rbQuanly.ItemLinks.Add(this.btnMONHOC);
+            this.rbQuanly.ItemLinks.Add(this.btnKHOA);
+            this.rbQuanly.Name = "rbQuanly";
+            this.rbQuanly.Visible = false;
             // 
             // FormMain
             // 
@@ -185,7 +211,9 @@
         private DevExpress.XtraBars.BarButtonItem btnLogin;
         private DevExpress.XtraBars.BarButtonItem btnSignup;
         private DevExpress.XtraBars.BarButtonItem btnLogout;
-        private DevExpress.XtraBars.BarButtonItem btnMonhoc;
-        private DevExpress.XtraBars.Ribbon.RibbonPageGroup rbGroupManager;
+        private DevExpress.XtraBars.BarButtonItem btnMONHOC;
+        private DevExpress.XtraBars.Ribbon.RibbonPageGroup rbQuanly;
+        private DevExpress.XtraBars.BarSubItem btnKHOA;
+        private DevExpress.XtraBars.BarButtonItem barBtnLop;
     }
 }
