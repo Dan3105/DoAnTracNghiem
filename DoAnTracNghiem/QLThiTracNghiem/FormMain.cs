@@ -38,16 +38,16 @@ namespace QLThiTracNghiem
                     rbQuanly.Visible = false;
                     btnSignup.Enabled = false;
                     break;
-                case Simple.GroupLoginType.TRUONG:
-                case Simple.GroupLoginType.COSO:
+                case Simple.GroupLoginType.truong:
+                case Simple.GroupLoginType.co_so:
                     rbQuanly.Visible = true;
                     btnSignup.Enabled = true;
                     break;
-                case Simple.GroupLoginType.GIANGVIEN:
+                case Simple.GroupLoginType.giang_vien:
                     rbQuanly.Visible = false;
                     btnSignup.Enabled = false;
                     break;
-                case Simple.GroupLoginType.SINHVIEN:
+                case Simple.GroupLoginType.sinh_vien:
                     rbQuanly.Visible = false;
                     btnSignup.Enabled = false;
                     break;
@@ -127,7 +127,31 @@ namespace QLThiTracNghiem
             formKhoaLop.MdiParent = this;
             formKhoaLop.Show();
         }
+
         #endregion
 
+        private void barBtnSINHVIEN_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            if (Program.KetNoi() == 0) return; ;
+            FormSinhVien formSinhVien = CheckExists(typeof(FormSinhVien)) as FormSinhVien;
+            if (formSinhVien == null)
+            {
+                formSinhVien = new FormSinhVien();
+            }
+            formSinhVien.MdiParent = this;
+            formSinhVien.Show();
+
+        }
+
+        private void btnSignup_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            FormTaoTK frmTK = CheckExists(typeof(FormTaoTK)) as FormTaoTK;
+            if (frmTK == null)
+            {
+                frmTK = new FormTaoTK();
+            }
+            frmTK.MdiParent = this;
+            frmTK.Show();
+        }
     }
 }

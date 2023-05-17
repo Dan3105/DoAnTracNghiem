@@ -42,6 +42,7 @@
             this.btnMONHOC = new DevExpress.XtraBars.BarButtonItem();
             this.btnKHOA = new DevExpress.XtraBars.BarSubItem();
             this.barBtnLop = new DevExpress.XtraBars.BarButtonItem();
+            this.barBtnSINHVIEN = new DevExpress.XtraBars.BarButtonItem();
             this.rbSystem = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.rbPageUser = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.rbQuanly = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
@@ -97,10 +98,11 @@
             this.btnLogout,
             this.btnMONHOC,
             this.btnKHOA,
-            this.barBtnLop});
+            this.barBtnLop,
+            this.barBtnSINHVIEN});
             this.ribbonControl1.Location = new System.Drawing.Point(0, 0);
             this.ribbonControl1.Margin = new System.Windows.Forms.Padding(5);
-            this.ribbonControl1.MaxItemId = 13;
+            this.ribbonControl1.MaxItemId = 14;
             this.ribbonControl1.Name = "ribbonControl1";
             this.ribbonControl1.OptionsMenuMinWidth = 515;
             this.ribbonControl1.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
@@ -119,6 +121,7 @@
             this.btnSignup.Caption = "Tạo Tài Khoản";
             this.btnSignup.Id = 2;
             this.btnSignup.Name = "btnSignup";
+            this.btnSignup.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnSignup_ItemClick);
             // 
             // btnLogout
             // 
@@ -144,7 +147,8 @@
             this.btnKHOA.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnKHOA.ImageOptions.SvgImage")));
             this.btnKHOA.LargeWidth = 79;
             this.btnKHOA.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
-            new DevExpress.XtraBars.LinkPersistInfo(this.barBtnLop)});
+            new DevExpress.XtraBars.LinkPersistInfo(this.barBtnLop),
+            new DevExpress.XtraBars.LinkPersistInfo(this.barBtnSINHVIEN)});
             this.btnKHOA.Name = "btnKHOA";
             this.btnKHOA.SmallWithTextWidth = 70;
             // 
@@ -155,6 +159,14 @@
             this.barBtnLop.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("barBtnLop.ImageOptions.SvgImage")));
             this.barBtnLop.Name = "barBtnLop";
             this.barBtnLop.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barBtnLop_ItemClick);
+            // 
+            // barBtnSINHVIEN
+            // 
+            this.barBtnSINHVIEN.Caption = "Quản lý Sinh Viên";
+            this.barBtnSINHVIEN.Id = 13;
+            this.barBtnSINHVIEN.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("barBtnSINHVIEN.ImageOptions.SvgImage")));
+            this.barBtnSINHVIEN.Name = "barBtnSINHVIEN";
+            this.barBtnSINHVIEN.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barBtnSINHVIEN_ItemClick);
             // 
             // rbSystem
             // 
@@ -215,5 +227,6 @@
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup rbQuanly;
         private DevExpress.XtraBars.BarSubItem btnKHOA;
         private DevExpress.XtraBars.BarButtonItem barBtnLop;
+        private DevExpress.XtraBars.BarButtonItem barBtnSINHVIEN;
     }
 }

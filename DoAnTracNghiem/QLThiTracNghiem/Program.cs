@@ -9,29 +9,29 @@ using System.Windows.Forms;
 
 namespace QLThiTracNghiem
 {
-    internal class Simple
+    public class Simple
     {
         public enum GroupLoginType
         {
             NONE,
-            TRUONG,
-            COSO,
-            GIANGVIEN,
-            SINHVIEN,
+            truong,
+            co_so,
+            giang_vien,
+            sinh_vien,
         }
         public static GroupLoginType ConvertLoginGroup(String loginType)
         {
-            Console.WriteLine(loginType);
-            switch (loginType.ToUpper())
+           //Console.WriteLine(loginType);
+            switch (loginType)
             {
-                case "TRUONG":
-                    return GroupLoginType.TRUONG;
-                case "COSO":
-                    return GroupLoginType.COSO;
-                case "GIANGVIEN":
-                    return GroupLoginType.GIANGVIEN;
-                case "SINHVIEN":
-                    return GroupLoginType.SINHVIEN;
+                case "truong":
+                    return GroupLoginType.truong;
+                case "co_so":
+                    return GroupLoginType.co_so;
+                case "giang_vien":
+                    return GroupLoginType.giang_vien;
+                case "sinh_vien":
+                    return GroupLoginType.sinh_vien;
                 default:
                     return GroupLoginType.NONE;
             }
@@ -132,10 +132,9 @@ namespace QLThiTracNghiem
             return dt;
         }
 
-        public static int ExecSqlNonQuery(String cmd, String connectionstring)
+        public static int ExecSqlNonQuery(String cmd)
         {
-            conn = new SqlConnection(connectionstring);
-            SqlCommand Sqlcmd = new SqlCommand();
+            SqlCommand Sqlcmd = new SqlCommand(cmd, conn);
             Sqlcmd.Connection = conn;
             Sqlcmd.CommandText = cmd;
             Sqlcmd.CommandTimeout = 600;

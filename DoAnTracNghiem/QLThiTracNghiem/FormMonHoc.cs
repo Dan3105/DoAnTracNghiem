@@ -56,13 +56,13 @@ namespace QLThiTracNghiem
         {
             switch (Program.groupLoginType)
             {
-                case Simple.GroupLoginType.TRUONG:
+                case Simple.GroupLoginType.truong:
                     btnThem.Enabled = btnSua.Enabled = btnXoa.Enabled = btnUndo.Enabled = btnGhi.Enabled =
                         btnReload.Enabled = false;
                     this.cbServer.Enabled = true;
                     panelDataView.Enabled = false;
                     break;
-                case Simple.GroupLoginType.COSO:
+                case Simple.GroupLoginType.co_so:
                     btnThem.Enabled = btnSua.Enabled = btnXoa.Enabled = btnUndo.Enabled = btnGhi.Enabled =
                         btnReload.Enabled = true;
                     this.cbServer.Enabled = false;

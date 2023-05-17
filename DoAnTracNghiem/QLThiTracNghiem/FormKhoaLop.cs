@@ -49,12 +49,7 @@ namespace QLThiTracNghiem
             try
             {
                 maCoSo = ((DataRowView)bdsKHOA[0])["MACS"].ToString();
-                string spCOSO = "Exec SP_Tim_MACS";
-                Program.myReader = Program.ExecSqlDataReader(spCOSO);
-                Program.myReader.Read();
-                maCoSo = Program.myReader.GetValue(0).ToString();
-                Console.WriteLine($"Ham nay chay {maCoSo}");
-                Program.conn.Close();
+        
             }
             catch(Exception ex)
             {
@@ -80,12 +75,12 @@ namespace QLThiTracNghiem
         {
             switch (Program.groupLoginType)
             {
-                case Simple.GroupLoginType.TRUONG:
+                case Simple.GroupLoginType.truong:
                     this.btnThem.Enabled = this.btnGhi.Enabled = this.btnReload.Enabled
                         = this.btnSua.Enabled = this.btnXoa.Enabled = this.btnUndo.Enabled = false;
                     this.cbCoSo.Enabled = true;
                     break;
-                case Simple.GroupLoginType.COSO:
+                case Simple.GroupLoginType.co_so:
                     this.btnThem.Enabled = this.btnReload.Enabled
                        = this.btnSua.Enabled = this.btnXoa.Enabled = true;
                     this.btnUndo.Enabled = this.btnGhi.Enabled = false;
@@ -270,6 +265,7 @@ namespace QLThiTracNghiem
             }
             catch (Exception ex)
             {
+                Console.WriteLine(ex.ToString());
                 return false;
             }
             return true;
@@ -323,7 +319,7 @@ namespace QLThiTracNghiem
         {
             if(bdsLOP.Count == 0)
             {
-                (MessageBox.Show("Không có danh sach lớp ", "OK", MessageBoxButtons.OK);
+                MessageBox.Show("Không có danh sach lớp ", "OK", MessageBoxButtons.OK);
                 return;
             }
 
