@@ -30,25 +30,25 @@
         {
             this.components = new System.ComponentModel.Container();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
-            this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
-            this.simpleButton2 = new DevExpress.XtraEditors.SimpleButton();
-            this.DB_TracNghiem = new QLThiTracNghiem.DB_TracNghiem();
-            this.bdsV_DS_GiangVien_Chua_Co_Tai_Khoan = new System.Windows.Forms.BindingSource(this.components);
-            this.V_DS_GiangVien_Chua_Co_Tai_KhoanTableAdapter = new QLThiTracNghiem.DB_TracNghiemTableAdapters.V_DS_GiangVien_Chua_Co_Tai_KhoanTableAdapter();
-            this.tableAdapterManager = new QLThiTracNghiem.DB_TracNghiemTableAdapters.TableAdapterManager();
             this.gcVDSGiangVien = new DevExpress.XtraGrid.GridControl();
             this.gvDSGiangVien = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colMAGV = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colHOTEN = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colHOCVI = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
+            this.simpleButton2 = new DevExpress.XtraEditors.SimpleButton();
+            this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
+            this.DB_THI_TN = new QLThiTracNghiem.DB_THI_TN();
+            this.bdsV_DSGV_Chua_Co_TK = new System.Windows.Forms.BindingSource(this.components);
+            this.V_DSGV_Chua_Co_TKTableAdapter = new QLThiTracNghiem.DB_THI_TNTableAdapters.V_DSGV_Chua_Co_TKTableAdapter();
+            this.tableAdapterManager = new QLThiTracNghiem.DB_THI_TNTableAdapters.TableAdapterManager();
             this.tableLayoutPanel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
-            this.panelControl1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.DB_TracNghiem)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bdsV_DS_GiangVien_Chua_Co_Tai_Khoan)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gcVDSGiangVien)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvDSGiangVien)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
+            this.panelControl1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.DB_THI_TN)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bdsV_DSGV_Chua_Co_TK)).BeginInit();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -66,67 +66,9 @@
             this.tableLayoutPanel1.Size = new System.Drawing.Size(1084, 418);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
-            // panelControl1
-            // 
-            this.panelControl1.Controls.Add(this.simpleButton2);
-            this.panelControl1.Controls.Add(this.simpleButton1);
-            this.panelControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelControl1.Location = new System.Drawing.Point(3, 352);
-            this.panelControl1.Name = "panelControl1";
-            this.panelControl1.Size = new System.Drawing.Size(1078, 63);
-            this.panelControl1.TabIndex = 0;
-            // 
-            // simpleButton1
-            // 
-            this.simpleButton1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
-            this.simpleButton1.Location = new System.Drawing.Point(190, 25);
-            this.simpleButton1.Name = "simpleButton1";
-            this.simpleButton1.Size = new System.Drawing.Size(126, 29);
-            this.simpleButton1.TabIndex = 0;
-            this.simpleButton1.Text = "Chọn Giảng viên";
-            this.simpleButton1.Click += new System.EventHandler(this.simpleButton1_Click);
-            // 
-            // simpleButton2
-            // 
-            this.simpleButton2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.simpleButton2.Location = new System.Drawing.Point(698, 25);
-            this.simpleButton2.Name = "simpleButton2";
-            this.simpleButton2.Size = new System.Drawing.Size(94, 29);
-            this.simpleButton2.TabIndex = 1;
-            this.simpleButton2.Text = "Thoát";
-            this.simpleButton2.Click += new System.EventHandler(this.simpleButton2_Click);
-            // 
-            // DB_TracNghiem
-            // 
-            this.DB_TracNghiem.DataSetName = "DB_TracNghiem";
-            this.DB_TracNghiem.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // bdsV_DS_GiangVien_Chua_Co_Tai_Khoan
-            // 
-            this.bdsV_DS_GiangVien_Chua_Co_Tai_Khoan.DataMember = "V_DS_GiangVien_Chua_Co_Tai_Khoan";
-            this.bdsV_DS_GiangVien_Chua_Co_Tai_Khoan.DataSource = this.DB_TracNghiem;
-            // 
-            // V_DS_GiangVien_Chua_Co_Tai_KhoanTableAdapter
-            // 
-            this.V_DS_GiangVien_Chua_Co_Tai_KhoanTableAdapter.ClearBeforeFill = true;
-            // 
-            // tableAdapterManager
-            // 
-            this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
-            this.tableAdapterManager.CAUHOITableAdapter = null;
-            this.tableAdapterManager.Connection = null;
-            this.tableAdapterManager.KHOATableAdapter = null;
-            this.tableAdapterManager.LICHTHITableAdapter = null;
-            this.tableAdapterManager.LOPTableAdapter = null;
-            this.tableAdapterManager.MONHOCTableAdapter = null;
-            this.tableAdapterManager.SINHVIENTableAdapter = null;
-            this.tableAdapterManager.UpdateOrder = QLThiTracNghiem.DB_TracNghiemTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
-            // 
             // gcVDSGiangVien
             // 
-            this.gcVDSGiangVien.DataSource = this.bdsV_DS_GiangVien_Chua_Co_Tai_Khoan;
+            this.gcVDSGiangVien.DataSource = this.bdsV_DSGV_Chua_Co_TK;
             this.gcVDSGiangVien.Dock = System.Windows.Forms.DockStyle.Fill;
             this.gcVDSGiangVien.Location = new System.Drawing.Point(3, 3);
             this.gcVDSGiangVien.MainView = this.gvDSGiangVien;
@@ -172,6 +114,64 @@
             this.colHOCVI.VisibleIndex = 2;
             this.colHOCVI.Width = 94;
             // 
+            // panelControl1
+            // 
+            this.panelControl1.Controls.Add(this.simpleButton2);
+            this.panelControl1.Controls.Add(this.simpleButton1);
+            this.panelControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelControl1.Location = new System.Drawing.Point(3, 352);
+            this.panelControl1.Name = "panelControl1";
+            this.panelControl1.Size = new System.Drawing.Size(1078, 63);
+            this.panelControl1.TabIndex = 0;
+            // 
+            // simpleButton2
+            // 
+            this.simpleButton2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.simpleButton2.Location = new System.Drawing.Point(698, 25);
+            this.simpleButton2.Name = "simpleButton2";
+            this.simpleButton2.Size = new System.Drawing.Size(94, 29);
+            this.simpleButton2.TabIndex = 1;
+            this.simpleButton2.Text = "Thoát";
+            this.simpleButton2.Click += new System.EventHandler(this.simpleButton2_Click);
+            // 
+            // simpleButton1
+            // 
+            this.simpleButton1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.simpleButton1.Location = new System.Drawing.Point(190, 25);
+            this.simpleButton1.Name = "simpleButton1";
+            this.simpleButton1.Size = new System.Drawing.Size(126, 29);
+            this.simpleButton1.TabIndex = 0;
+            this.simpleButton1.Text = "Chọn Giảng viên";
+            this.simpleButton1.Click += new System.EventHandler(this.simpleButton1_Click);
+            // 
+            // DB_THI_TN
+            // 
+            this.DB_THI_TN.DataSetName = "DB_THI_TN";
+            this.DB_THI_TN.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // bdsV_DSGV_Chua_Co_TK
+            // 
+            this.bdsV_DSGV_Chua_Co_TK.DataMember = "V_DSGV_Chua_Co_TK";
+            this.bdsV_DSGV_Chua_Co_TK.DataSource = this.DB_THI_TN;
+            // 
+            // V_DSGV_Chua_Co_TKTableAdapter
+            // 
+            this.V_DSGV_Chua_Co_TKTableAdapter.ClearBeforeFill = true;
+            // 
+            // tableAdapterManager
+            // 
+            this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
+            this.tableAdapterManager.BodeTableAdapter = null;
+            this.tableAdapterManager.Connection = null;
+            this.tableAdapterManager.Giaovien_DangkyTableAdapter = null;
+            this.tableAdapterManager.KhoaTableAdapter = null;
+            this.tableAdapterManager.LopTableAdapter = null;
+            this.tableAdapterManager.MonhocTableAdapter = null;
+            this.tableAdapterManager.SinhvienTableAdapter = null;
+            this.tableAdapterManager.UpdateOrder = QLThiTracNghiem.DB_THI_TNTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
+            // 
             // FormChonGiangVien
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
@@ -182,12 +182,12 @@
             this.Text = "FormChonGiangVien";
             this.Load += new System.EventHandler(this.FormChonGiangVien_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
-            this.panelControl1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.DB_TracNghiem)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bdsV_DS_GiangVien_Chua_Co_Tai_Khoan)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gcVDSGiangVien)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvDSGiangVien)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
+            this.panelControl1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.DB_THI_TN)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bdsV_DSGV_Chua_Co_TK)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -198,14 +198,14 @@
         private DevExpress.XtraEditors.PanelControl panelControl1;
         private DevExpress.XtraEditors.SimpleButton simpleButton2;
         private DevExpress.XtraEditors.SimpleButton simpleButton1;
-        private DB_TracNghiem DB_TracNghiem;
-        private System.Windows.Forms.BindingSource bdsV_DS_GiangVien_Chua_Co_Tai_Khoan;
-        private DB_TracNghiemTableAdapters.V_DS_GiangVien_Chua_Co_Tai_KhoanTableAdapter V_DS_GiangVien_Chua_Co_Tai_KhoanTableAdapter;
-        private DB_TracNghiemTableAdapters.TableAdapterManager tableAdapterManager;
         private DevExpress.XtraGrid.GridControl gcVDSGiangVien;
         private DevExpress.XtraGrid.Views.Grid.GridView gvDSGiangVien;
         private DevExpress.XtraGrid.Columns.GridColumn colMAGV;
         private DevExpress.XtraGrid.Columns.GridColumn colHOTEN;
         private DevExpress.XtraGrid.Columns.GridColumn colHOCVI;
+        private DB_THI_TN DB_THI_TN;
+        private System.Windows.Forms.BindingSource bdsV_DSGV_Chua_Co_TK;
+        private DB_THI_TNTableAdapters.V_DSGV_Chua_Co_TKTableAdapter V_DSGV_Chua_Co_TKTableAdapter;
+        private DB_THI_TNTableAdapters.TableAdapterManager tableAdapterManager;
     }
 }

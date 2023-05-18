@@ -19,7 +19,7 @@ namespace QLThiTracNghiem
 FROM     dbo.sysmergepublications AS PUBS INNER JOIN
                   dbo.sysmergesubscriptions AS SUBS ON PUBS.pubid = SUBS.pubid AND PUBS.publisher <> SUBS.subscriber_server
 WHERE  (PUBS.description <> 'TraCuu')*/
-        public readonly static String Get_V_Subscribers = "Select * From Get_Subscribers";
+        public readonly static String Get_V_Subscribers = "Select * From V_DS_PhanManh";
       
         /*d*/
         public static String Sp_Get_User_Info()

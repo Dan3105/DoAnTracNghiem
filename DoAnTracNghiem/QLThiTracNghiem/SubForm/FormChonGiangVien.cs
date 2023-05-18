@@ -21,10 +21,10 @@ namespace QLThiTracNghiem.SubForm
 
         private void FormChonGiangVien_Load(object sender, EventArgs e)
         {
-            this.V_DS_GiangVien_Chua_Co_Tai_KhoanTableAdapter.Connection.ConnectionString = Program.connstr;
-            // TODO: This line of code loads data into the 'dB_TracNghiem.V_DS_GiangVien_Chua_Co_Tai_Khoan' table. You can move, or remove it, as needed.
-            this.V_DS_GiangVien_Chua_Co_Tai_KhoanTableAdapter.Fill(this.DB_TracNghiem.V_DS_GiangVien_Chua_Co_Tai_Khoan);
-
+            this.V_DSGV_Chua_Co_TKTableAdapter.Connection.ConnectionString = Program.connstr;
+            // TODO: This line of code loads data into the 'dB_THI_TN.V_DSGV_Chua_Co_TK' table. You can move, or remove it, as needed.
+            this.V_DSGV_Chua_Co_TKTableAdapter.Fill(this.DB_THI_TN.V_DSGV_Chua_Co_TK);
+               
             this.gvDSGiangVien.OptionsBehavior.Editable = false;
         }
 
@@ -40,7 +40,7 @@ namespace QLThiTracNghiem.SubForm
 
         private void simpleButton1_Click(object sender, EventArgs e)
         {
-            string maGV = ((DataRowView)bdsV_DS_GiangVien_Chua_Co_Tai_Khoan[bdsV_DS_GiangVien_Chua_Co_Tai_Khoan.Position])["MAGV"].ToString();
+            string maGV = ((DataRowView)bdsV_DSGV_Chua_Co_TK[bdsV_DSGV_Chua_Co_TK.Position])["MAGV"].ToString();
             frmTK.MaGV = maGV;
             this.Close();
         }
