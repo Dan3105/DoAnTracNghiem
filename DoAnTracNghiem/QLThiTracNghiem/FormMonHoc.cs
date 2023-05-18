@@ -21,24 +21,21 @@ namespace QLThiTracNghiem
 
         private void FormMonHoc_Load(object sender, EventArgs e)
         {
-           
-            DB_TracNghiem.EnforceConstraints = false;
-            this.MONHOCTableAdapter.Connection.ConnectionString = Program.connstr;
-            // TODO: This line of code loads data into the 'dB_TracNghiemMonHoc.MONHOC' table. You can move, or remove it, as needed.
-            this.MONHOCTableAdapter.Fill(this.DB_TracNghiem.MONHOC);
+            this.DB_THI_TN.EnforceConstraints = false;
+            this.MonhocTableAdapter.Connection.ConnectionString = Program.connstr;
+            // TODO: This line of code loads data into the 'dB_THI_TN.Monhoc' table. You can move, or remove it, as needed.
+            this.MonhocTableAdapter.Fill(this.DB_THI_TN.Monhoc);
 
-            this.LICHTHITableAdapter.Connection.ConnectionString= Program.connstr;
+            this.BodeTableAdapter.Connection.ConnectionString = Program.connstr;
+            // TODO: This line of code loads data into the 'DB_THI_TN.Bode' table. You can move, or remove it, as needed.
+            this.BodeTableAdapter.Fill(this.DB_THI_TN.Bode);
 
-            // TODO: This line of code loads data into the 'DB_TracNghiem.LICHTHI' table. You can move, or remove it, as needed.
-            this.LICHTHITableAdapter.Fill(this.DB_TracNghiem.LICHTHI);
-
-            this.CAUHOITableAdapter.Connection.ConnectionString = Program.connstr;
-            // TODO: This line of code loads data into the 'DB_TracNghiem.CAUHOI' table. You can move, or remove it, as needed.
-            this.CAUHOITableAdapter.Fill(this.DB_TracNghiem.CAUHOI);
+            this.Giaovien_DangkyTableAdapter.Connection.ConnectionString = Program.connstr;
+            // TODO: This line of code loads data into the 'DB_THI_TN.Giaovien_Dangky' table. You can move, or remove it, as needed.
+            this.Giaovien_DangkyTableAdapter.Fill(this.DB_THI_TN.Giaovien_Dangky);
 
             SetCbServer();
             CustomHeaderButtons();
-            //this.mONHOCGridControl.MainView.OptionsLayout = false;
             this.gvMonHoc.OptionsBehavior.Editable = false;
         }
 
@@ -56,24 +53,24 @@ namespace QLThiTracNghiem
         {
             switch (Program.groupLoginType)
             {
-                case Simple.GroupLoginType.truong:
+                case Simple.GroupLoginType.Truong:
                     btnThem.Enabled = btnSua.Enabled = btnXoa.Enabled = btnUndo.Enabled = btnGhi.Enabled =
                         btnReload.Enabled = false;
                     this.cbServer.Enabled = true;
-                    panelDataView.Enabled = false;
+                    panelMonhoc.Enabled = false;
                     break;
-                case Simple.GroupLoginType.co_so:
+                case Simple.GroupLoginType.CoSo:
                     btnThem.Enabled = btnSua.Enabled = btnXoa.Enabled = btnUndo.Enabled = btnGhi.Enabled =
                         btnReload.Enabled = true;
                     this.cbServer.Enabled = false;
-                    panelDataView.Enabled = false;
+                    panelMonhoc.Enabled = false;
                     break;
                 default:
                     //Console.WriteLine($"Error Info user {Program.groupLoginType.ToString()}");
                     btnThem.Enabled = btnSua.Enabled = btnXoa.Enabled = btnUndo.Enabled = btnGhi.Enabled =
                         btnReload.Enabled = false;
                     this.cbServer.Enabled = false;
-                    panelDataView.Enabled = false;
+                    panelMonhoc.Enabled = false;
                     break;
 
             }
@@ -81,8 +78,8 @@ namespace QLThiTracNghiem
 
         private void btnThem_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            crrPosition = this.bdsMONHOC.Position;
-            bdsMONHOC.AddNew();
+            crrPosition = this.bdsMonhoc.Position;
+            bdsMonhoc.AddNew();
 
             ActionBeforeEdit();
 
@@ -104,27 +101,27 @@ namespace QLThiTracNghiem
             {
                 try
                 {
-                    maMH = ((DataRowView)bdsMONHOC[bdsMONHOC.Position])["MAMH"].ToString();
-                    bdsMONHOC.RemoveCurrent();
+                    maMH = ((DataRowView)bdsMonhoc[bdsMonhoc.Position])["MAMH"].ToString();
+                    bdsMonhoc.RemoveCurrent();
 
-                    this.MONHOCTableAdapter.Connection.ConnectionString = Program.connstr;
-                    this.MONHOCTableAdapter.Update(this.DB_TracNghiem.MONHOC);
+                    this.MonhocTableAdapter.Connection.ConnectionString = Program.connstr;
+                    this.MonhocTableAdapter.Update(this.DB_THI_TN.Monhoc);
                 }
                 catch(Exception ex)
                 {
                     MessageBox.Show($"{ex}", "", MessageBoxButtons.OK);
-                    this.MONHOCTableAdapter.Fill(this.DB_TracNghiem.MONHOC);
-                    bdsMONHOC.Position = bdsMONHOC.Find("MAMH", maMH);
-                    
+                    this.MonhocTableAdapter.Update(this.DB_THI_TN.Monhoc);
+                    bdsMonhoc.Position = bdsMonhoc.Find("MAMH", maMH);
+
                 }
             }
 
-            if (bdsMONHOC.Count == 0) btnXoa.Enabled = false;
+            if (bdsMonhoc.Count == 0) btnXoa.Enabled = false;
         }
 
         private void btnSua_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            crrPosition = this.bdsMONHOC.Position;
+            crrPosition = this.bdsMonhoc.Position;
             ActionBeforeEdit();
         }
 
@@ -132,7 +129,7 @@ namespace QLThiTracNghiem
         {
             try
             {
-                MONHOCTableAdapter.Fill(this.DB_TracNghiem.MONHOC);
+                MonhocTableAdapter.Fill(this.DB_THI_TN.Monhoc);
             }
             catch(Exception ex)
             {
@@ -142,15 +139,15 @@ namespace QLThiTracNghiem
 
         private void btnUndo_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            bdsMONHOC.CancelEdit();
-            if (!btnThem.Enabled) bdsMONHOC.Position = crrPosition;
+            bdsMonhoc.CancelEdit();
+            if (!btnThem.Enabled) bdsMonhoc.Position = crrPosition;
             ActionAfterEdit();
             
         }
         private void ActionBeforeEdit()
         {
             gcMONHOC.Enabled = false;
-            panelDataView.Enabled = true;
+            panelMonhoc.Enabled = true;
             btnThem.Enabled = btnSua.Enabled = btnXoa.Enabled = btnReload.Enabled = false;
             btnUndo.Enabled = btnGhi.Enabled = true;
         }
@@ -160,7 +157,7 @@ namespace QLThiTracNghiem
             validateThemAction -= ValidateBeforeThem;
             btnThem.Enabled = btnSua.Enabled = btnXoa.Enabled = btnReload.Enabled = true;
             btnUndo.Enabled = btnGhi.Enabled = false;
-            panelDataView.Enabled = false;
+            panelMonhoc.Enabled = false;
         }
 
         private void btnGhi_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
@@ -181,17 +178,17 @@ namespace QLThiTracNghiem
 
             try
             {
-                bdsMONHOC.EndEdit();
-                bdsMONHOC.ResetCurrentItem();
-                this.MONHOCTableAdapter.Connection.ConnectionString = Program.connstr;
-                this.MONHOCTableAdapter.Update(this.DB_TracNghiem.MONHOC);
+                bdsMonhoc.EndEdit();
+                bdsMonhoc.ResetCurrentItem();         
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"{ex }", "", MessageBoxButtons.OK);
-                this.MONHOCTableAdapter.Connection.ConnectionString = Program.connstr;
-                this.MONHOCTableAdapter.Update(this.DB_TracNghiem.MONHOC);
-                
+                MessageBox.Show($"{ex}", "", MessageBoxButtons.OK);
+            }
+            finally
+            {
+                this.MonhocTableAdapter.Connection.ConnectionString = Program.connstr;
+                this.MonhocTableAdapter.Update(this.DB_THI_TN.Monhoc);
             }
 
             ActionAfterEdit();
@@ -223,12 +220,15 @@ namespace QLThiTracNghiem
             }
             else
             {
-                this.MONHOCTableAdapter.Connection.ConnectionString = Program.connstr;
-                this.MONHOCTableAdapter.Fill(this.DB_TracNghiem.MONHOC);
-                this.LICHTHITableAdapter.Connection.ConnectionString = Program.connstr;
-                this.LICHTHITableAdapter.Fill(this.DB_TracNghiem.LICHTHI);
-                this.CAUHOITableAdapter.Connection.ConnectionString = Program.connstr;
-                this.CAUHOITableAdapter.Fill(this.DB_TracNghiem.CAUHOI);
+                this.DB_THI_TN.EnforceConstraints = false;
+                this.MonhocTableAdapter.Connection.ConnectionString = Program.connstr;
+                this.MonhocTableAdapter.Update(this.DB_THI_TN.Monhoc);
+
+                this.BodeTableAdapter.Connection.ConnectionString = Program.connstr;
+                this.BodeTableAdapter.Update(this.DB_THI_TN.Bode);
+
+                this.Giaovien_DangkyTableAdapter.Connection.ConnectionString = Program.connstr;
+                this.Giaovien_DangkyTableAdapter.Update(this.DB_THI_TN.Giaovien_Dangky);
             }
         }
 
@@ -250,19 +250,6 @@ namespace QLThiTracNghiem
                 return false;
             }
 
-            if (txtSOTIETLT.Text.Trim() == "")
-            {
-                MessageBox.Show("Số tiết lý thuyết không được để trống!", "", MessageBoxButtons.OK);
-                txtSOTIETLT.Focus();
-                return false;
-            }
-
-            if (txtSOTIETTH.Text.Trim() == "")
-            {
-                MessageBox.Show("Số tiết thực hành không được để trống!", "", MessageBoxButtons.OK);
-                txtSOTIETTH.Focus();
-                return false;
-            }
 
             try
             {
@@ -274,8 +261,8 @@ namespace QLThiTracNghiem
                 int result = int.Parse(Program.myReader.GetValue(0).ToString());
                 Program.myReader.Close();
 
-                int currentMonHoc = bdsMONHOC.Position;
-                int currentIdChoosing = bdsMONHOC.Find("MAMH", maMH);
+                int currentMonHoc = bdsMonhoc.Position;
+                int currentIdChoosing = bdsMonhoc.Find("MAMH", maMH);
 
                 if (result == 1 && currentMonHoc != currentIdChoosing)
                 {
@@ -300,13 +287,13 @@ namespace QLThiTracNghiem
 
         private bool ValidateBeforeXoa()
         {
-            if (bdsLICHTHI.Count > 0)
+            if (bdsBode.Count > 0)
             {
                 MessageBox.Show("Không thể xóa Môn học này vì đã có lịch thi của môn này");
                 return false;
             }
 
-            if (bdsCAUHOI.Count > 0)
+            if (bdsGiaovien_Dangky.Count > 0)
             {
                 MessageBox.Show("Không thể xóa Môn học này vì đã có câu hỏi của môn này");
                 return false;

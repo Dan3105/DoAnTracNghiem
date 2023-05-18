@@ -31,8 +31,6 @@
             this.components = new System.ComponentModel.Container();
             System.Windows.Forms.Label mAMHLabel;
             System.Windows.Forms.Label tENMHLabel;
-            System.Windows.Forms.Label sOTIETLTLabel;
-            System.Windows.Forms.Label sOTIETTHLabel;
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormMonHoc));
             this.barManager1 = new DevExpress.XtraBars.BarManager(this.components);
             this.bar1 = new DevExpress.XtraBars.Bar();
@@ -51,51 +49,47 @@
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
             this.cbServer = new System.Windows.Forms.ComboBox();
             this.lbCoso = new DevExpress.XtraEditors.LabelControl();
-            this.DB_TracNghiem = new QLThiTracNghiem.DB_TracNghiem();
-            this.bdsMONHOC = new System.Windows.Forms.BindingSource(this.components);
-            this.MONHOCTableAdapter = new QLThiTracNghiem.DB_TracNghiemTableAdapters.MONHOCTableAdapter();
             this.gcMONHOC = new DevExpress.XtraGrid.GridControl();
+            this.bdsMonhoc = new System.Windows.Forms.BindingSource(this.components);
+            this.DB_THI_TN = new QLThiTracNghiem.DB_THI_TN();
             this.gvMonHoc = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colMAMH = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colTENMH = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colSOTIETLT = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colSOTIETTH = new DevExpress.XtraGrid.Columns.GridColumn();
             this.panelDataView = new DevExpress.XtraEditors.PanelControl();
+            this.panelMonhoc = new DevExpress.XtraEditors.PanelControl();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
-            this.txtSOTIETTH = new DevExpress.XtraEditors.TextEdit();
-            this.txtSOTIETLT = new DevExpress.XtraEditors.TextEdit();
-            this.txtTENMH = new DevExpress.XtraEditors.TextEdit();
+            this.MonhocTableAdapter = new QLThiTracNghiem.DB_THI_TNTableAdapters.MonhocTableAdapter();
+            this.tableAdapterManager = new QLThiTracNghiem.DB_THI_TNTableAdapters.TableAdapterManager();
+            this.Giaovien_DangkyTableAdapter = new QLThiTracNghiem.DB_THI_TNTableAdapters.Giaovien_DangkyTableAdapter();
+            this.bdsGiaovien_Dangky = new System.Windows.Forms.BindingSource(this.components);
+            this.bdsBode = new System.Windows.Forms.BindingSource(this.components);
+            this.BodeTableAdapter = new QLThiTracNghiem.DB_THI_TNTableAdapters.BodeTableAdapter();
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.txtMAMH = new DevExpress.XtraEditors.TextEdit();
-            this.tableAdapterManager = new QLThiTracNghiem.DB_TracNghiemTableAdapters.TableAdapterManager();
-            this.CAUHOITableAdapter = new QLThiTracNghiem.DB_TracNghiemTableAdapters.CAUHOITableAdapter();
-            this.bdsCAUHOI = new System.Windows.Forms.BindingSource(this.components);
-            this.bdsLICHTHI = new System.Windows.Forms.BindingSource(this.components);
-            this.LICHTHITableAdapter = new QLThiTracNghiem.DB_TracNghiemTableAdapters.LICHTHITableAdapter();
+            this.txtTENMH = new DevExpress.XtraEditors.TextEdit();
             mAMHLabel = new System.Windows.Forms.Label();
             tENMHLabel = new System.Windows.Forms.Label();
-            sOTIETLTLabel = new System.Windows.Forms.Label();
-            sOTIETTHLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.DB_TracNghiem)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bdsMONHOC)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gcMONHOC)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bdsMonhoc)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DB_THI_TN)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvMonHoc)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelDataView)).BeginInit();
-            this.panelDataView.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.txtSOTIETTH.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtSOTIETLT.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtTENMH.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.panelMonhoc)).BeginInit();
+            this.panelMonhoc.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.bdsGiaovien_Dangky)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bdsBode)).BeginInit();
+            this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtMAMH.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bdsCAUHOI)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bdsLICHTHI)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtTENMH.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // mAMHLabel
             // 
             mAMHLabel.AutoSize = true;
-            mAMHLabel.Location = new System.Drawing.Point(44, 53);
+            mAMHLabel.Location = new System.Drawing.Point(11, 55);
             mAMHLabel.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             mAMHLabel.Name = "mAMHLabel";
             mAMHLabel.Size = new System.Drawing.Size(48, 16);
@@ -105,32 +99,12 @@
             // tENMHLabel
             // 
             tENMHLabel.AutoSize = true;
-            tENMHLabel.Location = new System.Drawing.Point(39, 105);
+            tENMHLabel.Location = new System.Drawing.Point(11, 107);
             tENMHLabel.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             tENMHLabel.Name = "tENMHLabel";
             tENMHLabel.Size = new System.Drawing.Size(53, 16);
             tENMHLabel.TabIndex = 2;
             tENMHLabel.Text = "TENMH:";
-            // 
-            // sOTIETLTLabel
-            // 
-            sOTIETLTLabel.AutoSize = true;
-            sOTIETLTLabel.Location = new System.Drawing.Point(22, 148);
-            sOTIETLTLabel.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
-            sOTIETLTLabel.Name = "sOTIETLTLabel";
-            sOTIETLTLabel.Size = new System.Drawing.Size(70, 16);
-            sOTIETLTLabel.TabIndex = 4;
-            sOTIETLTLabel.Text = "SOTIETLT:";
-            // 
-            // sOTIETTHLabel
-            // 
-            sOTIETTHLabel.AutoSize = true;
-            sOTIETTHLabel.Location = new System.Drawing.Point(22, 200);
-            sOTIETTHLabel.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
-            sOTIETTHLabel.Name = "sOTIETTHLabel";
-            sOTIETTHLabel.Size = new System.Drawing.Size(72, 16);
-            sOTIETTHLabel.TabIndex = 6;
-            sOTIETTHLabel.Text = "SOTIETTH:";
             // 
             // barManager1
             // 
@@ -247,16 +221,16 @@
             this.barDockControlTop.Location = new System.Drawing.Point(0, 0);
             this.barDockControlTop.Manager = this.barManager1;
             this.barDockControlTop.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.barDockControlTop.Size = new System.Drawing.Size(920, 51);
+            this.barDockControlTop.Size = new System.Drawing.Size(889, 51);
             // 
             // barDockControlBottom
             // 
             this.barDockControlBottom.CausesValidation = false;
             this.barDockControlBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.barDockControlBottom.Location = new System.Drawing.Point(0, 782);
+            this.barDockControlBottom.Location = new System.Drawing.Point(0, 474);
             this.barDockControlBottom.Manager = this.barManager1;
             this.barDockControlBottom.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.barDockControlBottom.Size = new System.Drawing.Size(920, 20);
+            this.barDockControlBottom.Size = new System.Drawing.Size(889, 20);
             // 
             // barDockControlLeft
             // 
@@ -265,16 +239,16 @@
             this.barDockControlLeft.Location = new System.Drawing.Point(0, 51);
             this.barDockControlLeft.Manager = this.barManager1;
             this.barDockControlLeft.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.barDockControlLeft.Size = new System.Drawing.Size(0, 731);
+            this.barDockControlLeft.Size = new System.Drawing.Size(0, 423);
             // 
             // barDockControlRight
             // 
             this.barDockControlRight.CausesValidation = false;
             this.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right;
-            this.barDockControlRight.Location = new System.Drawing.Point(920, 51);
+            this.barDockControlRight.Location = new System.Drawing.Point(889, 51);
             this.barDockControlRight.Manager = this.barManager1;
             this.barDockControlRight.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.barDockControlRight.Size = new System.Drawing.Size(0, 731);
+            this.barDockControlRight.Size = new System.Drawing.Size(0, 423);
             // 
             // panelControl1
             // 
@@ -284,13 +258,13 @@
             this.panelControl1.Location = new System.Drawing.Point(0, 51);
             this.panelControl1.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
             this.panelControl1.Name = "panelControl1";
-            this.panelControl1.Size = new System.Drawing.Size(920, 47);
+            this.panelControl1.Size = new System.Drawing.Size(889, 83);
             this.panelControl1.TabIndex = 4;
             // 
             // cbServer
             // 
             this.cbServer.FormattingEnabled = true;
-            this.cbServer.Location = new System.Drawing.Point(61, 15);
+            this.cbServer.Location = new System.Drawing.Point(120, 10);
             this.cbServer.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.cbServer.Name = "cbServer";
             this.cbServer.Size = new System.Drawing.Size(247, 24);
@@ -308,42 +282,36 @@
             this.lbCoso.TabIndex = 0;
             this.lbCoso.Text = "Cơ sở";
             // 
-            // DB_TracNghiem
-            // 
-            this.DB_TracNghiem.DataSetName = "DB_TracNghiem";
-            this.DB_TracNghiem.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // bdsMONHOC
-            // 
-            this.bdsMONHOC.DataMember = "MONHOC";
-            this.bdsMONHOC.DataSource = this.DB_TracNghiem;
-            // 
-            // MONHOCTableAdapter
-            // 
-            this.MONHOCTableAdapter.ClearBeforeFill = true;
-            // 
             // gcMONHOC
             // 
-            this.gcMONHOC.DataSource = this.bdsMONHOC;
-            this.gcMONHOC.Dock = System.Windows.Forms.DockStyle.Top;
+            this.gcMONHOC.DataSource = this.bdsMonhoc;
+            this.gcMONHOC.Dock = System.Windows.Forms.DockStyle.Fill;
             this.gcMONHOC.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
-            this.gcMONHOC.Location = new System.Drawing.Point(0, 98);
+            this.gcMONHOC.Location = new System.Drawing.Point(5, 6);
             this.gcMONHOC.MainView = this.gvMonHoc;
             this.gcMONHOC.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.gcMONHOC.MenuManager = this.barManager1;
             this.gcMONHOC.Name = "gcMONHOC";
-            this.gcMONHOC.Size = new System.Drawing.Size(920, 430);
+            this.gcMONHOC.Size = new System.Drawing.Size(879, 177);
             this.gcMONHOC.TabIndex = 9;
             this.gcMONHOC.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gvMonHoc});
+            // 
+            // bdsMonhoc
+            // 
+            this.bdsMonhoc.DataMember = "Monhoc";
+            this.bdsMonhoc.DataSource = this.DB_THI_TN;
+            // 
+            // DB_THI_TN
+            // 
+            this.DB_THI_TN.DataSetName = "DB_THI_TN";
+            this.DB_THI_TN.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // gvMonHoc
             // 
             this.gvMonHoc.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.colMAMH,
-            this.colTENMH,
-            this.colSOTIETLT,
-            this.colSOTIETTH});
+            this.colTENMH});
             this.gvMonHoc.DetailHeight = 546;
             this.gvMonHoc.GridControl = this.gcMONHOC;
             this.gvMonHoc.Name = "gvMonHoc";
@@ -351,151 +319,128 @@
             // colMAMH
             // 
             this.colMAMH.FieldName = "MAMH";
-            this.colMAMH.MinWidth = 39;
+            this.colMAMH.MinWidth = 25;
             this.colMAMH.Name = "colMAMH";
             this.colMAMH.Visible = true;
             this.colMAMH.VisibleIndex = 0;
-            this.colMAMH.Width = 145;
+            this.colMAMH.Width = 94;
             // 
             // colTENMH
             // 
             this.colTENMH.FieldName = "TENMH";
-            this.colTENMH.MinWidth = 39;
+            this.colTENMH.MinWidth = 25;
             this.colTENMH.Name = "colTENMH";
             this.colTENMH.Visible = true;
             this.colTENMH.VisibleIndex = 1;
-            this.colTENMH.Width = 145;
-            // 
-            // colSOTIETLT
-            // 
-            this.colSOTIETLT.FieldName = "SOTIETLT";
-            this.colSOTIETLT.MinWidth = 39;
-            this.colSOTIETLT.Name = "colSOTIETLT";
-            this.colSOTIETLT.Visible = true;
-            this.colSOTIETLT.VisibleIndex = 2;
-            this.colSOTIETLT.Width = 145;
-            // 
-            // colSOTIETTH
-            // 
-            this.colSOTIETTH.FieldName = "SOTIETTH";
-            this.colSOTIETTH.MinWidth = 39;
-            this.colSOTIETTH.Name = "colSOTIETTH";
-            this.colSOTIETTH.Visible = true;
-            this.colSOTIETTH.VisibleIndex = 3;
-            this.colSOTIETTH.Width = 145;
+            this.colTENMH.Width = 94;
             // 
             // panelDataView
             // 
             this.panelDataView.AutoSize = true;
-            this.panelDataView.Controls.Add(this.labelControl1);
-            this.panelDataView.Controls.Add(sOTIETTHLabel);
-            this.panelDataView.Controls.Add(this.txtSOTIETTH);
-            this.panelDataView.Controls.Add(sOTIETLTLabel);
-            this.panelDataView.Controls.Add(this.txtSOTIETLT);
-            this.panelDataView.Controls.Add(tENMHLabel);
-            this.panelDataView.Controls.Add(this.txtTENMH);
-            this.panelDataView.Controls.Add(mAMHLabel);
-            this.panelDataView.Controls.Add(this.txtMAMH);
-            this.panelDataView.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelDataView.Location = new System.Drawing.Point(0, 528);
+            this.panelDataView.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panelDataView.Location = new System.Drawing.Point(0, 470);
             this.panelDataView.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.panelDataView.Name = "panelDataView";
-            this.panelDataView.Size = new System.Drawing.Size(920, 254);
+            this.panelDataView.Size = new System.Drawing.Size(889, 4);
             this.panelDataView.TabIndex = 10;
+            // 
+            // panelMonhoc
+            // 
+            this.panelMonhoc.Controls.Add(this.txtTENMH);
+            this.panelMonhoc.Controls.Add(this.txtMAMH);
+            this.panelMonhoc.Controls.Add(this.labelControl1);
+            this.panelMonhoc.Controls.Add(tENMHLabel);
+            this.panelMonhoc.Controls.Add(mAMHLabel);
+            this.panelMonhoc.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelMonhoc.Location = new System.Drawing.Point(3, 192);
+            this.panelMonhoc.Name = "panelMonhoc";
+            this.panelMonhoc.Size = new System.Drawing.Size(883, 141);
+            this.panelMonhoc.TabIndex = 9;
             // 
             // labelControl1
             // 
-            this.labelControl1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.labelControl1.Location = new System.Drawing.Point(2, 2);
+            this.labelControl1.Location = new System.Drawing.Point(14, 5);
             this.labelControl1.Name = "labelControl1";
             this.labelControl1.Padding = new System.Windows.Forms.Padding(0, 10, 0, 0);
             this.labelControl1.Size = new System.Drawing.Size(107, 26);
             this.labelControl1.TabIndex = 8;
             this.labelControl1.Text = "Thông tin môn học";
             // 
-            // txtSOTIETTH
+            // MonhocTableAdapter
             // 
-            this.txtSOTIETTH.AllowDrop = true;
-            this.txtSOTIETTH.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bdsMONHOC, "SOTIETTH", true));
-            this.txtSOTIETTH.Location = new System.Drawing.Point(154, 197);
-            this.txtSOTIETTH.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
-            this.txtSOTIETTH.MenuManager = this.barManager1;
-            this.txtSOTIETTH.Name = "txtSOTIETTH";
-            this.txtSOTIETTH.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
-            this.txtSOTIETTH.Properties.MaxLength = 2;
-            this.txtSOTIETTH.Size = new System.Drawing.Size(63, 22);
-            this.txtSOTIETTH.TabIndex = 7;
-            // 
-            // txtSOTIETLT
-            // 
-            this.txtSOTIETLT.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bdsMONHOC, "SOTIETLT", true));
-            this.txtSOTIETLT.Location = new System.Drawing.Point(154, 145);
-            this.txtSOTIETLT.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
-            this.txtSOTIETLT.MenuManager = this.barManager1;
-            this.txtSOTIETLT.Name = "txtSOTIETLT";
-            this.txtSOTIETLT.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
-            this.txtSOTIETLT.Properties.MaxLength = 2;
-            this.txtSOTIETLT.Size = new System.Drawing.Size(63, 22);
-            this.txtSOTIETLT.TabIndex = 5;
-            // 
-            // txtTENMH
-            // 
-            this.txtTENMH.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bdsMONHOC, "TENMH", true));
-            this.txtTENMH.Location = new System.Drawing.Point(154, 102);
-            this.txtTENMH.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
-            this.txtTENMH.MenuManager = this.barManager1;
-            this.txtTENMH.Name = "txtTENMH";
-            this.txtTENMH.Size = new System.Drawing.Size(244, 22);
-            this.txtTENMH.TabIndex = 3;
-            this.txtTENMH.EditValueChanged += new System.EventHandler(this.txtTENMH_EditValueChanged);
-            // 
-            // txtMAMH
-            // 
-            this.txtMAMH.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bdsMONHOC, "MAMH", true));
-            this.txtMAMH.Location = new System.Drawing.Point(154, 50);
-            this.txtMAMH.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
-            this.txtMAMH.MenuManager = this.barManager1;
-            this.txtMAMH.Name = "txtMAMH";
-            this.txtMAMH.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
-            this.txtMAMH.Properties.MaxLength = 4;
-            this.txtMAMH.Size = new System.Drawing.Size(129, 22);
-            this.txtMAMH.TabIndex = 1;
+            this.MonhocTableAdapter.ClearBeforeFill = true;
             // 
             // tableAdapterManager
             // 
             this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
-            this.tableAdapterManager.CAUHOITableAdapter = this.CAUHOITableAdapter;
-            this.tableAdapterManager.KHOATableAdapter = null;
-            this.tableAdapterManager.LICHTHITableAdapter = null;
-            this.tableAdapterManager.LOPTableAdapter = null;
-            this.tableAdapterManager.MONHOCTableAdapter = this.MONHOCTableAdapter;
-            this.tableAdapterManager.UpdateOrder = QLThiTracNghiem.DB_TracNghiemTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
+            this.tableAdapterManager.BodeTableAdapter = null;
+            this.tableAdapterManager.Giaovien_DangkyTableAdapter = this.Giaovien_DangkyTableAdapter;
+            this.tableAdapterManager.KhoaTableAdapter = null;
+            this.tableAdapterManager.LopTableAdapter = null;
+            this.tableAdapterManager.MonhocTableAdapter = this.MonhocTableAdapter;
+            this.tableAdapterManager.SinhvienTableAdapter = null;
+            this.tableAdapterManager.UpdateOrder = QLThiTracNghiem.DB_THI_TNTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             // 
-            // CAUHOITableAdapter
+            // Giaovien_DangkyTableAdapter
             // 
-            this.CAUHOITableAdapter.ClearBeforeFill = true;
+            this.Giaovien_DangkyTableAdapter.ClearBeforeFill = true;
             // 
-            // bdsCAUHOI
+            // bdsGiaovien_Dangky
             // 
-            this.bdsCAUHOI.DataMember = "FK_CAUHOI_MONHOC";
-            this.bdsCAUHOI.DataSource = this.bdsMONHOC;
+            this.bdsGiaovien_Dangky.DataMember = "FK_Giaovien_Dangky_Monhoc";
+            this.bdsGiaovien_Dangky.DataSource = this.bdsMonhoc;
             // 
-            // bdsLICHTHI
+            // bdsBode
             // 
-            this.bdsLICHTHI.DataMember = "FK_LICHTHI_MONHOC";
-            this.bdsLICHTHI.DataSource = this.bdsMONHOC;
+            this.bdsBode.DataMember = "FK_Bode_Monhoc";
+            this.bdsBode.DataSource = this.bdsMonhoc;
             // 
-            // LICHTHITableAdapter
+            // BodeTableAdapter
             // 
-            this.LICHTHITableAdapter.ClearBeforeFill = true;
+            this.BodeTableAdapter.ClearBeforeFill = true;
+            // 
+            // tableLayoutPanel1
+            // 
+            this.tableLayoutPanel1.ColumnCount = 1;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel1.Controls.Add(this.panelMonhoc, 0, 1);
+            this.tableLayoutPanel1.Controls.Add(this.gcMONHOC, 0, 0);
+            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 134);
+            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+            this.tableLayoutPanel1.RowCount = 2;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 56.25F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 43.75F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(889, 336);
+            this.tableLayoutPanel1.TabIndex = 15;
+            // 
+            // txtMAMH
+            // 
+            this.txtMAMH.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bdsMonhoc, "MAMH", true));
+            this.txtMAMH.Location = new System.Drawing.Point(88, 52);
+            this.txtMAMH.MenuManager = this.barManager1;
+            this.txtMAMH.Name = "txtMAMH";
+            this.txtMAMH.Properties.MaxLength = 5;
+            this.txtMAMH.Size = new System.Drawing.Size(125, 22);
+            this.txtMAMH.TabIndex = 9;
+            // 
+            // txtTENMH
+            // 
+            this.txtTENMH.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bdsMonhoc, "TENMH", true));
+            this.txtTENMH.Location = new System.Drawing.Point(88, 101);
+            this.txtTENMH.MenuManager = this.barManager1;
+            this.txtTENMH.Name = "txtTENMH";
+            this.txtTENMH.Properties.MaxLength = 50;
+            this.txtTENMH.Size = new System.Drawing.Size(203, 22);
+            this.txtTENMH.TabIndex = 10;
             // 
             // FormMonHoc
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(920, 802);
+            this.ClientSize = new System.Drawing.Size(889, 494);
+            this.Controls.Add(this.tableLayoutPanel1);
             this.Controls.Add(this.panelDataView);
-            this.Controls.Add(this.gcMONHOC);
             this.Controls.Add(this.panelControl1);
             this.Controls.Add(this.barDockControlLeft);
             this.Controls.Add(this.barDockControlRight);
@@ -510,19 +455,19 @@
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
             this.panelControl1.ResumeLayout(false);
             this.panelControl1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.DB_TracNghiem)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bdsMONHOC)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gcMONHOC)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bdsMonhoc)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DB_THI_TN)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvMonHoc)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelDataView)).EndInit();
-            this.panelDataView.ResumeLayout(false);
-            this.panelDataView.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.txtSOTIETTH.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtSOTIETLT.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtTENMH.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.panelMonhoc)).EndInit();
+            this.panelMonhoc.ResumeLayout(false);
+            this.panelMonhoc.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.bdsGiaovien_Dangky)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bdsBode)).EndInit();
+            this.tableLayoutPanel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.txtMAMH.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bdsCAUHOI)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bdsLICHTHI)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtTENMH.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -546,26 +491,24 @@
         private DevExpress.XtraEditors.LabelControl lbCoso;
         private DevExpress.XtraBars.BarButtonItem btnUndo;
         private DevExpress.XtraBars.BarButtonItem btnReload;
-        private System.Windows.Forms.BindingSource bdsMONHOC;
-        private DB_TracNghiem DB_TracNghiem;
-        private DB_TracNghiemTableAdapters.MONHOCTableAdapter MONHOCTableAdapter;
         private DevExpress.XtraGrid.GridControl gcMONHOC;
         private DevExpress.XtraEditors.PanelControl panelDataView;
-        private DevExpress.XtraEditors.TextEdit txtSOTIETTH;
-        private DevExpress.XtraEditors.TextEdit txtSOTIETLT;
-        private DevExpress.XtraEditors.TextEdit txtTENMH;
-        private DevExpress.XtraEditors.TextEdit txtMAMH;
         private DevExpress.XtraGrid.Views.Grid.GridView gvMonHoc;
+        private DevExpress.XtraBars.BarButtonItem btnSua;
+        private DevExpress.XtraEditors.LabelControl labelControl1;
+        private DevExpress.XtraEditors.PanelControl panelMonhoc;
+        private DB_THI_TN DB_THI_TN;
+        private System.Windows.Forms.BindingSource bdsMonhoc;
+        private DB_THI_TNTableAdapters.MonhocTableAdapter MonhocTableAdapter;
+        private DB_THI_TNTableAdapters.TableAdapterManager tableAdapterManager;
+        private DB_THI_TNTableAdapters.Giaovien_DangkyTableAdapter Giaovien_DangkyTableAdapter;
+        private System.Windows.Forms.BindingSource bdsGiaovien_Dangky;
+        private System.Windows.Forms.BindingSource bdsBode;
+        private DB_THI_TNTableAdapters.BodeTableAdapter BodeTableAdapter;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private DevExpress.XtraGrid.Columns.GridColumn colMAMH;
         private DevExpress.XtraGrid.Columns.GridColumn colTENMH;
-        private DevExpress.XtraGrid.Columns.GridColumn colSOTIETLT;
-        private DevExpress.XtraGrid.Columns.GridColumn colSOTIETTH;
-        private DevExpress.XtraBars.BarButtonItem btnSua;
-        private DB_TracNghiemTableAdapters.TableAdapterManager tableAdapterManager;
-        private DB_TracNghiemTableAdapters.CAUHOITableAdapter CAUHOITableAdapter;
-        private System.Windows.Forms.BindingSource bdsCAUHOI;
-        private System.Windows.Forms.BindingSource bdsLICHTHI;
-        private DB_TracNghiemTableAdapters.LICHTHITableAdapter LICHTHITableAdapter;
-        private DevExpress.XtraEditors.LabelControl labelControl1;
+        private DevExpress.XtraEditors.TextEdit txtTENMH;
+        private DevExpress.XtraEditors.TextEdit txtMAMH;
     }
 }

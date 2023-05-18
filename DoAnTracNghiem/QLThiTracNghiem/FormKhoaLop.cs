@@ -1,6 +1,5 @@
 ﻿using DevExpress.Utils.Html.Internal;
 using DevExpress.XtraEditors;
-using QLThiTracNghiem.DB_TracNghiemTableAdapters;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -31,15 +30,13 @@ namespace QLThiTracNghiem
 
         private void FormKhoaLop_Load(object sender, EventArgs e)
         {
-            this.DB_TracNghiem.EnforceConstraints = false;
+            this.LopTableAdapter.Connection.ConnectionString = Program.connstr;
+            // TODO: This line of code loads data into the 'DB_THI_TN.Lop' table. You can move, or remove it, as needed.
+            this.LopTableAdapter.Fill(this.DB_THI_TN.Lop);
 
-            this.KHOATableAdapter.Connection.ConnectionString = Program.connstr;
-            // TODO: This line of code loads data into the 'dB_TracNghiem.KHOA' table. You can move, or remove it, as needed.
-            this.KHOATableAdapter.Fill(this.DB_TracNghiem.KHOA);
-
-            this.LOPTableAdapter.Connection.ConnectionString = Program.connstr;
-            // TODO: This line of code loads data into the 'dB_TracNghiem.LOP' table. You can move, or remove it, as needed.
-            this.LOPTableAdapter.Fill(this.DB_TracNghiem.LOP);
+            this.KhoaTableAdapter.Connection.ConnectionString = Program.connstr;
+            // TODO: This line of code loads data into the 'dB_THI_TN.Khoa' table. You can move, or remove it, as needed.
+            this.KhoaTableAdapter.Fill(this.DB_THI_TN.Khoa);
 
             this.cbCoSo.DataSource = Program.bds_dspm;
             this.cbCoSo.DisplayMember = "TenCS";
@@ -48,7 +45,7 @@ namespace QLThiTracNghiem
 
             try
             {
-                maCoSo = ((DataRowView)bdsKHOA[0])["MACS"].ToString();
+               maCoSo = ((DataRowView)bdsKhoa[0])["MACS"].ToString();
         
             }
             catch(Exception ex)
@@ -75,12 +72,12 @@ namespace QLThiTracNghiem
         {
             switch (Program.groupLoginType)
             {
-                case Simple.GroupLoginType.truong:
+                case Simple.GroupLoginType.Truong:
                     this.btnThem.Enabled = this.btnGhi.Enabled = this.btnReload.Enabled
                         = this.btnSua.Enabled = this.btnXoa.Enabled = this.btnUndo.Enabled = false;
                     this.cbCoSo.Enabled = true;
                     break;
-                case Simple.GroupLoginType.co_so:
+                case Simple.GroupLoginType.CoSo:
                     this.btnThem.Enabled = this.btnReload.Enabled
                        = this.btnSua.Enabled = this.btnXoa.Enabled = true;
                     this.btnUndo.Enabled = this.btnGhi.Enabled = false;
@@ -93,7 +90,7 @@ namespace QLThiTracNghiem
                     break;
             }
 
-            if (bdsKHOA.Count == 0) btnXoa.Enabled = false;
+            if (bdsKhoa.Count == 0) btnXoa.Enabled = false;
         }
 
         #region Khoa Data handler
@@ -124,15 +121,15 @@ namespace QLThiTracNghiem
             {
                 try
                 {
-                    this.DB_TracNghiem.EnforceConstraints = false;
+                    this.DB_THI_TN.EnforceConstraints = false;
 
-                    this.KHOATableAdapter.Connection.ConnectionString = Program.connstr;
+                    this.KhoaTableAdapter.Connection.ConnectionString = Program.connstr;
                     // TODO: This line of code loads data into the 'dB_TracNghiem.KHOA' table. You can move, or remove it, as needed.
-                    this.KHOATableAdapter.Fill(this.DB_TracNghiem.KHOA);
+                    this.KhoaTableAdapter.Update(this.DB_THI_TN.Khoa);
 
-                    this.LOPTableAdapter.Connection.ConnectionString = Program.connstr;
+                    this.LopTableAdapter.Connection.ConnectionString = Program.connstr;
                     // TODO: This line of code loads data into the 'dB_TracNghiem.LOP' table. You can move, or remove it, as needed.
-                    this.LOPTableAdapter.Fill(this.DB_TracNghiem.LOP);
+                    this.LopTableAdapter.Update(this.DB_THI_TN.Lop);
                 }
                 catch (Exception ex) { Console.WriteLine(ex); }
             }
@@ -140,20 +137,20 @@ namespace QLThiTracNghiem
 
         private void btnThem_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            positionKhoa = this.bdsKHOA.Position;
-            bdsKHOA.AddNew();
+            positionKhoa = this.bdsKhoa.Position;
+            bdsKhoa.AddNew();
 
             ActionBeforeEditKhoa();
             validateAction += ValidateThemKhoa;
             this.txtMACS.Text = this.maCoSo;
-            this.txtMAKHOA.Enabled = true;
+            this.txtMAKH.Enabled = true;
         }
 
         private void btnSua_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            positionKhoa = this.bdsKHOA.Position;
+            positionKhoa = this.bdsKhoa.Position;
             ActionBeforeEditKhoa();
-            this.txtMAKHOA.Enabled = false;
+            this.txtMAKH.Enabled = false;
         }
 
         private void ActionBeforeEditKhoa()
@@ -168,7 +165,7 @@ namespace QLThiTracNghiem
         private void btnXoa_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             String maKHOA = "";
-            if (bdsLOP.Count > 0)
+            if (bdsLop.Count > 0)
             {
                 MessageBox.Show("Không thể xóa Khoa này vì đã có lớp");
                 return;
@@ -178,53 +175,53 @@ namespace QLThiTracNghiem
             {
                 try
                 {
-                    maKHOA = ((DataRowView)bdsKHOA[bdsKHOA.Position])["MAKHOA"].ToString();
-                    bdsKHOA.RemoveCurrent();
+                    maKHOA = ((DataRowView)bdsKhoa[bdsKhoa.Position])["MAKHOA"].ToString();
+                    bdsKhoa.RemoveCurrent();
 
-                    this.KHOATableAdapter.Connection.ConnectionString = Program.connstr;
-                    this.KHOATableAdapter.Update(this.DB_TracNghiem.KHOA);
+                    this.KhoaTableAdapter.Connection.ConnectionString = Program.connstr;
+                    this.KhoaTableAdapter.Update(this.DB_THI_TN.Khoa);
                 }
                 catch (Exception ex)
                 {
                     MessageBox.Show($"{ex}", "", MessageBoxButtons.OK);
-                    this.KHOATableAdapter.Connection.ConnectionString = Program.connstr;
-                    this.KHOATableAdapter.Update(this.DB_TracNghiem.KHOA);
-                    bdsKHOA.Position = bdsKHOA.Find("MAKHOA", maKHOA);
+                    this.KhoaTableAdapter.Connection.ConnectionString = Program.connstr;
+                    this.KhoaTableAdapter.Update(this.DB_THI_TN.Khoa);
+                    bdsKhoa.Position = bdsKhoa.Find("MAKHOA", maKHOA);
 
                 }
             }
 
-            if (bdsKHOA.Count == 0) btnXoa.Enabled = false;
+            if (bdsKhoa.Count == 0) btnXoa.Enabled = false;
         }
         private void btnGhi_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            string maKhoa = txtMAKHOA.Text.Trim();
+            string maKhoa = txtMAKH.Text.Trim();
             if (maKhoa == "")
             {
                 MessageBox.Show("Mã Khoa không được để trống!", "", MessageBoxButtons.OK);
-                txtMAKHOA.Focus();
+                txtMAKH.Focus();
                 return;
             }
 
-            if (txtTENKHOA.Text.Trim() == "")
+            if (txtTENKH.Text.Trim() == "")
             {
                 MessageBox.Show("Tên Khoa không được để trống!", "", MessageBoxButtons.OK);
-                txtTENKHOA.Focus();
+                txtTENKH.Focus();
                 return;
             }
 
-            //
-            
-            if(validateAction != null)
+
+
+            if (validateAction != null)
                 if(validateAction.Invoke() == false)
                     return;
 
             try
             {
-                bdsKHOA.EndEdit();
-                bdsKHOA.ResetCurrentItem();
-                this.KHOATableAdapter.Connection.ConnectionString = Program.connstr;
-                this.KHOATableAdapter.Update(this.DB_TracNghiem.KHOA);
+                bdsKhoa.EndEdit();
+                bdsKhoa.ResetCurrentItem();
+                this.KhoaTableAdapter.Connection.ConnectionString = Program.connstr;
+                this.KhoaTableAdapter.Update(this.DB_THI_TN.Khoa);
             }
             catch (Exception ex)
             {
@@ -237,15 +234,15 @@ namespace QLThiTracNghiem
 
         private void btnUndo_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            bdsKHOA.CancelEdit();
-            if (!btnThem.Enabled) bdsKHOA.Position = positionKhoa;
+            bdsKhoa.CancelEdit();
+            if (!btnThem.Enabled) bdsKhoa.Position = positionKhoa;
 
             ActionAfterEditKhoa();
         }
 
         private bool ValidateThemKhoa()
         {
-            string maKhoa = txtMAKHOA.Text.Trim();
+            string maKhoa = txtMAKH.Text.Trim();
             try
             {
                 String cmd = "Declare @check int " +
@@ -259,7 +256,7 @@ namespace QLThiTracNghiem
                 if (result == 1)
                 {
                     MessageBox.Show("Đã có mã Khoa tồn tại trong dữ liệu!", "", MessageBoxButtons.OK);
-                    txtMAKHOA.Focus();
+                    txtMAKH.Focus();
                     return false;
                 }
             }
@@ -285,7 +282,7 @@ namespace QLThiTracNghiem
         {
             try
             {
-                KHOATableAdapter.Fill(this.DB_TracNghiem.KHOA);
+                KhoaTableAdapter.Fill(this.DB_THI_TN.Khoa);
             }
             catch (Exception ex)
             {
@@ -297,11 +294,11 @@ namespace QLThiTracNghiem
         #region Lop Data Hanlder
         private void themLopToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            positionLop = this.bdsLOP.Position;
-            bdsLOP.AddNew();
+            positionLop = this.bdsLop.Position;
+            bdsLop.AddNew();
             ActionBeforeEditLop();
-            string currentKhoa = ((DataRowView)this.bdsKHOA[bdsKHOA.Position])["MAKHOA"].ToString();
-            this.txtFKMAKHOA.Text = currentKhoa;
+            string currentKhoa = ((DataRowView)this.bdsLop[bdsLop.Position])["MAKHOA"].ToString();
+            this.txtFKMAKH.Text = currentKhoa;
             this.txtMALOP.Enabled = true;
             validateAction += this.HandlerThemLopDS;
         }
@@ -317,13 +314,13 @@ namespace QLThiTracNghiem
 
         private void suaLopToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if(bdsLOP.Count == 0)
+            if (bdsLop.Count == 0)
             {
                 MessageBox.Show("Không có danh sach lớp ", "OK", MessageBoxButtons.OK);
                 return;
             }
 
-            positionLop = this.bdsLOP.Position;
+            positionLop = this.bdsLop.Position;
             ActionBeforeEditLop();
             this.txtMALOP.Enabled = false;
         }
@@ -331,33 +328,33 @@ namespace QLThiTracNghiem
         private void xoaLopToolStripMenuItem_Click(object sender, EventArgs e)
         {
             String maLOP = "";
-         /* if (bdsLOP.Count > 0)
+            if (bdsLop.Count > 0)
             {
                 MessageBox.Show("Không thể xóa Khoa này vì đã có lớp");
                 return;
-            }*/
+            }
 
             if (MessageBox.Show("U sure to del ?", "OK", MessageBoxButtons.OKCancel) == DialogResult.OK)
             {
                 try
                 {
-                    maLOP = ((DataRowView)bdsLOP[bdsLOP.Position])["MALOP"].ToString();
-                    bdsLOP.RemoveCurrent();
+                    maLOP = ((DataRowView)bdsLop[bdsLop.Position])["MALOP"].ToString();
+                    bdsLop.RemoveCurrent();
 
-                    this.LOPTableAdapter.Connection.ConnectionString = Program.connstr;
-                    this.LOPTableAdapter.Update(this.DB_TracNghiem.LOP);
+                    this.LopTableAdapter.Connection.ConnectionString = Program.connstr;
+                    this.LopTableAdapter.Update(this.DB_THI_TN.Lop);
                 }
                 catch (Exception ex)
                 {
                     MessageBox.Show($"{ex}", "", MessageBoxButtons.OK);
-                    this.LOPTableAdapter.Connection.ConnectionString = Program.connstr;
-                    this.LOPTableAdapter.Update(this.DB_TracNghiem.LOP);
-                    bdsLOP.Position = bdsLOP.Find("MALOP", maLOP);
+                    this.LopTableAdapter.Connection.ConnectionString = Program.connstr;
+                    this.LopTableAdapter.Update(this.DB_THI_TN.Lop);
+                    bdsLop.Position = bdsLop.Find("MALOP", maLOP);
 
                 }
             }
 
-            if (bdsLOP.Count == 0) this.xoaLopToolStripMenuItem.Enabled = false;
+            if (bdsLop.Count == 0) this.xoaLopToolStripMenuItem.Enabled = false;
         }
 
         private void btnGhiLOP_Click(object sender, EventArgs e)
@@ -371,14 +368,13 @@ namespace QLThiTracNghiem
             if (validateAction != null) 
                 if (validateAction?.Invoke() == false)
                     return;
-          /*  this.validateAction -= HandlerThemInput;*/
 
             try
             {
-                bdsLOP.EndEdit();
-                bdsLOP.ResetCurrentItem();
-                this.LOPTableAdapter.Connection.ConnectionString = Program.connstr;
-                this.LOPTableAdapter.Update(this.DB_TracNghiem.LOP);
+                bdsLop.EndEdit();
+                bdsLop.ResetCurrentItem();
+                this.LopTableAdapter.Connection.ConnectionString = Program.connstr;
+                this.LopTableAdapter.Update(this.DB_THI_TN.Lop);
             }
             catch (Exception ex)
             {
@@ -402,8 +398,8 @@ namespace QLThiTracNghiem
 
         private void btnUndoLOP_Click(object sender, EventArgs e)
         {
-            bdsLOP.CancelEdit();
-            if (!btnThem.Enabled) bdsKHOA.Position = positionKhoa;
+            bdsLop.CancelEdit();
+            if (!btnThem.Enabled) bdsKhoa.Position = positionKhoa;
             ActionAfterEditLop();
 
            
@@ -423,13 +419,6 @@ namespace QLThiTracNghiem
             {
                 MessageBox.Show("Tên Lớp không được để trống!", "", MessageBoxButtons.OK);
                 txtTENLOP.Focus();
-                return false;
-            }
-
-            if (txtNAMNH.Text.Trim() == "")
-            {
-                MessageBox.Show("Năm nhập học không được để trống!", "", MessageBoxButtons.OK);
-                txtNAMNH.Focus();
                 return false;
             }
 
@@ -454,7 +443,7 @@ namespace QLThiTracNghiem
                 if (result == 1)
                 {
                     MessageBox.Show("Đã có mã Lớp tồn tại trong dữ liệu!", "", MessageBoxButtons.OK);
-                    txtMAKHOA.Focus();
+                    txtMAKH.Focus();
                     return false;
                 }
             }
@@ -469,7 +458,7 @@ namespace QLThiTracNghiem
 
         private void txtTENKHOA_EditValueChanged(object sender, EventArgs e)
         {
-            txtTENKHOA.Text = Utility.FormatToCamelCase(txtTENKHOA.Text);
+            txtTENKH.Text = Utility.FormatToCamelCase(txtTENKH.Text);
         }
 
         private void txtTENLOP_EditValueChanged(object sender, EventArgs e)

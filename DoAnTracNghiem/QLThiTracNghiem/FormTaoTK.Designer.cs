@@ -54,7 +54,7 @@
             this.panelControl1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelControl1.Location = new System.Drawing.Point(0, 0);
             this.panelControl1.Name = "panelControl1";
-            this.panelControl1.Size = new System.Drawing.Size(1204, 100);
+            this.panelControl1.Size = new System.Drawing.Size(1204, 244);
             this.panelControl1.TabIndex = 0;
             // 
             // labelControl1

@@ -99,7 +99,7 @@
             this.btnLogin.AutoSize = true;
             this.btnLogin.Location = new System.Drawing.Point(17, 258);
             this.btnLogin.Name = "btnLogin";
-            this.btnLogin.Size = new System.Drawing.Size(94, 29);
+            this.btnLogin.Size = new System.Drawing.Size(70, 27);
             this.btnLogin.TabIndex = 6;
             this.btnLogin.Text = "Đăng Nhập";
             this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);

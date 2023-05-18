@@ -24,24 +24,25 @@ namespace QLThiTracNghiem
 
         private void FormSinhVien_Load(object sender, EventArgs e)
         {
-    
-            this.DB_TracNghiem.EnforceConstraints = false;
+            this.DB_THI_TN.EnforceConstraints = false;
 
-            this.KHOATableAdapter.Connection.ConnectionString = Program.connstr;
-            // TODO: This line of code loads data into the 'DB_TracNghiem.KHOA' table. You can move, or remove it, as needed.
-            this.KHOATableAdapter.Fill(this.DB_TracNghiem.KHOA);
-            
+            this.SinhvienTableAdapter.Connection.ConnectionString = Program.connstr;
+            // TODO: This line of code loads data into the 'dB_THI_TN.Sinhvien' table. You can move, or remove it, as needed.
+            this.SinhvienTableAdapter.Fill(this.DB_THI_TN.Sinhvien);
+
+            this.LopTableAdapter.Connection.ConnectionString = Program.connstr;
+            // TODO: This line of code loads data into the 'dB_THI_TN.Lop' table. You can move, or remove it, as needed.
+            this.LopTableAdapter.Fill(this.DB_THI_TN.Lop);
+
+            this.KhoaTableAdapter.Connection.ConnectionString = Program.connstr;
+            // TODO: This line of code loads data into the 'dB_THI_TN.Khoa' table. You can move, or remove it, as needed.
+            this.KhoaTableAdapter.Fill(this.DB_THI_TN.Khoa);
+            // TODO: This line of code loads data into the 'dB_THI_TNDataSet.Khoa' table. You can move, or remove it, as needed.
+
+
+
             SetComboBox();
 
-            this.LOPTableAdapter.Connection.ConnectionString = Program.connstr;
-            // TODO: This line of code loads data into the 'dB_TracNghiem.LOP' table. You can move, or remove it, as needed.
-            this.LOPTableAdapter.Fill(this.DB_TracNghiem.LOP);
-
-            this.SINHVIENTableAdapter.Connection.ConnectionString = Program.connstr;
-            // TODO: This line of code loads data into the 'dB_TracNghiem.SINHVIEN' table. You can move, or remove it, as needed.
-            this.SINHVIENTableAdapter.Fill(this.DB_TracNghiem.SINHVIEN);
-
-            
             CustomButton();
 
             gvLOP.OptionsBehavior.Editable = false;
@@ -56,7 +57,7 @@ namespace QLThiTracNghiem
             this.cbCOSO.ValueMember = "MaCS";
             this.cbCOSO.SelectedIndex = Program.currentServerIndex;
 
-            this.cbKHOA.DataSource = this.bdsKHOA;
+/*            this.cbKHOA.DataSource = this.bdsKHOA;*/
             this.cbKHOA.DisplayMember = "TENKHOA";
             this.cbKHOA.ValueMember = "MAKHOA";
             this.cbKHOA.SelectedIndex = 0;
@@ -66,11 +67,11 @@ namespace QLThiTracNghiem
         {
             switch(Program.groupLoginType)
             {
-                case Simple.GroupLoginType.truong:
+                case Simple.GroupLoginType.Truong:
                     this.cbCOSO.Enabled = true;
                     this.menuStripSINHVIEN.Visible = false;
                     break;
-                case Simple.GroupLoginType.co_so:
+                case Simple.GroupLoginType.CoSo:
                     this.cbCOSO.Enabled = false;
                     this.gcSINHVIEN.ContextMenuStrip = this.menuStripSINHVIEN;
                     break;
@@ -109,19 +110,19 @@ namespace QLThiTracNghiem
             {
                 try
                 {
-                    this.DB_TracNghiem.EnforceConstraints = false;
+                    this.DB_THI_TN.EnforceConstraints = false;
+                    this.SinhvienTableAdapter.Connection.ConnectionString = Program.connstr;
+                    // TODO: This line of code loads data into the 'dB_THI_TN.Sinhvien' table. You can move, or remove it, as needed.
+                    this.SinhvienTableAdapter.Fill(this.DB_THI_TN.Sinhvien);
 
-                    this.KHOATableAdapter.Connection.ConnectionString = Program.connstr;
-                    // TODO: This line of code loads data into the 'dB_TracNghiem.KHOA' table. You can move, or remove it, as needed.
-                    this.KHOATableAdapter.Fill(this.DB_TracNghiem.KHOA);
+                    this.LopTableAdapter.Connection.ConnectionString = Program.connstr;
+                    // TODO: This line of code loads data into the 'dB_THI_TN.Lop' table. You can move, or remove it, as needed.
+                    this.LopTableAdapter.Fill(this.DB_THI_TN.Lop);
 
-                    this.LOPTableAdapter.Connection.ConnectionString = Program.connstr;
-                    // TODO: This line of code loads data into the 'dB_TracNghiem.LOP' table. You can move, or remove it, as needed.
-                    this.LOPTableAdapter.Fill(this.DB_TracNghiem.LOP);
-
-                    this.SINHVIENTableAdapter.Connection.ConnectionString = Program.connstr;
-                    // TODO: This line of code loads data into the 'dB_TracNghiem.SINHVIEN' table. You can move, or remove it, as needed.
-                    this.SINHVIENTableAdapter.Fill(this.DB_TracNghiem.SINHVIEN);
+                    this.KhoaTableAdapter.Connection.ConnectionString = Program.connstr;
+                    // TODO: This line of code loads data into the 'dB_THI_TN.Khoa' table. You can move, or remove it, as needed.
+                    this.KhoaTableAdapter.Fill(this.DB_THI_TN.Khoa);
+                    // TODO: This line of code loads data into the 'dB_THI_TNDataSet.Khoa' table. You can move, or remove it, as needed.
                 }
                 catch (Exception ex) { Console.WriteLine(ex); }
             }
@@ -129,12 +130,12 @@ namespace QLThiTracNghiem
 
         private void tsSuaSINHVIEN_Click(object sender, EventArgs e)
         {
-            if(bdsSINHVIEN.Count == 0)
+            if (bdsSinhvien.Count == 0)
             {
                 MessageBox.Show("Không có danh sach lớp ", "OK", MessageBoxButtons.OK);
                 return;
             }
-            positionSinhVien = this.bdsSINHVIEN.Position;
+            positionSinhVien = this.bdsSinhvien.Position;
             this.txtMASV.Enabled = false;
             ActionBeforeEditSINHVIEN();
             
@@ -148,31 +149,31 @@ namespace QLThiTracNghiem
             {
                 try
                 {
-                    maSV = ((DataRowView)bdsSINHVIEN[bdsSINHVIEN.Position])["MASV"].ToString();
-                    bdsSINHVIEN.RemoveCurrent();
+                    maSV = ((DataRowView)bdsSinhvien[bdsSinhvien.Position])["MASV"].ToString();
+                    bdsSinhvien.RemoveCurrent();
 
-                    this.SINHVIENTableAdapter.Connection.ConnectionString = Program.connstr;
-                    this.SINHVIENTableAdapter.Update(this.DB_TracNghiem.SINHVIEN);
+                    this.SinhvienTableAdapter.Connection.ConnectionString = Program.connstr;
+                    this.SinhvienTableAdapter.Update(this.DB_THI_TN.Sinhvien);
                 }
                 catch (Exception ex)
                 {
                     MessageBox.Show($"{ex}", "", MessageBoxButtons.OK);
-                    this.SINHVIENTableAdapter.Connection.ConnectionString = Program.connstr;
-                    this.SINHVIENTableAdapter.Update(this.DB_TracNghiem.SINHVIEN);
-                    bdsSINHVIEN.Position = bdsSINHVIEN.Find("MASV", maSV);
+                    this.SinhvienTableAdapter.Connection.ConnectionString = Program.connstr;
+                    this.SinhvienTableAdapter.Update(this.DB_THI_TN.Sinhvien);
+                    bdsSinhvien.Position = bdsSinhvien.Find("MASV", maSV);
 
                 }
             }
 
-            if (bdsSINHVIEN.Count == 0) this.tsXoaSINHVIEN.Enabled = false;
+            if (bdsSinhvien.Count == 0) this.tsXoaSINHVIEN.Enabled = false;
         }
 
         private void tsThemSINHVIEN_Click(object sender, EventArgs e)
         {
-            positionSinhVien = this.bdsSINHVIEN.Position;
-            bdsSINHVIEN.AddNew();
+            positionSinhVien = this.bdsSinhvien.Position;
+            bdsSinhvien.AddNew();
             ActionBeforeEditSINHVIEN();
-            string currentLop = ((DataRowView)this.bdsLOP[bdsLOP.Position])["MALOP"].ToString();
+            string currentLop = ((DataRowView)this.bdsLop[bdsLop.Position])["MALOP"].ToString();
             this.txtMALOP.Text = currentLop;
             this.txtMASV.Enabled = true;
             validateAction += this.ValidateThemSV;
@@ -206,14 +207,13 @@ namespace QLThiTracNghiem
             if (validateAction != null)
                 if (validateAction?.Invoke() == false)
                     return;
-            /*  this.validateAction -= HandlerThemInput;*/
 
             try
             {
-                bdsSINHVIEN.EndEdit();
-                bdsSINHVIEN.ResetCurrentItem();
-                this.SINHVIENTableAdapter.Connection.ConnectionString = Program.connstr;
-                this.SINHVIENTableAdapter.Update(this.DB_TracNghiem.SINHVIEN);
+                bdsSinhvien.EndEdit();
+                bdsSinhvien.ResetCurrentItem();
+                this.SinhvienTableAdapter.Connection.ConnectionString = Program.connstr;
+                this.SinhvienTableAdapter.Update(this.DB_THI_TN.Sinhvien);
             }
             catch (Exception ex)
             {
@@ -226,20 +226,45 @@ namespace QLThiTracNghiem
 
         private bool ValidateInput()
         {
-            /*    string maKhoa = txtMAKHOA.Text.Trim();
-                if (maKhoa == "")
-                {
-                    MessageBox.Show("Mã Khoa không được để trống!", "", MessageBoxButtons.OK);
-                    txtMAKHOA.Focus();
-                    return;
-                }
+            string maSV = txtMASV.Text.Trim();
+            string ho = txtHO.Text.Trim();
+            string ten = txtTEN.Text.Trim();
+            object ngaySinh = dateNGAYSINH.EditValue;
+            string diachi = txtDIACHI.Text.Trim();
+            if (maSV == "")
+            {
+                MessageBox.Show("Mã sinh viên không được để trống!", "", MessageBoxButtons.OK);
+                txtMASV.Focus();
+                return false;
+            }
 
-                if (txtTENKHOA.Text.Trim() == "")
-                {
-                    MessageBox.Show("Tên Khoa không được để trống!", "", MessageBoxButtons.OK);
-                    txtTENKHOA.Focus();
-                    return;
-                }*/
+            if (ho == "")
+            {
+                MessageBox.Show("Họ không được để trống!", "", MessageBoxButtons.OK);
+                txtHO.Focus();
+                return false;
+            }
+
+            if (ten == "")
+            {
+                MessageBox.Show("Tên không được để trống!", "", MessageBoxButtons.OK);
+                txtTEN.Focus();
+                return false;
+            }
+
+            if (diachi == "")
+            {
+                MessageBox.Show("Địa chỉ không được để trống!", "", MessageBoxButtons.OK);
+                txtTEN.Focus();
+                return false;
+            }
+
+            if (ngaySinh == null)
+            {
+                MessageBox.Show("không được để ngày sinh trống!", "", MessageBoxButtons.OK);
+                dateNGAYSINH.Focus();
+                return false;
+            }
             return true;
 
         }
@@ -259,7 +284,7 @@ namespace QLThiTracNghiem
 
                 if (result == 1)
                 {
-                    MessageBox.Show("Đã có mã sinh vien tồn tại trong dữ liệu!", "", MessageBoxButtons.OK);
+                    MessageBox.Show("Đã có mã sinh viên tồn tại trong dữ liệu!", "", MessageBoxButtons.OK);
                     txtMASV.Focus();
                     return false;
                 }
@@ -274,9 +299,9 @@ namespace QLThiTracNghiem
 
         private void btnPhucHoi_Click(object sender, EventArgs e)
         {
-            bdsLOP.CancelEdit();
-            if (validateAction != null) 
-                bdsSINHVIEN.Position = positionSinhVien;
+            bdsLop.CancelEdit();
+            if (validateAction != null)
+                bdsSinhvien.Position = positionSinhVien;
             ActionAfterEditSINHVIEN();
         }
 
@@ -284,7 +309,7 @@ namespace QLThiTracNghiem
         {
             try
             {
-                LOPTableAdapter.Fill(this.DB_TracNghiem.LOP);
+                LopTableAdapter.Fill(this.DB_THI_TN.Lop);
             }
             catch (Exception ex)
             {

@@ -38,16 +38,16 @@ namespace QLThiTracNghiem
                     rbQuanly.Visible = false;
                     btnSignup.Enabled = false;
                     break;
-                case Simple.GroupLoginType.truong:
-                case Simple.GroupLoginType.co_so:
+                case Simple.GroupLoginType.Truong:
+                case Simple.GroupLoginType.CoSo:
                     rbQuanly.Visible = true;
                     btnSignup.Enabled = true;
                     break;
-                case Simple.GroupLoginType.giang_vien:
+                case Simple.GroupLoginType.Giangvien:
                     rbQuanly.Visible = false;
                     btnSignup.Enabled = false;
                     break;
-                case Simple.GroupLoginType.sinh_vien:
+                case Simple.GroupLoginType.Sinhvien:
                     rbQuanly.Visible = false;
                     btnSignup.Enabled = false;
                     break;

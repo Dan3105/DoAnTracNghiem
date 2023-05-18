@@ -63,14 +63,14 @@ namespace QLThiTracNghiem
         {
             switch (Program.groupLoginType)
             {
-                case GroupLoginType.co_so:
-                    this.cbNhom.Items.Add(new ComboRole("Cơ sở",GroupLoginType.co_so ));
+                case GroupLoginType.CoSo:
+                    this.cbNhom.Items.Add(new ComboRole("Cơ sở",GroupLoginType.CoSo ));
                     this.cbNhom.SelectedIndex = 0;
                     this.cbNhom.Enabled = false;
                     break;
-                case GroupLoginType.truong:
-                    this.cbNhom.Items.Add(new ComboRole("Trường", GroupLoginType.truong));
-                    this.cbNhom.Items.Add(new ComboRole("Giảng Viên", GroupLoginType.giang_vien));
+                case GroupLoginType.Truong:
+                    this.cbNhom.Items.Add(new ComboRole("Trường", GroupLoginType.Truong));
+                    this.cbNhom.Items.Add(new ComboRole("Giảng Viên", GroupLoginType.Giangvien));
                     this.cbNhom.SelectedIndex = 0;
                     this.cbNhom.Enabled = true;
                     break;
@@ -114,7 +114,7 @@ namespace QLThiTracNghiem
             }
 
 
-            string sqlCmd = $"Exec Create_User_Login {txtTaiKhoan}, {txtMatKhau}, {roleName}, {txtMaGV}";
+            string sqlCmd = $"Exec SP_Create_User_Login {txtTaiKhoan}, {txtMatKhau}, {roleName}, {txtMaGV}";
             int success = Program.ExecSqlNonQuery(sqlCmd);
             if(success == 1)
             {
