@@ -1,0 +1,12 @@
+﻿Create proc [dbo].[SP_Kiem_Tra_Khoa]
+@MaKhoa nvarchar(15)
+as
+begin
+if exists( Select MAKH from Khoa where KHOA.MAKH = @MaKhoa)
+return 1;
+else 
+if exists(Select MAKH from LINK0.DB_THI_TN.DBO.KHOA as dbtt where dbtt.MAKH = @MaKhoa)
+return 1;
+else
+return 0;
+end

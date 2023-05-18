@@ -1,0 +1,13 @@
+﻿--- phan tan tren site chu
+CREATE VIEW [dbo].[V_DS_PhanManh]
+AS 
+	SELECT 
+		PUBS.description AS TenCS
+		, SUBS.subscriber_server AS MaCS
+	FROM  
+		dbo.sysmergepublications AS PUBS INNER JOIN
+		dbo.sysmergesubscriptions AS SUBS ON PUBS.pubid = SUBS.pubid AND PUBS.publisher <> SUBS.subscriber_server
+	WHERE
+		(PUBS.name <> 'DB_THI_TN_TraCuu')
+
+GO

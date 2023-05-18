@@ -1,0 +1,12 @@
+﻿-- phan tan site
+CREATE VIEW [dbo].[V_DSGV_Chua_Co_TK]
+AS
+	SELECT MAGV, HO + N' ' + TEN AS HOTEN, HOCVI
+	FROM     dbo.Giaovien
+	WHERE  (NOT EXISTS
+						  (SELECT SUSER_NAME(sid) AS Expr1
+						   FROM      sys.sysusers
+						   WHERE   (name = dbo.Giaovien.MAGV)))
+GO
+
+

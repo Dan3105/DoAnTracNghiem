@@ -1,0 +1,5 @@
+﻿Create Proc [dbo].[SP_Tim_MACS]
+as
+begin
+	Select MACS from CoSo
+end

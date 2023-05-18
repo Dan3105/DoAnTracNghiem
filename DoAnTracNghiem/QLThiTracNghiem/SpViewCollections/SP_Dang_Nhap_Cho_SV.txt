@@ -1,0 +1,16 @@
+﻿CREATE proc [dbo].[SP_Dang_Nhap_Cho_SV] 
+@Username nvarchar(15),
+@Password nvarchar(50)
+as
+begin
+	Select MASV, 
+	HOTEN = HO + ' ' + TEN, 
+	TenNhom = (select CoSo = name from sys.sysusers where uid = (
+select groupuid from sys.sysmembers where memberuid = 
+(select uid from sys.sysusers where sid = SUSER_SID('SV'))))
+	from LINK2.DB_THI_TN.DBO.Sinhvien as dbtt 
+	where dbtt.MASV = @Username and dbtt.PASSWORD = @Password
+end
+GO
+
+
