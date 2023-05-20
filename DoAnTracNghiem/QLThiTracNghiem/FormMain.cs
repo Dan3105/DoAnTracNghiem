@@ -36,19 +36,27 @@ namespace QLThiTracNghiem
             {
                 case Simple.GroupLoginType.NONE:
                     rbQuanly.Visible = false;
+                    rbDKThi.Visible = false;
                     btnSignup.Enabled = false;
                     break;
                 case Simple.GroupLoginType.Truong:
+                    rbQuanly.Visible = true;
+                    rbDKThi.Visible = false;
+                    btnSignup.Enabled = true;
+                    break;
                 case Simple.GroupLoginType.CoSo:
                     rbQuanly.Visible = true;
+                    rbDKThi.Visible = true;
                     btnSignup.Enabled = true;
                     break;
                 case Simple.GroupLoginType.Giangvien:
                     rbQuanly.Visible = false;
+                    rbDKThi.Visible = false;
                     btnSignup.Enabled = false;
                     break;
                 case Simple.GroupLoginType.Sinhvien:
                     rbQuanly.Visible = false;
+                    rbDKThi.Visible = false;
                     btnSignup.Enabled = false;
                     break;
             }
@@ -63,6 +71,7 @@ namespace QLThiTracNghiem
         {
             btnLogin.Enabled = true;
             rbQuanly.Visible = false;
+            rbDKThi.Visible = false;
             btnLogout.Enabled = false;
             btnSignup.Enabled = false;
             //redirect to login form
@@ -152,6 +161,18 @@ namespace QLThiTracNghiem
             }
             frmTK.MdiParent = this;
             frmTK.Show();
+        }
+
+        private void btnDkyThi_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            FormChuanBiThi frmDKThi = CheckExists(typeof(FormChuanBiThi)) as FormChuanBiThi;
+            if (frmDKThi == null)
+            {
+                frmDKThi = new FormChuanBiThi();
+            }
+            frmDKThi.MdiParent = this;
+            frmDKThi.Show();
+           
         }
     }
 }

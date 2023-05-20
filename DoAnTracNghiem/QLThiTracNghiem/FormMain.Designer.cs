@@ -46,6 +46,8 @@
             this.rbSystem = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.rbPageUser = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.rbQuanly = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.rbDKThi = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.btnDkyThi = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabbedMdiManager1)).BeginInit();
             this.statusStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).BeginInit();
@@ -99,10 +101,11 @@
             this.btnMONHOC,
             this.btnKHOA,
             this.barBtnLop,
-            this.barBtnSINHVIEN});
+            this.barBtnSINHVIEN,
+            this.btnDkyThi});
             this.ribbonControl1.Location = new System.Drawing.Point(0, 0);
             this.ribbonControl1.Margin = new System.Windows.Forms.Padding(5);
-            this.ribbonControl1.MaxItemId = 14;
+            this.ribbonControl1.MaxItemId = 15;
             this.ribbonControl1.Name = "ribbonControl1";
             this.ribbonControl1.OptionsMenuMinWidth = 515;
             this.ribbonControl1.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
@@ -172,7 +175,8 @@
             // 
             this.rbSystem.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
             this.rbPageUser,
-            this.rbQuanly});
+            this.rbQuanly,
+            this.rbDKThi});
             this.rbSystem.Name = "rbSystem";
             this.rbSystem.Text = "Hệ Thống";
             // 
@@ -188,7 +192,22 @@
             this.rbQuanly.ItemLinks.Add(this.btnMONHOC);
             this.rbQuanly.ItemLinks.Add(this.btnKHOA);
             this.rbQuanly.Name = "rbQuanly";
+            this.rbQuanly.Text = "Quản lý dữ liệu";
             this.rbQuanly.Visible = false;
+            // 
+            // rbDKThi
+            // 
+            this.rbDKThi.ItemLinks.Add(this.btnDkyThi);
+            this.rbDKThi.Name = "rbDKThi";
+            this.rbDKThi.Visible = false;
+            // 
+            // btnDkyThi
+            // 
+            this.btnDkyThi.Caption = "Đăng ký Thi";
+            this.btnDkyThi.Id = 14;
+            this.btnDkyThi.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnDkyThi.ImageOptions.SvgImage")));
+            this.btnDkyThi.Name = "btnDkyThi";
+            this.btnDkyThi.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnDkyThi_ItemClick);
             // 
             // FormMain
             // 
@@ -228,5 +247,7 @@
         private DevExpress.XtraBars.BarSubItem btnKHOA;
         private DevExpress.XtraBars.BarButtonItem barBtnLop;
         private DevExpress.XtraBars.BarButtonItem barBtnSINHVIEN;
+        private DevExpress.XtraBars.BarButtonItem btnDkyThi;
+        private DevExpress.XtraBars.Ribbon.RibbonPageGroup rbDKThi;
     }
 }

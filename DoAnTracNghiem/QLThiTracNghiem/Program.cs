@@ -14,24 +14,24 @@ namespace QLThiTracNghiem
         public enum GroupLoginType
         {
             NONE,
-            truong,
-            co_so,
-            giang_vien,
-            sinh_vien,
+            Truong,
+            CoSo,
+            Giangvien,
+            Sinhvien,
         }
         public static GroupLoginType ConvertLoginGroup(String loginType)
         {
            //Console.WriteLine(loginType);
             switch (loginType)
             {
-                case "truong":
-                    return GroupLoginType.truong;
-                case "co_so":
-                    return GroupLoginType.co_so;
-                case "giang_vien":
-                    return GroupLoginType.giang_vien;
-                case "sinh_vien":
-                    return GroupLoginType.sinh_vien;
+                case "Truong":
+                    return GroupLoginType.Truong;
+                case "CoSo":
+                    return GroupLoginType.CoSo;
+                case "Giangvien":
+                    return GroupLoginType.Giangvien;
+                case "Sinhvien":
+                    return GroupLoginType.Sinhvien;
                 default:
                     return GroupLoginType.NONE;
             }
@@ -41,7 +41,7 @@ namespace QLThiTracNghiem
     internal static class Program
     {
         private static string serverNameBase = "DESKTOP-5Q314UD";
-        private static string dbname = "DB_TracNghiem";
+        private static string dbname = "DB_THI_TN";
 
         public static SqlConnection conn = new SqlConnection();
         //Ten Conn dang ket noi
@@ -79,6 +79,7 @@ namespace QLThiTracNghiem
         public static BindingSource bds_dspm = new BindingSource();
         public static FormMain mainForm;
 
+        
         public static int KetNoi()
         {
             if (Program.conn != null && Program.conn.State == System.Data.ConnectionState.Open)

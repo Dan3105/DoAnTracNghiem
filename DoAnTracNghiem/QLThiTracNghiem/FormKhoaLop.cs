@@ -30,6 +30,8 @@ namespace QLThiTracNghiem
 
         private void FormKhoaLop_Load(object sender, EventArgs e)
         {
+            this.DB_THI_TN.EnforceConstraints = false;
+
             this.LopTableAdapter.Connection.ConnectionString = Program.connstr;
             // TODO: This line of code loads data into the 'DB_THI_TN.Lop' table. You can move, or remove it, as needed.
             this.LopTableAdapter.Fill(this.DB_THI_TN.Lop);
