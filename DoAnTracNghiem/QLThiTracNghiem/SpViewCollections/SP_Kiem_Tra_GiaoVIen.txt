@@ -1,0 +1,16 @@
+USE [DB_THI_TN]
+GO
+/****** Object:  StoredProcedure [dbo].[SP_Kiem_Tra_GiaoVien]    Script Date: 5/22/2023 7:38:43 AM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE proc [dbo].[SP_Kiem_Tra_GiaoVien]
+@MaGV nchar(8)
+as
+begin
+if(exists(Select MAGV from Giaovien where MAGV = @MaGV))
+return 1;
+else
+return 0;
+end
