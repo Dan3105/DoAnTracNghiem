@@ -174,5 +174,32 @@ namespace QLThiTracNghiem
             frmDKThi.Show();
            
         }
+
+        private void btnGIAOVIEN_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            FormGiaoVien frmGiaoVien = CheckExists(typeof(FormGiaoVien)) as FormGiaoVien;
+            if (frmGiaoVien == null)
+            {
+                frmGiaoVien = new FormGiaoVien();
+            }
+            frmGiaoVien.MdiParent = this;
+            frmGiaoVien.Show();
+        }
+
+        private void btnTHITHU_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+
+        }
+
+        private void btnBODE_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            FormBode frmBode = CheckExists(typeof(FormBode)) as FormBode;
+            if (frmBode == null)
+            {
+                frmBode = new FormBode();
+            }
+            frmBode.MdiParent = this;
+            frmBode.Show();
+        }
     }
 }

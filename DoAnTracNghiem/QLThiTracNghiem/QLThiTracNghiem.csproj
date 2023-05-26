@@ -80,9 +80,6 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DB_THI_TN.cs">
-      <DependentUpon>DB_THI_TN.xsd</DependentUpon>
-    </Compile>
     <Compile Include="DB_THI_TN.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

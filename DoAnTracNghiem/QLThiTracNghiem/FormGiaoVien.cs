@@ -21,7 +21,7 @@ namespace QLThiTracNghiem
         public FormGiaoVien()
         {
             InitializeComponent();
-            
+            this.gcGIAOVIEN.ContextMenuStrip = contextMenuStrip1;
         }
 
         private void khoaBindingNavigatorSaveItem_Click(object sender, EventArgs e)
