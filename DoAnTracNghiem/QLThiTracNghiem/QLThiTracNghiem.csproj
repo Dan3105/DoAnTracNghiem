@@ -91,6 +91,12 @@
     <Compile Include="FormBode.Designer.cs">
       <DependentUpon>FormBode.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormChonLichThi.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormChonLichThi.Designer.cs">
+      <DependentUpon>FormChonLichThi.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormChuanBiThi.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -114,6 +120,12 @@
     </Compile>
     <Compile Include="FormKhoaLop.Designer.cs">
       <DependentUpon>FormKhoaLop.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormLichThiThu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormLichThiThu.Designer.cs">
+      <DependentUpon>FormLichThiThu.cs</DependentUpon>
     </Compile>
     <Compile Include="FormMain.cs">
       <SubType>Form</SubType>
@@ -139,6 +151,12 @@
     <Compile Include="FormTaoTK.Designer.cs">
       <DependentUpon>FormTaoTK.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormThi.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormThi.Designer.cs">
+      <DependentUpon>FormThi.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SqlCollections.cs" />
@@ -158,6 +176,9 @@
     <EmbeddedResource Include="FormBode.resx">
       <DependentUpon>FormBode.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormChonLichThi.resx">
+      <DependentUpon>FormChonLichThi.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormChuanBiThi.resx">
       <DependentUpon>FormChuanBiThi.cs</DependentUpon>
     </EmbeddedResource>
@@ -170,6 +191,9 @@
     <EmbeddedResource Include="FormKhoaLop.resx">
       <DependentUpon>FormKhoaLop.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormLichThiThu.resx">
+      <DependentUpon>FormLichThiThu.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormMain.resx">
       <DependentUpon>FormMain.cs</DependentUpon>
     </EmbeddedResource>
@@ -181,6 +205,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormTaoTK.resx">
       <DependentUpon>FormTaoTK.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormThi.resx">
+      <DependentUpon>FormThi.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">

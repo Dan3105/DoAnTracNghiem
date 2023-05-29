@@ -1,15 +1,12 @@
 USE [DB_THI_TN]
 GO
-
-/****** Object:  StoredProcedure [dbo].[SP_KT_DKThi]    Script Date: 26/05/2023 9:22:06 SA ******/
+/****** Object:  StoredProcedure [dbo].[SP_KT_DKThi]    Script Date: 29/05/2023 9:28:24 SA ******/
 SET ANSI_NULLS ON
 GO
-
 SET QUOTED_IDENTIFIER ON
 GO
 
-
-CREATE proc [dbo].[SP_KT_DKThi]
+ALTER proc [dbo].[SP_KT_DKThi]
 @trinhdo nvarchar(1),
 @socauthi int,
 @monhoc as nchar(5)
@@ -23,12 +20,15 @@ set @trinhdo2 = 'B'
 else if(@trinhdo = 'B') 
 set @trinhdo2 = 'C'
 
+-- 0: đủ
+-- # 0: số câu còn thiếu
 -- Lọc câu hỏi theo môn học 
+
 Select CAUHOI, TRINHDO  into #temp from Bode where MAMH = @monhoc
 
 select @tongCauTrinhDo = count(CAUHOI)  from #temp where @trinhdo = TRINHDO
 if(@tongCauTrinhDo >= @socauthi)
-	return 1;
+	return 0;
 else
 	begin
 	if(@tongCauTrinhDo >= @socauthi * 0.7)
@@ -36,19 +36,16 @@ else
 		declare @tongCauTrinhDoDuoi int
 		select @tongCauTrinhDoDuoi = count(CAUHOI) from #temp where @trinhdo2 = TRINHDO
 			if(@tongCauTrinhDo + @tongCauTrinhDoDuoi >= @socauthi)
-				return 1;
+				return 0;
 		else
-			raiserror('Số câu ở trình độ thấp hơn không đủ để bù thêm cho câu ở trình độ hiện tại là %d. Cụ thể số câu ở trình độ hiện tại: %d
-			 số câu trình độ dưới 1 bậc: %d
-			Tổng số câu thi: %d', 16,2,@tongCauTrinhDoDuoi, @tongCauTrinhDo, @soCauThi);
-			return -1;
+			--raiserror('Số câu ở trình độ thấp hơn không đủ để bù thêm cho câu ở trình độ hiện tại là %d. Cụ thể số câu ở trình độ hiện tại: %d
+			 --số câu trình độ dưới 1 bậc: %d
+			--Tổng số câu thi: %d', 16,2,@tongCauTrinhDoDuoi, @tongCauTrinhDo, @soCauThi);
+			return @soCauThi - @tongCauTrinhDo - @tongCauTrinhDoDuoi ;
 		end
 	else
 		declare @socauthieu int = @socauthi - @tongCauTrinhDo
-		raiserror('Thiếu %d số câu. Cụ thể số câu trình độ hiện tại: %d Số câu thi: %d', 16,2, @socauthieu, @tongCauTrinhDo, @socauthi);
-		return -1;
+		--raiserror('Thiếu %d số câu. Cụ thể số câu trình độ hiện tại: %d Số câu thi: %d', 16,2, @socauthieu, @tongCauTrinhDo, @socauthi);
+		return @socauthieu;
 	end
 end
-GO
-
-

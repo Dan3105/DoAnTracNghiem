@@ -98,12 +98,24 @@ namespace QLThiTracNghiem
             try
             {
                 Program.username = Program.myReader.GetString(0);
-                Program.fullname = Program.myReader.GetString(1);
+
+                if(isTeacher)
+                {
+                    Program.fullname = Program.myReader.GetString(1);
+                    Program.groupLoginType = Simple.ConvertLoginGroup(Program.myReader.GetString(2));
+                }
+                else
+                {
+                    Program.MaLop = Program.myReader.GetString(1);
+                    Program.fullname = Program.myReader.GetString(2);
+                    Program.groupLoginType = Simple.ConvertLoginGroup(Program.myReader.GetString(3));
+                }
+               
                 Program.currentServerIndex = cbServer.SelectedIndex;
                 Program.mloginDN = Program.mlogin;
                 Program.mpasswordDN = Program.password;
 
-                Program.groupLoginType = Simple.ConvertLoginGroup(Program.myReader.GetString(2));
+
                 
                 Program.mainForm.AssignUserLoginData();
                 

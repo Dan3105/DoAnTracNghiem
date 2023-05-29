@@ -54,9 +54,9 @@
             this.nGAYTHIDateEdit = new DevExpress.XtraEditors.DateEdit();
             this.cbTRINHDO = new System.Windows.Forms.ComboBox();
             this.cbTENMH = new System.Windows.Forms.ComboBox();
+            this.bdsMonhoc = new System.Windows.Forms.BindingSource(this.components);
             this.txtMALOP = new DevExpress.XtraEditors.TextEdit();
             this.txtMAGV = new DevExpress.XtraEditors.TextEdit();
-            this.bdsMonhoc = new System.Windows.Forms.BindingSource(this.components);
             this.MonhocTableAdapter = new QLThiTracNghiem.DB_THI_TNTableAdapters.MonhocTableAdapter();
             mAGVLabel = new System.Windows.Forms.Label();
             mALOPLabel = new System.Windows.Forms.Label();
@@ -75,9 +75,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtSOCAUTHI.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nGAYTHIDateEdit.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nGAYTHIDateEdit.Properties.CalendarTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bdsMonhoc)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMALOP.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMAGV.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bdsMonhoc)).BeginInit();
             this.SuspendLayout();
             // 
             // mAGVLabel
@@ -169,8 +169,11 @@
             // tableAdapterManager
             // 
             this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
+            this.tableAdapterManager.BangDiemTableAdapter = null;
             this.tableAdapterManager.BodeTableAdapter = null;
+            this.tableAdapterManager.ChiTiet_BaiThiTableAdapter = null;
             this.tableAdapterManager.Giaovien_DangkyTableAdapter = this.Giaovien_DangkyTableAdapter;
+            this.tableAdapterManager.GiaovienTableAdapter = null;
             this.tableAdapterManager.KhoaTableAdapter = null;
             this.tableAdapterManager.LopTableAdapter = null;
             this.tableAdapterManager.MonhocTableAdapter = null;
@@ -189,7 +192,7 @@
             this.tableLayoutPanel1.RowCount = 2;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 14.2132F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 85.7868F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(865, 394);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(1438, 394);
             this.tableLayoutPanel1.TabIndex = 6;
             // 
             // labelControl1
@@ -200,7 +203,7 @@
             this.labelControl1.Location = new System.Drawing.Point(3, 3);
             this.labelControl1.Name = "labelControl1";
             this.labelControl1.Padding = new System.Windows.Forms.Padding(40, 0, 0, 0);
-            this.labelControl1.Size = new System.Drawing.Size(859, 50);
+            this.labelControl1.Size = new System.Drawing.Size(1432, 50);
             this.labelControl1.TabIndex = 0;
             this.labelControl1.Text = "Form Nhập Lịch thi";
             // 
@@ -228,7 +231,7 @@
             this.panelControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelControl1.Location = new System.Drawing.Point(3, 59);
             this.panelControl1.Name = "panelControl1";
-            this.panelControl1.Size = new System.Drawing.Size(859, 332);
+            this.panelControl1.Size = new System.Drawing.Size(1432, 332);
             this.panelControl1.TabIndex = 1;
             // 
             // btnXemLop
@@ -357,6 +360,11 @@
             this.cbTENMH.TabIndex = 6;
             this.cbTENMH.ValueMember = "MAMH";
             // 
+            // bdsMonhoc
+            // 
+            this.bdsMonhoc.DataMember = "Monhoc";
+            this.bdsMonhoc.DataSource = this.DB_THI_TN;
+            // 
             // txtMALOP
             // 
             this.txtMALOP.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bdsGiaovien_Dangky, "MALOP", true));
@@ -375,11 +383,6 @@
             this.txtMAGV.Size = new System.Drawing.Size(125, 22);
             this.txtMAGV.TabIndex = 1;
             // 
-            // bdsMonhoc
-            // 
-            this.bdsMonhoc.DataMember = "Monhoc";
-            this.bdsMonhoc.DataSource = this.DB_THI_TN;
-            // 
             // MonhocTableAdapter
             // 
             this.MonhocTableAdapter.ClearBeforeFill = true;
@@ -388,7 +391,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(865, 394);
+            this.ClientSize = new System.Drawing.Size(1438, 394);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "FormChuanBiThi";
             this.Text = "FormChuanBiThi";
@@ -404,9 +407,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtSOCAUTHI.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nGAYTHIDateEdit.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nGAYTHIDateEdit.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bdsMonhoc)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMALOP.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMAGV.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bdsMonhoc)).EndInit();
             this.ResumeLayout(false);
 
         }

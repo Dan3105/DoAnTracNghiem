@@ -36,28 +36,33 @@ namespace QLThiTracNghiem
             {
                 case Simple.GroupLoginType.NONE:
                     rbQuanly.Visible = false;
-                    rbDKThi.Visible = false;
+                    rbGV.Visible = false;
                     btnSignup.Enabled = false;
+                    rbSinhVien.Visible = false;
                     break;
                 case Simple.GroupLoginType.Truong:
                     rbQuanly.Visible = true;
-                    rbDKThi.Visible = false;
+                    rbGV.Visible = false;
                     btnSignup.Enabled = true;
+                    rbSinhVien.Visible = false;
                     break;
                 case Simple.GroupLoginType.CoSo:
                     rbQuanly.Visible = true;
-                    rbDKThi.Visible = true;
+                    rbGV.Visible = true;
                     btnSignup.Enabled = true;
+                    rbSinhVien.Visible = false;
                     break;
                 case Simple.GroupLoginType.Giangvien:
                     rbQuanly.Visible = false;
-                    rbDKThi.Visible = false;
+                    rbGV.Visible = false;
                     btnSignup.Enabled = false;
+                    rbSinhVien.Visible = false;
                     break;
                 case Simple.GroupLoginType.Sinhvien:
                     rbQuanly.Visible = false;
-                    rbDKThi.Visible = false;
+                    rbGV.Visible = false;
                     btnSignup.Enabled = false;
+                    rbSinhVien.Visible = true;
                     break;
             }
             btnLogin.Enabled = false;
@@ -71,7 +76,7 @@ namespace QLThiTracNghiem
         {
             btnLogin.Enabled = true;
             rbQuanly.Visible = false;
-            rbDKThi.Visible = false;
+            rbGV.Visible = false;
             btnLogout.Enabled = false;
             btnSignup.Enabled = false;
             //redirect to login form
@@ -188,7 +193,13 @@ namespace QLThiTracNghiem
 
         private void btnTHITHU_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-
+            FormLichThiThu formLichThiThu = CheckExists(typeof(FormLichThiThu)) as FormLichThiThu;
+            if (formLichThiThu == null)
+            {
+                formLichThiThu = new FormLichThiThu();
+            }
+            formLichThiThu.MdiParent = this;
+            formLichThiThu.Show();
         }
 
         private void btnBODE_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
@@ -200,6 +211,17 @@ namespace QLThiTracNghiem
             }
             frmBode.MdiParent = this;
             frmBode.Show();
+        }
+
+        private void btnThi_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            FormChonLichThi frm = CheckExists(typeof(FormChonLichThi)) as FormChonLichThi;
+            if (frm == null)
+            {
+                frm = new FormChonLichThi();
+            }
+            frm.MdiParent = this;
+            frm.Show();
         }
     }
 }

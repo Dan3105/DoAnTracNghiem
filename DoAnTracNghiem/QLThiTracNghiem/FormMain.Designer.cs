@@ -44,13 +44,15 @@
             this.barBtnLop = new DevExpress.XtraBars.BarButtonItem();
             this.barBtnSINHVIEN = new DevExpress.XtraBars.BarButtonItem();
             this.btnDkyThi = new DevExpress.XtraBars.BarButtonItem();
-            this.rbSystem = new DevExpress.XtraBars.Ribbon.RibbonPage();
-            this.rbPageUser = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-            this.rbQuanly = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-            this.rbDKThi = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.btnGIAOVIEN = new DevExpress.XtraBars.BarButtonItem();
             this.btnBODE = new DevExpress.XtraBars.BarButtonItem();
             this.btnTHITHU = new DevExpress.XtraBars.BarButtonItem();
+            this.btnThi = new DevExpress.XtraBars.BarButtonItem();
+            this.rbSystem = new DevExpress.XtraBars.Ribbon.RibbonPage();
+            this.rbPageUser = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.rbQuanly = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.rbGV = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.rbSinhVien = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabbedMdiManager1)).BeginInit();
             this.statusStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).BeginInit();
@@ -108,10 +110,11 @@
             this.btnDkyThi,
             this.btnGIAOVIEN,
             this.btnBODE,
-            this.btnTHITHU});
+            this.btnTHITHU,
+            this.btnThi});
             this.ribbonControl1.Location = new System.Drawing.Point(0, 0);
             this.ribbonControl1.Margin = new System.Windows.Forms.Padding(5);
-            this.ribbonControl1.MaxItemId = 18;
+            this.ribbonControl1.MaxItemId = 19;
             this.ribbonControl1.Name = "ribbonControl1";
             this.ribbonControl1.OptionsMenuMinWidth = 515;
             this.ribbonControl1.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
@@ -185,38 +188,6 @@
             this.btnDkyThi.Name = "btnDkyThi";
             this.btnDkyThi.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnDkyThi_ItemClick);
             // 
-            // rbSystem
-            // 
-            this.rbSystem.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
-            this.rbPageUser,
-            this.rbQuanly,
-            this.rbDKThi});
-            this.rbSystem.Name = "rbSystem";
-            this.rbSystem.Text = "Hệ Thống";
-            // 
-            // rbPageUser
-            // 
-            this.rbPageUser.ItemLinks.Add(this.btnLogin);
-            this.rbPageUser.ItemLinks.Add(this.btnSignup);
-            this.rbPageUser.ItemLinks.Add(this.btnLogout);
-            this.rbPageUser.Name = "rbPageUser";
-            // 
-            // rbQuanly
-            // 
-            this.rbQuanly.ItemLinks.Add(this.btnMONHOC);
-            this.rbQuanly.ItemLinks.Add(this.btnKHOA);
-            this.rbQuanly.ItemLinks.Add(this.btnGIAOVIEN);
-            this.rbQuanly.Name = "rbQuanly";
-            this.rbQuanly.Text = "Quản lý dữ liệu";
-            this.rbQuanly.Visible = false;
-            // 
-            // rbDKThi
-            // 
-            this.rbDKThi.ItemLinks.Add(this.btnDkyThi);
-            this.rbDKThi.ItemLinks.Add(this.btnBODE);
-            this.rbDKThi.ItemLinks.Add(this.btnTHITHU);
-            this.rbDKThi.Name = "rbDKThi";
-            // 
             // btnGIAOVIEN
             // 
             this.btnGIAOVIEN.Caption = "Quản lý Giáo viên";
@@ -240,6 +211,53 @@
             this.btnTHITHU.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnTHITHU.ImageOptions.SvgImage")));
             this.btnTHITHU.Name = "btnTHITHU";
             this.btnTHITHU.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnTHITHU_ItemClick);
+            // 
+            // btnThi
+            // 
+            this.btnThi.Caption = "Thi";
+            this.btnThi.Id = 18;
+            this.btnThi.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnThi.ImageOptions.SvgImage")));
+            this.btnThi.Name = "btnThi";
+            this.btnThi.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnThi_ItemClick);
+            // 
+            // rbSystem
+            // 
+            this.rbSystem.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
+            this.rbPageUser,
+            this.rbQuanly,
+            this.rbGV,
+            this.rbSinhVien});
+            this.rbSystem.Name = "rbSystem";
+            this.rbSystem.Text = "Hệ Thống";
+            // 
+            // rbPageUser
+            // 
+            this.rbPageUser.ItemLinks.Add(this.btnLogin);
+            this.rbPageUser.ItemLinks.Add(this.btnSignup);
+            this.rbPageUser.ItemLinks.Add(this.btnLogout);
+            this.rbPageUser.Name = "rbPageUser";
+            // 
+            // rbQuanly
+            // 
+            this.rbQuanly.ItemLinks.Add(this.btnMONHOC);
+            this.rbQuanly.ItemLinks.Add(this.btnKHOA);
+            this.rbQuanly.ItemLinks.Add(this.btnGIAOVIEN);
+            this.rbQuanly.Name = "rbQuanly";
+            this.rbQuanly.Text = "Quản lý dữ liệu";
+            this.rbQuanly.Visible = false;
+            // 
+            // rbGV
+            // 
+            this.rbGV.ItemLinks.Add(this.btnDkyThi);
+            this.rbGV.ItemLinks.Add(this.btnBODE);
+            this.rbGV.ItemLinks.Add(this.btnTHITHU);
+            this.rbGV.Name = "rbGV";
+            // 
+            // rbSinhVien
+            // 
+            this.rbSinhVien.ItemLinks.Add(this.btnThi);
+            this.rbSinhVien.Name = "rbSinhVien";
+            this.rbSinhVien.Visible = false;
             // 
             // FormMain
             // 
@@ -280,9 +298,11 @@
         private DevExpress.XtraBars.BarButtonItem barBtnLop;
         private DevExpress.XtraBars.BarButtonItem barBtnSINHVIEN;
         private DevExpress.XtraBars.BarButtonItem btnDkyThi;
-        private DevExpress.XtraBars.Ribbon.RibbonPageGroup rbDKThi;
+        private DevExpress.XtraBars.Ribbon.RibbonPageGroup rbGV;
         private DevExpress.XtraBars.BarButtonItem btnGIAOVIEN;
         private DevExpress.XtraBars.BarButtonItem btnBODE;
         private DevExpress.XtraBars.BarButtonItem btnTHITHU;
+        private DevExpress.XtraBars.BarButtonItem btnThi;
+        private DevExpress.XtraBars.Ribbon.RibbonPageGroup rbSinhVien;
     }
 }

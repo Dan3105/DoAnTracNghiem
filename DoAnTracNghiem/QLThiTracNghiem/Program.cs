@@ -57,11 +57,11 @@ namespace QLThiTracNghiem
         //TK HTKN
         public static string remote_login = "HTKN";
         public static string remote_password = "kc";
-
+        
         //TK SV
         public static string sv_login = "SV";
         public static string sv_password = "kc";
-
+        public static string MaLop = "";
         #region Thong Tin User
         public static string username = "";
         public static string fullname = "";
@@ -157,14 +157,8 @@ namespace QLThiTracNghiem
 
         public static void ResetUser()
         {
-            //username = "";
-            //fullname = "";
-            //currentServerIndex = 0;
-            //mloginDN = "";
             mlogin = "";
-            //groupLoginType = Simple.GroupLoginType.NONE;
             password = "";
-            //mpasswordDN = "";
         }
         /// <summary>
         /// The main entry point for the application.
