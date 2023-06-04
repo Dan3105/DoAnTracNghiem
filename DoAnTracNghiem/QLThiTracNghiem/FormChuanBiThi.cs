@@ -16,17 +16,7 @@ namespace QLThiTracNghiem
    
     public partial class FormChuanBiThi : DevExpress.XtraEditors.XtraForm
     {
-        private string currentMaMH;
 
-        public string CurrentMaMH
-        {
-            private get 
-            { return currentMaMH;}
-            set {
-                this.currentMaMH = value;
-                this.txtMALOP.Text = this.currentMaMH;
-            }
-        }
         public FormChuanBiThi()
         {
             InitializeComponent();
@@ -164,13 +154,19 @@ namespace QLThiTracNghiem
         private void btnXemLop_Click(object sender, EventArgs e)
         {
             SubFormChonLop subFormChonLop = new SubFormChonLop();
-            subFormChonLop.SetFormCbiThi(this);
+            //subFormChonLop.SetFormCbiThi(this);
+            subFormChonLop.SetActionKetThuc(SetThongTinLop);
             subFormChonLop.ShowDialog(this);
         }
 
         private void btnThoat_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void SetThongTinLop(string maLop, string tenLop)
+        {
+            this.txtMALOP.Text = maLop;
         }
     }
 }

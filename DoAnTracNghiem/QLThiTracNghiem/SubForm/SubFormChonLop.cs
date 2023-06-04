@@ -13,10 +13,15 @@ namespace QLThiTracNghiem.SubForm
 {
     public partial class SubFormChonLop : DevExpress.XtraEditors.XtraForm
     {
-        private FormChuanBiThi frm;
-        public void SetFormCbiThi(FormChuanBiThi frm)
+       
+        private static string MaLop { get; set; }
+        private static string TenLop { get; set; }
+
+        private Action<string, string> setThongTin;
+        public void SetActionKetThuc(Action<string, string> _setThongTin)
         {
-            this.frm = frm;
+            setThongTin = null;
+            this.setThongTin += _setThongTin;
         }
         public SubFormChonLop()
         {
@@ -48,11 +53,13 @@ namespace QLThiTracNghiem.SubForm
             if(bdsLop.Position == -1)
             {
                 MessageBox.Show("Không có tên lớp nào đuọcư chọn", "", MessageBoxButtons.OK);
-                frm.CurrentMaMH = "";
+                //frm.CurrentMaMH = "";
                 this.Close();
                 return;
             }
-            frm.CurrentMaMH = ((DataRowView)bdsLop[bdsLop.Position])["MALOP"].ToString();
+            MaLop = ((DataRowView)bdsLop[bdsLop.Position])["MALOP"].ToString();
+            TenLop = ((DataRowView)bdsLop[bdsLop.Position])["TENLOP"].ToString();
+            this.setThongTin?.Invoke(MaLop, TenLop);
             this.Close();
         }
 
