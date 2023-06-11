@@ -223,5 +223,16 @@ namespace QLThiTracNghiem
             frm.MdiParent = this;
             frm.Show();
         }
+
+        private void btnBaoCaoDKyThi_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            Frpt_Xem_DanhSach_Dangky_thi frm = CheckExists(typeof(Frpt_Xem_DanhSach_Dangky_thi)) as Frpt_Xem_DanhSach_Dangky_thi;
+            if (frm == null)
+            {
+                frm = new Frpt_Xem_DanhSach_Dangky_thi();
+            }
+            frm.MdiParent = this;
+            frm.Show();
+        }
     }
 }
