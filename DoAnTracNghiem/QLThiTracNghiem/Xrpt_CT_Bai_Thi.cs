@@ -1,0 +1,33 @@
+﻿using DevExpress.XtraReports.UI;
+using System;
+using System.Collections;
+using System.ComponentModel;
+using System.Drawing;
+
+namespace QLThiTracNghiem
+{
+    public partial class Xrpt_CT_Bai_Thi : DevExpress.XtraReports.UI.XtraReport
+    {
+        public Xrpt_CT_Bai_Thi()
+        {
+            InitializeComponent();
+        }
+
+        public Xrpt_CT_Bai_Thi(String maSV, string maMH, int lan)
+        {
+            InitializeComponent();
+            this.sqlDataSource1.Connection.ConnectionString = Program.connstr;
+            this.sqlDataSource1.Queries[0].Parameters[0].Value = maSV;
+            this.sqlDataSource1.Queries[0].Parameters[1].Value = maMH;
+            this.sqlDataSource1.Queries[0].Parameters[2].Value = lan;
+            this.sqlDataSource1.Fill();
+
+        }
+
+        private void tableCell10_BeforePrint(object sender, CancelEventArgs e)
+        {
+            XRLabel label = (XRLabel)sender;
+            label.Text = label.Text.Replace("\\n", Environment.NewLine);
+        }
+    }
+}
