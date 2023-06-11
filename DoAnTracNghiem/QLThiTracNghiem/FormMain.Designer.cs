@@ -48,15 +48,16 @@
             this.btnBODE = new DevExpress.XtraBars.BarButtonItem();
             this.btnTHITHU = new DevExpress.XtraBars.BarButtonItem();
             this.btnThi = new DevExpress.XtraBars.BarButtonItem();
+            this.btnBaoCaoDangKy = new DevExpress.XtraBars.BarButtonItem();
+            this.btnBaoCaoDKyThi = new DevExpress.XtraBars.BarButtonItem();
             this.rbSystem = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.rbPageUser = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.rbQuanly = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.rbGV = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.rbSinhVien = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-            this.btnBaoCaoDangKy = new DevExpress.XtraBars.BarButtonItem();
-            this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.rbPageBaoCao = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-            this.btnBaoCaoDKyThi = new DevExpress.XtraBars.BarButtonItem();
+            this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.btnXemKQThi = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabbedMdiManager1)).BeginInit();
             this.statusStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).BeginInit();
@@ -73,33 +74,34 @@
             this.MAUSER,
             this.HOTEN,
             this.NHOM});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 586);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 475);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(1133, 26);
+            this.statusStrip1.Padding = new System.Windows.Forms.Padding(1, 0, 10, 0);
+            this.statusStrip1.Size = new System.Drawing.Size(850, 22);
             this.statusStrip1.TabIndex = 1;
             this.statusStrip1.Text = "statusStrip1";
             // 
             // MAUSER
             // 
             this.MAUSER.Name = "MAUSER";
-            this.MAUSER.Size = new System.Drawing.Size(67, 20);
+            this.MAUSER.Size = new System.Drawing.Size(53, 17);
             this.MAUSER.Text = "MAUSER";
             // 
             // HOTEN
             // 
             this.HOTEN.Name = "HOTEN";
-            this.HOTEN.Size = new System.Drawing.Size(57, 20);
+            this.HOTEN.Size = new System.Drawing.Size(45, 17);
             this.HOTEN.Text = "HOTEN";
             // 
             // NHOM
             // 
             this.NHOM.Name = "NHOM";
-            this.NHOM.Size = new System.Drawing.Size(55, 20);
+            this.NHOM.Size = new System.Drawing.Size(45, 17);
             this.NHOM.Text = "NHOM";
             // 
             // ribbonControl1
             // 
-            this.ribbonControl1.EmptyAreaImageOptions.ImagePadding = new System.Windows.Forms.Padding(57);
+            this.ribbonControl1.EmptyAreaImageOptions.ImagePadding = new System.Windows.Forms.Padding(43, 46, 43, 46);
             this.ribbonControl1.ExpandCollapseItem.Id = 0;
             this.ribbonControl1.Items.AddRange(new DevExpress.XtraBars.BarItem[] {
             this.ribbonControl1.ExpandCollapseItem,
@@ -117,15 +119,16 @@
             this.btnTHITHU,
             this.btnThi,
             this.btnBaoCaoDangKy,
-            this.btnBaoCaoDKyThi});
+            this.btnBaoCaoDKyThi,
+            this.btnXemKQThi});
             this.ribbonControl1.Location = new System.Drawing.Point(0, 0);
-            this.ribbonControl1.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
-            this.ribbonControl1.MaxItemId = 21;
+            this.ribbonControl1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.ribbonControl1.MaxItemId = 22;
             this.ribbonControl1.Name = "ribbonControl1";
-            this.ribbonControl1.OptionsMenuMinWidth = 644;
+            this.ribbonControl1.OptionsMenuMinWidth = 483;
             this.ribbonControl1.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.rbSystem});
-            this.ribbonControl1.Size = new System.Drawing.Size(1133, 183);
+            this.ribbonControl1.Size = new System.Drawing.Size(850, 150);
             // 
             // btnLogin
             // 
@@ -226,6 +229,20 @@
             this.btnThi.Name = "btnThi";
             this.btnThi.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnThi_ItemClick);
             // 
+            // btnBaoCaoDangKy
+            // 
+            this.btnBaoCaoDangKy.Caption = "Báo cáo đăng ký Thi";
+            this.btnBaoCaoDangKy.Id = 19;
+            this.btnBaoCaoDangKy.Name = "btnBaoCaoDangKy";
+            // 
+            // btnBaoCaoDKyThi
+            // 
+            this.btnBaoCaoDKyThi.Caption = "Báo cáo danh sách đăng ký";
+            this.btnBaoCaoDKyThi.Id = 20;
+            this.btnBaoCaoDKyThi.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnBaoCaoDKyThi.ImageOptions.SvgImage")));
+            this.btnBaoCaoDKyThi.Name = "btnBaoCaoDKyThi";
+            this.btnBaoCaoDKyThi.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnBaoCaoDKyThi_ItemClick);
+            // 
             // rbSystem
             // 
             this.rbSystem.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
@@ -263,40 +280,37 @@
             // rbSinhVien
             // 
             this.rbSinhVien.ItemLinks.Add(this.btnThi);
+            this.rbSinhVien.ItemLinks.Add(this.btnXemKQThi);
             this.rbSinhVien.Name = "rbSinhVien";
             this.rbSinhVien.Visible = false;
-            // 
-            // btnBaoCaoDangKy
-            // 
-            this.btnBaoCaoDangKy.Caption = "Báo cáo đăng ký Thi";
-            this.btnBaoCaoDangKy.Id = 19;
-            this.btnBaoCaoDangKy.Name = "btnBaoCaoDangKy";
-            // 
-            // ribbonPageGroup1
-            // 
-            this.ribbonPageGroup1.Name = "ribbonPageGroup1";
             // 
             // rbPageBaoCao
             // 
             this.rbPageBaoCao.ItemLinks.Add(this.btnBaoCaoDKyThi);
             this.rbPageBaoCao.Name = "rbPageBaoCao";
             // 
-            // btnBaoCaoDKyThi
+            // ribbonPageGroup1
             // 
-            this.btnBaoCaoDKyThi.Caption = "Báo cáo danh sách đăng ký";
-            this.btnBaoCaoDKyThi.Id = 20;
-            this.btnBaoCaoDKyThi.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnBaoCaoDKyThi.ImageOptions.SvgImage")));
-            this.btnBaoCaoDKyThi.Name = "btnBaoCaoDKyThi";
-            this.btnBaoCaoDKyThi.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnBaoCaoDKyThi_ItemClick);
+            this.ribbonPageGroup1.Name = "ribbonPageGroup1";
+            // 
+            // btnXemKQThi
+            // 
+            this.btnXemKQThi.Caption = "Xem kết quả thi";
+            this.btnXemKQThi.Id = 21;
+            this.btnXemKQThi.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnXemKQThi.ImageOptions.Image")));
+            this.btnXemKQThi.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnXemKQThi.ImageOptions.LargeImage")));
+            this.btnXemKQThi.Name = "btnXemKQThi";
+            this.btnXemKQThi.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnXemKQThi_ItemClick);
             // 
             // FormMain
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1133, 612);
+            this.ClientSize = new System.Drawing.Size(850, 497);
             this.Controls.Add(this.ribbonControl1);
             this.Controls.Add(this.statusStrip1);
             this.IsMdiContainer = true;
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "FormMain";
             this.Text = "MainForm";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
@@ -338,5 +352,6 @@
         private DevExpress.XtraBars.BarButtonItem btnBaoCaoDKyThi;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup rbPageBaoCao;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup1;
+        private DevExpress.XtraBars.BarButtonItem btnXemKQThi;
     }
 }

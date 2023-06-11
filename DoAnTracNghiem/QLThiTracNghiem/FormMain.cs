@@ -204,10 +204,10 @@ namespace QLThiTracNghiem
 
         private void btnBODE_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            FormBode frmBode = CheckExists(typeof(FormBode)) as FormBode;
+            FormNhapDe frmBode = CheckExists(typeof(FormNhapDe)) as FormNhapDe;
             if (frmBode == null)
             {
-                frmBode = new FormBode();
+                frmBode = new FormNhapDe();
             }
             frmBode.MdiParent = this;
             frmBode.Show();
@@ -230,6 +230,17 @@ namespace QLThiTracNghiem
             if (frm == null)
             {
                 frm = new Frpt_Xem_DanhSach_Dangky_thi();
+            }
+            frm.MdiParent = this;
+            frm.Show();
+        }
+
+        private void btnXemKQThi_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            FrptCTBaiThi frm = CheckExists(typeof(FrptCTBaiThi)) as FrptCTBaiThi;
+            if (frm == null)
+            {
+                frm = new FrptCTBaiThi();
             }
             frm.MdiParent = this;
             frm.Show();
