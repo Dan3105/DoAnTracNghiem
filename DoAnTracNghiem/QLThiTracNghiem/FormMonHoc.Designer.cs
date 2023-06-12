@@ -46,8 +46,6 @@
             this.barDockControlBottom = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlLeft = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlRight = new DevExpress.XtraBars.BarDockControl();
-            this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
-            this.cbServer = new System.Windows.Forms.ComboBox();
             this.lbCoso = new DevExpress.XtraEditors.LabelControl();
             this.gcMONHOC = new DevExpress.XtraGrid.GridControl();
             this.bdsMonhoc = new System.Windows.Forms.BindingSource(this.components);
@@ -57,6 +55,8 @@
             this.colTENMH = new DevExpress.XtraGrid.Columns.GridColumn();
             this.panelDataView = new DevExpress.XtraEditors.PanelControl();
             this.panelMonhoc = new DevExpress.XtraEditors.PanelControl();
+            this.txtTENMH = new DevExpress.XtraEditors.TextEdit();
+            this.txtMAMH = new DevExpress.XtraEditors.TextEdit();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.MonhocTableAdapter = new QLThiTracNghiem.DB_THI_TNTableAdapters.MonhocTableAdapter();
             this.tableAdapterManager = new QLThiTracNghiem.DB_THI_TNTableAdapters.TableAdapterManager();
@@ -65,13 +65,9 @@
             this.bdsBode = new System.Windows.Forms.BindingSource(this.components);
             this.BodeTableAdapter = new QLThiTracNghiem.DB_THI_TNTableAdapters.BodeTableAdapter();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.txtMAMH = new DevExpress.XtraEditors.TextEdit();
-            this.txtTENMH = new DevExpress.XtraEditors.TextEdit();
             mAMHLabel = new System.Windows.Forms.Label();
             tENMHLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
-            this.panelControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gcMONHOC)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bdsMonhoc)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DB_THI_TN)).BeginInit();
@@ -79,11 +75,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.panelDataView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelMonhoc)).BeginInit();
             this.panelMonhoc.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtTENMH.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtMAMH.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bdsGiaovien_Dangky)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bdsBode)).BeginInit();
             this.tableLayoutPanel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.txtMAMH.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtTENMH.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // mAMHLabel
@@ -250,27 +246,6 @@
             this.barDockControlRight.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.barDockControlRight.Size = new System.Drawing.Size(0, 423);
             // 
-            // panelControl1
-            // 
-            this.panelControl1.Controls.Add(this.cbServer);
-            this.panelControl1.Controls.Add(this.lbCoso);
-            this.panelControl1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelControl1.Location = new System.Drawing.Point(0, 51);
-            this.panelControl1.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
-            this.panelControl1.Name = "panelControl1";
-            this.panelControl1.Size = new System.Drawing.Size(889, 83);
-            this.panelControl1.TabIndex = 4;
-            // 
-            // cbServer
-            // 
-            this.cbServer.FormattingEnabled = true;
-            this.cbServer.Location = new System.Drawing.Point(120, 10);
-            this.cbServer.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
-            this.cbServer.Name = "cbServer";
-            this.cbServer.Size = new System.Drawing.Size(247, 24);
-            this.cbServer.TabIndex = 1;
-            this.cbServer.SelectedIndexChanged += new System.EventHandler(this.cbServer_SelectedIndexChanged);
-            // 
             // lbCoso
             // 
             this.lbCoso.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -292,7 +267,7 @@
             this.gcMONHOC.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.gcMONHOC.MenuManager = this.barManager1;
             this.gcMONHOC.Name = "gcMONHOC";
-            this.gcMONHOC.Size = new System.Drawing.Size(879, 177);
+            this.gcMONHOC.Size = new System.Drawing.Size(879, 223);
             this.gcMONHOC.TabIndex = 9;
             this.gcMONHOC.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gvMonHoc});
@@ -352,10 +327,30 @@
             this.panelMonhoc.Controls.Add(tENMHLabel);
             this.panelMonhoc.Controls.Add(mAMHLabel);
             this.panelMonhoc.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelMonhoc.Location = new System.Drawing.Point(3, 192);
+            this.panelMonhoc.Location = new System.Drawing.Point(3, 238);
             this.panelMonhoc.Name = "panelMonhoc";
-            this.panelMonhoc.Size = new System.Drawing.Size(883, 141);
+            this.panelMonhoc.Size = new System.Drawing.Size(883, 178);
             this.panelMonhoc.TabIndex = 9;
+            // 
+            // txtTENMH
+            // 
+            this.txtTENMH.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bdsMonhoc, "TENMH", true));
+            this.txtTENMH.Location = new System.Drawing.Point(88, 101);
+            this.txtTENMH.MenuManager = this.barManager1;
+            this.txtTENMH.Name = "txtTENMH";
+            this.txtTENMH.Properties.MaxLength = 50;
+            this.txtTENMH.Size = new System.Drawing.Size(203, 22);
+            this.txtTENMH.TabIndex = 10;
+            // 
+            // txtMAMH
+            // 
+            this.txtMAMH.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bdsMonhoc, "MAMH", true));
+            this.txtMAMH.Location = new System.Drawing.Point(88, 52);
+            this.txtMAMH.MenuManager = this.barManager1;
+            this.txtMAMH.Name = "txtMAMH";
+            this.txtMAMH.Properties.MaxLength = 5;
+            this.txtMAMH.Size = new System.Drawing.Size(125, 22);
+            this.txtMAMH.TabIndex = 9;
             // 
             // labelControl1
             // 
@@ -373,8 +368,11 @@
             // tableAdapterManager
             // 
             this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
+            this.tableAdapterManager.BangDiemTableAdapter = null;
             this.tableAdapterManager.BodeTableAdapter = null;
+            this.tableAdapterManager.ChiTiet_BaiThiTableAdapter = null;
             this.tableAdapterManager.Giaovien_DangkyTableAdapter = this.Giaovien_DangkyTableAdapter;
+            this.tableAdapterManager.GiaovienTableAdapter = null;
             this.tableAdapterManager.KhoaTableAdapter = null;
             this.tableAdapterManager.LopTableAdapter = null;
             this.tableAdapterManager.MonhocTableAdapter = this.MonhocTableAdapter;
@@ -406,33 +404,13 @@
             this.tableLayoutPanel1.Controls.Add(this.panelMonhoc, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.gcMONHOC, 0, 0);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 134);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 51);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 2;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 56.25F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 43.75F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(889, 336);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(889, 419);
             this.tableLayoutPanel1.TabIndex = 15;
-            // 
-            // txtMAMH
-            // 
-            this.txtMAMH.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bdsMonhoc, "MAMH", true));
-            this.txtMAMH.Location = new System.Drawing.Point(88, 52);
-            this.txtMAMH.MenuManager = this.barManager1;
-            this.txtMAMH.Name = "txtMAMH";
-            this.txtMAMH.Properties.MaxLength = 5;
-            this.txtMAMH.Size = new System.Drawing.Size(125, 22);
-            this.txtMAMH.TabIndex = 9;
-            // 
-            // txtTENMH
-            // 
-            this.txtTENMH.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bdsMonhoc, "TENMH", true));
-            this.txtTENMH.Location = new System.Drawing.Point(88, 101);
-            this.txtTENMH.MenuManager = this.barManager1;
-            this.txtTENMH.Name = "txtTENMH";
-            this.txtTENMH.Properties.MaxLength = 50;
-            this.txtTENMH.Size = new System.Drawing.Size(203, 22);
-            this.txtTENMH.TabIndex = 10;
             // 
             // FormMonHoc
             // 
@@ -441,7 +419,6 @@
             this.ClientSize = new System.Drawing.Size(889, 494);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Controls.Add(this.panelDataView);
-            this.Controls.Add(this.panelControl1);
             this.Controls.Add(this.barDockControlLeft);
             this.Controls.Add(this.barDockControlRight);
             this.Controls.Add(this.barDockControlBottom);
@@ -452,9 +429,6 @@
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.FormMonHoc_Load);
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
-            this.panelControl1.ResumeLayout(false);
-            this.panelControl1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gcMONHOC)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bdsMonhoc)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.DB_THI_TN)).EndInit();
@@ -463,11 +437,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.panelMonhoc)).EndInit();
             this.panelMonhoc.ResumeLayout(false);
             this.panelMonhoc.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtTENMH.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtMAMH.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bdsGiaovien_Dangky)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bdsBode)).EndInit();
             this.tableLayoutPanel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.txtMAMH.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtTENMH.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -486,8 +460,7 @@
         private DevExpress.XtraBars.BarDockControl barDockControlBottom;
         private DevExpress.XtraBars.BarDockControl barDockControlLeft;
         private DevExpress.XtraBars.BarDockControl barDockControlRight;
-        private DevExpress.XtraEditors.PanelControl panelControl1;
-        private System.Windows.Forms.ComboBox cbServer;
+        //private System.Windows.Forms.ComboBox cbServer;
         private DevExpress.XtraEditors.LabelControl lbCoso;
         private DevExpress.XtraBars.BarButtonItem btnUndo;
         private DevExpress.XtraBars.BarButtonItem btnReload;

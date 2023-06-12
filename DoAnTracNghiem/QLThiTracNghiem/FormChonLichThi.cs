@@ -39,6 +39,24 @@ namespace QLThiTracNghiem
             this.SP_DS_Co_The_ThiTableAdapter.Fill(this.DB_THI_TN.SP_DS_Co_The_Thi, Program.MaLop);
         }
 
+        private bool ValidateInput()
+        {
+            
+            DateTime NgayThi = (DateTime)((DataRowView)bdsSP_DS_Co_The_Thi[bdsSP_DS_Co_The_Thi.Position])["NGAYTHI"];
+            TimeSpan timeLeft = DateTime.Now.Subtract(NgayThi);
+            if (timeLeft.TotalMinutes < 0)
+            {
+                MessageBox.Show("Chưa tới giờ thi");
+                return false;
+            }
+            if (timeLeft.TotalMinutes > 5)
+            {
+                MessageBox.Show("Đã quá hạn giờ thi");
+                return false;
+            }
+            return true;
+        }
+
         private void btnThi_Click(object sender, EventArgs e)
         {
             if(bdsSP_DS_Co_The_Thi.Count == 0)
@@ -46,6 +64,12 @@ namespace QLThiTracNghiem
                 MessageBox.Show("Vui lòng chọn lịch thi");
                 return;
             }
+
+            if(ValidateInput() == false)
+            {
+                return;
+            }
+
             CauTrucThi ctt = new CauTrucThi();
             
             int SoCauThi = int.Parse(((DataRowView)bdsSP_DS_Co_The_Thi[bdsSP_DS_Co_The_Thi.Position])["SOCAUTHI"].ToString());

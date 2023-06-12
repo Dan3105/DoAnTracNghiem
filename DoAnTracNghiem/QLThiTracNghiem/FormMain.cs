@@ -35,34 +35,39 @@ namespace QLThiTracNghiem
             switch(Program.groupLoginType)
             {
                 case Simple.GroupLoginType.NONE:
+                    btnSignup.Enabled = false;
                     rbQuanly.Visible = false;
                     rbGV.Visible = false;
-                    btnSignup.Enabled = false;
                     rbSinhVien.Visible = false;
+                    rbPageBaoCao.Visible = false;
                     break;
                 case Simple.GroupLoginType.Truong:
-                    rbQuanly.Visible = true;
-                    rbGV.Visible = false;
                     btnSignup.Enabled = true;
+                    rbQuanly.Visible = true;
+                    rbGV.Visible = true;
                     rbSinhVien.Visible = false;
+                    rbPageBaoCao.Visible = true;
                     break;
                 case Simple.GroupLoginType.CoSo:
                     rbQuanly.Visible = true;
                     rbGV.Visible = true;
                     btnSignup.Enabled = true;
                     rbSinhVien.Visible = false;
+                    rbPageBaoCao.Visible = true;
                     break;
                 case Simple.GroupLoginType.Giangvien:
                     rbQuanly.Visible = false;
-                    rbGV.Visible = false;
+                    rbGV.Visible = true;
                     btnSignup.Enabled = false;
                     rbSinhVien.Visible = false;
+                    rbPageBaoCao.Visible = false;
                     break;
                 case Simple.GroupLoginType.Sinhvien:
                     rbQuanly.Visible = false;
                     rbGV.Visible = false;
                     btnSignup.Enabled = false;
                     rbSinhVien.Visible = true;
+                    rbPageBaoCao.Visible = false;
                     break;
             }
             btnLogin.Enabled = false;
@@ -75,12 +80,16 @@ namespace QLThiTracNghiem
         private void DisableEditingData()
         {
             btnLogin.Enabled = true;
-            rbQuanly.Visible = false;
-            rbGV.Visible = false;
+            
             btnLogout.Enabled = false;
             btnSignup.Enabled = false;
+
+            rbQuanly.Visible = false;
+            rbGV.Visible = false;
+            rbSinhVien.Visible = false;
+            rbPageBaoCao.Visible = false;
             //redirect to login form
-            foreach(Form f in this.MdiChildren)
+            foreach (Form f in this.MdiChildren)
             {
                 if(f.GetType() !=  typeof(FormDangNhap))
                 {
@@ -109,6 +118,7 @@ namespace QLThiTracNghiem
             formLogin.MdiParent = this;
             formLogin.Show();
         }
+        
         private void btnLogout_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             Program.ResetUser();
@@ -118,6 +128,7 @@ namespace QLThiTracNghiem
             DisableEditingData();
 
         }
+        
         private void btnMonhoc_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             if (Program.KetNoi() == 0) return; ;
@@ -128,8 +139,8 @@ namespace QLThiTracNghiem
             }
             formMonHoc.MdiParent = this;
             formMonHoc.Show();
-        }
-       
+        }  
+        
         private void barBtnLop_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             if (Program.KetNoi() == 0) return; ;
@@ -141,9 +152,7 @@ namespace QLThiTracNghiem
             formKhoaLop.MdiParent = this;
             formKhoaLop.Show();
         }
-
-        #endregion
-
+  
         private void barBtnSINHVIEN_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             if (Program.KetNoi() == 0) return; ;
@@ -245,5 +254,18 @@ namespace QLThiTracNghiem
             frm.MdiParent = this;
             frm.Show();
         }
+
+        private void btnBangDiem_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            FormBangDiem frm = CheckExists(typeof(FormBangDiem)) as FormBangDiem;
+            if (frm == null)
+            {
+                frm = new FormBangDiem();
+            }
+            frm.MdiParent = this;
+            frm.Show();
+        }
     }
+    #endregion
+
 }

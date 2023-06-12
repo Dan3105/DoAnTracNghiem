@@ -36,14 +36,18 @@
             System.Windows.Forms.Label dIACHILabel;
             System.Windows.Forms.Label nGAYSINHLabel;
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormSinhVien));
+            System.Windows.Forms.Label label1;
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
             this.btnRefresh = new DevExpress.XtraEditors.SimpleButton();
             this.cbKHOA = new System.Windows.Forms.ComboBox();
+            this.bdsKhoa = new System.Windows.Forms.BindingSource(this.components);
+            this.DB_THI_TN = new QLThiTracNghiem.DB_THI_TN();
             this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
             this.cbCOSO = new System.Windows.Forms.ComboBox();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.gcLOP = new DevExpress.XtraGrid.GridControl();
+            this.bdsLop = new System.Windows.Forms.BindingSource(this.components);
             this.gvLOP = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colMALOP = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colTENLOP = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -51,6 +55,7 @@
             this.colMAKHOA = new DevExpress.XtraGrid.Columns.GridColumn();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.gcSINHVIEN = new DevExpress.XtraGrid.GridControl();
+            this.bdsSinhvien = new System.Windows.Forms.BindingSource(this.components);
             this.gvSINHVIEN = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colMASV = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colHO = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -59,54 +64,53 @@
             this.colDIACHI = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colNGAYSINH = new DevExpress.XtraGrid.Columns.GridColumn();
             this.panelSINHVIEN = new DevExpress.XtraEditors.PanelControl();
+            this.txtDIACHI = new DevExpress.XtraEditors.TextEdit();
+            this.dateNGAYSINH = new DevExpress.XtraEditors.DateEdit();
+            this.txtMALOP = new DevExpress.XtraEditors.TextEdit();
+            this.txtTEN = new DevExpress.XtraEditors.TextEdit();
+            this.txtHO = new DevExpress.XtraEditors.TextEdit();
+            this.txtMASV = new DevExpress.XtraEditors.TextEdit();
             this.btnPhucHoi = new DevExpress.XtraEditors.SimpleButton();
             this.btnGhiSINHVIEN = new DevExpress.XtraEditors.SimpleButton();
             this.menuStripSINHVIEN = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.tsSuaSINHVIEN = new System.Windows.Forms.ToolStripMenuItem();
             this.tsThemSINHVIEN = new System.Windows.Forms.ToolStripMenuItem();
             this.tsXoaSINHVIEN = new System.Windows.Forms.ToolStripMenuItem();
-            this.DB_THI_TN = new QLThiTracNghiem.DB_THI_TN();
-            this.bdsKhoa = new System.Windows.Forms.BindingSource(this.components);
             this.KhoaTableAdapter = new QLThiTracNghiem.DB_THI_TNTableAdapters.KhoaTableAdapter();
             this.tableAdapterManager = new QLThiTracNghiem.DB_THI_TNTableAdapters.TableAdapterManager();
-            this.bdsLop = new System.Windows.Forms.BindingSource(this.components);
             this.LopTableAdapter = new QLThiTracNghiem.DB_THI_TNTableAdapters.LopTableAdapter();
-            this.bdsSinhvien = new System.Windows.Forms.BindingSource(this.components);
             this.SinhvienTableAdapter = new QLThiTracNghiem.DB_THI_TNTableAdapters.SinhvienTableAdapter();
-            this.txtMASV = new DevExpress.XtraEditors.TextEdit();
-            this.txtHO = new DevExpress.XtraEditors.TextEdit();
-            this.txtTEN = new DevExpress.XtraEditors.TextEdit();
-            this.txtMALOP = new DevExpress.XtraEditors.TextEdit();
-            this.dateNGAYSINH = new DevExpress.XtraEditors.DateEdit();
-            this.txtDIACHI = new DevExpress.XtraEditors.TextEdit();
+            this.txtPassword = new DevExpress.XtraEditors.TextEdit();
             mASVLabel = new System.Windows.Forms.Label();
             mALOPLabel = new System.Windows.Forms.Label();
             hOLabel = new System.Windows.Forms.Label();
             tENLabel = new System.Windows.Forms.Label();
             dIACHILabel = new System.Windows.Forms.Label();
             nGAYSINHLabel = new System.Windows.Forms.Label();
+            label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.bdsKhoa)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DB_THI_TN)).BeginInit();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gcLOP)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bdsLop)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvLOP)).BeginInit();
             this.tableLayoutPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gcSINHVIEN)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bdsSinhvien)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvSINHVIEN)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelSINHVIEN)).BeginInit();
             this.panelSINHVIEN.SuspendLayout();
-            this.menuStripSINHVIEN.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.DB_THI_TN)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bdsKhoa)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bdsLop)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bdsSinhvien)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtMASV.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtHO.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtTEN.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtMALOP.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtDIACHI.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateNGAYSINH.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateNGAYSINH.Properties.CalendarTimeProperties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtDIACHI.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtMALOP.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtTEN.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtHO.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtMASV.Properties)).BeginInit();
+            this.menuStripSINHVIEN.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtPassword.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // mASVLabel
@@ -198,6 +202,16 @@
             this.cbKHOA.TabIndex = 3;
             this.cbKHOA.ValueMember = "MAKH";
             // 
+            // bdsKhoa
+            // 
+            this.bdsKhoa.DataMember = "Khoa";
+            this.bdsKhoa.DataSource = this.DB_THI_TN;
+            // 
+            // DB_THI_TN
+            // 
+            this.DB_THI_TN.DataSetName = "DB_THI_TN";
+            this.DB_THI_TN.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
             // labelControl2
             // 
             this.labelControl2.Appearance.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -254,6 +268,11 @@
             this.gcLOP.TabIndex = 0;
             this.gcLOP.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gvLOP});
+            // 
+            // bdsLop
+            // 
+            this.bdsLop.DataMember = "FK_Lop_Khoa";
+            this.bdsLop.DataSource = this.bdsKhoa;
             // 
             // gvLOP
             // 
@@ -328,6 +347,11 @@
             this.gcSINHVIEN.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gvSINHVIEN});
             // 
+            // bdsSinhvien
+            // 
+            this.bdsSinhvien.DataMember = "FK_Sinhvien_Lop";
+            this.bdsSinhvien.DataSource = this.bdsLop;
+            // 
             // gvSINHVIEN
             // 
             this.gvSINHVIEN.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
@@ -396,6 +420,8 @@
             // 
             // panelSINHVIEN
             // 
+            this.panelSINHVIEN.Controls.Add(label1);
+            this.panelSINHVIEN.Controls.Add(this.txtPassword);
             this.panelSINHVIEN.Controls.Add(this.txtDIACHI);
             this.panelSINHVIEN.Controls.Add(this.dateNGAYSINH);
             this.panelSINHVIEN.Controls.Add(this.txtMALOP);
@@ -416,9 +442,63 @@
             this.panelSINHVIEN.Size = new System.Drawing.Size(433, 272);
             this.panelSINHVIEN.TabIndex = 1;
             // 
+            // txtDIACHI
+            // 
+            this.txtDIACHI.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bdsSinhvien, "DIACHI", true));
+            this.txtDIACHI.Location = new System.Drawing.Point(152, 163);
+            this.txtDIACHI.Name = "txtDIACHI";
+            this.txtDIACHI.Size = new System.Drawing.Size(252, 22);
+            this.txtDIACHI.TabIndex = 20;
+            // 
+            // dateNGAYSINH
+            // 
+            this.dateNGAYSINH.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bdsSinhvien, "NGAYSINH", true));
+            this.dateNGAYSINH.EditValue = null;
+            this.dateNGAYSINH.Location = new System.Drawing.Point(152, 122);
+            this.dateNGAYSINH.Name = "dateNGAYSINH";
+            this.dateNGAYSINH.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.dateNGAYSINH.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.dateNGAYSINH.Size = new System.Drawing.Size(154, 22);
+            this.dateNGAYSINH.TabIndex = 19;
+            // 
+            // txtMALOP
+            // 
+            this.txtMALOP.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bdsSinhvien, "MALOP", true));
+            this.txtMALOP.Enabled = false;
+            this.txtMALOP.Location = new System.Drawing.Point(300, 16);
+            this.txtMALOP.Name = "txtMALOP";
+            this.txtMALOP.Size = new System.Drawing.Size(113, 22);
+            this.txtMALOP.TabIndex = 18;
+            // 
+            // txtTEN
+            // 
+            this.txtTEN.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bdsSinhvien, "TEN", true));
+            this.txtTEN.Location = new System.Drawing.Point(348, 85);
+            this.txtTEN.Name = "txtTEN";
+            this.txtTEN.Size = new System.Drawing.Size(79, 22);
+            this.txtTEN.TabIndex = 17;
+            // 
+            // txtHO
+            // 
+            this.txtHO.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bdsSinhvien, "HO", true));
+            this.txtHO.Location = new System.Drawing.Point(152, 85);
+            this.txtHO.Name = "txtHO";
+            this.txtHO.Size = new System.Drawing.Size(142, 22);
+            this.txtHO.TabIndex = 16;
+            // 
+            // txtMASV
+            // 
+            this.txtMASV.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bdsSinhvien, "MASV", true));
+            this.txtMASV.Location = new System.Drawing.Point(152, 48);
+            this.txtMASV.Name = "txtMASV";
+            this.txtMASV.Size = new System.Drawing.Size(125, 22);
+            this.txtMASV.TabIndex = 15;
+            // 
             // btnPhucHoi
             // 
-            this.btnPhucHoi.Location = new System.Drawing.Point(278, 219);
+            this.btnPhucHoi.Location = new System.Drawing.Point(280, 237);
             this.btnPhucHoi.Name = "btnPhucHoi";
             this.btnPhucHoi.Size = new System.Drawing.Size(94, 29);
             this.btnPhucHoi.TabIndex = 13;
@@ -427,7 +507,7 @@
             // 
             // btnGhiSINHVIEN
             // 
-            this.btnGhiSINHVIEN.Location = new System.Drawing.Point(69, 219);
+            this.btnGhiSINHVIEN.Location = new System.Drawing.Point(85, 237);
             this.btnGhiSINHVIEN.Name = "btnGhiSINHVIEN";
             this.btnGhiSINHVIEN.Size = new System.Drawing.Size(94, 29);
             this.btnGhiSINHVIEN.TabIndex = 12;
@@ -465,16 +545,6 @@
             this.tsXoaSINHVIEN.Text = "Xóa Sinh Viên";
             this.tsXoaSINHVIEN.Click += new System.EventHandler(this.tsXoaSINHVIEN_Click);
             // 
-            // DB_THI_TN
-            // 
-            this.DB_THI_TN.DataSetName = "DB_THI_TN";
-            this.DB_THI_TN.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // bdsKhoa
-            // 
-            this.bdsKhoa.DataMember = "Khoa";
-            this.bdsKhoa.DataSource = this.DB_THI_TN;
-            // 
             // KhoaTableAdapter
             // 
             this.KhoaTableAdapter.ClearBeforeFill = true;
@@ -482,84 +552,42 @@
             // tableAdapterManager
             // 
             this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
+            this.tableAdapterManager.BangDiemTableAdapter = null;
             this.tableAdapterManager.BodeTableAdapter = null;
+            this.tableAdapterManager.ChiTiet_BaiThiTableAdapter = null;
             this.tableAdapterManager.Giaovien_DangkyTableAdapter = null;
+            this.tableAdapterManager.GiaovienTableAdapter = null;
             this.tableAdapterManager.KhoaTableAdapter = this.KhoaTableAdapter;
             this.tableAdapterManager.LopTableAdapter = this.LopTableAdapter;
             this.tableAdapterManager.MonhocTableAdapter = null;
             this.tableAdapterManager.SinhvienTableAdapter = this.SinhvienTableAdapter;
             this.tableAdapterManager.UpdateOrder = QLThiTracNghiem.DB_THI_TNTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             // 
-            // bdsLop
-            // 
-            this.bdsLop.DataMember = "FK_Lop_Khoa";
-            this.bdsLop.DataSource = this.bdsKhoa;
-            // 
             // LopTableAdapter
             // 
             this.LopTableAdapter.ClearBeforeFill = true;
-            // 
-            // bdsSinhvien
-            // 
-            this.bdsSinhvien.DataMember = "FK_Sinhvien_Lop";
-            this.bdsSinhvien.DataSource = this.bdsLop;
             // 
             // SinhvienTableAdapter
             // 
             this.SinhvienTableAdapter.ClearBeforeFill = true;
             // 
-            // txtMASV
+            // txtPassword
             // 
-            this.txtMASV.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bdsSinhvien, "MASV", true));
-            this.txtMASV.Location = new System.Drawing.Point(85, 48);
-            this.txtMASV.Name = "txtMASV";
-            this.txtMASV.Size = new System.Drawing.Size(125, 22);
-            this.txtMASV.TabIndex = 15;
+            this.txtPassword.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bdsSinhvien, "PASSWORD", true));
+            this.txtPassword.Enabled = false;
+            this.txtPassword.Location = new System.Drawing.Point(152, 200);
+            this.txtPassword.Name = "txtPassword";
+            this.txtPassword.Size = new System.Drawing.Size(125, 22);
+            this.txtPassword.TabIndex = 21;
             // 
-            // txtHO
+            // label1
             // 
-            this.txtHO.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bdsSinhvien, "HO", true));
-            this.txtHO.Location = new System.Drawing.Point(85, 85);
-            this.txtHO.Name = "txtHO";
-            this.txtHO.Size = new System.Drawing.Size(209, 22);
-            this.txtHO.TabIndex = 16;
-            // 
-            // txtTEN
-            // 
-            this.txtTEN.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bdsSinhvien, "TEN", true));
-            this.txtTEN.Location = new System.Drawing.Point(343, 85);
-            this.txtTEN.Name = "txtTEN";
-            this.txtTEN.Size = new System.Drawing.Size(79, 22);
-            this.txtTEN.TabIndex = 17;
-            // 
-            // txtMALOP
-            // 
-            this.txtMALOP.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bdsSinhvien, "MALOP", true));
-            this.txtMALOP.Location = new System.Drawing.Point(300, 16);
-            this.txtMALOP.Name = "txtMALOP";
-            this.txtMALOP.Size = new System.Drawing.Size(113, 22);
-            this.txtMALOP.TabIndex = 18;
-            // 
-            // dateNGAYSINH
-            // 
-            this.dateNGAYSINH.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bdsSinhvien, "NGAYSINH", true));
-            this.dateNGAYSINH.EditValue = null;
-            this.dateNGAYSINH.Location = new System.Drawing.Point(85, 122);
-            this.dateNGAYSINH.Name = "dateNGAYSINH";
-            this.dateNGAYSINH.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.dateNGAYSINH.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.dateNGAYSINH.Size = new System.Drawing.Size(154, 22);
-            this.dateNGAYSINH.TabIndex = 19;
-            // 
-            // txtDIACHI
-            // 
-            this.txtDIACHI.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bdsSinhvien, "DIACHI", true));
-            this.txtDIACHI.Location = new System.Drawing.Point(85, 158);
-            this.txtDIACHI.Name = "txtDIACHI";
-            this.txtDIACHI.Size = new System.Drawing.Size(252, 22);
-            this.txtDIACHI.TabIndex = 20;
+            label1.AutoSize = true;
+            label1.Location = new System.Drawing.Point(27, 203);
+            label1.Name = "label1";
+            label1.Size = new System.Drawing.Size(62, 16);
+            label1.TabIndex = 22;
+            label1.Text = "Password";
             // 
             // FormSinhVien
             // 
@@ -574,27 +602,28 @@
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
             this.panelControl1.ResumeLayout(false);
             this.panelControl1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.bdsKhoa)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DB_THI_TN)).EndInit();
             this.tableLayoutPanel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gcLOP)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bdsLop)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvLOP)).EndInit();
             this.tableLayoutPanel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gcSINHVIEN)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bdsSinhvien)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvSINHVIEN)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelSINHVIEN)).EndInit();
             this.panelSINHVIEN.ResumeLayout(false);
             this.panelSINHVIEN.PerformLayout();
-            this.menuStripSINHVIEN.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.DB_THI_TN)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bdsKhoa)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bdsLop)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bdsSinhvien)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtMASV.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtHO.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtTEN.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtMALOP.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtDIACHI.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateNGAYSINH.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateNGAYSINH.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtDIACHI.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtMALOP.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtTEN.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtHO.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtMASV.Properties)).EndInit();
+            this.menuStripSINHVIEN.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.txtPassword.Properties)).EndInit();
             this.ResumeLayout(false);
 
 		}
@@ -644,5 +673,6 @@
         private DevExpress.XtraEditors.TextEdit txtTEN;
         private DevExpress.XtraEditors.TextEdit txtHO;
         private DevExpress.XtraEditors.TextEdit txtMASV;
+        private DevExpress.XtraEditors.TextEdit txtPassword;
     }
 }

@@ -30,6 +30,12 @@ namespace QLThiTracNghiem
 
         private void FormKhoaLop_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'DB_THI_TN.Giaovien' table. You can move, or remove it, as needed.
+            this.GiaovienTableAdapter.Fill(this.DB_THI_TN.Giaovien);
+            // TODO: This line of code loads data into the 'DB_THI_TN.Sinhvien' table. You can move, or remove it, as needed.
+            this.SinhvienTableAdapter.Fill(this.DB_THI_TN.Sinhvien);
+            // TODO: This line of code loads data into the 'DB_THI_TN.Giaovien_Dangky' table. You can move, or remove it, as needed.
+            this.Giaovien_DangkyTableAdapter.Fill(this.DB_THI_TN.Giaovien_Dangky);
             this.DB_THI_TN.EnforceConstraints = false;
 
             this.LopTableAdapter.Connection.ConnectionString = Program.connstr;
@@ -173,11 +179,17 @@ namespace QLThiTracNghiem
                 return;
             }
 
+            if (bdsGiaovien.Count > 0)
+            {
+                MessageBox.Show("Không thể xóa Khoa này vì đã có giảng viên");
+                return;
+            }
+
             if (MessageBox.Show("Bạn có chắc muốn xóa ?", "OK", MessageBoxButtons.OKCancel) == DialogResult.OK)
             {
                 try
                 {
-                    maKHOA = ((DataRowView)bdsKhoa[bdsKhoa.Position])["MAKHOA"].ToString();
+                    maKHOA = ((DataRowView)bdsKhoa[bdsKhoa.Position])["MAKH"].ToString();
                     bdsKhoa.RemoveCurrent();
 
                     this.KhoaTableAdapter.Connection.ConnectionString = Program.connstr;
@@ -187,8 +199,8 @@ namespace QLThiTracNghiem
                 {
                     MessageBox.Show($"{ex}", "", MessageBoxButtons.OK);
                     this.KhoaTableAdapter.Connection.ConnectionString = Program.connstr;
-                    this.KhoaTableAdapter.Update(this.DB_THI_TN.Khoa);
-                    bdsKhoa.Position = bdsKhoa.Find("MAKHOA", maKHOA);
+                    this.KhoaTableAdapter.Fill(this.DB_THI_TN.Khoa);
+//                    bdsKhoa.Position = bdsKhoa.Find("MAKHOA", maKHOA);
 
                 }
             }
@@ -299,7 +311,7 @@ namespace QLThiTracNghiem
             positionLop = this.bdsLop.Position;
             bdsLop.AddNew();
             ActionBeforeEditLop();
-            string currentKhoa = ((DataRowView)this.bdsLop[bdsLop.Position])["MAKHOA"].ToString();
+            string currentKhoa = ((DataRowView)this.bdsLop[bdsLop.Position])["MAKH"].ToString();
             this.txtFKMAKH.Text = currentKhoa;
             this.txtMALOP.Enabled = true;
             validateAction += this.HandlerThemLopDS;
@@ -330,13 +342,19 @@ namespace QLThiTracNghiem
         private void xoaLopToolStripMenuItem_Click(object sender, EventArgs e)
         {
             String maLOP = "";
-            if (bdsLop.Count > 0)
+            if (bdsGiaovien_Dangky.Count > 0)
             {
-                MessageBox.Show("Không thể xóa Khoa này vì đã có lớp");
+                MessageBox.Show("Không thể xóa Lớp này vì đã có lịch thi");
                 return;
             }
 
-            if (MessageBox.Show("U sure to del ?", "OK", MessageBoxButtons.OKCancel) == DialogResult.OK)
+            if (bdsSinhvien.Count > 0)
+            {
+                MessageBox.Show("Không thể xóa Lớp này vì đã có sinh viên");
+                return;
+            }
+
+            if (MessageBox.Show("Bạn có muốn xóa?", "OK", MessageBoxButtons.OKCancel) == DialogResult.OK)
             {
                 try
                 {

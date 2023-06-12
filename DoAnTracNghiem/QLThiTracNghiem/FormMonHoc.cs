@@ -34,18 +34,18 @@ namespace QLThiTracNghiem
             // TODO: This line of code loads data into the 'DB_THI_TN.Giaovien_Dangky' table. You can move, or remove it, as needed.
             this.Giaovien_DangkyTableAdapter.Fill(this.DB_THI_TN.Giaovien_Dangky);
 
-            SetCbServer();
+            //SetCbServer();
             CustomHeaderButtons();
             this.gvMonHoc.OptionsBehavior.Editable = false;
         }
 
         private void SetCbServer()
         {
-            this.cbServer.DataSource = Program.bds_dspm;
+           /* this.cbServer.DataSource = Program.bds_dspm;
             this.cbServer.DisplayMember = "TenCS";
             this.cbServer.ValueMember = "MaCS";
             this.cbServer.SelectedIndex = Program.currentServerIndex;
-
+*/
         }
 
         #region Data Handler
@@ -56,20 +56,20 @@ namespace QLThiTracNghiem
                 case Simple.GroupLoginType.Truong:
                     btnThem.Enabled = btnSua.Enabled = btnXoa.Enabled = btnUndo.Enabled = btnGhi.Enabled =
                         btnReload.Enabled = false;
-                    this.cbServer.Enabled = true;
+                    //this.cbServer.Enabled = true;
                     panelMonhoc.Enabled = false;
                     break;
                 case Simple.GroupLoginType.CoSo:
                     btnThem.Enabled = btnSua.Enabled = btnXoa.Enabled = btnUndo.Enabled = btnGhi.Enabled =
                         btnReload.Enabled = true;
-                    this.cbServer.Enabled = false;
+                    //this.cbServer.Enabled = false;
                     panelMonhoc.Enabled = false;
                     break;
                 default:
                     //Console.WriteLine($"Error Info user {Program.groupLoginType.ToString()}");
                     btnThem.Enabled = btnSua.Enabled = btnXoa.Enabled = btnUndo.Enabled = btnGhi.Enabled =
                         btnReload.Enabled = false;
-                    this.cbServer.Enabled = false;
+                    //this.cbServer.Enabled = false;
                     panelMonhoc.Enabled = false;
                     break;
 
@@ -110,7 +110,8 @@ namespace QLThiTracNghiem
                 catch(Exception ex)
                 {
                     MessageBox.Show($"{ex}", "", MessageBoxButtons.OK);
-                    this.MonhocTableAdapter.Update(this.DB_THI_TN.Monhoc);
+                    this.MonhocTableAdapter.Connection.ConnectionString = Program.connstr;
+                    this.MonhocTableAdapter.Fill(this.DB_THI_TN.Monhoc);
                     bdsMonhoc.Position = bdsMonhoc.Find("MAMH", maMH);
 
                 }
@@ -194,7 +195,7 @@ namespace QLThiTracNghiem
             ActionAfterEdit();
         }
 
-        private void cbServer_SelectedIndexChanged(object sender, EventArgs e)
+        /*private void cbServer_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (cbServer.SelectedValue.ToString() == "System.Data.DataRowView")
                 return;
@@ -231,7 +232,7 @@ namespace QLThiTracNghiem
                 this.Giaovien_DangkyTableAdapter.Update(this.DB_THI_TN.Giaovien_Dangky);
             }
         }
-
+*/
         #region Validate input
         private bool ValidateInput()
         {

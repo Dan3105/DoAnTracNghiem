@@ -67,12 +67,10 @@ namespace QLThiTracNghiem
         {
             if (txtUsername.Text.Trim() == "" || txtPassword.Text.Trim() == "")
             {
-                MessageBox.Show("Username and Password are not allowed empty");
+                MessageBox.Show("Tài khoản và mật khẩu không được để trống!");
                 return;
             }
 
-            
-           
             bool isTeacher = this.radioStudentAccount.Checked ? false : true;
 
             string strLenh = "";
@@ -87,10 +85,13 @@ namespace QLThiTracNghiem
                 strLenh = SqlCollections.Sp_DN_Cho_SV(txtUsername.Text, txtPassword.Text);
                 Program.mlogin = Program.sv_login;
                 Program.password = Program.sv_password;
-                Console.WriteLine(strLenh);
             }
 
-            if (Program.KetNoi() == 0) return;
+            if (Program.KetNoi() == 0)
+            {
+                MessageBox.Show("Đăng nhập thất bại kiểm tra quyền hạn, tài khoản và mật khẩu");
+                return;
+            }
 
             Program.myReader = Program.ExecSqlDataReader(strLenh);
             if (Program.myReader == null) return;
@@ -110,7 +111,7 @@ namespace QLThiTracNghiem
                     Program.fullname = Program.myReader.GetString(2);
                     Program.groupLoginType = Simple.ConvertLoginGroup(Program.myReader.GetString(3));
                 }
-               
+                
                 Program.currentServerIndex = cbServer.SelectedIndex;
                 Program.mloginDN = Program.mlogin;
                 Program.mpasswordDN = Program.password;
@@ -127,7 +128,7 @@ namespace QLThiTracNghiem
             catch(Exception ex)
             {
                 Console.WriteLine(ex);
-                MessageBox.Show("Invalid Login, Check your username and password");
+                MessageBox.Show("Đăng nhập thất bại kiểm tra quyền hạn, tài khoản và mật khẩu");
             }
         }
 

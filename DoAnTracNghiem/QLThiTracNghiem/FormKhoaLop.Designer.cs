@@ -87,6 +87,12 @@
             this.KhoaTableAdapter = new QLThiTracNghiem.DB_THI_TNTableAdapters.KhoaTableAdapter();
             this.tableAdapterManager = new QLThiTracNghiem.DB_THI_TNTableAdapters.TableAdapterManager();
             this.LopTableAdapter = new QLThiTracNghiem.DB_THI_TNTableAdapters.LopTableAdapter();
+            this.bdsGiaovien_Dangky = new System.Windows.Forms.BindingSource(this.components);
+            this.Giaovien_DangkyTableAdapter = new QLThiTracNghiem.DB_THI_TNTableAdapters.Giaovien_DangkyTableAdapter();
+            this.bdsSinhvien = new System.Windows.Forms.BindingSource(this.components);
+            this.SinhvienTableAdapter = new QLThiTracNghiem.DB_THI_TNTableAdapters.SinhvienTableAdapter();
+            this.bdsGiaovien = new System.Windows.Forms.BindingSource(this.components);
+            this.GiaovienTableAdapter = new QLThiTracNghiem.DB_THI_TNTableAdapters.GiaovienTableAdapter();
             mACSLabel = new System.Windows.Forms.Label();
             tENKHOALabel = new System.Windows.Forms.Label();
             mAKHOALabel = new System.Windows.Forms.Label();
@@ -118,6 +124,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
             this.contextMenuStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.bdsGiaovien_Dangky)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bdsSinhvien)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bdsGiaovien)).BeginInit();
             this.SuspendLayout();
             // 
             // mACSLabel
@@ -668,8 +677,11 @@
             // tableAdapterManager
             // 
             this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
+            this.tableAdapterManager.BangDiemTableAdapter = null;
             this.tableAdapterManager.BodeTableAdapter = null;
+            this.tableAdapterManager.ChiTiet_BaiThiTableAdapter = null;
             this.tableAdapterManager.Giaovien_DangkyTableAdapter = null;
+            this.tableAdapterManager.GiaovienTableAdapter = null;
             this.tableAdapterManager.KhoaTableAdapter = this.KhoaTableAdapter;
             this.tableAdapterManager.LopTableAdapter = this.LopTableAdapter;
             this.tableAdapterManager.MonhocTableAdapter = null;
@@ -679,6 +691,33 @@
             // LopTableAdapter
             // 
             this.LopTableAdapter.ClearBeforeFill = true;
+            // 
+            // bdsGiaovien_Dangky
+            // 
+            this.bdsGiaovien_Dangky.DataMember = "FK_Giaovien_Dangky_Lop";
+            this.bdsGiaovien_Dangky.DataSource = this.bdsLop;
+            // 
+            // Giaovien_DangkyTableAdapter
+            // 
+            this.Giaovien_DangkyTableAdapter.ClearBeforeFill = true;
+            // 
+            // bdsSinhvien
+            // 
+            this.bdsSinhvien.DataMember = "FK_Sinhvien_Lop";
+            this.bdsSinhvien.DataSource = this.bdsLop;
+            // 
+            // SinhvienTableAdapter
+            // 
+            this.SinhvienTableAdapter.ClearBeforeFill = true;
+            // 
+            // bdsGiaovien
+            // 
+            this.bdsGiaovien.DataMember = "FK_Giaovien_Khoa";
+            this.bdsGiaovien.DataSource = this.bdsKhoa;
+            // 
+            // GiaovienTableAdapter
+            // 
+            this.GiaovienTableAdapter.ClearBeforeFill = true;
             // 
             // FormKhoaLop
             // 
@@ -721,6 +760,9 @@
             this.panelControl1.ResumeLayout(false);
             this.panelControl1.PerformLayout();
             this.contextMenuStrip1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.bdsGiaovien_Dangky)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bdsSinhvien)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bdsGiaovien)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -779,5 +821,11 @@
         private DevExpress.XtraEditors.TextEdit txtTENLOP;
         private DevExpress.XtraEditors.TextEdit txtMALOP;
         private DevExpress.XtraEditors.TextEdit txtFKMAKH;
+        private System.Windows.Forms.BindingSource bdsGiaovien_Dangky;
+        private DB_THI_TNTableAdapters.Giaovien_DangkyTableAdapter Giaovien_DangkyTableAdapter;
+        private System.Windows.Forms.BindingSource bdsSinhvien;
+        private DB_THI_TNTableAdapters.SinhvienTableAdapter SinhvienTableAdapter;
+        private System.Windows.Forms.BindingSource bdsGiaovien;
+        private DB_THI_TNTableAdapters.GiaovienTableAdapter GiaovienTableAdapter;
     }
 }

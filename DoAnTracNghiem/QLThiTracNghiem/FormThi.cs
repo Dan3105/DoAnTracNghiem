@@ -126,6 +126,11 @@ namespace QLThiTracNghiem
                 
                 selection = null;
             }
+        
+            public void OverTestTime()
+            {
+                radiA.Enabled = radiB.Enabled = radiC.Enabled = radiD.Enabled;
+            }
         }
         #endregion
         List<Questions> questionsList;
@@ -197,6 +202,10 @@ namespace QLThiTracNghiem
         private void ChamThi()
         {
             TimerThi.Stop();
+            foreach(var question in questionsList)
+            {
+                question.OverTestTime();
+            }
             //Add Data
             double mark = TinhDiem();
             UpdateTableBangDiem(mark);
@@ -213,7 +222,7 @@ namespace QLThiTracNghiem
                     rightAnswer += 1;
                 }
             }
-            return Math.Round((rightAnswer + 0.0f) / questionsList.Count, 2);
+            return Math.Round((rightAnswer + 0.0f) * 10/ questionsList.Count, 1);
         }
 
        

@@ -1,4 +1,5 @@
-﻿using DevExpress.XtraEditors;
+﻿using DevExpress.Xpo;
+using DevExpress.XtraEditors;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -59,7 +60,7 @@ namespace QLThiTracNghiem
 
 /*            this.cbKHOA.DataSource = this.bdsKHOA;*/
             this.cbKHOA.DisplayMember = "TENKHOA";
-            this.cbKHOA.ValueMember = "MAKHOA";
+            this.cbKHOA.ValueMember = "MAKH";
             this.cbKHOA.SelectedIndex = 0;
         }
 
@@ -132,7 +133,7 @@ namespace QLThiTracNghiem
         {
             if (bdsSinhvien.Count == 0)
             {
-                MessageBox.Show("Không có danh sach lớp ", "OK", MessageBoxButtons.OK);
+                MessageBox.Show("Không có Sinh viên nào đuọc chọn ", "OK", MessageBoxButtons.OK);
                 return;
             }
             positionSinhVien = this.bdsSinhvien.Position;
@@ -144,6 +145,11 @@ namespace QLThiTracNghiem
 
         private void tsXoaSINHVIEN_Click(object sender, EventArgs e)
         {
+            if (bdsSinhvien.Count == 0)
+            {
+                MessageBox.Show("Không có Sinh Vien nào được chọn", "OK", MessageBoxButtons.OK);
+                return;
+            }
             String maSV = "";
             if (MessageBox.Show("Bạn có muốn xóa ?", "OK", MessageBoxButtons.OKCancel) == DialogResult.OK)
             {
@@ -170,11 +176,19 @@ namespace QLThiTracNghiem
 
         private void tsThemSINHVIEN_Click(object sender, EventArgs e)
         {
+            if (bdsLop.Count == 0)
+            {
+                MessageBox.Show("Không có danh sach lớp ", "OK", MessageBoxButtons.OK);
+                return;
+            }
             positionSinhVien = this.bdsSinhvien.Position;
-            bdsSinhvien.AddNew();
+            var newRecord = bdsSinhvien.AddNew();
+            //Set mat khau mat dinh
+            txtPassword.Text = "kc";
             ActionBeforeEditSINHVIEN();
             string currentLop = ((DataRowView)this.bdsLop[bdsLop.Position])["MALOP"].ToString();
             this.txtMALOP.Text = currentLop;
+            
             this.txtMASV.Enabled = true;
             validateAction += this.ValidateThemSV;
         }
