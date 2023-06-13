@@ -1,6 +1,6 @@
 ﻿namespace QLThiTracNghiem
 {
-    partial class FormChuanBiThi
+    partial class FormDangkyThi
     {
         /// <summary>
         /// Required designer variable.
@@ -37,13 +37,24 @@
             System.Windows.Forms.Label lANLabel;
             System.Windows.Forms.Label sOCAUTHILabel;
             System.Windows.Forms.Label tHOIGIANLabel;
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormChuanBiThi));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormDangkyThi));
             this.DB_THI_TN = new QLThiTracNghiem.DB_THI_TN();
             this.bdsGiaovien_Dangky = new System.Windows.Forms.BindingSource(this.components);
             this.Giaovien_DangkyTableAdapter = new QLThiTracNghiem.DB_THI_TNTableAdapters.Giaovien_DangkyTableAdapter();
             this.tableAdapterManager = new QLThiTracNghiem.DB_THI_TNTableAdapters.TableAdapterManager();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
+            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
+            this.giaovien_DangkyGridControl = new DevExpress.XtraGrid.GridControl();
+            this.gvGiaovien_Dangky = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.colMAGV = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colMALOP = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colMAMH = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colTRINHDO = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colNGAYTHI = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colLAN = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colSOCAUTHI = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colTHOIGIAN = new DevExpress.XtraGrid.Columns.GridColumn();
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
             this.btnXemLop = new DevExpress.XtraEditors.SimpleButton();
             this.btnThoat = new DevExpress.XtraEditors.SimpleButton();
@@ -58,17 +69,6 @@
             this.txtMALOP = new DevExpress.XtraEditors.TextEdit();
             this.txtMAGV = new DevExpress.XtraEditors.TextEdit();
             this.MonhocTableAdapter = new QLThiTracNghiem.DB_THI_TNTableAdapters.MonhocTableAdapter();
-            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
-            this.giaovien_DangkyGridControl = new DevExpress.XtraGrid.GridControl();
-            this.gvGiaovien_Dangky = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.colMAGV = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colMALOP = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colMAMH = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colTRINHDO = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colNGAYTHI = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colLAN = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colSOCAUTHI = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colTHOIGIAN = new DevExpress.XtraGrid.Columns.GridColumn();
             mAGVLabel = new System.Windows.Forms.Label();
             mALOPLabel = new System.Windows.Forms.Label();
             mAMHLabel = new System.Windows.Forms.Label();
@@ -80,6 +80,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.DB_THI_TN)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bdsGiaovien_Dangky)).BeginInit();
             this.tableLayoutPanel1.SuspendLayout();
+            this.tableLayoutPanel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.giaovien_DangkyGridControl)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gvGiaovien_Dangky)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tHOIGIANSpinEdit.Properties)).BeginInit();
@@ -89,9 +92,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.bdsMonhoc)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMALOP.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMAGV.Properties)).BeginInit();
-            this.tableLayoutPanel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.giaovien_DangkyGridControl)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gvGiaovien_Dangky)).BeginInit();
             this.SuspendLayout();
             // 
             // mAGVLabel
@@ -221,6 +221,120 @@
             this.labelControl1.TabIndex = 0;
             this.labelControl1.Text = "Form Nhập Lịch thi";
             // 
+            // tableLayoutPanel2
+            // 
+            this.tableLayoutPanel2.ColumnCount = 2;
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 693F));
+            this.tableLayoutPanel2.Controls.Add(this.giaovien_DangkyGridControl, 1, 0);
+            this.tableLayoutPanel2.Controls.Add(this.panelControl1, 0, 0);
+            this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(3, 62);
+            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
+            this.tableLayoutPanel2.RowCount = 1;
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(1432, 329);
+            this.tableLayoutPanel2.TabIndex = 2;
+            // 
+            // giaovien_DangkyGridControl
+            // 
+            this.giaovien_DangkyGridControl.DataSource = this.bdsGiaovien_Dangky;
+            this.giaovien_DangkyGridControl.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.giaovien_DangkyGridControl.Location = new System.Drawing.Point(742, 3);
+            this.giaovien_DangkyGridControl.MainView = this.gvGiaovien_Dangky;
+            this.giaovien_DangkyGridControl.Name = "giaovien_DangkyGridControl";
+            this.giaovien_DangkyGridControl.Size = new System.Drawing.Size(687, 323);
+            this.giaovien_DangkyGridControl.TabIndex = 1;
+            this.giaovien_DangkyGridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.gvGiaovien_Dangky});
+            // 
+            // gvGiaovien_Dangky
+            // 
+            this.gvGiaovien_Dangky.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.colMAGV,
+            this.colMALOP,
+            this.colMAMH,
+            this.colTRINHDO,
+            this.colNGAYTHI,
+            this.colLAN,
+            this.colSOCAUTHI,
+            this.colTHOIGIAN});
+            this.gvGiaovien_Dangky.GridControl = this.giaovien_DangkyGridControl;
+            this.gvGiaovien_Dangky.Name = "gvGiaovien_Dangky";
+            this.gvGiaovien_Dangky.OptionsBehavior.Editable = false;
+            // 
+            // colMAGV
+            // 
+            this.colMAGV.FieldName = "MAGV";
+            this.colMAGV.MinWidth = 25;
+            this.colMAGV.Name = "colMAGV";
+            this.colMAGV.Visible = true;
+            this.colMAGV.VisibleIndex = 0;
+            this.colMAGV.Width = 94;
+            // 
+            // colMALOP
+            // 
+            this.colMALOP.FieldName = "MALOP";
+            this.colMALOP.MinWidth = 25;
+            this.colMALOP.Name = "colMALOP";
+            this.colMALOP.Visible = true;
+            this.colMALOP.VisibleIndex = 1;
+            this.colMALOP.Width = 94;
+            // 
+            // colMAMH
+            // 
+            this.colMAMH.FieldName = "MAMH";
+            this.colMAMH.MinWidth = 25;
+            this.colMAMH.Name = "colMAMH";
+            this.colMAMH.Visible = true;
+            this.colMAMH.VisibleIndex = 2;
+            this.colMAMH.Width = 94;
+            // 
+            // colTRINHDO
+            // 
+            this.colTRINHDO.FieldName = "TRINHDO";
+            this.colTRINHDO.MinWidth = 25;
+            this.colTRINHDO.Name = "colTRINHDO";
+            this.colTRINHDO.Visible = true;
+            this.colTRINHDO.VisibleIndex = 3;
+            this.colTRINHDO.Width = 94;
+            // 
+            // colNGAYTHI
+            // 
+            this.colNGAYTHI.FieldName = "NGAYTHI";
+            this.colNGAYTHI.MinWidth = 25;
+            this.colNGAYTHI.Name = "colNGAYTHI";
+            this.colNGAYTHI.Visible = true;
+            this.colNGAYTHI.VisibleIndex = 4;
+            this.colNGAYTHI.Width = 94;
+            // 
+            // colLAN
+            // 
+            this.colLAN.FieldName = "LAN";
+            this.colLAN.MinWidth = 25;
+            this.colLAN.Name = "colLAN";
+            this.colLAN.Visible = true;
+            this.colLAN.VisibleIndex = 5;
+            this.colLAN.Width = 94;
+            // 
+            // colSOCAUTHI
+            // 
+            this.colSOCAUTHI.FieldName = "SOCAUTHI";
+            this.colSOCAUTHI.MinWidth = 25;
+            this.colSOCAUTHI.Name = "colSOCAUTHI";
+            this.colSOCAUTHI.Visible = true;
+            this.colSOCAUTHI.VisibleIndex = 6;
+            this.colSOCAUTHI.Width = 94;
+            // 
+            // colTHOIGIAN
+            // 
+            this.colTHOIGIAN.FieldName = "THOIGIAN";
+            this.colTHOIGIAN.MinWidth = 25;
+            this.colTHOIGIAN.Name = "colTHOIGIAN";
+            this.colTHOIGIAN.Visible = true;
+            this.colTHOIGIAN.VisibleIndex = 7;
+            this.colTHOIGIAN.Width = 94;
+            // 
             // panelControl1
             // 
             this.panelControl1.Controls.Add(this.btnXemLop);
@@ -245,7 +359,7 @@
             this.panelControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelControl1.Location = new System.Drawing.Point(3, 3);
             this.panelControl1.Name = "panelControl1";
-            this.panelControl1.Size = new System.Drawing.Size(822, 323);
+            this.panelControl1.Size = new System.Drawing.Size(733, 323);
             this.panelControl1.TabIndex = 1;
             // 
             // btnXemLop
@@ -350,6 +464,11 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.nGAYTHIDateEdit.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.nGAYTHIDateEdit.Properties.DisplayFormat.FormatString = "dd-MM-yyyy HH:mm:ss";
+            this.nGAYTHIDateEdit.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
+            this.nGAYTHIDateEdit.Properties.EditFormat.FormatString = "dd-MM-yyyy HH:mm:ss";
+            this.nGAYTHIDateEdit.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
+            this.nGAYTHIDateEdit.Properties.MaskSettings.Set("mask", "G");
             this.nGAYTHIDateEdit.Size = new System.Drawing.Size(125, 22);
             this.nGAYTHIDateEdit.TabIndex = 9;
             // 
@@ -401,132 +520,22 @@
             // 
             this.MonhocTableAdapter.ClearBeforeFill = true;
             // 
-            // tableLayoutPanel2
-            // 
-            this.tableLayoutPanel2.ColumnCount = 2;
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 604F));
-            this.tableLayoutPanel2.Controls.Add(this.giaovien_DangkyGridControl, 1, 0);
-            this.tableLayoutPanel2.Controls.Add(this.panelControl1, 0, 0);
-            this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(3, 62);
-            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
-            this.tableLayoutPanel2.RowCount = 1;
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(1432, 329);
-            this.tableLayoutPanel2.TabIndex = 2;
-            // 
-            // giaovien_DangkyGridControl
-            // 
-            this.giaovien_DangkyGridControl.DataSource = this.bdsGiaovien_Dangky;
-            this.giaovien_DangkyGridControl.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.giaovien_DangkyGridControl.Location = new System.Drawing.Point(831, 3);
-            this.giaovien_DangkyGridControl.MainView = this.gvGiaovien_Dangky;
-            this.giaovien_DangkyGridControl.Name = "giaovien_DangkyGridControl";
-            this.giaovien_DangkyGridControl.Size = new System.Drawing.Size(598, 323);
-            this.giaovien_DangkyGridControl.TabIndex = 1;
-            this.giaovien_DangkyGridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
-            this.gvGiaovien_Dangky});
-            // 
-            // gvGiaovien_Dangky
-            // 
-            this.gvGiaovien_Dangky.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
-            this.colMAGV,
-            this.colMALOP,
-            this.colMAMH,
-            this.colTRINHDO,
-            this.colNGAYTHI,
-            this.colLAN,
-            this.colSOCAUTHI,
-            this.colTHOIGIAN});
-            this.gvGiaovien_Dangky.GridControl = this.giaovien_DangkyGridControl;
-            this.gvGiaovien_Dangky.Name = "gvGiaovien_Dangky";
-            // 
-            // colMAGV
-            // 
-            this.colMAGV.FieldName = "MAGV";
-            this.colMAGV.MinWidth = 25;
-            this.colMAGV.Name = "colMAGV";
-            this.colMAGV.Visible = true;
-            this.colMAGV.VisibleIndex = 0;
-            this.colMAGV.Width = 94;
-            // 
-            // colMALOP
-            // 
-            this.colMALOP.FieldName = "MALOP";
-            this.colMALOP.MinWidth = 25;
-            this.colMALOP.Name = "colMALOP";
-            this.colMALOP.Visible = true;
-            this.colMALOP.VisibleIndex = 1;
-            this.colMALOP.Width = 94;
-            // 
-            // colMAMH
-            // 
-            this.colMAMH.FieldName = "MAMH";
-            this.colMAMH.MinWidth = 25;
-            this.colMAMH.Name = "colMAMH";
-            this.colMAMH.Visible = true;
-            this.colMAMH.VisibleIndex = 2;
-            this.colMAMH.Width = 94;
-            // 
-            // colTRINHDO
-            // 
-            this.colTRINHDO.FieldName = "TRINHDO";
-            this.colTRINHDO.MinWidth = 25;
-            this.colTRINHDO.Name = "colTRINHDO";
-            this.colTRINHDO.Visible = true;
-            this.colTRINHDO.VisibleIndex = 3;
-            this.colTRINHDO.Width = 94;
-            // 
-            // colNGAYTHI
-            // 
-            this.colNGAYTHI.FieldName = "NGAYTHI";
-            this.colNGAYTHI.MinWidth = 25;
-            this.colNGAYTHI.Name = "colNGAYTHI";
-            this.colNGAYTHI.Visible = true;
-            this.colNGAYTHI.VisibleIndex = 4;
-            this.colNGAYTHI.Width = 94;
-            // 
-            // colLAN
-            // 
-            this.colLAN.FieldName = "LAN";
-            this.colLAN.MinWidth = 25;
-            this.colLAN.Name = "colLAN";
-            this.colLAN.Visible = true;
-            this.colLAN.VisibleIndex = 5;
-            this.colLAN.Width = 94;
-            // 
-            // colSOCAUTHI
-            // 
-            this.colSOCAUTHI.FieldName = "SOCAUTHI";
-            this.colSOCAUTHI.MinWidth = 25;
-            this.colSOCAUTHI.Name = "colSOCAUTHI";
-            this.colSOCAUTHI.Visible = true;
-            this.colSOCAUTHI.VisibleIndex = 6;
-            this.colSOCAUTHI.Width = 94;
-            // 
-            // colTHOIGIAN
-            // 
-            this.colTHOIGIAN.FieldName = "THOIGIAN";
-            this.colTHOIGIAN.MinWidth = 25;
-            this.colTHOIGIAN.Name = "colTHOIGIAN";
-            this.colTHOIGIAN.Visible = true;
-            this.colTHOIGIAN.VisibleIndex = 7;
-            this.colTHOIGIAN.Width = 94;
-            // 
-            // FormChuanBiThi
+            // FormDangkyThi
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1438, 394);
             this.Controls.Add(this.tableLayoutPanel1);
-            this.Name = "FormChuanBiThi";
+            this.Name = "FormDangkyThi";
             this.Text = "FormChuanBiThi";
             this.Load += new System.EventHandler(this.FormChuanBiThi_Load);
             ((System.ComponentModel.ISupportInitialize)(this.DB_THI_TN)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bdsGiaovien_Dangky)).EndInit();
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
+            this.tableLayoutPanel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.giaovien_DangkyGridControl)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gvGiaovien_Dangky)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
             this.panelControl1.ResumeLayout(false);
             this.panelControl1.PerformLayout();
@@ -537,9 +546,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.bdsMonhoc)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMALOP.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMAGV.Properties)).EndInit();
-            this.tableLayoutPanel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.giaovien_DangkyGridControl)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gvGiaovien_Dangky)).EndInit();
             this.ResumeLayout(false);
 
         }

@@ -14,10 +14,10 @@ using static DevExpress.Xpo.Helpers.AssociatedCollectionCriteriaHelper;
 namespace QLThiTracNghiem
 {
    
-    public partial class FormChuanBiThi : DevExpress.XtraEditors.XtraForm
+    public partial class FormDangkyThi : DevExpress.XtraEditors.XtraForm
     {
 
-        public FormChuanBiThi()
+        public FormDangkyThi()
         {
             InitializeComponent();
         }
@@ -138,6 +138,7 @@ namespace QLThiTracNghiem
             {
                 Giaovien_DangkyTableAdapter.Insert(maGV, maLop, maMH, trinhDo, dateTime, (short)lanThi, (short)soCauThi, (short)thoiGian);
                 Giaovien_DangkyTableAdapter.Update(DB_THI_TN.Giaovien_Dangky);
+                this.Giaovien_DangkyTableAdapter.Fill(this.DB_THI_TN.Giaovien_Dangky);
 
                 MessageBox.Show("Đã thêm thành công !", "", MessageBoxButtons.OK);
             }

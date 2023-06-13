@@ -129,7 +129,7 @@ namespace QLThiTracNghiem
         
             public void OverTestTime()
             {
-                radiA.Enabled = radiB.Enabled = radiC.Enabled = radiD.Enabled;
+                radiA.Enabled = radiB.Enabled = radiC.Enabled = radiD.Enabled = false;
             }
         }
         #endregion

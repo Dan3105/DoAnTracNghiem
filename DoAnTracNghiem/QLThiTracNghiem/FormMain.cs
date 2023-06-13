@@ -179,10 +179,10 @@ namespace QLThiTracNghiem
 
         private void btnDkyThi_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            FormChuanBiThi frmDKThi = CheckExists(typeof(FormChuanBiThi)) as FormChuanBiThi;
+            FormDangkyThi frmDKThi = CheckExists(typeof(FormDangkyThi)) as FormDangkyThi;
             if (frmDKThi == null)
             {
-                frmDKThi = new FormChuanBiThi();
+                frmDKThi = new FormDangkyThi();
             }
             frmDKThi.MdiParent = this;
             frmDKThi.Show();

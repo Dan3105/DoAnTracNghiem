@@ -224,6 +224,7 @@ namespace QLThiTracNghiem
 
             try
             {
+             
                 bdsSinhvien.EndEdit();
                 bdsSinhvien.ResetCurrentItem();
                 this.SinhvienTableAdapter.Connection.ConnectionString = Program.connstr;
@@ -231,6 +232,7 @@ namespace QLThiTracNghiem
             }
             catch (Exception ex)
             {
+                bdsSinhvien.EndEdit();
                 MessageBox.Show($"{ex}", "", MessageBoxButtons.OK);
                 return;
             }
