@@ -17,12 +17,12 @@ namespace QLThiTracNghiem
         public Frpt_Xem_DanhSach_Dangky_thi()
         {
             InitializeComponent();
+            this.deBatDau.DateTime = DateTime.Now;
+            this.deKetThuc.DateTime = DateTime.Now;
         }
 
         private bool validateInput()
         {
-            //txt la text label ma :v :< lo roi cho copy paste cai di luoi v cau :<<
-            //v de toi sua
             if (string.IsNullOrEmpty(deBatDau.Text))
             {
                 MessageBox.Show("Thời gian bắt đầu không được để trống", "Thông báo", MessageBoxButtons.OK);
@@ -47,7 +47,7 @@ namespace QLThiTracNghiem
         {
             if (!validateInput()) return;
 
-            Xrpt_Xem_Danhsach_Dangky_thi rpt = new Xrpt_Xem_Danhsach_Dangky_thi(deBatDau.Text, deKetThuc.Text);
+            Xrpt_Xem_Danhsach_Dangky_thi rpt = new Xrpt_Xem_Danhsach_Dangky_thi(deBatDau.DateTime, deKetThuc.DateTime);
 
             ReportPrintTool print = new ReportPrintTool(rpt);
             print.ShowPreviewDialog();

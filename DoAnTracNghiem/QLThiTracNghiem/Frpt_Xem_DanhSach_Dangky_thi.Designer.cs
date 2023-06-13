@@ -35,9 +35,9 @@
             this.btnThoat = new System.Windows.Forms.Button();
             this.btnPreview = new System.Windows.Forms.Button();
             this.deKetThuc = new DevExpress.XtraEditors.DateEdit();
-            this.label2 = new System.Windows.Forms.Label();
             this.deBatDau = new DevExpress.XtraEditors.DateEdit();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.label2 = new System.Windows.Forms.Label();
             label1 = new System.Windows.Forms.Label();
             label3 = new System.Windows.Forms.Label();
             this.tableLayoutPanel1.SuspendLayout();
@@ -132,18 +132,10 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.deKetThuc.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.deKetThuc.Properties.DisplayFormat.FormatString = "dd/MM/yyyy";
+            this.deKetThuc.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
             this.deKetThuc.Size = new System.Drawing.Size(156, 28);
             this.deKetThuc.TabIndex = 10;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Tahoma", 12F);
-            this.label2.Location = new System.Drawing.Point(87, 47);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(422, 24);
-            this.label2.TabIndex = 8;
-            this.label2.Text = "XEM DANH SÁCH ĐĂNG KÝ THI TRẮC NGHIỆM";
             // 
             // deBatDau
             // 
@@ -157,6 +149,8 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.deBatDau.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.deBatDau.Properties.DisplayFormat.FormatString = "dd/MM/yyyy";
+            this.deBatDau.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
             this.deBatDau.Size = new System.Drawing.Size(156, 28);
             this.deBatDau.TabIndex = 7;
             // 
@@ -168,6 +162,16 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(1052, 100);
             this.panel2.TabIndex = 8;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Tahoma", 12F);
+            this.label2.Location = new System.Drawing.Point(87, 47);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(422, 24);
+            this.label2.TabIndex = 8;
+            this.label2.Text = "XEM DANH SÁCH ĐĂNG KÝ THI TRẮC NGHIỆM";
             // 
             // Frpt_Xem_DanhSach_Dangky_thi
             // 

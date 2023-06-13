@@ -2,6 +2,7 @@
 using System;
 using System.Collections;
 using System.ComponentModel;
+using System.Data;
 using System.Drawing;
 
 namespace QLThiTracNghiem
@@ -12,37 +13,40 @@ namespace QLThiTracNghiem
         {
             InitializeComponent();
         }
-
-        public Xrpt_Xem_Danhsach_Dangky_thi(string ngayBatDau, string ngayKetThuc)
+        
+        public Xrpt_Xem_Danhsach_Dangky_thi(DateTime batDau, DateTime ketThuc)
         {
             //ti nho lam try catch
             InitializeComponent();
             this.sqlDataSource1.Connection.ConnectionString = Program.connstr;
-            this.sqlDataSource1.Queries[0].Parameters[0].Value = ngayBatDau;
-            this.sqlDataSource1.Queries[0].Parameters[1].Value = ngayKetThuc;
+            this.sqlDataSource1.Queries[0].Parameters[0].Value = batDau.ToString("yyyy-MM-dd");
+            this.sqlDataSource1.Queries[0].Parameters[1].Value = ketThuc.ToString("yyyy-MM-dd");
             this.sqlDataSource1.Fill();
 
-            this.lblCoSoHienTai.Text =  this.lblCoSoHienTai.Text +
-                                        tableCell2.Text + "\\n" +
-                                        "TỪ NGÀY " + ngayBatDau + " ĐẾN NGÀY " + ngayKetThuc;
+            this.ngayBatDau = batDau.ToString("dd/MM/yyyy");
+            this.ngayKetThuc = ketThuc.ToString("dd/MM/yyyy");
 
-            this.lblCoSoKhac.Text = this.lblCoSoKhac.Text +
-                                    tableCell18.Text + "\\n" +
-                                    "TỪ NGÀY " + ngayBatDau + " ĐẾN NGÀY " + ngayKetThuc;
+            Console.WriteLine(((DataRowView)Program.bds_dspm[Program.currentServerIndex])["TenCS"]);
+
+            this.lblCoSoHienTai.Text = "DANH SÁCH ĐĂNG KÝ THI TRẮC NGHIỆM CƠ SỞ " +
+                                        ((DataRowView)Program.bds_dspm[Program.currentServerIndex])["TenCS"];
+
+
+
+            this.lblCoSoKhac.Text = "DANH SÁCH ĐĂNG KÝ THI TRẮC NGHIỆM CƠ SỞ " +
+                                    ((DataRowView)Program.bds_dspm[(Program.currentServerIndex == 1 ? 0 : 1)])["TenCS"];
             
-          
+            this.XRTuNgayDenNgay.Text = this.XRTuNgayDenNgay1.Text = "TỪ NGÀY " + ngayBatDau + " ĐẾN NGÀY " + ngayKetThuc;
         }
 
         private void lblCoSoHienTai_BeforePrint(object sender, CancelEventArgs e)
         {
-            //before print nay ow dau v :v lo coi alime qua ok deo
             XRLabel label = (XRLabel)sender;
             label.Text = label.Text.Replace("\\n", Environment.NewLine);
         }
 
         private void lblCoSoKhac_BeforePrint(object sender, CancelEventArgs e)
         {
-            //du ghe
             XRLabel label = (XRLabel)sender;
             label.Text = label.Text.Replace("\\n", Environment.NewLine);
         }

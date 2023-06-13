@@ -1,15 +1,7 @@
 USE [DB_THI_TN]
 GO
-
-/****** Object:  StoredProcedure [dbo].[SP_Bao_Cao_DS_Dk_Thi]    Script Date: 11/06/2023 9:34:58 CH ******/
-SET ANSI_NULLS ON
-GO
-
-SET QUOTED_IDENTIFIER ON
-GO
-
-CREATE Proc [dbo].[SP_Bao_Cao_DS_Dk_Thi]
-@TuNgay Date,
+/****** Object:  StoredProcedure [dbo].[SP_Bao_Cao_DS_Dk_Thi]    Script Date: 6/13/2023 3:45:07 PM ******/
+ALTER PROCEDURE [dbo].[SP_Bao_Cao_DS_Dk_Thi] @TuNgay Date,
 @DenNgay Date
 as
 begin
@@ -77,12 +69,11 @@ begin
     ELSE -- job still running
         WAITFOR DELAY '00:00:02'; -- wait for 2 seconds before checking again
 	end
-	
 
 	Select TENLOP, TENMH, TENGV, SOCAUTHI, NGAYTHI, DATHI, GHICHU, TENCS from ##LocalTable
 
 	Select TENLOP, TENMH, TENGV, SOCAUTHI, NGAYTHI, DATHI, GHICHU, TENCS from ##RemoteTable
+
+	IF  EXISTS (SELECT job_id FROM msdb.dbo.sysjobs_view WHERE name = N'Job_1')
+        EXEC msdb.dbo.sp_delete_job @job_name=N'Job_1' 
 end
-GO
-
-
