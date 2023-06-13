@@ -101,18 +101,21 @@ namespace QLThiTracNghiem
                     this.btnThem.Enabled = this.btnGhi.Enabled = this.btnReload.Enabled
                         = this.btnSua.Enabled = this.btnXoa.Enabled = this.btnUndo.Enabled = false;
                     this.cbCoSo.Enabled = true;
+                    this.contextMenuStrip1.Enabled = false;
                     break;
                 case Simple.GroupLoginType.CoSo:
                     this.btnThem.Enabled = this.btnReload.Enabled
                        = this.btnSua.Enabled = this.btnXoa.Enabled = true;
                     this.btnUndo.Enabled = this.btnGhi.Enabled = false;
                     this.cbCoSo.Enabled = false;
+                    this.contextMenuStrip1.Enabled = true;
                     this.gcGIAOVIEN.ContextMenuStrip = this.contextMenuStrip1;
                     break;
                 default:
                     this.btnThem.Enabled = this.btnGhi.Enabled = this.btnReload.Enabled
                         = this.btnSua.Enabled = this.btnXoa.Enabled = false;
                     this.cbCoSo.Enabled = false;
+                    this.contextMenuStrip1.Enabled = false;
                     break;
             }
 
