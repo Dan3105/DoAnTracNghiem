@@ -37,10 +37,7 @@
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.fillToolStrip = new System.Windows.Forms.ToolStrip();
-            this.maLopToolStripLabel = new System.Windows.Forms.ToolStripLabel();
-            this.maLopToolStripTextBox = new System.Windows.Forms.ToolStripTextBox();
-            this.fillToolStripButton = new System.Windows.Forms.ToolStripButton();
+            this.lbLop = new System.Windows.Forms.Label();
             this.sP_DS_Co_The_ThiGridControl = new DevExpress.XtraGrid.GridControl();
             this.bdsSP_DS_Co_The_Thi = new System.Windows.Forms.BindingSource(this.components);
             this.DB_THI_TN = new QLThiTracNghiem.DB_THI_TN();
@@ -69,7 +66,6 @@
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.panel1.SuspendLayout();
-            this.fillToolStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.sP_DS_Co_The_ThiGridControl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bdsSP_DS_Co_The_Thi)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DB_THI_TN)).BeginInit();
@@ -162,47 +158,24 @@
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.fillToolStrip);
+            this.panel1.Controls.Add(this.lbLop);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(3, 3);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(774, 39);
             this.panel1.TabIndex = 3;
             // 
-            // fillToolStrip
+            // lbLop
             // 
-            this.fillToolStrip.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.fillToolStrip.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.fillToolStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.maLopToolStripLabel,
-            this.maLopToolStripTextBox,
-            this.fillToolStripButton});
-            this.fillToolStrip.Location = new System.Drawing.Point(0, 12);
-            this.fillToolStrip.Name = "fillToolStrip";
-            this.fillToolStrip.Size = new System.Drawing.Size(774, 27);
-            this.fillToolStrip.TabIndex = 2;
-            this.fillToolStrip.Text = "fillToolStrip";
-            // 
-            // maLopToolStripLabel
-            // 
-            this.maLopToolStripLabel.Name = "maLopToolStripLabel";
-            this.maLopToolStripLabel.Size = new System.Drawing.Size(58, 24);
-            this.maLopToolStripLabel.Text = "MaLop:";
-            // 
-            // maLopToolStripTextBox
-            // 
-            this.maLopToolStripTextBox.Enabled = false;
-            this.maLopToolStripTextBox.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.maLopToolStripTextBox.Name = "maLopToolStripTextBox";
-            this.maLopToolStripTextBox.Size = new System.Drawing.Size(100, 27);
-            // 
-            // fillToolStripButton
-            // 
-            this.fillToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.fillToolStripButton.Name = "fillToolStripButton";
-            this.fillToolStripButton.Size = new System.Drawing.Size(32, 24);
-            this.fillToolStripButton.Text = "Fill";
-            this.fillToolStripButton.Click += new System.EventHandler(this.fillToolStripButton_Click);
+            this.lbLop.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lbLop.AutoSize = true;
+            this.lbLop.Location = new System.Drawing.Point(23, 12);
+            this.lbLop.Name = "lbLop";
+            this.lbLop.Size = new System.Drawing.Size(44, 16);
+            this.lbLop.TabIndex = 0;
+            this.lbLop.Text = "label1";
             // 
             // sP_DS_Co_The_ThiGridControl
             // 
@@ -237,14 +210,13 @@
             this.colTHOIGIAN});
             this.gridView1.GridControl = this.sP_DS_Co_The_ThiGridControl;
             this.gridView1.Name = "gridView1";
+            this.gridView1.OptionsBehavior.Editable = false;
             // 
             // colTENMH
             // 
             this.colTENMH.FieldName = "TENMH";
             this.colTENMH.MinWidth = 25;
             this.colTENMH.Name = "colTENMH";
-            this.colTENMH.Visible = true;
-            this.colTENMH.VisibleIndex = 0;
             this.colTENMH.Width = 94;
             // 
             // colTRINHDO
@@ -252,17 +224,14 @@
             this.colTRINHDO.FieldName = "TRINHDO";
             this.colTRINHDO.MinWidth = 25;
             this.colTRINHDO.Name = "colTRINHDO";
-            this.colTRINHDO.Visible = true;
-            this.colTRINHDO.VisibleIndex = 1;
             this.colTRINHDO.Width = 94;
             // 
             // colNGAYTHI
             // 
+            this.colNGAYTHI.DisplayFormat.FormatString = "G";
             this.colNGAYTHI.FieldName = "NGAYTHI";
             this.colNGAYTHI.MinWidth = 25;
             this.colNGAYTHI.Name = "colNGAYTHI";
-            this.colNGAYTHI.Visible = true;
-            this.colNGAYTHI.VisibleIndex = 2;
             this.colNGAYTHI.Width = 94;
             // 
             // colLAN
@@ -270,8 +239,6 @@
             this.colLAN.FieldName = "LAN";
             this.colLAN.MinWidth = 25;
             this.colLAN.Name = "colLAN";
-            this.colLAN.Visible = true;
-            this.colLAN.VisibleIndex = 3;
             this.colLAN.Width = 94;
             // 
             // colSOCAUTHI
@@ -279,8 +246,6 @@
             this.colSOCAUTHI.FieldName = "SOCAUTHI";
             this.colSOCAUTHI.MinWidth = 25;
             this.colSOCAUTHI.Name = "colSOCAUTHI";
-            this.colSOCAUTHI.Visible = true;
-            this.colSOCAUTHI.VisibleIndex = 4;
             this.colSOCAUTHI.Width = 94;
             // 
             // colTHOIGIAN
@@ -288,8 +253,6 @@
             this.colTHOIGIAN.FieldName = "THOIGIAN";
             this.colTHOIGIAN.MinWidth = 25;
             this.colTHOIGIAN.Name = "colTHOIGIAN";
-            this.colTHOIGIAN.Visible = true;
-            this.colTHOIGIAN.VisibleIndex = 5;
             this.colTHOIGIAN.Width = 94;
             // 
             // tableLayoutPanel3
@@ -334,6 +297,7 @@
             0,
             0,
             0});
+            this.lANSpinEdit.Enabled = false;
             this.lANSpinEdit.Location = new System.Drawing.Point(448, 60);
             this.lANSpinEdit.Name = "lANSpinEdit";
             this.lANSpinEdit.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
@@ -349,6 +313,7 @@
             0,
             0,
             0});
+            this.tHOIGIANSpinEdit.Enabled = false;
             this.tHOIGIANSpinEdit.Location = new System.Drawing.Point(448, 99);
             this.tHOIGIANSpinEdit.Name = "tHOIGIANSpinEdit";
             this.tHOIGIANSpinEdit.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
@@ -364,6 +329,7 @@
             0,
             0,
             0});
+            this.sOCAUTHISpinEdit.Enabled = false;
             this.sOCAUTHISpinEdit.Location = new System.Drawing.Point(126, 99);
             this.sOCAUTHISpinEdit.Name = "sOCAUTHISpinEdit";
             this.sOCAUTHISpinEdit.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
@@ -375,18 +341,24 @@
             // 
             this.nGAYTHIDateEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bdsSP_DS_Co_The_Thi, "NGAYTHI", true));
             this.nGAYTHIDateEdit.EditValue = null;
+            this.nGAYTHIDateEdit.Enabled = false;
             this.nGAYTHIDateEdit.Location = new System.Drawing.Point(126, 61);
             this.nGAYTHIDateEdit.Name = "nGAYTHIDateEdit";
             this.nGAYTHIDateEdit.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.nGAYTHIDateEdit.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.nGAYTHIDateEdit.Properties.DisplayFormat.FormatString = "G";
+            this.nGAYTHIDateEdit.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
+            this.nGAYTHIDateEdit.Properties.EditFormat.FormatString = "G";
+            this.nGAYTHIDateEdit.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
             this.nGAYTHIDateEdit.Size = new System.Drawing.Size(125, 22);
             this.nGAYTHIDateEdit.TabIndex = 3;
             // 
             // tENMHTextEdit
             // 
             this.tENMHTextEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bdsSP_DS_Co_The_Thi, "TENMH", true));
+            this.tENMHTextEdit.Enabled = false;
             this.tENMHTextEdit.Location = new System.Drawing.Point(126, 27);
             this.tENMHTextEdit.Name = "tENMHTextEdit";
             this.tENMHTextEdit.Size = new System.Drawing.Size(231, 22);
@@ -436,8 +408,6 @@
             this.tableLayoutPanel2.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            this.fillToolStrip.ResumeLayout(false);
-            this.fillToolStrip.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.sP_DS_Co_The_ThiGridControl)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bdsSP_DS_Co_The_Thi)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.DB_THI_TN)).EndInit();
@@ -462,10 +432,6 @@
         private System.Windows.Forms.BindingSource bdsSP_DS_Co_The_Thi;
         private DB_THI_TNTableAdapters.SP_DS_Co_The_ThiTableAdapter SP_DS_Co_The_ThiTableAdapter;
         private DB_THI_TNTableAdapters.TableAdapterManager tableAdapterManager;
-        private System.Windows.Forms.ToolStrip fillToolStrip;
-        private System.Windows.Forms.ToolStripLabel maLopToolStripLabel;
-        private System.Windows.Forms.ToolStripTextBox maLopToolStripTextBox;
-        private System.Windows.Forms.ToolStripButton fillToolStripButton;
         private DevExpress.XtraGrid.GridControl sP_DS_Co_The_ThiGridControl;
         private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
@@ -484,5 +450,6 @@
         private DevExpress.XtraEditors.DateEdit nGAYTHIDateEdit;
         private DevExpress.XtraEditors.TextEdit tENMHTextEdit;
         private System.Windows.Forms.Button btnThi;
+        private System.Windows.Forms.Label lbLop;
     }
 }

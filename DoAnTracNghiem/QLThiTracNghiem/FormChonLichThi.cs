@@ -19,24 +19,11 @@ namespace QLThiTracNghiem
         }
 
 
-
-        private void fillToolStripButton_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                this.SP_DS_Co_The_ThiTableAdapter.Fill(this.DB_THI_TN.SP_DS_Co_The_Thi, maLopToolStripTextBox.Text);
-            }
-            catch (System.Exception ex)
-            {
-                System.Windows.Forms.MessageBox.Show(ex.Message);
-            }
-
-        }
-
         private void FormChonLichThi_Load(object sender, EventArgs e)
         {
             this.SP_DS_Co_The_ThiTableAdapter.Connection.ConnectionString = Program.connstr;
             this.SP_DS_Co_The_ThiTableAdapter.Fill(this.DB_THI_TN.SP_DS_Co_The_Thi, Program.MaLop);
+            lbLop.Text = $"Lich thi cua Ma Lop {Program.MaLop}";
         }
 
         private bool ValidateInput()
