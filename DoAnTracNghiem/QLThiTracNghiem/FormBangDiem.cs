@@ -17,8 +17,8 @@ namespace QLThiTracNghiem
 {
     public partial class FormBangDiem : DevExpress.XtraEditors.XtraForm
     {
-        private String maLop { get; set; }
-        private String maMH { get; set; }
+        String maCoSo = "";
+        
         public FormBangDiem()
         {
             InitializeComponent();
@@ -27,62 +27,92 @@ namespace QLThiTracNghiem
         private void FormBangDiem_Load(object sender, EventArgs e)
         {
             this.DB_THI_TN.EnforceConstraints = false;
-            this.cbLAN.Items.AddRange(new object[] {1,2});
-            this.cbLAN.SelectedIndex = 0;
+            // TODO: This line of code loads data into the 'DB_THI_TN.SP_Lay_DS_Lich_Thi_Da_Thi' table. You can move, or remove it, as needed.
+            this.SP_Lay_DS_Lich_Thi_Da_ThiTableAdapter.Connection.ConnectionString = Program.connstr;
+            this.SP_Lay_DS_Lich_Thi_Da_ThiTableAdapter.Fill(this.DB_THI_TN.SP_Lay_DS_Lich_Thi_Da_Thi);
+
+            this.cbCoSo.DataSource = Program.bds_dspm;
+            this.cbCoSo.DisplayMember = "TenCS";
+            this.cbCoSo.ValueMember = "MaCS";
+            this.cbCoSo.SelectedIndex = Program.currentServerIndex;
+
+            try
+            {
+                string spCOSO = "Exec SP_Tim_MACS";
+                Program.myReader = Program.ExecSqlDataReader(spCOSO);
+                Program.myReader.Read();
+                maCoSo = Program.myReader.GetValue(0).ToString();
+                Program.conn.Close();
+
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex);
+            }
+
+            gvLichDaThi.OptionsBehavior.Editable = false;
+            if (Program.groupLoginType != Simple.GroupLoginType.Truong)
+                this.cbCoSo.Enabled = false;
         }
 
-        private void btnXEM_Click(object sender, EventArgs e)
+
+        private void cbCoSo_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if(maLop == null)
+            try
             {
-                MessageBox.Show("Vui lòng chọn lớp!", "", MessageBoxButtons.OK);
-                return;
+                if (cbCoSo.SelectedValue.ToString() == "System.Data.DataRowView") return;
+                Program.currentServerValue = cbCoSo.SelectedValue.ToString();
             }
-            if(maMH == null)
+            catch (Exception) { };
+            if (cbCoSo.SelectedIndex != Program.currentServerIndex)
             {
-                MessageBox.Show("Vui lòng chọn Môn học!", "", MessageBoxButtons.OK);
-                return;
+                Program.mlogin = Program.remote_login;
+                Program.password = Program.remote_password;
+            }
+            else
+            {
+                Program.mlogin = Program.mloginDN;
+                Program.password = Program.mpasswordDN;
             }
 
-            Xrpt_Lay_BangDiem rpt = new Xrpt_Lay_BangDiem(maLop, maMH, int.Parse(this.cbLAN.Text));
+            if (Program.KetNoi() == 0)
+            {
+                MessageBox.Show("Lỗi kết nối về cơ sở mới", "", MessageBoxButtons.OK);
+            }
+            else
+            {
+                try
+                {
+                    this.DB_THI_TN.EnforceConstraints = false;
+                    // TODO: This line of code loads data into the 'DB_THI_TN.SP_Lay_DS_Lich_Thi_Da_Thi' table. You can move, or remove it, as needed.
+                    this.SP_Lay_DS_Lich_Thi_Da_ThiTableAdapter.Connection.ConnectionString = Program.connstr;
+                    this.SP_Lay_DS_Lich_Thi_Da_ThiTableAdapter.Fill(this.DB_THI_TN.SP_Lay_DS_Lich_Thi_Da_Thi);
+                }
+                catch (Exception ex) { Console.WriteLine(ex); }
+            }
+        }
+
+        private void btnXem_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            if (bdsLichDaThi.Position == -1)
+            {
+                MessageBox.Show("Không có bảng điểm nào được chọn!", "", MessageBoxButtons.OK);
+                return;
+            }
+            String maLop = ((DataRowView)bdsLichDaThi[bdsLichDaThi.Position])["MALOP"].ToString().Trim();
+            String maMH = ((DataRowView)bdsLichDaThi[bdsLichDaThi.Position])["MAMH"].ToString().Trim();
+            String lan = ((DataRowView)bdsLichDaThi[bdsLichDaThi.Position])["LAN"].ToString();
+            Xrpt_Lay_BangDiem rpt = new Xrpt_Lay_BangDiem(maLop, maMH, int.Parse(lan));
             rpt.lblMaLop.Text = maLop;
-            rpt.lblTenLop.Text = this.txtTenLop.Text;
-            rpt.lblMaMH.Text = this.maMH;
-            rpt.lblTenMH.Text = this.txtTenMH.Text;
-            rpt.lblLan.Text = this.cbLAN.Text;
+            rpt.lblTenLop.Text = ((DataRowView)bdsLichDaThi[bdsLichDaThi.Position])["TENLOP"].ToString();
+            rpt.lblMaMH.Text = maMH;
+            rpt.lblTenMH.Text = ((DataRowView)bdsLichDaThi[bdsLichDaThi.Position])["TENMH"].ToString();
+            rpt.lblLan.Text = lan;
             ReportPrintTool print = new ReportPrintTool(rpt);
             print.ShowPreviewDialog();
-
-
         }
 
-        private void SetThongTinLop(string maLop, string tenLop)
-        {
-            this.maLop = maLop;
-            this.txtTenLop.Text = tenLop;
-        }
-
-        private void SetThongTinMonHoc(string maMH, string tenMH)
-        {
-            this.maMH = maMH;
-            this.txtTenMH.Text = tenMH;
-        }
-
-        private void btnCHONLOP_Click(object sender, EventArgs e)
-        {
-            SubFormChonLop subFormChonLop = new SubFormChonLop();
-            subFormChonLop.SetActionKetThuc(SetThongTinLop);
-            subFormChonLop.ShowDialog(this);
-        }
-
-        private void btnCHONMON_Click(object sender, EventArgs e)
-        {
-            SubFormChonMonHoc subFormChonMonHoc = new SubFormChonMonHoc();
-            subFormChonMonHoc.SetActionKetThuc(SetThongTinMonHoc);
-            subFormChonMonHoc.ShowDialog(this);
-        }
-
-        private void btnTHOAT_Click(object sender, EventArgs e)
+        private void btnThoat_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             this.Dispose();
         }
