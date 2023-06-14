@@ -188,11 +188,12 @@ namespace QLThiTracNghiem
             }
             finally
             {
+                ActionAfterEdit();
                 this.MonhocTableAdapter.Connection.ConnectionString = Program.connstr;
                 this.MonhocTableAdapter.Update(this.DB_THI_TN.Monhoc);
             }
 
-            ActionAfterEdit();
+            
         }
 
         /*private void cbServer_SelectedIndexChanged(object sender, EventArgs e)

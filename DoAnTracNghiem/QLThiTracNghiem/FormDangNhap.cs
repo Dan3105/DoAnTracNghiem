@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace QLThiTracNghiem
 {
@@ -58,7 +59,7 @@ namespace QLThiTracNghiem
         private void frmDangNhap_Load(object sender, EventArgs e)
         {
             if (Connecto_MainDB() == 0) return;
-            GetDatabase(SqlCollections.Get_V_Subscribers);
+            GetDatabase("Select * From V_DS_PhanManh");
             cbServer.SelectedIndex = 1;
             cbServer.SelectedIndex = 0;
         }
@@ -78,11 +79,11 @@ namespace QLThiTracNghiem
             {
                 Program.mlogin = txtUsername.Text;
                 Program.password = txtPassword.Text;
-                strLenh = SqlCollections.Sp_Get_User_Info();
+                strLenh = $"EXEC SP_Get_User_Info '{Program.mlogin}'";
             }
             else
             {
-                strLenh = SqlCollections.Sp_DN_Cho_SV(txtUsername.Text, txtPassword.Text);
+                strLenh = $"Exec SP_Dang_Nhap_Cho_SV {txtUsername.Text}, {txtPassword.Text}";
                 Program.mlogin = Program.sv_login;
                 Program.password = Program.sv_password;
             }

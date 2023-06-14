@@ -122,7 +122,7 @@
             // 
             // sqlDataSource1
             // 
-            this.sqlDataSource1.ConnectionName = "QLThiTracNghiem.Properties.Settings.DB_TracNghiemConnectionString1";
+            this.sqlDataSource1.ConnectionName = "QLThiTracNghiem.Properties.Settings.DB_THI_TNConnectionString1";
             this.sqlDataSource1.Name = "sqlDataSource1";
             storedProcQuery1.Name = "SP_Bao_Cao_DS_Dk_Thi";
             queryParameter1.Name = "@TuNgay";

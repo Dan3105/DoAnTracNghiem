@@ -191,7 +191,6 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SqlCollections.cs" />
     <Compile Include="SubForm\FormChonGiangVien.cs">
       <SubType>Form</SubType>
     </Compile>
