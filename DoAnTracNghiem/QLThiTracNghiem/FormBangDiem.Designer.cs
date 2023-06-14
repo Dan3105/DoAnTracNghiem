@@ -28,138 +28,173 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormBangDiem));
             this.panelCHON = new DevExpress.XtraEditors.PanelControl();
-            this.btnCHONMON = new System.Windows.Forms.Button();
-            this.btnCHONLOP = new System.Windows.Forms.Button();
-            this.cbLAN = new System.Windows.Forms.ComboBox();
-            this.btnXEM = new System.Windows.Forms.Button();
-            this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
-            this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
-            this.txtTenMH = new DevExpress.XtraEditors.TextEdit();
-            this.txtTenLop = new DevExpress.XtraEditors.TextEdit();
-            this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
+            this.gcLichDaThi = new DevExpress.XtraGrid.GridControl();
+            this.bdsLichDaThi = new System.Windows.Forms.BindingSource(this.components);
             this.DB_THI_TN = new QLThiTracNghiem.DB_THI_TN();
+            this.gvLichDaThi = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.colTENMH = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colTENLOP = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colNGAYTHI = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colLAN = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colMAMH = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colMALOP = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
+            this.cbCoSo = new System.Windows.Forms.ComboBox();
+            this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.tableAdapterManager = new QLThiTracNghiem.DB_THI_TNTableAdapters.TableAdapterManager();
-            this.btnTHOAT = new System.Windows.Forms.Button();
+            this.SP_Lay_DS_Lich_Thi_Da_ThiTableAdapter = new QLThiTracNghiem.DB_THI_TNTableAdapters.SP_Lay_DS_Lich_Thi_Da_ThiTableAdapter();
+            this.barManager1 = new DevExpress.XtraBars.BarManager(this.components);
+            this.bar1 = new DevExpress.XtraBars.Bar();
+            this.btnXem = new DevExpress.XtraBars.BarButtonItem();
+            this.btnThoat = new DevExpress.XtraBars.BarButtonItem();
+            this.bar3 = new DevExpress.XtraBars.Bar();
+            this.barDockControlTop = new DevExpress.XtraBars.BarDockControl();
+            this.barDockControlBottom = new DevExpress.XtraBars.BarDockControl();
+            this.barDockControlLeft = new DevExpress.XtraBars.BarDockControl();
+            this.barDockControlRight = new DevExpress.XtraBars.BarDockControl();
             ((System.ComponentModel.ISupportInitialize)(this.panelCHON)).BeginInit();
             this.panelCHON.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.txtTenMH.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtTenLop.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gcLichDaThi)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bdsLichDaThi)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DB_THI_TN)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gvLichDaThi)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
+            this.panelControl1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
             this.SuspendLayout();
             // 
             // panelCHON
             // 
-            this.panelCHON.Controls.Add(this.btnTHOAT);
-            this.panelCHON.Controls.Add(this.btnCHONMON);
-            this.panelCHON.Controls.Add(this.btnCHONLOP);
-            this.panelCHON.Controls.Add(this.cbLAN);
-            this.panelCHON.Controls.Add(this.btnXEM);
-            this.panelCHON.Controls.Add(this.labelControl3);
-            this.panelCHON.Controls.Add(this.labelControl2);
-            this.panelCHON.Controls.Add(this.txtTenMH);
-            this.panelCHON.Controls.Add(this.txtTenLop);
-            this.panelCHON.Controls.Add(this.labelControl1);
+            this.panelCHON.Controls.Add(this.gcLichDaThi);
+            this.panelCHON.Controls.Add(this.panelControl1);
             this.panelCHON.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelCHON.Location = new System.Drawing.Point(0, 0);
+            this.panelCHON.Location = new System.Drawing.Point(0, 24);
             this.panelCHON.Name = "panelCHON";
-            this.panelCHON.Size = new System.Drawing.Size(672, 252);
+            this.panelCHON.Size = new System.Drawing.Size(869, 362);
             this.panelCHON.TabIndex = 0;
             // 
-            // btnCHONMON
+            // gcLichDaThi
             // 
-            this.btnCHONMON.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnCHONMON.Location = new System.Drawing.Point(329, 43);
-            this.btnCHONMON.Name = "btnCHONMON";
-            this.btnCHONMON.Size = new System.Drawing.Size(75, 23);
-            this.btnCHONMON.TabIndex = 9;
-            this.btnCHONMON.Text = "Chọn Môn";
-            this.btnCHONMON.UseVisualStyleBackColor = true;
-            this.btnCHONMON.Click += new System.EventHandler(this.btnCHONMON_Click);
+            this.gcLichDaThi.DataSource = this.bdsLichDaThi;
+            this.gcLichDaThi.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gcLichDaThi.Location = new System.Drawing.Point(2, 42);
+            this.gcLichDaThi.MainView = this.gvLichDaThi;
+            this.gcLichDaThi.Name = "gcLichDaThi";
+            this.gcLichDaThi.Size = new System.Drawing.Size(865, 318);
+            this.gcLichDaThi.TabIndex = 7;
+            this.gcLichDaThi.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.gvLichDaThi});
             // 
-            // btnCHONLOP
+            // bdsLichDaThi
             // 
-            this.btnCHONLOP.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnCHONLOP.Location = new System.Drawing.Point(329, 7);
-            this.btnCHONLOP.Name = "btnCHONLOP";
-            this.btnCHONLOP.Size = new System.Drawing.Size(75, 23);
-            this.btnCHONLOP.TabIndex = 8;
-            this.btnCHONLOP.Text = "Chọn Lớp";
-            this.btnCHONLOP.UseVisualStyleBackColor = true;
-            this.btnCHONLOP.Click += new System.EventHandler(this.btnCHONLOP_Click);
-            // 
-            // cbLAN
-            // 
-            this.cbLAN.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbLAN.FormattingEnabled = true;
-            this.cbLAN.Location = new System.Drawing.Point(83, 81);
-            this.cbLAN.Name = "cbLAN";
-            this.cbLAN.Size = new System.Drawing.Size(47, 21);
-            this.cbLAN.TabIndex = 7;
-            // 
-            // btnXEM
-            // 
-            this.btnXEM.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnXEM.Location = new System.Drawing.Point(136, 79);
-            this.btnXEM.Name = "btnXEM";
-            this.btnXEM.Size = new System.Drawing.Size(75, 23);
-            this.btnXEM.TabIndex = 6;
-            this.btnXEM.Text = "Xem";
-            this.btnXEM.UseVisualStyleBackColor = true;
-            this.btnXEM.Click += new System.EventHandler(this.btnXEM_Click);
-            // 
-            // labelControl3
-            // 
-            this.labelControl3.Location = new System.Drawing.Point(12, 84);
-            this.labelControl3.Name = "labelControl3";
-            this.labelControl3.Size = new System.Drawing.Size(36, 13);
-            this.labelControl3.TabIndex = 5;
-            this.labelControl3.Text = "Lần thi:";
-            // 
-            // labelControl2
-            // 
-            this.labelControl2.Location = new System.Drawing.Point(12, 49);
-            this.labelControl2.Name = "labelControl2";
-            this.labelControl2.Size = new System.Drawing.Size(65, 13);
-            this.labelControl2.TabIndex = 4;
-            this.labelControl2.Text = "Tên Môn học:";
-            // 
-            // txtTenMH
-            // 
-            this.txtTenMH.Cursor = System.Windows.Forms.Cursors.Default;
-            this.txtTenMH.Enabled = false;
-            this.txtTenMH.Location = new System.Drawing.Point(83, 46);
-            this.txtTenMH.Name = "txtTenMH";
-            this.txtTenMH.Properties.Appearance.BackColor = System.Drawing.Color.White;
-            this.txtTenMH.Properties.Appearance.Options.UseBackColor = true;
-            this.txtTenMH.Properties.ReadOnly = true;
-            this.txtTenMH.Size = new System.Drawing.Size(240, 20);
-            this.txtTenMH.TabIndex = 2;
-            // 
-            // txtTenLop
-            // 
-            this.txtTenLop.Cursor = System.Windows.Forms.Cursors.Default;
-            this.txtTenLop.Enabled = false;
-            this.txtTenLop.Location = new System.Drawing.Point(83, 8);
-            this.txtTenLop.Name = "txtTenLop";
-            this.txtTenLop.Properties.Appearance.BackColor = System.Drawing.Color.White;
-            this.txtTenLop.Properties.Appearance.Options.UseBackColor = true;
-            this.txtTenLop.Properties.ReadOnly = true;
-            this.txtTenLop.Size = new System.Drawing.Size(240, 20);
-            this.txtTenLop.TabIndex = 1;
-            // 
-            // labelControl1
-            // 
-            this.labelControl1.Location = new System.Drawing.Point(12, 12);
-            this.labelControl1.Name = "labelControl1";
-            this.labelControl1.Size = new System.Drawing.Size(42, 13);
-            this.labelControl1.TabIndex = 0;
-            this.labelControl1.Text = "Tên Lớp:";
+            this.bdsLichDaThi.DataMember = "SP_Lay_DS_Lich_Thi_Da_Thi";
+            this.bdsLichDaThi.DataSource = this.DB_THI_TN;
             // 
             // DB_THI_TN
             // 
             this.DB_THI_TN.DataSetName = "DB_THI_TN";
             this.DB_THI_TN.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // gvLichDaThi
+            // 
+            this.gvLichDaThi.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.colTENMH,
+            this.colTENLOP,
+            this.colNGAYTHI,
+            this.colLAN,
+            this.colMAMH,
+            this.colMALOP});
+            this.gvLichDaThi.GridControl = this.gcLichDaThi;
+            this.gvLichDaThi.Name = "gvLichDaThi";
+            // 
+            // colTENMH
+            // 
+            this.colTENMH.FieldName = "TENMH";
+            this.colTENMH.Name = "colTENMH";
+            this.colTENMH.Visible = true;
+            this.colTENMH.VisibleIndex = 1;
+            this.colTENMH.Width = 191;
+            // 
+            // colTENLOP
+            // 
+            this.colTENLOP.FieldName = "TENLOP";
+            this.colTENLOP.Name = "colTENLOP";
+            this.colTENLOP.Visible = true;
+            this.colTENLOP.VisibleIndex = 3;
+            this.colTENLOP.Width = 224;
+            // 
+            // colNGAYTHI
+            // 
+            this.colNGAYTHI.FieldName = "NGAYTHI";
+            this.colNGAYTHI.Name = "colNGAYTHI";
+            this.colNGAYTHI.Visible = true;
+            this.colNGAYTHI.VisibleIndex = 4;
+            this.colNGAYTHI.Width = 220;
+            // 
+            // colLAN
+            // 
+            this.colLAN.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.colLAN.FieldName = "LAN";
+            this.colLAN.Name = "colLAN";
+            this.colLAN.Visible = true;
+            this.colLAN.VisibleIndex = 5;
+            this.colLAN.Width = 28;
+            // 
+            // colMAMH
+            // 
+            this.colMAMH.FieldName = "MAMH";
+            this.colMAMH.Name = "colMAMH";
+            this.colMAMH.Visible = true;
+            this.colMAMH.VisibleIndex = 0;
+            this.colMAMH.Width = 86;
+            // 
+            // colMALOP
+            // 
+            this.colMALOP.FieldName = "MALOP";
+            this.colMALOP.Name = "colMALOP";
+            this.colMALOP.Visible = true;
+            this.colMALOP.VisibleIndex = 2;
+            this.colMALOP.Width = 91;
+            // 
+            // panelControl1
+            // 
+            this.panelControl1.Controls.Add(this.cbCoSo);
+            this.panelControl1.Controls.Add(this.labelControl1);
+            this.panelControl1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelControl1.Location = new System.Drawing.Point(2, 2);
+            this.panelControl1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.panelControl1.Name = "panelControl1";
+            this.panelControl1.Size = new System.Drawing.Size(865, 40);
+            this.panelControl1.TabIndex = 7;
+            // 
+            // cbCoSo
+            // 
+            this.cbCoSo.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.cbCoSo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbCoSo.FormattingEnabled = true;
+            this.cbCoSo.Location = new System.Drawing.Point(61, 11);
+            this.cbCoSo.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.cbCoSo.Name = "cbCoSo";
+            this.cbCoSo.Size = new System.Drawing.Size(175, 21);
+            this.cbCoSo.TabIndex = 1;
+            this.cbCoSo.SelectedIndexChanged += new System.EventHandler(this.cbCoSo_SelectedIndexChanged);
+            // 
+            // labelControl1
+            // 
+            this.labelControl1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.labelControl1.Appearance.Font = new System.Drawing.Font("Tahoma", 10F);
+            this.labelControl1.Appearance.Options.UseFont = true;
+            this.labelControl1.Location = new System.Drawing.Point(10, 11);
+            this.labelControl1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.labelControl1.Name = "labelControl1";
+            this.labelControl1.Size = new System.Drawing.Size(35, 17);
+            this.labelControl1.TabIndex = 0;
+            this.labelControl1.Text = "Cơ sở";
             // 
             // tableAdapterManager
             // 
@@ -176,49 +211,153 @@
             this.tableAdapterManager.SinhvienTableAdapter = null;
             this.tableAdapterManager.UpdateOrder = QLThiTracNghiem.DB_THI_TNTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             // 
-            // btnTHOAT
+            // SP_Lay_DS_Lich_Thi_Da_ThiTableAdapter
             // 
-            this.btnTHOAT.Location = new System.Drawing.Point(248, 79);
-            this.btnTHOAT.Name = "btnTHOAT";
-            this.btnTHOAT.Size = new System.Drawing.Size(75, 23);
-            this.btnTHOAT.TabIndex = 10;
-            this.btnTHOAT.Text = "Thoát";
-            this.btnTHOAT.UseVisualStyleBackColor = true;
-            this.btnTHOAT.Click += new System.EventHandler(this.btnTHOAT_Click);
+            this.SP_Lay_DS_Lich_Thi_Da_ThiTableAdapter.ClearBeforeFill = true;
+            // 
+            // barManager1
+            // 
+            this.barManager1.Bars.AddRange(new DevExpress.XtraBars.Bar[] {
+            this.bar1,
+            this.bar3});
+            this.barManager1.DockControls.Add(this.barDockControlTop);
+            this.barManager1.DockControls.Add(this.barDockControlBottom);
+            this.barManager1.DockControls.Add(this.barDockControlLeft);
+            this.barManager1.DockControls.Add(this.barDockControlRight);
+            this.barManager1.Form = this;
+            this.barManager1.Items.AddRange(new DevExpress.XtraBars.BarItem[] {
+            this.btnXem,
+            this.btnThoat});
+            this.barManager1.MaxItemId = 2;
+            this.barManager1.StatusBar = this.bar3;
+            // 
+            // bar1
+            // 
+            this.bar1.BarName = "Tools";
+            this.bar1.DockCol = 0;
+            this.bar1.DockRow = 0;
+            this.bar1.DockStyle = DevExpress.XtraBars.BarDockStyle.Top;
+            this.bar1.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
+            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.btnXem, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
+            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.btnThoat, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph)});
+            this.bar1.Text = "Tools";
+            // 
+            // btnXem
+            // 
+            this.btnXem.Caption = "Xem bảng điểm";
+            this.btnXem.Id = 0;
+            this.btnXem.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnXem.ImageOptions.Image")));
+            this.btnXem.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnXem.ImageOptions.LargeImage")));
+            this.btnXem.Name = "btnXem";
+            this.btnXem.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnXem_ItemClick);
+            // 
+            // btnThoat
+            // 
+            this.btnThoat.Caption = "Thoát";
+            this.btnThoat.Id = 1;
+            this.btnThoat.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnThoat.ImageOptions.Image")));
+            this.btnThoat.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnThoat.ImageOptions.LargeImage")));
+            this.btnThoat.Name = "btnThoat";
+            this.btnThoat.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnThoat_ItemClick);
+            // 
+            // bar3
+            // 
+            this.bar3.BarName = "Status bar";
+            this.bar3.CanDockStyle = DevExpress.XtraBars.BarCanDockStyle.Bottom;
+            this.bar3.DockCol = 0;
+            this.bar3.DockRow = 0;
+            this.bar3.DockStyle = DevExpress.XtraBars.BarDockStyle.Bottom;
+            this.bar3.OptionsBar.AllowQuickCustomization = false;
+            this.bar3.OptionsBar.DrawDragBorder = false;
+            this.bar3.OptionsBar.UseWholeRow = true;
+            this.bar3.Text = "Status bar";
+            // 
+            // barDockControlTop
+            // 
+            this.barDockControlTop.CausesValidation = false;
+            this.barDockControlTop.Dock = System.Windows.Forms.DockStyle.Top;
+            this.barDockControlTop.Location = new System.Drawing.Point(0, 0);
+            this.barDockControlTop.Manager = this.barManager1;
+            this.barDockControlTop.Size = new System.Drawing.Size(869, 24);
+            // 
+            // barDockControlBottom
+            // 
+            this.barDockControlBottom.CausesValidation = false;
+            this.barDockControlBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.barDockControlBottom.Location = new System.Drawing.Point(0, 386);
+            this.barDockControlBottom.Manager = this.barManager1;
+            this.barDockControlBottom.Size = new System.Drawing.Size(869, 20);
+            // 
+            // barDockControlLeft
+            // 
+            this.barDockControlLeft.CausesValidation = false;
+            this.barDockControlLeft.Dock = System.Windows.Forms.DockStyle.Left;
+            this.barDockControlLeft.Location = new System.Drawing.Point(0, 24);
+            this.barDockControlLeft.Manager = this.barManager1;
+            this.barDockControlLeft.Size = new System.Drawing.Size(0, 362);
+            // 
+            // barDockControlRight
+            // 
+            this.barDockControlRight.CausesValidation = false;
+            this.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right;
+            this.barDockControlRight.Location = new System.Drawing.Point(869, 24);
+            this.barDockControlRight.Manager = this.barManager1;
+            this.barDockControlRight.Size = new System.Drawing.Size(0, 362);
             // 
             // FormBangDiem
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(672, 252);
+            this.ClientSize = new System.Drawing.Size(869, 406);
             this.Controls.Add(this.panelCHON);
+            this.Controls.Add(this.barDockControlLeft);
+            this.Controls.Add(this.barDockControlRight);
+            this.Controls.Add(this.barDockControlBottom);
+            this.Controls.Add(this.barDockControlTop);
             this.Name = "FormBangDiem";
             this.Text = "Bảng Điểm";
             this.Load += new System.EventHandler(this.FormBangDiem_Load);
             ((System.ComponentModel.ISupportInitialize)(this.panelCHON)).EndInit();
             this.panelCHON.ResumeLayout(false);
-            this.panelCHON.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.txtTenMH.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtTenLop.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gcLichDaThi)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bdsLichDaThi)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.DB_THI_TN)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gvLichDaThi)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
+            this.panelControl1.ResumeLayout(false);
+            this.panelControl1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.barManager1)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
 
         private DevExpress.XtraEditors.PanelControl panelCHON;
-        private DevExpress.XtraEditors.LabelControl labelControl2;
-        private DevExpress.XtraEditors.TextEdit txtTenMH;
-        private DevExpress.XtraEditors.TextEdit txtTenLop;
-        private DevExpress.XtraEditors.LabelControl labelControl1;
-        private DevExpress.XtraEditors.LabelControl labelControl3;
-        private System.Windows.Forms.Button btnXEM;
         private DB_THI_TN DB_THI_TN;
         private DB_THI_TNTableAdapters.TableAdapterManager tableAdapterManager;
-        private System.Windows.Forms.ComboBox cbLAN;
-        private System.Windows.Forms.Button btnCHONMON;
-        private System.Windows.Forms.Button btnCHONLOP;
-        private System.Windows.Forms.Button btnTHOAT;
+        private DevExpress.XtraEditors.PanelControl panelControl1;
+        private System.Windows.Forms.ComboBox cbCoSo;
+        private DevExpress.XtraEditors.LabelControl labelControl1;
+        private System.Windows.Forms.BindingSource bdsLichDaThi;
+        private DB_THI_TNTableAdapters.SP_Lay_DS_Lich_Thi_Da_ThiTableAdapter SP_Lay_DS_Lich_Thi_Da_ThiTableAdapter;
+        private DevExpress.XtraGrid.GridControl gcLichDaThi;
+        private DevExpress.XtraGrid.Views.Grid.GridView gvLichDaThi;
+        private DevExpress.XtraGrid.Columns.GridColumn colTENMH;
+        private DevExpress.XtraGrid.Columns.GridColumn colTENLOP;
+        private DevExpress.XtraGrid.Columns.GridColumn colNGAYTHI;
+        private DevExpress.XtraGrid.Columns.GridColumn colLAN;
+        private DevExpress.XtraGrid.Columns.GridColumn colMAMH;
+        private DevExpress.XtraGrid.Columns.GridColumn colMALOP;
+        private DevExpress.XtraBars.BarManager barManager1;
+        private DevExpress.XtraBars.Bar bar1;
+        private DevExpress.XtraBars.Bar bar3;
+        private DevExpress.XtraBars.BarDockControl barDockControlTop;
+        private DevExpress.XtraBars.BarDockControl barDockControlBottom;
+        private DevExpress.XtraBars.BarDockControl barDockControlLeft;
+        private DevExpress.XtraBars.BarDockControl barDockControlRight;
+        private DevExpress.XtraBars.BarButtonItem btnXem;
+        private DevExpress.XtraBars.BarButtonItem btnThoat;
     }
 }
