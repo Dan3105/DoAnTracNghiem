@@ -39,15 +39,6 @@ namespace QLThiTracNghiem
             this.gvMonHoc.OptionsBehavior.Editable = false;
         }
 
-        private void SetCbServer()
-        {
-           /* this.cbServer.DataSource = Program.bds_dspm;
-            this.cbServer.DisplayMember = "TenCS";
-            this.cbServer.ValueMember = "MaCS";
-            this.cbServer.SelectedIndex = Program.currentServerIndex;
-*/
-        }
-
         #region Data Handler
         private void CustomHeaderButtons()
         {
@@ -80,7 +71,7 @@ namespace QLThiTracNghiem
         {
             crrPosition = this.bdsMonhoc.Position;
             bdsMonhoc.AddNew();
-
+            txtMAMH.Enabled = true;
             ActionBeforeEdit();
 
             validateThemAction += ValidateBeforeThem;
@@ -123,6 +114,7 @@ namespace QLThiTracNghiem
         private void btnSua_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             crrPosition = this.bdsMonhoc.Position;
+            txtMAMH.Enabled = false;
             ActionBeforeEdit();
         }
 
@@ -196,44 +188,7 @@ namespace QLThiTracNghiem
             
         }
 
-        /*private void cbServer_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (cbServer.SelectedValue.ToString() == "System.Data.DataRowView")
-                return;
-
-            Program.currentServerValue = cbServer.SelectedValue.ToString();
-
-            if(cbServer.SelectedIndex != Program.currentServerIndex)
-            {
-                Program.mlogin = Program.remote_login;
-                Program.password = Program.remote_password;
-
-            }
-            else
-            {
-                Program.mlogin = Program.mloginDN;
-                Program.password = Program.mpasswordDN;
-            }
-
-            if (Program.KetNoi() == 0)
-            {
-                MessageBox.Show("Lỗi kết nối về chi nhánh mới", "", MessageBoxButtons.OK);
-                cbServer.SelectedIndex = Program.currentServerIndex;
-            }
-            else
-            {
-                this.DB_THI_TN.EnforceConstraints = false;
-                this.MonhocTableAdapter.Connection.ConnectionString = Program.connstr;
-                this.MonhocTableAdapter.Update(this.DB_THI_TN.Monhoc);
-
-                this.BodeTableAdapter.Connection.ConnectionString = Program.connstr;
-                this.BodeTableAdapter.Update(this.DB_THI_TN.Bode);
-
-                this.Giaovien_DangkyTableAdapter.Connection.ConnectionString = Program.connstr;
-                this.Giaovien_DangkyTableAdapter.Update(this.DB_THI_TN.Giaovien_Dangky);
-            }
-        }
-*/
+       
         #region Validate input
         private bool ValidateInput()
         {
@@ -268,7 +223,7 @@ namespace QLThiTracNghiem
 
                 if (result == 1 && currentMonHoc != currentIdChoosing)
                 {
-                    MessageBox.Show("Đã có mã Khoa tồn tại trong dữ liệu!", "", MessageBoxButtons.OK);
+                    MessageBox.Show("Đã có mã Môn học tồn tại trong dữ liệu!", "", MessageBoxButtons.OK);
                     txtMAMH.Focus();
                     return false;
                 }

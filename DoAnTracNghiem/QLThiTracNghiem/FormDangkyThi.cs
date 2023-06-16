@@ -22,6 +22,7 @@ namespace QLThiTracNghiem
         public FormDangkyThi()
         {
             InitializeComponent();
+            panelDangky.Enabled = false;
         }
 
         private void FormChuanBiThi_Load(object sender, EventArgs e)

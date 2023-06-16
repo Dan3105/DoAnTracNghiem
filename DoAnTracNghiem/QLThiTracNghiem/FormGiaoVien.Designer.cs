@@ -46,18 +46,17 @@
             this.barDockControlTop = new DevExpress.XtraBars.BarDockControl();
             this.barManager1 = new DevExpress.XtraBars.BarManager(this.components);
             this.bar1 = new DevExpress.XtraBars.Bar();
-            this.btnThem = new DevExpress.XtraBars.BarButtonItem();
-            this.btnSua = new DevExpress.XtraBars.BarButtonItem();
-            this.btnXoa = new DevExpress.XtraBars.BarButtonItem();
-            this.btnGhi = new DevExpress.XtraBars.BarButtonItem();
-            this.btnUndo = new DevExpress.XtraBars.BarButtonItem();
             this.btnReload = new DevExpress.XtraBars.BarButtonItem();
-            this.bar2 = new DevExpress.XtraBars.Bar();
             this.bar3 = new DevExpress.XtraBars.Bar();
             this.barDockControl1 = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlBottom = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlLeft = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlRight = new DevExpress.XtraBars.BarDockControl();
+            this.btnThem = new DevExpress.XtraBars.BarButtonItem();
+            this.btnXoa = new DevExpress.XtraBars.BarButtonItem();
+            this.btnGhi = new DevExpress.XtraBars.BarButtonItem();
+            this.btnUndo = new DevExpress.XtraBars.BarButtonItem();
+            this.btnSua = new DevExpress.XtraBars.BarButtonItem();
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
             this.cbCoSo = new System.Windows.Forms.ComboBox();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
@@ -68,9 +67,9 @@
             this.colMACS = new DevExpress.XtraGrid.Columns.GridColumn();
             this.panelControl2 = new DevExpress.XtraEditors.PanelControl();
             this.panelGIAOVIEN = new DevExpress.XtraEditors.PanelControl();
+            this.cbHOCVI = new System.Windows.Forms.ComboBox();
             this.btnUndoGIAOVIEN = new System.Windows.Forms.Button();
             this.btnGhiGIAOVIEN = new System.Windows.Forms.Button();
-            this.cbHOCVI = new System.Windows.Forms.ComboBox();
             this.txtFKMAKH = new DevExpress.XtraEditors.TextEdit();
             this.txtTEN = new DevExpress.XtraEditors.TextEdit();
             this.txtHO = new DevExpress.XtraEditors.TextEdit();
@@ -134,63 +133,70 @@
             // mAKHLabel
             // 
             mAKHLabel.AutoSize = true;
+            mAKHLabel.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             mAKHLabel.Location = new System.Drawing.Point(17, 39);
             mAKHLabel.Name = "mAKHLabel";
-            mAKHLabel.Size = new System.Drawing.Size(52, 13);
+            mAKHLabel.Size = new System.Drawing.Size(71, 19);
             mAKHLabel.TabIndex = 1;
             mAKHLabel.Text = "Mã Khoa:";
             // 
             // tENKHLabel
             // 
             tENKHLabel.AutoSize = true;
+            tENKHLabel.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             tENKHLabel.Location = new System.Drawing.Point(13, 80);
             tENKHLabel.Name = "tENKHLabel";
-            tENKHLabel.Size = new System.Drawing.Size(56, 13);
+            tENKHLabel.Size = new System.Drawing.Size(73, 19);
             tENKHLabel.TabIndex = 3;
             tENKHLabel.Text = "Tên Khoa:";
             // 
             // mACSLabel
             // 
             mACSLabel.AutoSize = true;
+            mACSLabel.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             mACSLabel.Location = new System.Drawing.Point(206, 8);
             mACSLabel.Name = "mACSLabel";
-            mACSLabel.Size = new System.Drawing.Size(53, 13);
+            mACSLabel.Size = new System.Drawing.Size(70, 19);
             mACSLabel.TabIndex = 5;
             mACSLabel.Text = "Mã cơ sở:";
             // 
             // mAGVLabel
             // 
             mAGVLabel.AutoSize = true;
+            mAGVLabel.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             mAGVLabel.Location = new System.Drawing.Point(17, 48);
             mAGVLabel.Name = "mAGVLabel";
-            mAGVLabel.Size = new System.Drawing.Size(41, 13);
+            mAGVLabel.Size = new System.Drawing.Size(58, 19);
             mAGVLabel.TabIndex = 1;
             mAGVLabel.Text = "Mã GV:";
             // 
             // hOLabel
             // 
             hOLabel.AutoSize = true;
+            hOLabel.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             hOLabel.Location = new System.Drawing.Point(17, 83);
             hOLabel.Name = "hOLabel";
-            hOLabel.Size = new System.Drawing.Size(43, 13);
+            hOLabel.Size = new System.Drawing.Size(53, 19);
             hOLabel.TabIndex = 3;
             hOLabel.Text = "Họ tên:";
             // 
             // hOCVILabel
             // 
             hOCVILabel.AutoSize = true;
+            hOCVILabel.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             hOCVILabel.Location = new System.Drawing.Point(206, 48);
             hOCVILabel.Name = "hOCVILabel";
-            hOCVILabel.Size = new System.Drawing.Size(40, 13);
+            hOCVILabel.Size = new System.Drawing.Size(52, 19);
             hOCVILabel.TabIndex = 7;
             hOCVILabel.Text = "Học vị:";
             // 
             // mAKHLabel1
             // 
             mAKHLabel1.AutoSize = true;
-            mAKHLabel1.Location = new System.Drawing.Point(206, 18);
+            mAKHLabel1.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            mAKHLabel1.Location = new System.Drawing.Point(194, 14);
             mAKHLabel1.Name = "mAKHLabel1";
-            mAKHLabel1.Size = new System.Drawing.Size(51, 13);
+            mAKHLabel1.Size = new System.Drawing.Size(67, 19);
             mAKHLabel1.TabIndex = 8;
             mAKHLabel1.Text = "Mã khoa:";
             // 
@@ -235,7 +241,7 @@
             // 
             this.barDockControlTop.CausesValidation = false;
             this.barDockControlTop.Dock = System.Windows.Forms.DockStyle.Top;
-            this.barDockControlTop.Location = new System.Drawing.Point(0, 45);
+            this.barDockControlTop.Location = new System.Drawing.Point(0, 24);
             this.barDockControlTop.Manager = null;
             this.barDockControlTop.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.barDockControlTop.Size = new System.Drawing.Size(1093, 0);
@@ -244,7 +250,6 @@
             // 
             this.barManager1.Bars.AddRange(new DevExpress.XtraBars.Bar[] {
             this.bar1,
-            this.bar2,
             this.bar3});
             this.barManager1.DockControls.Add(this.barDockControl1);
             this.barManager1.DockControls.Add(this.barDockControlBottom);
@@ -258,7 +263,6 @@
             this.btnUndo,
             this.btnReload,
             this.btnSua});
-            this.barManager1.MainMenu = this.bar2;
             this.barManager1.MaxItemId = 6;
             this.barManager1.StatusBar = this.bar3;
             // 
@@ -266,57 +270,11 @@
             // 
             this.bar1.BarName = "Tools";
             this.bar1.DockCol = 0;
-            this.bar1.DockRow = 1;
+            this.bar1.DockRow = 0;
             this.bar1.DockStyle = DevExpress.XtraBars.BarDockStyle.Top;
             this.bar1.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
-            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.btnThem, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
-            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.btnSua, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
-            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.btnXoa, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
-            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.btnGhi, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
-            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.btnUndo, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
             new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.btnReload, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph)});
             this.bar1.Text = "Tools";
-            // 
-            // btnThem
-            // 
-            this.btnThem.Caption = "Them";
-            this.btnThem.Id = 0;
-            this.btnThem.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnThem.ImageOptions.SvgImage")));
-            this.btnThem.Name = "btnThem";
-            this.btnThem.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnThem_ItemClick);
-            // 
-            // btnSua
-            // 
-            this.btnSua.Caption = "Sua";
-            this.btnSua.Id = 5;
-            this.btnSua.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnSua.ImageOptions.SvgImage")));
-            this.btnSua.Name = "btnSua";
-            this.btnSua.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnSua_ItemClick);
-            // 
-            // btnXoa
-            // 
-            this.btnXoa.Caption = "Xoa";
-            this.btnXoa.Id = 1;
-            this.btnXoa.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnXoa.ImageOptions.Image")));
-            this.btnXoa.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnXoa.ImageOptions.LargeImage")));
-            this.btnXoa.Name = "btnXoa";
-            this.btnXoa.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnXoa_ItemClick);
-            // 
-            // btnGhi
-            // 
-            this.btnGhi.Caption = "Ghi";
-            this.btnGhi.Id = 2;
-            this.btnGhi.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnGhi.ImageOptions.SvgImage")));
-            this.btnGhi.Name = "btnGhi";
-            this.btnGhi.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnGhi_ItemClick);
-            // 
-            // btnUndo
-            // 
-            this.btnUndo.Caption = "Phuc hoi";
-            this.btnUndo.Id = 3;
-            this.btnUndo.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnUndo.ImageOptions.SvgImage")));
-            this.btnUndo.Name = "btnUndo";
-            this.btnUndo.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnUndo_ItemClick);
             // 
             // btnReload
             // 
@@ -325,16 +283,6 @@
             this.btnReload.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnReload.ImageOptions.SvgImage")));
             this.btnReload.Name = "btnReload";
             this.btnReload.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnReload_ItemClick);
-            // 
-            // bar2
-            // 
-            this.bar2.BarName = "Main menu";
-            this.bar2.DockCol = 0;
-            this.bar2.DockRow = 0;
-            this.bar2.DockStyle = DevExpress.XtraBars.BarDockStyle.Top;
-            this.bar2.OptionsBar.MultiLine = true;
-            this.bar2.OptionsBar.UseWholeRow = true;
-            this.bar2.Text = "Main menu";
             // 
             // bar3
             // 
@@ -355,7 +303,7 @@
             this.barDockControl1.Location = new System.Drawing.Point(0, 0);
             this.barDockControl1.Manager = this.barManager1;
             this.barDockControl1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.barDockControl1.Size = new System.Drawing.Size(1093, 45);
+            this.barDockControl1.Size = new System.Drawing.Size(1093, 24);
             // 
             // barDockControlBottom
             // 
@@ -370,26 +318,62 @@
             // 
             this.barDockControlLeft.CausesValidation = false;
             this.barDockControlLeft.Dock = System.Windows.Forms.DockStyle.Left;
-            this.barDockControlLeft.Location = new System.Drawing.Point(0, 45);
+            this.barDockControlLeft.Location = new System.Drawing.Point(0, 24);
             this.barDockControlLeft.Manager = this.barManager1;
             this.barDockControlLeft.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.barDockControlLeft.Size = new System.Drawing.Size(0, 561);
+            this.barDockControlLeft.Size = new System.Drawing.Size(0, 582);
             // 
             // barDockControlRight
             // 
             this.barDockControlRight.CausesValidation = false;
             this.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right;
-            this.barDockControlRight.Location = new System.Drawing.Point(1093, 45);
+            this.barDockControlRight.Location = new System.Drawing.Point(1093, 24);
             this.barDockControlRight.Manager = this.barManager1;
             this.barDockControlRight.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.barDockControlRight.Size = new System.Drawing.Size(0, 561);
+            this.barDockControlRight.Size = new System.Drawing.Size(0, 582);
+            // 
+            // btnThem
+            // 
+            this.btnThem.Caption = "Them";
+            this.btnThem.Id = 0;
+            this.btnThem.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnThem.ImageOptions.SvgImage")));
+            this.btnThem.Name = "btnThem";
+            // 
+            // btnXoa
+            // 
+            this.btnXoa.Caption = "Xoa";
+            this.btnXoa.Id = 1;
+            this.btnXoa.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnXoa.ImageOptions.Image")));
+            this.btnXoa.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnXoa.ImageOptions.LargeImage")));
+            this.btnXoa.Name = "btnXoa";
+            // 
+            // btnGhi
+            // 
+            this.btnGhi.Caption = "Ghi";
+            this.btnGhi.Id = 2;
+            this.btnGhi.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnGhi.ImageOptions.SvgImage")));
+            this.btnGhi.Name = "btnGhi";
+            // 
+            // btnUndo
+            // 
+            this.btnUndo.Caption = "Phuc hoi";
+            this.btnUndo.Id = 3;
+            this.btnUndo.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnUndo.ImageOptions.SvgImage")));
+            this.btnUndo.Name = "btnUndo";
+            // 
+            // btnSua
+            // 
+            this.btnSua.Caption = "Sua";
+            this.btnSua.Id = 5;
+            this.btnSua.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnSua.ImageOptions.SvgImage")));
+            this.btnSua.Name = "btnSua";
             // 
             // panelControl1
             // 
             this.panelControl1.Controls.Add(this.cbCoSo);
             this.panelControl1.Controls.Add(this.labelControl1);
             this.panelControl1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelControl1.Location = new System.Drawing.Point(0, 45);
+            this.panelControl1.Location = new System.Drawing.Point(0, 24);
             this.panelControl1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panelControl1.Name = "panelControl1";
             this.panelControl1.Size = new System.Drawing.Size(1093, 40);
@@ -424,11 +408,11 @@
             // 
             this.gcKHOA.DataSource = this.bdsKhoa;
             this.gcKHOA.Dock = System.Windows.Forms.DockStyle.Top;
-            this.gcKHOA.Location = new System.Drawing.Point(0, 85);
+            this.gcKHOA.Location = new System.Drawing.Point(0, 64);
             this.gcKHOA.MainView = this.gvKHOA;
             this.gcKHOA.MenuManager = this.barManager1;
             this.gcKHOA.Name = "gcKHOA";
-            this.gcKHOA.Size = new System.Drawing.Size(1093, 200);
+            this.gcKHOA.Size = new System.Drawing.Size(1093, 232);
             this.gcKHOA.TabIndex = 6;
             this.gcKHOA.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gvKHOA});
@@ -444,6 +428,9 @@
             // 
             // colMAKH
             // 
+            this.colMAKH.AppearanceCell.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.colMAKH.AppearanceCell.Options.UseFont = true;
+            this.colMAKH.Caption = "Mã khoa";
             this.colMAKH.FieldName = "MAKH";
             this.colMAKH.Name = "colMAKH";
             this.colMAKH.Visible = true;
@@ -451,6 +438,9 @@
             // 
             // colTENKH
             // 
+            this.colTENKH.AppearanceCell.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.colTENKH.AppearanceCell.Options.UseFont = true;
+            this.colTENKH.Caption = "Tên khoa";
             this.colTENKH.FieldName = "TENKH";
             this.colTENKH.Name = "colTENKH";
             this.colTENKH.Visible = true;
@@ -458,6 +448,9 @@
             // 
             // colMACS
             // 
+            this.colMACS.AppearanceCell.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.colMACS.AppearanceCell.Options.UseFont = true;
+            this.colMACS.Caption = "Mã cơ sở";
             this.colMACS.FieldName = "MACS";
             this.colMACS.Name = "colMACS";
             this.colMACS.Visible = true;
@@ -468,16 +461,16 @@
             this.panelControl2.Controls.Add(this.panelGIAOVIEN);
             this.panelControl2.Controls.Add(this.panelKHOA);
             this.panelControl2.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panelControl2.Location = new System.Drawing.Point(0, 285);
+            this.panelControl2.Location = new System.Drawing.Point(0, 296);
             this.panelControl2.Name = "panelControl2";
-            this.panelControl2.Size = new System.Drawing.Size(397, 321);
+            this.panelControl2.Size = new System.Drawing.Size(397, 310);
             this.panelControl2.TabIndex = 7;
             // 
             // panelGIAOVIEN
             // 
+            this.panelGIAOVIEN.Controls.Add(this.cbHOCVI);
             this.panelGIAOVIEN.Controls.Add(this.btnUndoGIAOVIEN);
             this.panelGIAOVIEN.Controls.Add(this.btnGhiGIAOVIEN);
-            this.panelGIAOVIEN.Controls.Add(this.cbHOCVI);
             this.panelGIAOVIEN.Controls.Add(mAKHLabel1);
             this.panelGIAOVIEN.Controls.Add(this.txtFKMAKH);
             this.panelGIAOVIEN.Controls.Add(hOCVILabel);
@@ -490,16 +483,27 @@
             this.panelGIAOVIEN.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelGIAOVIEN.Location = new System.Drawing.Point(2, 128);
             this.panelGIAOVIEN.Name = "panelGIAOVIEN";
-            this.panelGIAOVIEN.Size = new System.Drawing.Size(393, 191);
+            this.panelGIAOVIEN.Size = new System.Drawing.Size(393, 180);
             this.panelGIAOVIEN.TabIndex = 1;
+            // 
+            // cbHOCVI
+            // 
+            this.cbHOCVI.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bdsGiaoVien, "HOCVI", true));
+            this.cbHOCVI.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbHOCVI.FormattingEnabled = true;
+            this.cbHOCVI.Location = new System.Drawing.Point(267, 48);
+            this.cbHOCVI.Name = "cbHOCVI";
+            this.cbHOCVI.Size = new System.Drawing.Size(121, 27);
+            this.cbHOCVI.TabIndex = 13;
             // 
             // btnUndoGIAOVIEN
             // 
             this.btnUndoGIAOVIEN.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnUndoGIAOVIEN.Location = new System.Drawing.Point(267, 128);
+            this.btnUndoGIAOVIEN.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnUndoGIAOVIEN.Location = new System.Drawing.Point(253, 127);
             this.btnUndoGIAOVIEN.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnUndoGIAOVIEN.Name = "btnUndoGIAOVIEN";
-            this.btnUndoGIAOVIEN.Size = new System.Drawing.Size(64, 24);
+            this.btnUndoGIAOVIEN.Size = new System.Drawing.Size(71, 31);
             this.btnUndoGIAOVIEN.TabIndex = 12;
             this.btnUndoGIAOVIEN.Text = "Undo";
             this.btnUndoGIAOVIEN.UseVisualStyleBackColor = true;
@@ -507,23 +511,15 @@
             // 
             // btnGhiGIAOVIEN
             // 
-            this.btnGhiGIAOVIEN.Location = new System.Drawing.Point(82, 128);
+            this.btnGhiGIAOVIEN.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnGhiGIAOVIEN.Location = new System.Drawing.Point(68, 127);
             this.btnGhiGIAOVIEN.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnGhiGIAOVIEN.Name = "btnGhiGIAOVIEN";
-            this.btnGhiGIAOVIEN.Size = new System.Drawing.Size(64, 24);
+            this.btnGhiGIAOVIEN.Size = new System.Drawing.Size(71, 31);
             this.btnGhiGIAOVIEN.TabIndex = 11;
             this.btnGhiGIAOVIEN.Text = "Ghi";
             this.btnGhiGIAOVIEN.UseVisualStyleBackColor = true;
             this.btnGhiGIAOVIEN.Click += new System.EventHandler(this.btnGhiGIAOVIEN_Click);
-            // 
-            // cbHOCVI
-            // 
-            this.cbHOCVI.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bdsGiaoVien, "HOCVI", true));
-            this.cbHOCVI.FormattingEnabled = true;
-            this.cbHOCVI.Location = new System.Drawing.Point(267, 48);
-            this.cbHOCVI.Name = "cbHOCVI";
-            this.cbHOCVI.Size = new System.Drawing.Size(121, 21);
-            this.cbHOCVI.TabIndex = 10;
             // 
             // txtFKMAKH
             // 
@@ -532,7 +528,9 @@
             this.txtFKMAKH.Location = new System.Drawing.Point(267, 11);
             this.txtFKMAKH.MenuManager = this.barManager1;
             this.txtFKMAKH.Name = "txtFKMAKH";
-            this.txtFKMAKH.Size = new System.Drawing.Size(100, 20);
+            this.txtFKMAKH.Properties.Appearance.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtFKMAKH.Properties.Appearance.Options.UseFont = true;
+            this.txtFKMAKH.Size = new System.Drawing.Size(100, 26);
             this.txtFKMAKH.TabIndex = 9;
             // 
             // txtTEN
@@ -541,7 +539,9 @@
             this.txtTEN.Location = new System.Drawing.Point(267, 80);
             this.txtTEN.MenuManager = this.barManager1;
             this.txtTEN.Name = "txtTEN";
-            this.txtTEN.Size = new System.Drawing.Size(100, 20);
+            this.txtTEN.Properties.Appearance.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtTEN.Properties.Appearance.Options.UseFont = true;
+            this.txtTEN.Size = new System.Drawing.Size(100, 26);
             this.txtTEN.TabIndex = 6;
             // 
             // txtHO
@@ -550,7 +550,9 @@
             this.txtHO.Location = new System.Drawing.Point(82, 80);
             this.txtHO.MenuManager = this.barManager1;
             this.txtHO.Name = "txtHO";
-            this.txtHO.Size = new System.Drawing.Size(175, 20);
+            this.txtHO.Properties.Appearance.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtHO.Properties.Appearance.Options.UseFont = true;
+            this.txtHO.Size = new System.Drawing.Size(175, 26);
             this.txtHO.TabIndex = 4;
             // 
             // txtMAGIAOVIEN
@@ -559,16 +561,18 @@
             this.txtMAGIAOVIEN.Location = new System.Drawing.Point(82, 45);
             this.txtMAGIAOVIEN.MenuManager = this.barManager1;
             this.txtMAGIAOVIEN.Name = "txtMAGIAOVIEN";
-            this.txtMAGIAOVIEN.Size = new System.Drawing.Size(100, 20);
+            this.txtMAGIAOVIEN.Properties.Appearance.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtMAGIAOVIEN.Properties.Appearance.Options.UseFont = true;
+            this.txtMAGIAOVIEN.Size = new System.Drawing.Size(100, 26);
             this.txtMAGIAOVIEN.TabIndex = 2;
             // 
             // labelControl3
             // 
-            this.labelControl3.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F);
+            this.labelControl3.Appearance.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelControl3.Appearance.Options.UseFont = true;
             this.labelControl3.Location = new System.Drawing.Point(6, 7);
             this.labelControl3.Name = "labelControl3";
-            this.labelControl3.Size = new System.Drawing.Size(121, 17);
+            this.labelControl3.Size = new System.Drawing.Size(114, 19);
             this.labelControl3.TabIndex = 0;
             this.labelControl3.Text = "Thông tin giáo viên";
             // 
@@ -591,37 +595,43 @@
             // 
             this.txtMACS.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bdsKhoa, "MACS", true));
             this.txtMACS.Enabled = false;
-            this.txtMACS.Location = new System.Drawing.Point(267, 5);
+            this.txtMACS.Location = new System.Drawing.Point(282, 5);
             this.txtMACS.MenuManager = this.barManager1;
             this.txtMACS.Name = "txtMACS";
-            this.txtMACS.Size = new System.Drawing.Size(100, 20);
+            this.txtMACS.Properties.Appearance.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtMACS.Properties.Appearance.Options.UseFont = true;
+            this.txtMACS.Size = new System.Drawing.Size(100, 26);
             this.txtMACS.TabIndex = 6;
             // 
             // txtTENKH
             // 
             this.txtTENKH.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bdsKhoa, "TENKH", true));
-            this.txtTENKH.Location = new System.Drawing.Point(82, 77);
+            this.txtTENKH.Location = new System.Drawing.Point(92, 77);
             this.txtTENKH.MenuManager = this.barManager1;
             this.txtTENKH.Name = "txtTENKH";
-            this.txtTENKH.Size = new System.Drawing.Size(100, 20);
+            this.txtTENKH.Properties.Appearance.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtTENKH.Properties.Appearance.Options.UseFont = true;
+            this.txtTENKH.Size = new System.Drawing.Size(195, 26);
             this.txtTENKH.TabIndex = 4;
             // 
             // txtMAKH
             // 
             this.txtMAKH.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bdsKhoa, "MAKH", true));
-            this.txtMAKH.Location = new System.Drawing.Point(82, 36);
+            this.txtMAKH.Location = new System.Drawing.Point(94, 36);
             this.txtMAKH.MenuManager = this.barManager1;
             this.txtMAKH.Name = "txtMAKH";
-            this.txtMAKH.Size = new System.Drawing.Size(100, 20);
+            this.txtMAKH.Properties.Appearance.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtMAKH.Properties.Appearance.Options.UseFont = true;
+            this.txtMAKH.Size = new System.Drawing.Size(100, 26);
             this.txtMAKH.TabIndex = 2;
             // 
             // labelControl2
             // 
-            this.labelControl2.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F);
+            this.labelControl2.Appearance.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelControl2.Appearance.Options.UseFont = true;
             this.labelControl2.Location = new System.Drawing.Point(6, 6);
             this.labelControl2.Name = "labelControl2";
-            this.labelControl2.Size = new System.Drawing.Size(95, 17);
+            this.labelControl2.Size = new System.Drawing.Size(91, 19);
             this.labelControl2.TabIndex = 0;
             this.labelControl2.Text = "Thông tin khoa";
             // 
@@ -630,11 +640,11 @@
             this.gcGIAOVIEN.DataSource = this.bdsGiaoVien;
             this.gcGIAOVIEN.Dock = System.Windows.Forms.DockStyle.Fill;
             this.gcGIAOVIEN.EmbeddedNavigator.ContextMenuStrip = this.contextMenuStrip1;
-            this.gcGIAOVIEN.Location = new System.Drawing.Point(397, 285);
+            this.gcGIAOVIEN.Location = new System.Drawing.Point(397, 296);
             this.gcGIAOVIEN.MainView = this.gvGIAOVIEN;
             this.gcGIAOVIEN.MenuManager = this.barManager1;
             this.gcGIAOVIEN.Name = "gcGIAOVIEN";
-            this.gcGIAOVIEN.Size = new System.Drawing.Size(696, 321);
+            this.gcGIAOVIEN.Size = new System.Drawing.Size(696, 310);
             this.gcGIAOVIEN.TabIndex = 8;
             this.gcGIAOVIEN.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gvGIAOVIEN});
@@ -682,6 +692,9 @@
             // 
             // colMAGV
             // 
+            this.colMAGV.AppearanceCell.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.colMAGV.AppearanceCell.Options.UseFont = true;
+            this.colMAGV.Caption = "Mã giảng viên";
             this.colMAGV.FieldName = "MAGV";
             this.colMAGV.Name = "colMAGV";
             this.colMAGV.Visible = true;
@@ -689,6 +702,9 @@
             // 
             // colHO
             // 
+            this.colHO.AppearanceCell.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.colHO.AppearanceCell.Options.UseFont = true;
+            this.colHO.Caption = "Họ";
             this.colHO.FieldName = "HO";
             this.colHO.Name = "colHO";
             this.colHO.Visible = true;
@@ -696,6 +712,9 @@
             // 
             // colTEN
             // 
+            this.colTEN.AppearanceCell.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.colTEN.AppearanceCell.Options.UseFont = true;
+            this.colTEN.Caption = "Tên";
             this.colTEN.FieldName = "TEN";
             this.colTEN.Name = "colTEN";
             this.colTEN.Visible = true;
@@ -703,6 +722,9 @@
             // 
             // colHOCVI
             // 
+            this.colHOCVI.AppearanceCell.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.colHOCVI.AppearanceCell.Options.UseFont = true;
+            this.colHOCVI.Caption = "Học vị";
             this.colHOCVI.FieldName = "HOCVI";
             this.colHOCVI.Name = "colHOCVI";
             this.colHOCVI.Visible = true;
@@ -710,6 +732,9 @@
             // 
             // colMAKH1
             // 
+            this.colMAKH1.AppearanceCell.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.colMAKH1.AppearanceCell.Options.UseFont = true;
+            this.colMAKH1.Caption = "Mã khoa";
             this.colMAKH1.FieldName = "MAKH";
             this.colMAKH1.Name = "colMAKH1";
             this.colMAKH1.Visible = true;
@@ -748,7 +773,7 @@
             this.Controls.Add(this.barDockControlBottom);
             this.Controls.Add(this.barDockControl1);
             this.Name = "FormGiaoVien";
-            this.Text = "FormGiangVien";
+            this.Text = "Quản lý giảng viên";
             this.Load += new System.EventHandler(this.FormGiangVien_Load);
             ((System.ComponentModel.ISupportInitialize)(this.bdsKhoa)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.DB_THI_TN)).EndInit();
@@ -800,7 +825,6 @@
         private DevExpress.XtraBars.BarButtonItem btnGhi;
         private DevExpress.XtraBars.BarButtonItem btnUndo;
         private DevExpress.XtraBars.BarButtonItem btnReload;
-        private DevExpress.XtraBars.Bar bar2;
         private DevExpress.XtraBars.Bar bar3;
         private DevExpress.XtraBars.BarDockControl barDockControl1;
         private DevExpress.XtraBars.BarDockControl barDockControlBottom;
@@ -841,8 +865,8 @@
         private System.Windows.Forms.ToolStripMenuItem themGiaoVienToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem suaGiaoVienToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem xoaGiaoVienToolStripMenuItem;
-        private System.Windows.Forms.ComboBox cbHOCVI;
         private System.Windows.Forms.Button btnGhiGIAOVIEN;
         private System.Windows.Forms.Button btnUndoGIAOVIEN;
+        private System.Windows.Forms.ComboBox cbHOCVI;
     }
 }

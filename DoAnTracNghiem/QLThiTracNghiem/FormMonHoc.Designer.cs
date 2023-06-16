@@ -40,7 +40,6 @@
             this.btnGhi = new DevExpress.XtraBars.BarButtonItem();
             this.btnUndo = new DevExpress.XtraBars.BarButtonItem();
             this.btnReload = new DevExpress.XtraBars.BarButtonItem();
-            this.bar2 = new DevExpress.XtraBars.Bar();
             this.bar3 = new DevExpress.XtraBars.Bar();
             this.barDockControlTop = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlBottom = new DevExpress.XtraBars.BarDockControl();
@@ -85,28 +84,29 @@
             // mAMHLabel
             // 
             mAMHLabel.AutoSize = true;
+            mAMHLabel.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             mAMHLabel.Location = new System.Drawing.Point(11, 55);
             mAMHLabel.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             mAMHLabel.Name = "mAMHLabel";
-            mAMHLabel.Size = new System.Drawing.Size(48, 16);
+            mAMHLabel.Size = new System.Drawing.Size(113, 22);
             mAMHLabel.TabIndex = 0;
-            mAMHLabel.Text = "MAMH:";
+            mAMHLabel.Text = "Mã môn học:";
             // 
             // tENMHLabel
             // 
             tENMHLabel.AutoSize = true;
+            tENMHLabel.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             tENMHLabel.Location = new System.Drawing.Point(11, 107);
             tENMHLabel.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             tENMHLabel.Name = "tENMHLabel";
-            tENMHLabel.Size = new System.Drawing.Size(53, 16);
+            tENMHLabel.Size = new System.Drawing.Size(117, 22);
             tENMHLabel.TabIndex = 2;
-            tENMHLabel.Text = "TENMH:";
+            tENMHLabel.Text = "Tên môn học:";
             // 
             // barManager1
             // 
             this.barManager1.Bars.AddRange(new DevExpress.XtraBars.Bar[] {
             this.bar1,
-            this.bar2,
             this.bar3});
             this.barManager1.DockControls.Add(this.barDockControlTop);
             this.barManager1.DockControls.Add(this.barDockControlBottom);
@@ -120,7 +120,6 @@
             this.btnUndo,
             this.btnReload,
             this.btnSua});
-            this.barManager1.MainMenu = this.bar2;
             this.barManager1.MaxItemId = 6;
             this.barManager1.StatusBar = this.bar3;
             // 
@@ -128,7 +127,7 @@
             // 
             this.bar1.BarName = "Tools";
             this.bar1.DockCol = 0;
-            this.bar1.DockRow = 1;
+            this.bar1.DockRow = 0;
             this.bar1.DockStyle = DevExpress.XtraBars.BarDockStyle.Top;
             this.bar1.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
             new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.btnThem, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
@@ -188,16 +187,6 @@
             this.btnReload.Name = "btnReload";
             this.btnReload.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnReload_ItemClick);
             // 
-            // bar2
-            // 
-            this.bar2.BarName = "Main menu";
-            this.bar2.DockCol = 0;
-            this.bar2.DockRow = 0;
-            this.bar2.DockStyle = DevExpress.XtraBars.BarDockStyle.Top;
-            this.bar2.OptionsBar.MultiLine = true;
-            this.bar2.OptionsBar.UseWholeRow = true;
-            this.bar2.Text = "Main menu";
-            // 
             // bar3
             // 
             this.bar3.BarName = "Status bar";
@@ -217,7 +206,7 @@
             this.barDockControlTop.Location = new System.Drawing.Point(0, 0);
             this.barDockControlTop.Manager = this.barManager1;
             this.barDockControlTop.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.barDockControlTop.Size = new System.Drawing.Size(889, 51);
+            this.barDockControlTop.Size = new System.Drawing.Size(889, 30);
             // 
             // barDockControlBottom
             // 
@@ -232,19 +221,19 @@
             // 
             this.barDockControlLeft.CausesValidation = false;
             this.barDockControlLeft.Dock = System.Windows.Forms.DockStyle.Left;
-            this.barDockControlLeft.Location = new System.Drawing.Point(0, 51);
+            this.barDockControlLeft.Location = new System.Drawing.Point(0, 30);
             this.barDockControlLeft.Manager = this.barManager1;
             this.barDockControlLeft.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.barDockControlLeft.Size = new System.Drawing.Size(0, 423);
+            this.barDockControlLeft.Size = new System.Drawing.Size(0, 444);
             // 
             // barDockControlRight
             // 
             this.barDockControlRight.CausesValidation = false;
             this.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right;
-            this.barDockControlRight.Location = new System.Drawing.Point(889, 51);
+            this.barDockControlRight.Location = new System.Drawing.Point(889, 30);
             this.barDockControlRight.Manager = this.barManager1;
             this.barDockControlRight.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.barDockControlRight.Size = new System.Drawing.Size(0, 423);
+            this.barDockControlRight.Size = new System.Drawing.Size(0, 444);
             // 
             // lbCoso
             // 
@@ -267,7 +256,7 @@
             this.gcMONHOC.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.gcMONHOC.MenuManager = this.barManager1;
             this.gcMONHOC.Name = "gcMONHOC";
-            this.gcMONHOC.Size = new System.Drawing.Size(879, 223);
+            this.gcMONHOC.Size = new System.Drawing.Size(879, 235);
             this.gcMONHOC.TabIndex = 9;
             this.gcMONHOC.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gvMonHoc});
@@ -284,30 +273,43 @@
             // 
             // gvMonHoc
             // 
+            this.gvMonHoc.Appearance.Row.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gvMonHoc.Appearance.Row.Options.UseFont = true;
+            this.gvMonHoc.Appearance.ViewCaption.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gvMonHoc.Appearance.ViewCaption.Options.UseFont = true;
+            this.gvMonHoc.AppearancePrint.HeaderPanel.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gvMonHoc.AppearancePrint.HeaderPanel.Options.UseFont = true;
             this.gvMonHoc.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.colMAMH,
             this.colTENMH});
             this.gvMonHoc.DetailHeight = 546;
             this.gvMonHoc.GridControl = this.gcMONHOC;
             this.gvMonHoc.Name = "gvMonHoc";
+            this.gvMonHoc.OptionsView.RowAutoHeight = true;
             // 
             // colMAMH
             // 
+            this.colMAMH.AppearanceCell.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.colMAMH.AppearanceCell.Options.UseFont = true;
+            this.colMAMH.Caption = "Mã môn học";
             this.colMAMH.FieldName = "MAMH";
             this.colMAMH.MinWidth = 25;
             this.colMAMH.Name = "colMAMH";
             this.colMAMH.Visible = true;
             this.colMAMH.VisibleIndex = 0;
-            this.colMAMH.Width = 94;
+            this.colMAMH.Width = 93;
             // 
             // colTENMH
             // 
+            this.colTENMH.AppearanceCell.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.colTENMH.AppearanceCell.Options.UseFont = true;
+            this.colTENMH.Caption = "Tên môn học";
             this.colTENMH.FieldName = "TENMH";
             this.colTENMH.MinWidth = 25;
             this.colTENMH.Name = "colTENMH";
             this.colTENMH.Visible = true;
             this.colTENMH.VisibleIndex = 1;
-            this.colTENMH.Width = 94;
+            this.colTENMH.Width = 93;
             // 
             // panelDataView
             // 
@@ -327,37 +329,47 @@
             this.panelMonhoc.Controls.Add(tENMHLabel);
             this.panelMonhoc.Controls.Add(mAMHLabel);
             this.panelMonhoc.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelMonhoc.Location = new System.Drawing.Point(3, 238);
+            this.panelMonhoc.Location = new System.Drawing.Point(3, 249);
+            this.panelMonhoc.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panelMonhoc.Name = "panelMonhoc";
-            this.panelMonhoc.Size = new System.Drawing.Size(883, 178);
+            this.panelMonhoc.Size = new System.Drawing.Size(883, 189);
             this.panelMonhoc.TabIndex = 9;
             // 
             // txtTENMH
             // 
             this.txtTENMH.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bdsMonhoc, "TENMH", true));
-            this.txtTENMH.Location = new System.Drawing.Point(88, 101);
+            this.txtTENMH.Location = new System.Drawing.Point(137, 103);
+            this.txtTENMH.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtTENMH.MenuManager = this.barManager1;
             this.txtTENMH.Name = "txtTENMH";
+            this.txtTENMH.Properties.Appearance.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtTENMH.Properties.Appearance.Options.UseFont = true;
             this.txtTENMH.Properties.MaxLength = 50;
-            this.txtTENMH.Size = new System.Drawing.Size(203, 22);
+            this.txtTENMH.Size = new System.Drawing.Size(412, 28);
             this.txtTENMH.TabIndex = 10;
             // 
             // txtMAMH
             // 
             this.txtMAMH.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bdsMonhoc, "MAMH", true));
-            this.txtMAMH.Location = new System.Drawing.Point(88, 52);
+            this.txtMAMH.Location = new System.Drawing.Point(137, 52);
+            this.txtMAMH.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtMAMH.MenuManager = this.barManager1;
             this.txtMAMH.Name = "txtMAMH";
+            this.txtMAMH.Properties.Appearance.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtMAMH.Properties.Appearance.Options.UseFont = true;
             this.txtMAMH.Properties.MaxLength = 5;
-            this.txtMAMH.Size = new System.Drawing.Size(125, 22);
+            this.txtMAMH.Size = new System.Drawing.Size(125, 28);
             this.txtMAMH.TabIndex = 9;
             // 
             // labelControl1
             // 
-            this.labelControl1.Location = new System.Drawing.Point(14, 5);
+            this.labelControl1.Appearance.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelControl1.Appearance.Options.UseFont = true;
+            this.labelControl1.Location = new System.Drawing.Point(13, 5);
+            this.labelControl1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.labelControl1.Name = "labelControl1";
             this.labelControl1.Padding = new System.Windows.Forms.Padding(0, 10, 0, 0);
-            this.labelControl1.Size = new System.Drawing.Size(107, 26);
+            this.labelControl1.Size = new System.Drawing.Size(145, 32);
             this.labelControl1.TabIndex = 8;
             this.labelControl1.Text = "Thông tin môn học";
             // 
@@ -404,12 +416,13 @@
             this.tableLayoutPanel1.Controls.Add(this.panelMonhoc, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.gcMONHOC, 0, 0);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 51);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 30);
+            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 2;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 56.25F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 43.75F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(889, 419);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(889, 440);
             this.tableLayoutPanel1.TabIndex = 15;
             // 
             // FormMonHoc
@@ -425,7 +438,7 @@
             this.Controls.Add(this.barDockControlTop);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "FormMonHoc";
-            this.Text = " FormMonHoc";
+            this.Text = "Quản lý môn học";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.FormMonHoc_Load);
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).EndInit();
@@ -454,7 +467,6 @@
         private DevExpress.XtraBars.BarButtonItem btnThem;
         private DevExpress.XtraBars.BarButtonItem btnXoa;
         private DevExpress.XtraBars.BarButtonItem btnGhi;
-        private DevExpress.XtraBars.Bar bar2;
         private DevExpress.XtraBars.Bar bar3;
         private DevExpress.XtraBars.BarDockControl barDockControlTop;
         private DevExpress.XtraBars.BarDockControl barDockControlBottom;

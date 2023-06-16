@@ -71,19 +71,22 @@
             this.panelCHON.Controls.Add(this.gcLichDaThi);
             this.panelCHON.Controls.Add(this.panelControl1);
             this.panelCHON.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelCHON.Location = new System.Drawing.Point(0, 24);
+            this.panelCHON.Location = new System.Drawing.Point(0, 30);
+            this.panelCHON.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panelCHON.Name = "panelCHON";
-            this.panelCHON.Size = new System.Drawing.Size(869, 362);
+            this.panelCHON.Size = new System.Drawing.Size(1014, 450);
             this.panelCHON.TabIndex = 0;
             // 
             // gcLichDaThi
             // 
             this.gcLichDaThi.DataSource = this.bdsLichDaThi;
             this.gcLichDaThi.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gcLichDaThi.Location = new System.Drawing.Point(2, 42);
+            this.gcLichDaThi.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.gcLichDaThi.Location = new System.Drawing.Point(2, 59);
             this.gcLichDaThi.MainView = this.gvLichDaThi;
+            this.gcLichDaThi.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.gcLichDaThi.Name = "gcLichDaThi";
-            this.gcLichDaThi.Size = new System.Drawing.Size(865, 318);
+            this.gcLichDaThi.Size = new System.Drawing.Size(1010, 389);
             this.gcLichDaThi.TabIndex = 7;
             this.gcLichDaThi.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gvLichDaThi});
@@ -107,57 +110,76 @@
             this.colLAN,
             this.colMAMH,
             this.colMALOP});
+            this.gvLichDaThi.DetailHeight = 431;
             this.gvLichDaThi.GridControl = this.gcLichDaThi;
             this.gvLichDaThi.Name = "gvLichDaThi";
             // 
             // colTENMH
             // 
+            this.colTENMH.AppearanceCell.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.colTENMH.AppearanceCell.Options.UseFont = true;
             this.colTENMH.FieldName = "TENMH";
+            this.colTENMH.MinWidth = 23;
             this.colTENMH.Name = "colTENMH";
             this.colTENMH.Visible = true;
             this.colTENMH.VisibleIndex = 1;
-            this.colTENMH.Width = 191;
+            this.colTENMH.Width = 223;
             // 
             // colTENLOP
             // 
+            this.colTENLOP.AppearanceCell.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.colTENLOP.AppearanceCell.Options.UseFont = true;
             this.colTENLOP.FieldName = "TENLOP";
+            this.colTENLOP.MinWidth = 23;
             this.colTENLOP.Name = "colTENLOP";
             this.colTENLOP.Visible = true;
             this.colTENLOP.VisibleIndex = 3;
-            this.colTENLOP.Width = 224;
+            this.colTENLOP.Width = 261;
             // 
             // colNGAYTHI
             // 
+            this.colNGAYTHI.AppearanceCell.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.colNGAYTHI.AppearanceCell.Options.UseFont = true;
             this.colNGAYTHI.FieldName = "NGAYTHI";
+            this.colNGAYTHI.MinWidth = 23;
             this.colNGAYTHI.Name = "colNGAYTHI";
             this.colNGAYTHI.Visible = true;
             this.colNGAYTHI.VisibleIndex = 4;
-            this.colNGAYTHI.Width = 220;
+            this.colNGAYTHI.Width = 257;
             // 
             // colLAN
             // 
+            this.colLAN.AppearanceCell.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.colLAN.AppearanceCell.Options.UseFont = true;
             this.colLAN.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.colLAN.FieldName = "LAN";
+            this.colLAN.MinWidth = 23;
             this.colLAN.Name = "colLAN";
             this.colLAN.Visible = true;
             this.colLAN.VisibleIndex = 5;
-            this.colLAN.Width = 28;
+            this.colLAN.Width = 33;
             // 
             // colMAMH
             // 
+            this.colMAMH.AppearanceCell.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.colMAMH.AppearanceCell.Options.UseFont = true;
             this.colMAMH.FieldName = "MAMH";
+            this.colMAMH.MinWidth = 23;
             this.colMAMH.Name = "colMAMH";
             this.colMAMH.Visible = true;
             this.colMAMH.VisibleIndex = 0;
-            this.colMAMH.Width = 86;
+            this.colMAMH.Width = 100;
             // 
             // colMALOP
             // 
+            this.colMALOP.AppearanceCell.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.colMALOP.AppearanceCell.Options.UseFont = true;
             this.colMALOP.FieldName = "MALOP";
+            this.colMALOP.MinWidth = 23;
             this.colMALOP.Name = "colMALOP";
             this.colMALOP.Visible = true;
             this.colMALOP.VisibleIndex = 2;
-            this.colMALOP.Width = 91;
+            this.colMALOP.Width = 106;
             // 
             // panelControl1
             // 
@@ -165,9 +187,9 @@
             this.panelControl1.Controls.Add(this.labelControl1);
             this.panelControl1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelControl1.Location = new System.Drawing.Point(2, 2);
-            this.panelControl1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.panelControl1.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.panelControl1.Name = "panelControl1";
-            this.panelControl1.Size = new System.Drawing.Size(865, 40);
+            this.panelControl1.Size = new System.Drawing.Size(1010, 57);
             this.panelControl1.TabIndex = 7;
             // 
             // cbCoSo
@@ -175,11 +197,12 @@
             this.cbCoSo.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.cbCoSo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbCoSo.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbCoSo.FormattingEnabled = true;
-            this.cbCoSo.Location = new System.Drawing.Point(61, 11);
-            this.cbCoSo.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.cbCoSo.Location = new System.Drawing.Point(71, 14);
+            this.cbCoSo.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.cbCoSo.Name = "cbCoSo";
-            this.cbCoSo.Size = new System.Drawing.Size(175, 21);
+            this.cbCoSo.Size = new System.Drawing.Size(204, 30);
             this.cbCoSo.TabIndex = 1;
             this.cbCoSo.SelectedIndexChanged += new System.EventHandler(this.cbCoSo_SelectedIndexChanged);
             // 
@@ -187,12 +210,12 @@
             // 
             this.labelControl1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
-            this.labelControl1.Appearance.Font = new System.Drawing.Font("Tahoma", 10F);
+            this.labelControl1.Appearance.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelControl1.Appearance.Options.UseFont = true;
-            this.labelControl1.Location = new System.Drawing.Point(10, 11);
-            this.labelControl1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.labelControl1.Location = new System.Drawing.Point(12, 14);
+            this.labelControl1.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.labelControl1.Name = "labelControl1";
-            this.labelControl1.Size = new System.Drawing.Size(35, 17);
+            this.labelControl1.Size = new System.Drawing.Size(48, 22);
             this.labelControl1.TabIndex = 0;
             this.labelControl1.Text = "Cơ sở";
             // 
@@ -278,44 +301,49 @@
             this.barDockControlTop.Dock = System.Windows.Forms.DockStyle.Top;
             this.barDockControlTop.Location = new System.Drawing.Point(0, 0);
             this.barDockControlTop.Manager = this.barManager1;
-            this.barDockControlTop.Size = new System.Drawing.Size(869, 24);
+            this.barDockControlTop.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.barDockControlTop.Size = new System.Drawing.Size(1014, 30);
             // 
             // barDockControlBottom
             // 
             this.barDockControlBottom.CausesValidation = false;
             this.barDockControlBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.barDockControlBottom.Location = new System.Drawing.Point(0, 386);
+            this.barDockControlBottom.Location = new System.Drawing.Point(0, 480);
             this.barDockControlBottom.Manager = this.barManager1;
-            this.barDockControlBottom.Size = new System.Drawing.Size(869, 20);
+            this.barDockControlBottom.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.barDockControlBottom.Size = new System.Drawing.Size(1014, 20);
             // 
             // barDockControlLeft
             // 
             this.barDockControlLeft.CausesValidation = false;
             this.barDockControlLeft.Dock = System.Windows.Forms.DockStyle.Left;
-            this.barDockControlLeft.Location = new System.Drawing.Point(0, 24);
+            this.barDockControlLeft.Location = new System.Drawing.Point(0, 30);
             this.barDockControlLeft.Manager = this.barManager1;
-            this.barDockControlLeft.Size = new System.Drawing.Size(0, 362);
+            this.barDockControlLeft.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.barDockControlLeft.Size = new System.Drawing.Size(0, 450);
             // 
             // barDockControlRight
             // 
             this.barDockControlRight.CausesValidation = false;
             this.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right;
-            this.barDockControlRight.Location = new System.Drawing.Point(869, 24);
+            this.barDockControlRight.Location = new System.Drawing.Point(1014, 30);
             this.barDockControlRight.Manager = this.barManager1;
-            this.barDockControlRight.Size = new System.Drawing.Size(0, 362);
+            this.barDockControlRight.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.barDockControlRight.Size = new System.Drawing.Size(0, 450);
             // 
             // FormBangDiem
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(869, 406);
+            this.ClientSize = new System.Drawing.Size(1014, 500);
             this.Controls.Add(this.panelCHON);
             this.Controls.Add(this.barDockControlLeft);
             this.Controls.Add(this.barDockControlRight);
             this.Controls.Add(this.barDockControlBottom);
             this.Controls.Add(this.barDockControlTop);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "FormBangDiem";
-            this.Text = "Bảng Điểm";
+            this.Text = "Báo cáo bảng điểm";
             this.Load += new System.EventHandler(this.FormBangDiem_Load);
             ((System.ComponentModel.ISupportInitialize)(this.panelCHON)).EndInit();
             this.panelCHON.ResumeLayout(false);

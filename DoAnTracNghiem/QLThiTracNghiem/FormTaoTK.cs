@@ -67,12 +67,12 @@ namespace QLThiTracNghiem
                     this.cbNhom.Items.Add(new ComboRole("Cơ sở",GroupLoginType.CoSo ));
                     this.cbNhom.Items.Add(new ComboRole("Giảng Viên", GroupLoginType.Giangvien));
                     this.cbNhom.SelectedIndex = 0;
-                    this.cbNhom.Enabled = false;
+                    this.cbNhom.Enabled = true;
                     break;
                 case GroupLoginType.Truong:
                     this.cbNhom.Items.Add(new ComboRole("Trường", GroupLoginType.Truong));
                     this.cbNhom.SelectedIndex = 0;
-                    this.cbNhom.Enabled = true;
+                    this.cbNhom.Enabled = false;
                     break;
                 default:
                     break;
@@ -126,5 +126,6 @@ namespace QLThiTracNghiem
         {
             this.Close();
         }
+
     }
 }

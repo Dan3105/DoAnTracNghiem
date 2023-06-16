@@ -87,7 +87,7 @@
             // 
             this.bdsDSBaithi.DataMember = "SP_Lay_DS_Bai_Thi";
             this.bdsDSBaithi.DataSource = this.DB_THI_TN;
-            this.bdsDSBaithi.Filter = "MASV = '" + Program.username + "'";
+            this.bdsDSBaithi.Filter = "MASV = \'\'";
             // 
             // sP_Lay_DS_Bai_ThiTableAdapter
             // 
@@ -115,7 +115,7 @@
             this.gcDSBaithi.Location = new System.Drawing.Point(0, 0);
             this.gcDSBaithi.MainView = this.gvDSBaithi;
             this.gcDSBaithi.Name = "gcDSBaithi";
-            this.gcDSBaithi.Size = new System.Drawing.Size(994, 244);
+            this.gcDSBaithi.Size = new System.Drawing.Size(994, 266);
             this.gcDSBaithi.TabIndex = 1;
             this.gcDSBaithi.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gvDSBaithi});
@@ -136,6 +136,9 @@
             // 
             // colMAMH
             // 
+            this.colMAMH.AppearanceCell.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.colMAMH.AppearanceCell.Options.UseFont = true;
+            this.colMAMH.Caption = "Mã môn học";
             this.colMAMH.FieldName = "MAMH";
             this.colMAMH.Name = "colMAMH";
             this.colMAMH.Visible = true;
@@ -143,6 +146,9 @@
             // 
             // colTENMH
             // 
+            this.colTENMH.AppearanceCell.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.colTENMH.AppearanceCell.Options.UseFont = true;
+            this.colTENMH.Caption = "Tên môn học";
             this.colTENMH.FieldName = "TENMH";
             this.colTENMH.Name = "colTENMH";
             this.colTENMH.Visible = true;
@@ -150,6 +156,9 @@
             // 
             // colLAN
             // 
+            this.colLAN.AppearanceCell.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.colLAN.AppearanceCell.Options.UseFont = true;
+            this.colLAN.Caption = "Lần thi";
             this.colLAN.FieldName = "LAN";
             this.colLAN.Name = "colLAN";
             this.colLAN.Visible = true;
@@ -157,6 +166,11 @@
             // 
             // colNGAYTHI
             // 
+            this.colNGAYTHI.AppearanceCell.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.colNGAYTHI.AppearanceCell.Options.UseFont = true;
+            this.colNGAYTHI.Caption = "Ngày thi";
+            this.colNGAYTHI.DisplayFormat.FormatString = "dd/MM/yyyy";
+            this.colNGAYTHI.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
             this.colNGAYTHI.FieldName = "NGAYTHI";
             this.colNGAYTHI.Name = "colNGAYTHI";
             this.colNGAYTHI.Visible = true;
@@ -164,6 +178,9 @@
             // 
             // colDIEM
             // 
+            this.colDIEM.AppearanceCell.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.colDIEM.AppearanceCell.Options.UseFont = true;
+            this.colDIEM.Caption = "Điểm thi";
             this.colDIEM.FieldName = "DIEM";
             this.colDIEM.Name = "colDIEM";
             this.colDIEM.Visible = true;
@@ -178,9 +195,9 @@
             this.panelXuat.Controls.Add(lANLabel);
             this.panelXuat.Controls.Add(tENMHLabel);
             this.panelXuat.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelXuat.Location = new System.Drawing.Point(0, 244);
+            this.panelXuat.Location = new System.Drawing.Point(0, 266);
             this.panelXuat.Name = "panelXuat";
-            this.panelXuat.Size = new System.Drawing.Size(994, 304);
+            this.panelXuat.Size = new System.Drawing.Size(994, 282);
             this.panelXuat.TabIndex = 2;
             // 
             // txtMonhoc
@@ -252,7 +269,7 @@
             this.Controls.Add(this.panelXuat);
             this.Controls.Add(this.gcDSBaithi);
             this.Name = "FrptCTBaiThi";
-            this.Text = "Form xem ket qua thi";
+            this.Text = "Xem lại bài thi";
             this.Load += new System.EventHandler(this.FrptCTBaiThi_Load);
             ((System.ComponentModel.ISupportInitialize)(this.DB_THI_TN)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bdsDSBaithi)).EndInit();

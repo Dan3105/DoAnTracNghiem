@@ -83,7 +83,7 @@ namespace QLThiTracNghiem
             }
             else
             {
-                strLenh = $"Exec SP_Dang_Nhap_Cho_SV {txtUsername.Text}, {txtPassword.Text}";
+                strLenh = $"Exec SP_Dang_Nhap_Cho_SV '{txtUsername.Text}', '{txtPassword.Text}'";
                 Program.mlogin = Program.sv_login;
                 Program.password = Program.sv_password;
             }
@@ -99,6 +99,7 @@ namespace QLThiTracNghiem
             Program.myReader.Read();
             try
             {
+                
                 Program.username = Program.myReader.GetString(0);
 
                 if(isTeacher)

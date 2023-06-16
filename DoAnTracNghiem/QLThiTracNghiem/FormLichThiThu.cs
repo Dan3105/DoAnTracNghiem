@@ -62,5 +62,65 @@ namespace QLThiTracNghiem
             formThi.SetFormThi(ctt);
             formThi.ShowDialog(this);
         }
+
+        private void mALOPTextEdit_EditValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtTENMH_EditValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tHOIGIANLabel_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tHOIGIANSpinEdit_EditValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lANLabel_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lANSpinEdit_EditValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void nGAYTHILabel_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void nGAYTHIDateEdit_EditValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tRINHDOLabel_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tRINHDOTextEdit_EditValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void mALOPLabel_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tENMHLabel_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

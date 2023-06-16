@@ -37,13 +37,13 @@ namespace QLThiTracNghiem
 
             this.DB_THI_TN.EnforceConstraints = false;
 
-            // TODO: This line of code loads data into the 'dB_THI_TN.Giaovien' table. You can move, or remove it, as needed.
-            this.GiaovienTableAdapter.Connection.ConnectionString = Program.connstr;
-            this.GiaovienTableAdapter.Fill(this.DB_THI_TN.Giaovien);
-
             // TODO: This line of code loads data into the 'DB_THI_TN.Khoa' table. You can move, or remove it, as needed.
             this.KhoaTableAdapter.Connection.ConnectionString = Program.connstr;
             this.KhoaTableAdapter.Fill(this.DB_THI_TN.Khoa);
+
+            // TODO: This line of code loads data into the 'dB_THI_TN.Giaovien' table. You can move, or remove it, as needed.
+            this.GiaovienTableAdapter.Connection.ConnectionString = Program.connstr;
+            this.GiaovienTableAdapter.Fill(this.DB_THI_TN.Giaovien);
 
             // TODO: This line of code loads data into the 'DB_THI_TN.Giaovien_Dangky' table. You can move, or remove it, as needed.
             this.Giaovien_DangkyTableAdapter.Connection.ConnectionString = Program.connstr;
@@ -59,12 +59,19 @@ namespace QLThiTracNghiem
             this.cbCoSo.SelectedIndex = Program.currentServerIndex;
             this.cbCoSo.DropDownStyle = ComboBoxStyle.DropDownList;
 
-            this.cbHOCVI.Items.AddRange(new object[] {"Giáo sư",
-                        "Phó giáo sư",
-                        "Tiến Sĩ",
-                        "Kỹ Sư",
-                        "Cử Nhân",
-                        "Thạc Sĩ"});
+            //this.cbHOCVI.Items.AddRange(new object[] {"Giáo sư",
+            //            "Phó giáo sư",
+            //            "Tiến Sĩ",
+            //            "Kỹ Sư",
+            //            "Cử Nhân",
+            //            "Thạc Sĩ"});
+
+            this.cbHOCVI.Items.Add("Giáo sư");
+            this.cbHOCVI.Items.Add("Phó giáo sư");
+            this.cbHOCVI.Items.Add("Tiến Sĩ");
+            this.cbHOCVI.Items.Add("Kỹ Sư");
+            this.cbHOCVI.Items.Add("Cử Nhân");
+            this.cbHOCVI.Items.Add("Thạc Sĩ");
             this.cbHOCVI.DropDownStyle = ComboBoxStyle.DropDownList;
 
             try
@@ -122,7 +129,6 @@ namespace QLThiTracNghiem
             if (bdsKhoa.Count == 0) btnXoa.Enabled = false;
         }
 
-
         private void cbCoSo_SelectedIndexChanged(object sender, EventArgs e)
         {
             try
@@ -172,159 +178,29 @@ namespace QLThiTracNghiem
             }
         }
 
-        private void btnThem_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
-        {
-            positionKhoa = this.bdsKhoa.Position;
-            bdsKhoa.AddNew();
-
-            ActionBeforeEditKhoa();
-            validateAction += ValidateThemKhoa;
-            this.txtMACS.Text = this.maCoSo;
-            this.txtMAKH.Enabled = true;
-        }
-
-        private void ActionBeforeEditKhoa()
-        {
-            btnThem.Enabled = btnSua.Enabled = btnXoa.Enabled = btnReload.Enabled = false;
-            btnUndo.Enabled = btnGhi.Enabled = true;
-            this.panelKHOA.Enabled = true;
-            this.gcKHOA.Enabled = false;
-            this.gcGIAOVIEN.Enabled = false;
-        }
-
-        private bool ValidateThemKhoa()
-        {
-            string maKhoa = txtMAKH.Text.Trim();
-            try
-            {
-                String cmd = "Declare @check int " +
-                    $"EXEC @check = SP_Kiem_Tra_Khoa '{maKhoa}' " +
-                    $"Select 'result' = @check";
-                Program.myReader = Program.ExecSqlDataReader(cmd);
-                Program.myReader.Read();
-                int result = int.Parse(Program.myReader.GetValue(0).ToString());
-                Program.myReader.Close();
-
-                if (result == 1)
-                {
-                    MessageBox.Show("Đã có mã Khoa tồn tại trong dữ liệu!", "", MessageBoxButtons.OK);
-                    txtMAKH.Focus();
-                    return false;
-                }
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex.ToString());
-                return false;
-            }
-            return true;
-        }
-
-        private void btnGhi_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
-        {
-            string maKhoa = txtMAKH.Text.Trim();
-            if (maKhoa == "")
-            {
-                MessageBox.Show("Mã Khoa không được để trống!", "", MessageBoxButtons.OK);
-                txtMAKH.Focus();
-                return;
-            }
-
-            if (txtTENKH.Text.Trim() == "")
-            {
-                MessageBox.Show("Tên Khoa không được để trống!", "", MessageBoxButtons.OK);
-                txtTENKH.Focus();
-                return;
-            }
-
-
-
-            if (validateAction != null)
-                if (validateAction.Invoke() == false)
-                    return;
-
-            try
-            {
-                bdsKhoa.EndEdit();
-                bdsKhoa.ResetCurrentItem();
-                this.KhoaTableAdapter.Connection.ConnectionString = Program.connstr;
-                this.KhoaTableAdapter.Update(this.DB_THI_TN.Khoa);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"{ex}", "", MessageBoxButtons.OK);
-                return;
-            }
-
-            ActionAfterEditKhoa();
-        }
-
-        private void btnUndo_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
-        {
-            bdsKhoa.CancelEdit();
-            if (!btnThem.Enabled) bdsKhoa.Position = positionKhoa;
-
-            ActionAfterEditKhoa();
-        }
-
-        private void ActionAfterEditKhoa()
-        {
-            btnThem.Enabled = btnSua.Enabled = btnXoa.Enabled = btnReload.Enabled = true;
-            btnUndo.Enabled = btnGhi.Enabled = false;
-            panelKHOA.Enabled = false;
-            gcKHOA.Enabled = true;
-            gcGIAOVIEN.Enabled = true;
-            validateAction -= this.ValidateThemKhoa;
-        }
-
-        private void btnXoa_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
-        {
-            String maKHOA = "";
-            if (bdsGiaoVien.Count > 0)
-            {
-                MessageBox.Show("Không thể xóa Khoa này vì đã có giảng viên");
-                return;
-            }
-
-            if (MessageBox.Show("Bạn có chắc muốn xóa ?", "OK", MessageBoxButtons.OKCancel) == DialogResult.OK)
-            {
-                try
-                {
-                    maKHOA = ((DataRowView)bdsKhoa[bdsKhoa.Position])["MAKH"].ToString();
-                    bdsKhoa.RemoveCurrent();
-
-                    this.KhoaTableAdapter.Connection.ConnectionString = Program.connstr;
-                    this.KhoaTableAdapter.Update(this.DB_THI_TN.Khoa);
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show($"{ex}", "", MessageBoxButtons.OK);
-                    this.KhoaTableAdapter.Connection.ConnectionString = Program.connstr;
-                    this.KhoaTableAdapter.Update(this.DB_THI_TN.Khoa);
-                    bdsKhoa.Position = bdsKhoa.Find("MAKH", maKHOA);
-
-                }
-            }
-
-            if (bdsKhoa.Count == 0) btnXoa.Enabled = false;
-        }
-
-        private void btnSua_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
-        {
-            positionKhoa = this.bdsKhoa.Position;
-            ActionBeforeEditKhoa();
-            this.txtMAKH.Enabled = false;
-        }
-
         private void btnReload_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             try
             {
-                KhoaTableAdapter.Fill(this.DB_THI_TN.Khoa);
+                // TODO: This line of code loads data into the 'DB_THI_TN.Khoa' table. You can move, or remove it, as needed.
+                this.KhoaTableAdapter.Connection.ConnectionString = Program.connstr;
+                this.KhoaTableAdapter.Fill(this.DB_THI_TN.Khoa);
+
+                // TODO: This line of code loads data into the 'dB_THI_TN.Giaovien' table. You can move, or remove it, as needed.
+                this.GiaovienTableAdapter.Connection.ConnectionString = Program.connstr;
+                this.GiaovienTableAdapter.Fill(this.DB_THI_TN.Giaovien);
+
+                // TODO: This line of code loads data into the 'DB_THI_TN.Giaovien_Dangky' table. You can move, or remove it, as needed.
+                this.Giaovien_DangkyTableAdapter.Connection.ConnectionString = Program.connstr;
+                this.Giaovien_DangkyTableAdapter.Fill(this.DB_THI_TN.Giaovien_Dangky);
+
+                // TODO: This line of code loads data into the 'DB_THI_TN.Bode' table. You can move, or remove it, as needed.
+                this.BodeTableAdapter.Connection.ConnectionString = Program.connstr;
+                this.BodeTableAdapter.Fill(this.DB_THI_TN.Bode);
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"{ex.Message}", "Error Reloading", MessageBoxButtons.OK);
+                MessageBox.Show($"{ex.Message}", "Lỗi reload! Vui lòng thử lại sau.", MessageBoxButtons.OK);
             }
         }
 
@@ -335,6 +211,7 @@ namespace QLThiTracNghiem
             bdsGiaoVien.AddNew();
             ActionBeforeEditGiaoVien();
             string currentKhoa = ((DataRowView)this.bdsGiaoVien[bdsGiaoVien.Position])["MAKH"].ToString();
+            this.cbHOCVI.SelectedIndex = 0;
             this.txtFKMAKH.Text = currentKhoa;
             this.txtMAGIAOVIEN.Enabled = true;
             validateAction += this.HandlerThemGiaoVienDS;
@@ -431,6 +308,13 @@ namespace QLThiTracNghiem
                 return false;
             }
 
+            if (cbHOCVI.Text.Trim() == "")
+            {
+                MessageBox.Show("Hãy chọn học vị!", "", MessageBoxButtons.OK);
+                txtTEN.Focus();
+                return false;
+            }
+
             return true;
         }
 
@@ -461,6 +345,7 @@ namespace QLThiTracNghiem
                 return;
             }
 
+
             positionGiaoVien = this.bdsGiaoVien.Position;
             ActionBeforeEditGiaoVien();
             this.txtMAGIAOVIEN.Enabled = false;
@@ -469,9 +354,16 @@ namespace QLThiTracNghiem
         private void xoaGiaoVienToolStripMenuItem_Click(object sender, EventArgs e)
         {
             String maGiaoVien = "";
+
+            if (bdsGiaoVien.Count == 0)
+            {
+                MessageBox.Show("Không có danh sach Giáo Viên ", "OK", MessageBoxButtons.OK);
+                return;
+            }
+
             if (bdsBoDe.Count > 0)
             {
-                MessageBox.Show("Không thể xóa, Giáo Viên đã làm câu hỏi!!");
+                MessageBox.Show("Không thể xóa, Giáo Viên đã lập câu hỏi!!");
                 return;
             }
 
@@ -481,8 +373,9 @@ namespace QLThiTracNghiem
                 return;
             }
 
-            if (MessageBox.Show("U sure to del ?", "OK", MessageBoxButtons.OKCancel) == DialogResult.OK)
+            if (MessageBox.Show("Bạn có chắc muốn xoá?", "OK", MessageBoxButtons.OKCancel) == DialogResult.OK)
             {
+                int currPos = bdsGiaoVien.Position;
                 try
                 {
                     maGiaoVien = ((DataRowView)bdsGiaoVien[bdsGiaoVien.Position])["MAGV"].ToString();
@@ -495,13 +388,11 @@ namespace QLThiTracNghiem
                 {
                     MessageBox.Show($"{ex}", "", MessageBoxButtons.OK);
                     this.GiaovienTableAdapter.Connection.ConnectionString = Program.connstr;
-                    this.GiaovienTableAdapter.Update(this.DB_THI_TN.Giaovien);
-                    bdsGiaoVien.Position = bdsGiaoVien.Find("MAGV", maGiaoVien);
+                    this.GiaovienTableAdapter.Fill(this.DB_THI_TN.Giaovien);
+                    bdsGiaoVien.Position = currPos;
 
                 }
             }
-
-            if (bdsGiaoVien.Count == 0) this.xoaGiaoVienToolStripMenuItem.Enabled = false;
         }
     }
 }

@@ -54,12 +54,8 @@
             this.barDockControlRight = new DevExpress.XtraBars.BarDockControl();
             this.panelMonhoc = new DevExpress.XtraEditors.PanelControl();
             this.CBMonhoc = new System.Windows.Forms.ComboBox();
-            this.bdsMonHoc = new System.Windows.Forms.BindingSource(this.components);
             this.DB_THI_TN = new QLThiTracNghiem.DB_THI_TN();
             this.label1 = new System.Windows.Forms.Label();
-            this.monhocTableAdapter = new QLThiTracNghiem.DB_THI_TNTableAdapters.MonhocTableAdapter();
-            this.tableAdapterManager = new QLThiTracNghiem.DB_THI_TNTableAdapters.TableAdapterManager();
-            this.bodeTableAdapter = new QLThiTracNghiem.DB_THI_TNTableAdapters.BodeTableAdapter();
             this.bdsBode = new System.Windows.Forms.BindingSource(this.components);
             this.gcBode = new DevExpress.XtraGrid.GridControl();
             this.gvBode = new DevExpress.XtraGrid.Views.Grid.GridView();
@@ -81,6 +77,10 @@
             this.CBTrinhDo = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.txtMaCauhoi = new DevExpress.XtraEditors.TextEdit();
+            this.sP_Lay_DS_CauHoiTableAdapter = new QLThiTracNghiem.DB_THI_TNTableAdapters.SP_Lay_DS_CauHoiTableAdapter();
+            this.bdsMonhoc = new System.Windows.Forms.BindingSource(this.components);
+            this.monhocTableAdapter = new QLThiTracNghiem.DB_THI_TNTableAdapters.MonhocTableAdapter();
+            this.tableAdapterManager = new QLThiTracNghiem.DB_THI_TNTableAdapters.TableAdapterManager();
             cAUHOILabel = new System.Windows.Forms.Label();
             tRINHDOLabel = new System.Windows.Forms.Label();
             dAP_ANLabel = new System.Windows.Forms.Label();
@@ -92,7 +92,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelMonhoc)).BeginInit();
             this.panelMonhoc.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.bdsMonHoc)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DB_THI_TN)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bdsBode)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gcBode)).BeginInit();
@@ -100,15 +99,17 @@
             ((System.ComponentModel.ISupportInitialize)(this.panelCauhoi)).BeginInit();
             this.panelCauhoi.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtMaCauhoi.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bdsMonhoc)).BeginInit();
             this.SuspendLayout();
             // 
             // cAUHOILabel
             // 
             cAUHOILabel.AutoSize = true;
             cAUHOILabel.Font = new System.Drawing.Font("Tahoma", 10F);
-            cAUHOILabel.Location = new System.Drawing.Point(24, 33);
+            cAUHOILabel.Location = new System.Drawing.Point(28, 41);
+            cAUHOILabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             cAUHOILabel.Name = "cAUHOILabel";
-            cAUHOILabel.Size = new System.Drawing.Size(78, 17);
+            cAUHOILabel.Size = new System.Drawing.Size(96, 21);
             cAUHOILabel.TabIndex = 0;
             cAUHOILabel.Text = "Mã câu hỏi:";
             // 
@@ -116,9 +117,10 @@
             // 
             tRINHDOLabel.AutoSize = true;
             tRINHDOLabel.Font = new System.Drawing.Font("Tahoma", 10F);
-            tRINHDOLabel.Location = new System.Drawing.Point(242, 33);
+            tRINHDOLabel.Location = new System.Drawing.Point(282, 41);
+            tRINHDOLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             tRINHDOLabel.Name = "tRINHDOLabel";
-            tRINHDOLabel.Size = new System.Drawing.Size(64, 17);
+            tRINHDOLabel.Size = new System.Drawing.Size(78, 21);
             tRINHDOLabel.TabIndex = 3;
             tRINHDOLabel.Text = "Trình độ:";
             // 
@@ -126,9 +128,10 @@
             // 
             dAP_ANLabel.AutoSize = true;
             dAP_ANLabel.Font = new System.Drawing.Font("Tahoma", 10F);
-            dAP_ANLabel.Location = new System.Drawing.Point(492, 30);
+            dAP_ANLabel.Location = new System.Drawing.Point(574, 37);
+            dAP_ANLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             dAP_ANLabel.Name = "dAP_ANLabel";
-            dAP_ANLabel.Size = new System.Drawing.Size(57, 17);
+            dAP_ANLabel.Size = new System.Drawing.Size(69, 21);
             dAP_ANLabel.TabIndex = 5;
             dAP_ANLabel.Text = "Đáp án:";
             // 
@@ -136,9 +139,10 @@
             // 
             nOIDUNGLabel.AutoSize = true;
             nOIDUNGLabel.Font = new System.Drawing.Font("Tahoma", 10F);
-            nOIDUNGLabel.Location = new System.Drawing.Point(24, 64);
+            nOIDUNGLabel.Location = new System.Drawing.Point(28, 79);
+            nOIDUNGLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             nOIDUNGLabel.Name = "nOIDUNGLabel";
-            nOIDUNGLabel.Size = new System.Drawing.Size(68, 17);
+            nOIDUNGLabel.Size = new System.Drawing.Size(81, 21);
             nOIDUNGLabel.TabIndex = 7;
             nOIDUNGLabel.Text = "Nội dung:";
             // 
@@ -146,9 +150,10 @@
             // 
             aLabel.AutoSize = true;
             aLabel.Font = new System.Drawing.Font("Tahoma", 10F);
-            aLabel.Location = new System.Drawing.Point(471, 91);
+            aLabel.Location = new System.Drawing.Point(550, 112);
+            aLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             aLabel.Name = "aLabel";
-            aLabel.Size = new System.Drawing.Size(21, 17);
+            aLabel.Size = new System.Drawing.Size(27, 21);
             aLabel.TabIndex = 9;
             aLabel.Text = "A:";
             // 
@@ -156,9 +161,10 @@
             // 
             bLabel.AutoSize = true;
             bLabel.Font = new System.Drawing.Font("Tahoma", 10F);
-            bLabel.Location = new System.Drawing.Point(472, 187);
+            bLabel.Location = new System.Drawing.Point(551, 230);
+            bLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             bLabel.Name = "bLabel";
-            bLabel.Size = new System.Drawing.Size(21, 17);
+            bLabel.Size = new System.Drawing.Size(26, 21);
             bLabel.TabIndex = 11;
             bLabel.Text = "B:";
             // 
@@ -166,9 +172,10 @@
             // 
             cLabel.AutoSize = true;
             cLabel.Font = new System.Drawing.Font("Tahoma", 10F);
-            cLabel.Location = new System.Drawing.Point(773, 91);
+            cLabel.Location = new System.Drawing.Point(902, 112);
+            cLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             cLabel.Name = "cLabel";
-            cLabel.Size = new System.Drawing.Size(22, 17);
+            cLabel.Size = new System.Drawing.Size(26, 21);
             cLabel.TabIndex = 13;
             cLabel.Text = "C:";
             // 
@@ -176,9 +183,10 @@
             // 
             dLabel.AutoSize = true;
             dLabel.Font = new System.Drawing.Font("Tahoma", 10F);
-            dLabel.Location = new System.Drawing.Point(773, 187);
+            dLabel.Location = new System.Drawing.Point(902, 230);
+            dLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             dLabel.Name = "dLabel";
-            dLabel.Size = new System.Drawing.Size(23, 17);
+            dLabel.Size = new System.Drawing.Size(28, 21);
             dLabel.TabIndex = 15;
             dLabel.Text = "D:";
             // 
@@ -297,64 +305,61 @@
             this.barDockControlTop.Location = new System.Drawing.Point(0, 0);
             this.barDockControlTop.Manager = this.barManager1;
             this.barDockControlTop.Margin = new System.Windows.Forms.Padding(2);
-            this.barDockControlTop.Size = new System.Drawing.Size(1135, 24);
+            this.barDockControlTop.Size = new System.Drawing.Size(1324, 30);
             // 
             // barDockControlBottom
             // 
             this.barDockControlBottom.CausesValidation = false;
             this.barDockControlBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.barDockControlBottom.Location = new System.Drawing.Point(0, 543);
+            this.barDockControlBottom.Location = new System.Drawing.Point(0, 673);
             this.barDockControlBottom.Manager = this.barManager1;
             this.barDockControlBottom.Margin = new System.Windows.Forms.Padding(2);
-            this.barDockControlBottom.Size = new System.Drawing.Size(1135, 20);
+            this.barDockControlBottom.Size = new System.Drawing.Size(1324, 20);
             // 
             // barDockControlLeft
             // 
             this.barDockControlLeft.CausesValidation = false;
             this.barDockControlLeft.Dock = System.Windows.Forms.DockStyle.Left;
-            this.barDockControlLeft.Location = new System.Drawing.Point(0, 24);
+            this.barDockControlLeft.Location = new System.Drawing.Point(0, 30);
             this.barDockControlLeft.Manager = this.barManager1;
             this.barDockControlLeft.Margin = new System.Windows.Forms.Padding(2);
-            this.barDockControlLeft.Size = new System.Drawing.Size(0, 519);
+            this.barDockControlLeft.Size = new System.Drawing.Size(0, 643);
             // 
             // barDockControlRight
             // 
             this.barDockControlRight.CausesValidation = false;
             this.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right;
-            this.barDockControlRight.Location = new System.Drawing.Point(1135, 24);
+            this.barDockControlRight.Location = new System.Drawing.Point(1324, 30);
             this.barDockControlRight.Manager = this.barManager1;
             this.barDockControlRight.Margin = new System.Windows.Forms.Padding(2);
-            this.barDockControlRight.Size = new System.Drawing.Size(0, 519);
+            this.barDockControlRight.Size = new System.Drawing.Size(0, 643);
             // 
             // panelMonhoc
             // 
             this.panelMonhoc.Controls.Add(this.CBMonhoc);
             this.panelMonhoc.Controls.Add(this.label1);
             this.panelMonhoc.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelMonhoc.Location = new System.Drawing.Point(0, 24);
+            this.panelMonhoc.Location = new System.Drawing.Point(0, 30);
+            this.panelMonhoc.Margin = new System.Windows.Forms.Padding(4);
             this.panelMonhoc.Name = "panelMonhoc";
-            this.panelMonhoc.Size = new System.Drawing.Size(1135, 48);
+            this.panelMonhoc.Size = new System.Drawing.Size(1324, 59);
             this.panelMonhoc.TabIndex = 4;
             // 
             // CBMonhoc
             // 
             this.CBMonhoc.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.CBMonhoc.DataSource = this.bdsMonHoc;
+            this.CBMonhoc.DataSource = this.bdsMonhoc;
             this.CBMonhoc.DisplayMember = "TENMH";
             this.CBMonhoc.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.CBMonhoc.Font = new System.Drawing.Font("Tahoma", 10F);
+            this.CBMonhoc.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CBMonhoc.FormattingEnabled = true;
-            this.CBMonhoc.Location = new System.Drawing.Point(145, 14);
+            this.CBMonhoc.Location = new System.Drawing.Point(169, 17);
+            this.CBMonhoc.Margin = new System.Windows.Forms.Padding(4);
             this.CBMonhoc.Name = "CBMonhoc";
-            this.CBMonhoc.Size = new System.Drawing.Size(299, 24);
+            this.CBMonhoc.Size = new System.Drawing.Size(348, 30);
             this.CBMonhoc.TabIndex = 1;
             this.CBMonhoc.ValueMember = "MAMH";
             this.CBMonhoc.SelectedIndexChanged += new System.EventHandler(this.CBMonhoc_SelectedIndexChanged);
-            // 
-            // bdsMonHoc
-            // 
-            this.bdsMonHoc.DataMember = "Monhoc";
-            this.bdsMonHoc.DataSource = this.DB_THI_TN;
             // 
             // DB_THI_TN
             // 
@@ -364,51 +369,32 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Tahoma", 10F);
-            this.label1.Location = new System.Drawing.Point(34, 17);
+            this.label1.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(40, 21);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(105, 17);
+            this.label1.Size = new System.Drawing.Size(128, 22);
             this.label1.TabIndex = 0;
             this.label1.Text = "Chọn môn học:";
             // 
-            // monhocTableAdapter
-            // 
-            this.monhocTableAdapter.ClearBeforeFill = true;
-            // 
-            // tableAdapterManager
-            // 
-            this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
-            this.tableAdapterManager.BangDiemTableAdapter = null;
-            this.tableAdapterManager.BodeTableAdapter = this.bodeTableAdapter;
-            this.tableAdapterManager.ChiTiet_BaiThiTableAdapter = null;
-            this.tableAdapterManager.Giaovien_DangkyTableAdapter = null;
-            this.tableAdapterManager.GiaovienTableAdapter = null;
-            this.tableAdapterManager.KhoaTableAdapter = null;
-            this.tableAdapterManager.LopTableAdapter = null;
-            this.tableAdapterManager.MonhocTableAdapter = this.monhocTableAdapter;
-            this.tableAdapterManager.SinhvienTableAdapter = null;
-            this.tableAdapterManager.UpdateOrder = QLThiTracNghiem.DB_THI_TNTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
-            // 
-            // bodeTableAdapter
-            // 
-            this.bodeTableAdapter.ClearBeforeFill = true;
-            // 
             // bdsBode
             // 
-            this.bdsBode.DataMember = "FK_Bode_Monhoc";
-            this.bdsBode.DataSource = this.bdsMonHoc;
-            this.bdsBode.Filter = "MAGV = '" + Program.username + "'";
+            this.bdsBode.DataMember = "SP_Lay_DS_CauHoi";
+            this.bdsBode.DataSource = this.DB_THI_TN;
+            this.bdsBode.Filter = "";
             // 
             // gcBode
             // 
             this.gcBode.DataSource = this.bdsBode;
             this.gcBode.Dock = System.Windows.Forms.DockStyle.Top;
+            this.gcBode.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(4);
             this.gcBode.Font = new System.Drawing.Font("Tahoma", 12F);
-            this.gcBode.Location = new System.Drawing.Point(0, 72);
+            this.gcBode.Location = new System.Drawing.Point(0, 89);
             this.gcBode.MainView = this.gvBode;
+            this.gcBode.Margin = new System.Windows.Forms.Padding(4);
             this.gcBode.MenuManager = this.barManager1;
             this.gcBode.Name = "gcBode";
-            this.gcBode.Size = new System.Drawing.Size(1135, 264);
+            this.gcBode.Size = new System.Drawing.Size(1324, 325);
             this.gcBode.TabIndex = 8;
             this.gcBode.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gvBode});
@@ -424,75 +410,107 @@
             this.colC,
             this.colD,
             this.colDAP_AN});
+            this.gvBode.DetailHeight = 431;
             this.gvBode.GridControl = this.gcBode;
             this.gvBode.Name = "gvBode";
             this.gvBode.OptionsBehavior.Editable = false;
-            this.gvBode.OptionsView.ShowViewCaption = true;
-            this.gvBode.ViewCaption = "Danh sách câu hỏi";
             // 
             // colCAUHOI
             // 
+            this.colCAUHOI.AppearanceCell.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.colCAUHOI.AppearanceCell.Options.UseFont = true;
             this.colCAUHOI.Caption = "Mã câu hỏi";
-            this.colCAUHOI.FieldName = "CAUHOI";
+            this.colCAUHOI.FieldName = "IDCAUHOI";
+            this.colCAUHOI.Fixed = DevExpress.XtraGrid.Columns.FixedStyle.Left;
+            this.colCAUHOI.MinWidth = 23;
             this.colCAUHOI.Name = "colCAUHOI";
             this.colCAUHOI.Visible = true;
             this.colCAUHOI.VisibleIndex = 0;
+            this.colCAUHOI.Width = 87;
             // 
             // colTRINHDO
             // 
+            this.colTRINHDO.AppearanceCell.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.colTRINHDO.AppearanceCell.Options.UseFont = true;
             this.colTRINHDO.Caption = "Trình độ";
             this.colTRINHDO.FieldName = "TRINHDO";
+            this.colTRINHDO.MinWidth = 23;
             this.colTRINHDO.Name = "colTRINHDO";
             this.colTRINHDO.Visible = true;
             this.colTRINHDO.VisibleIndex = 1;
+            this.colTRINHDO.Width = 87;
             // 
             // colNOIDUNG
             // 
+            this.colNOIDUNG.AppearanceCell.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.colNOIDUNG.AppearanceCell.Options.UseFont = true;
             this.colNOIDUNG.Caption = "Nội dung";
             this.colNOIDUNG.FieldName = "NOIDUNG";
+            this.colNOIDUNG.MinWidth = 23;
             this.colNOIDUNG.Name = "colNOIDUNG";
             this.colNOIDUNG.Visible = true;
             this.colNOIDUNG.VisibleIndex = 2;
+            this.colNOIDUNG.Width = 87;
             // 
             // colA
             // 
+            this.colA.AppearanceCell.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.colA.AppearanceCell.Options.UseFont = true;
             this.colA.Caption = "A";
             this.colA.FieldName = "A";
+            this.colA.MinWidth = 23;
             this.colA.Name = "colA";
             this.colA.Visible = true;
             this.colA.VisibleIndex = 3;
+            this.colA.Width = 87;
             // 
             // colB
             // 
+            this.colB.AppearanceCell.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.colB.AppearanceCell.Options.UseFont = true;
             this.colB.Caption = "B";
             this.colB.FieldName = "B";
+            this.colB.MinWidth = 23;
             this.colB.Name = "colB";
             this.colB.Visible = true;
             this.colB.VisibleIndex = 4;
+            this.colB.Width = 87;
             // 
             // colC
             // 
+            this.colC.AppearanceCell.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.colC.AppearanceCell.Options.UseFont = true;
             this.colC.Caption = "C";
             this.colC.FieldName = "C";
+            this.colC.MinWidth = 23;
             this.colC.Name = "colC";
             this.colC.Visible = true;
             this.colC.VisibleIndex = 5;
+            this.colC.Width = 87;
             // 
             // colD
             // 
+            this.colD.AppearanceCell.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.colD.AppearanceCell.Options.UseFont = true;
             this.colD.Caption = "D";
             this.colD.FieldName = "D";
+            this.colD.MinWidth = 23;
             this.colD.Name = "colD";
             this.colD.Visible = true;
             this.colD.VisibleIndex = 6;
+            this.colD.Width = 87;
             // 
             // colDAP_AN
             // 
+            this.colDAP_AN.AppearanceCell.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.colDAP_AN.AppearanceCell.Options.UseFont = true;
             this.colDAP_AN.Caption = "Đáp án";
             this.colDAP_AN.FieldName = "DAP_AN";
+            this.colDAP_AN.MinWidth = 23;
             this.colDAP_AN.Name = "colDAP_AN";
             this.colDAP_AN.Visible = true;
             this.colDAP_AN.VisibleIndex = 7;
+            this.colDAP_AN.Width = 87;
             // 
             // panelCauhoi
             // 
@@ -514,58 +532,64 @@
             this.panelCauhoi.Controls.Add(cAUHOILabel);
             this.panelCauhoi.Controls.Add(this.txtMaCauhoi);
             this.panelCauhoi.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelCauhoi.Location = new System.Drawing.Point(0, 336);
+            this.panelCauhoi.Location = new System.Drawing.Point(0, 414);
+            this.panelCauhoi.Margin = new System.Windows.Forms.Padding(4);
             this.panelCauhoi.Name = "panelCauhoi";
-            this.panelCauhoi.Size = new System.Drawing.Size(1135, 207);
+            this.panelCauhoi.Size = new System.Drawing.Size(1324, 259);
             this.panelCauhoi.TabIndex = 9;
             // 
             // txtD
             // 
             this.txtD.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bdsBode, "D", true));
-            this.txtD.Font = new System.Drawing.Font("Tahoma", 10F);
-            this.txtD.Location = new System.Drawing.Point(797, 157);
+            this.txtD.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtD.Location = new System.Drawing.Point(930, 193);
+            this.txtD.Margin = new System.Windows.Forms.Padding(4);
             this.txtD.Name = "txtD";
-            this.txtD.Size = new System.Drawing.Size(272, 80);
+            this.txtD.Size = new System.Drawing.Size(317, 98);
             this.txtD.TabIndex = 16;
             this.txtD.Text = "";
             // 
             // txtC
             // 
             this.txtC.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bdsBode, "C", true));
-            this.txtC.Font = new System.Drawing.Font("Tahoma", 10F);
-            this.txtC.Location = new System.Drawing.Point(797, 61);
+            this.txtC.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtC.Location = new System.Drawing.Point(930, 75);
+            this.txtC.Margin = new System.Windows.Forms.Padding(4);
             this.txtC.Name = "txtC";
-            this.txtC.Size = new System.Drawing.Size(272, 80);
+            this.txtC.Size = new System.Drawing.Size(317, 98);
             this.txtC.TabIndex = 14;
             this.txtC.Text = "";
             // 
             // txtB
             // 
             this.txtB.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bdsBode, "B", true));
-            this.txtB.Font = new System.Drawing.Font("Tahoma", 10F);
-            this.txtB.Location = new System.Drawing.Point(495, 157);
+            this.txtB.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtB.Location = new System.Drawing.Point(578, 193);
+            this.txtB.Margin = new System.Windows.Forms.Padding(4);
             this.txtB.Name = "txtB";
-            this.txtB.Size = new System.Drawing.Size(272, 80);
+            this.txtB.Size = new System.Drawing.Size(317, 98);
             this.txtB.TabIndex = 12;
             this.txtB.Text = "";
             // 
             // txtA
             // 
             this.txtA.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bdsBode, "A", true));
-            this.txtA.Font = new System.Drawing.Font("Tahoma", 10F);
-            this.txtA.Location = new System.Drawing.Point(495, 61);
+            this.txtA.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtA.Location = new System.Drawing.Point(578, 75);
+            this.txtA.Margin = new System.Windows.Forms.Padding(4);
             this.txtA.Name = "txtA";
-            this.txtA.Size = new System.Drawing.Size(272, 80);
+            this.txtA.Size = new System.Drawing.Size(317, 98);
             this.txtA.TabIndex = 10;
             this.txtA.Text = "";
             // 
             // txtNoidung
             // 
             this.txtNoidung.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bdsBode, "NOIDUNG", true));
-            this.txtNoidung.Font = new System.Drawing.Font("Tahoma", 10F);
-            this.txtNoidung.Location = new System.Drawing.Point(98, 64);
+            this.txtNoidung.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtNoidung.Location = new System.Drawing.Point(114, 79);
+            this.txtNoidung.Margin = new System.Windows.Forms.Padding(4);
             this.txtNoidung.Name = "txtNoidung";
-            this.txtNoidung.Size = new System.Drawing.Size(346, 175);
+            this.txtNoidung.Size = new System.Drawing.Size(403, 214);
             this.txtNoidung.TabIndex = 8;
             this.txtNoidung.Text = "";
             // 
@@ -574,16 +598,17 @@
             this.CBDapAn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.CBDapAn.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bdsBode, "DAP_AN", true));
             this.CBDapAn.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.CBDapAn.Font = new System.Drawing.Font("Tahoma", 10F);
+            this.CBDapAn.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CBDapAn.FormattingEnabled = true;
             this.CBDapAn.Items.AddRange(new object[] {
             "A",
             "B",
             "C",
             "D"});
-            this.CBDapAn.Location = new System.Drawing.Point(555, 27);
+            this.CBDapAn.Location = new System.Drawing.Point(648, 33);
+            this.CBDapAn.Margin = new System.Windows.Forms.Padding(4);
             this.CBDapAn.Name = "CBDapAn";
-            this.CBDapAn.Size = new System.Drawing.Size(54, 24);
+            this.CBDapAn.Size = new System.Drawing.Size(62, 34);
             this.CBDapAn.TabIndex = 6;
             // 
             // CBTrinhDo
@@ -591,44 +616,74 @@
             this.CBTrinhDo.Cursor = System.Windows.Forms.Cursors.Hand;
             this.CBTrinhDo.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bdsBode, "TRINHDO", true));
             this.CBTrinhDo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.CBTrinhDo.Font = new System.Drawing.Font("Tahoma", 10F);
+            this.CBTrinhDo.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CBTrinhDo.FormattingEnabled = true;
             this.CBTrinhDo.Items.AddRange(new object[] {
             "A",
             "B",
             "C"});
-            this.CBTrinhDo.Location = new System.Drawing.Point(312, 30);
+            this.CBTrinhDo.Location = new System.Drawing.Point(364, 37);
+            this.CBTrinhDo.Margin = new System.Windows.Forms.Padding(4);
             this.CBTrinhDo.Name = "CBTrinhDo";
-            this.CBTrinhDo.Size = new System.Drawing.Size(54, 24);
+            this.CBTrinhDo.Size = new System.Drawing.Size(62, 34);
             this.CBTrinhDo.TabIndex = 4;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Tahoma", 10F);
-            this.label2.Location = new System.Drawing.Point(5, 3);
+            this.label2.Location = new System.Drawing.Point(6, 4);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(98, 17);
+            this.label2.Size = new System.Drawing.Size(121, 21);
             this.label2.TabIndex = 2;
             this.label2.Text = "Chi tiết câu hỏi";
             // 
             // txtMaCauhoi
             // 
-            this.txtMaCauhoi.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bdsBode, "CAUHOI", true));
+            this.txtMaCauhoi.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bdsBode, "IDCAUHOI", true));
             this.txtMaCauhoi.Enabled = false;
-            this.txtMaCauhoi.Location = new System.Drawing.Point(108, 30);
+            this.txtMaCauhoi.Location = new System.Drawing.Point(126, 37);
+            this.txtMaCauhoi.Margin = new System.Windows.Forms.Padding(4);
             this.txtMaCauhoi.MenuManager = this.barManager1;
             this.txtMaCauhoi.Name = "txtMaCauhoi";
-            this.txtMaCauhoi.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 10F);
+            this.txtMaCauhoi.Properties.Appearance.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtMaCauhoi.Properties.Appearance.Options.UseFont = true;
-            this.txtMaCauhoi.Size = new System.Drawing.Size(100, 22);
+            this.txtMaCauhoi.Size = new System.Drawing.Size(117, 32);
             this.txtMaCauhoi.TabIndex = 1;
+            // 
+            // sP_Lay_DS_CauHoiTableAdapter
+            // 
+            this.sP_Lay_DS_CauHoiTableAdapter.ClearBeforeFill = true;
+            // 
+            // bdsMonhoc
+            // 
+            this.bdsMonhoc.DataMember = "Monhoc";
+            this.bdsMonhoc.DataSource = this.DB_THI_TN;
+            // 
+            // monhocTableAdapter
+            // 
+            this.monhocTableAdapter.ClearBeforeFill = true;
+            // 
+            // tableAdapterManager
+            // 
+            this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
+            this.tableAdapterManager.BangDiemTableAdapter = null;
+            this.tableAdapterManager.BodeTableAdapter = null;
+            this.tableAdapterManager.ChiTiet_BaiThiTableAdapter = null;
+            this.tableAdapterManager.Giaovien_DangkyTableAdapter = null;
+            this.tableAdapterManager.GiaovienTableAdapter = null;
+            this.tableAdapterManager.KhoaTableAdapter = null;
+            this.tableAdapterManager.LopTableAdapter = null;
+            this.tableAdapterManager.MonhocTableAdapter = this.monhocTableAdapter;
+            this.tableAdapterManager.SinhvienTableAdapter = null;
+            this.tableAdapterManager.UpdateOrder = QLThiTracNghiem.DB_THI_TNTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             // 
             // FormNhapDe
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1135, 563);
+            this.ClientSize = new System.Drawing.Size(1324, 693);
             this.Controls.Add(this.panelCauhoi);
             this.Controls.Add(this.gcBode);
             this.Controls.Add(this.panelMonhoc);
@@ -636,14 +691,14 @@
             this.Controls.Add(this.barDockControlRight);
             this.Controls.Add(this.barDockControlBottom);
             this.Controls.Add(this.barDockControlTop);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FormNhapDe";
-            this.Text = "FormNhapDe";
+            this.Text = "Quản lý bộ đề";
             this.Load += new System.EventHandler(this.FormNhapDe_Load);
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelMonhoc)).EndInit();
             this.panelMonhoc.ResumeLayout(false);
             this.panelMonhoc.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.bdsMonHoc)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.DB_THI_TN)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bdsBode)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gcBode)).EndInit();
@@ -652,6 +707,7 @@
             this.panelCauhoi.ResumeLayout(false);
             this.panelCauhoi.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtMaCauhoi.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bdsMonhoc)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -676,10 +732,6 @@
         private System.Windows.Forms.ComboBox CBMonhoc;
         private System.Windows.Forms.Label label1;
         private DB_THI_TN DB_THI_TN;
-        private System.Windows.Forms.BindingSource bdsMonHoc;
-        private DB_THI_TNTableAdapters.MonhocTableAdapter monhocTableAdapter;
-        private DB_THI_TNTableAdapters.TableAdapterManager tableAdapterManager;
-        private DB_THI_TNTableAdapters.BodeTableAdapter bodeTableAdapter;
         private System.Windows.Forms.BindingSource bdsBode;
         private DevExpress.XtraEditors.PanelControl panelCauhoi;
         private DevExpress.XtraGrid.GridControl gcBode;
@@ -702,5 +754,9 @@
         private System.Windows.Forms.ComboBox CBDapAn;
         private System.Windows.Forms.RichTextBox txtD;
         private DevExpress.XtraBars.BarButtonItem btnThoat;
+        private DB_THI_TNTableAdapters.SP_Lay_DS_CauHoiTableAdapter sP_Lay_DS_CauHoiTableAdapter;
+        private System.Windows.Forms.BindingSource bdsMonhoc;
+        private DB_THI_TNTableAdapters.MonhocTableAdapter monhocTableAdapter;
+        private DB_THI_TNTableAdapters.TableAdapterManager tableAdapterManager;
     }
 }

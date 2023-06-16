@@ -30,21 +30,23 @@ namespace QLThiTracNghiem
 
         private void FormKhoaLop_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'DB_THI_TN.Giaovien' table. You can move, or remove it, as needed.
-            this.GiaovienTableAdapter.Fill(this.DB_THI_TN.Giaovien);
-            // TODO: This line of code loads data into the 'DB_THI_TN.Sinhvien' table. You can move, or remove it, as needed.
-            this.SinhvienTableAdapter.Fill(this.DB_THI_TN.Sinhvien);
-            // TODO: This line of code loads data into the 'DB_THI_TN.Giaovien_Dangky' table. You can move, or remove it, as needed.
-            this.Giaovien_DangkyTableAdapter.Fill(this.DB_THI_TN.Giaovien_Dangky);
             this.DB_THI_TN.EnforceConstraints = false;
 
+            this.KhoaTableAdapter.Connection.ConnectionString = Program.connstr;
+            this.KhoaTableAdapter.Fill(this.DB_THI_TN.Khoa);
+
             this.LopTableAdapter.Connection.ConnectionString = Program.connstr;
-            // TODO: This line of code loads data into the 'DB_THI_TN.Lop' table. You can move, or remove it, as needed.
             this.LopTableAdapter.Fill(this.DB_THI_TN.Lop);
 
-            this.KhoaTableAdapter.Connection.ConnectionString = Program.connstr;
-            // TODO: This line of code loads data into the 'dB_THI_TN.Khoa' table. You can move, or remove it, as needed.
-            this.KhoaTableAdapter.Fill(this.DB_THI_TN.Khoa);
+            this.GiaovienTableAdapter.Connection.ConnectionString = Program.connstr;
+            this.GiaovienTableAdapter.Fill(this.DB_THI_TN.Giaovien);
+
+            this.SinhvienTableAdapter.Connection.ConnectionString = Program.connstr;
+            this.SinhvienTableAdapter.Fill(this.DB_THI_TN.Sinhvien);
+
+            this.Giaovien_DangkyTableAdapter.Connection.ConnectionString = Program.connstr;
+            this.Giaovien_DangkyTableAdapter.Fill(this.DB_THI_TN.Giaovien_Dangky);
+
 
             this.cbCoSo.DataSource = Program.bds_dspm;
             this.cbCoSo.DisplayMember = "TenCS";
@@ -135,12 +137,21 @@ namespace QLThiTracNghiem
                     this.DB_THI_TN.EnforceConstraints = false;
 
                     this.KhoaTableAdapter.Connection.ConnectionString = Program.connstr;
-                    // TODO: This line of code loads data into the 'dB_TracNghiem.KHOA' table. You can move, or remove it, as needed.
-                    this.KhoaTableAdapter.Update(this.DB_THI_TN.Khoa);
+                    this.KhoaTableAdapter.Fill(this.DB_THI_TN.Khoa);
 
                     this.LopTableAdapter.Connection.ConnectionString = Program.connstr;
-                    // TODO: This line of code loads data into the 'dB_TracNghiem.LOP' table. You can move, or remove it, as needed.
-                    this.LopTableAdapter.Update(this.DB_THI_TN.Lop);
+                    this.LopTableAdapter.Fill(this.DB_THI_TN.Lop);
+
+                    this.GiaovienTableAdapter.Connection.ConnectionString = Program.connstr;
+                    this.GiaovienTableAdapter.Fill(this.DB_THI_TN.Giaovien);
+
+                    this.SinhvienTableAdapter.Connection.ConnectionString = Program.connstr;
+                    this.SinhvienTableAdapter.Fill(this.DB_THI_TN.Sinhvien);
+
+                    this.Giaovien_DangkyTableAdapter.Connection.ConnectionString = Program.connstr;
+                    this.Giaovien_DangkyTableAdapter.Fill(this.DB_THI_TN.Giaovien_Dangky);
+
+
                 }
                 catch (Exception ex) { Console.WriteLine(ex); }
             }
@@ -299,7 +310,19 @@ namespace QLThiTracNghiem
         {
             try
             {
-                KhoaTableAdapter.Fill(this.DB_THI_TN.Khoa);
+                this.KhoaTableAdapter.Connection.ConnectionString = Program.connstr;
+                this.KhoaTableAdapter.Fill(this.DB_THI_TN.Khoa);
+
+                this.LopTableAdapter.Connection.ConnectionString = Program.connstr;
+                this.LopTableAdapter.Fill(this.DB_THI_TN.Lop);
+
+                this.GiaovienTableAdapter.Connection.ConnectionString = Program.connstr;
+                this.GiaovienTableAdapter.Fill(this.DB_THI_TN.Giaovien);
+
+                this.SinhvienTableAdapter.Connection.ConnectionString = Program.connstr;
+                this.SinhvienTableAdapter.Fill(this.DB_THI_TN.Sinhvien);
+
+                
             }
             catch (Exception ex)
             {

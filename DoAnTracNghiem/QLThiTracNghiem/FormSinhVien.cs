@@ -27,20 +27,17 @@ namespace QLThiTracNghiem
         {
             this.DB_THI_TN.EnforceConstraints = false;
 
-            this.SinhvienTableAdapter.Connection.ConnectionString = Program.connstr;
-            // TODO: This line of code loads data into the 'dB_THI_TN.Sinhvien' table. You can move, or remove it, as needed.
-            this.SinhvienTableAdapter.Fill(this.DB_THI_TN.Sinhvien);
+            this.KhoaTableAdapter.Connection.ConnectionString = Program.connstr;
+            this.KhoaTableAdapter.Fill(this.DB_THI_TN.Khoa);
 
             this.LopTableAdapter.Connection.ConnectionString = Program.connstr;
-            // TODO: This line of code loads data into the 'dB_THI_TN.Lop' table. You can move, or remove it, as needed.
             this.LopTableAdapter.Fill(this.DB_THI_TN.Lop);
 
-            this.KhoaTableAdapter.Connection.ConnectionString = Program.connstr;
-            // TODO: This line of code loads data into the 'dB_THI_TN.Khoa' table. You can move, or remove it, as needed.
-            this.KhoaTableAdapter.Fill(this.DB_THI_TN.Khoa);
-            // TODO: This line of code loads data into the 'dB_THI_TNDataSet.Khoa' table. You can move, or remove it, as needed.
+            this.SinhvienTableAdapter.Connection.ConnectionString = Program.connstr;
+            this.SinhvienTableAdapter.Fill(this.DB_THI_TN.Sinhvien);
 
-
+            this.bangDiemTableAdapter.Connection.ConnectionString = Program.connstr;
+            this.bangDiemTableAdapter.Fill(this.DB_THI_TN.BangDiem);
 
             SetComboBox();
 
@@ -147,10 +144,18 @@ namespace QLThiTracNghiem
         {
             if (bdsSinhvien.Count == 0)
             {
-                MessageBox.Show("Không có Sinh Vien nào được chọn", "OK", MessageBoxButtons.OK);
+                MessageBox.Show("Không có Sinh Vien nào được chọn!", "OK", MessageBoxButtons.OK);
                 return;
             }
+
+            if(bdsBangdiem.Count > 0)
+            {
+                MessageBox.Show("Không thể xoá do sinh viên này đã thi!", "OK", MessageBoxButtons.OK);
+                return;
+            }
+
             String maSV = "";
+            int crrPos = bdsSinhvien.Position;
             if (MessageBox.Show("Bạn có muốn xóa ?", "OK", MessageBoxButtons.OKCancel) == DialogResult.OK)
             {
                 try
@@ -165,9 +170,8 @@ namespace QLThiTracNghiem
                 {
                     MessageBox.Show($"{ex}", "", MessageBoxButtons.OK);
                     this.SinhvienTableAdapter.Connection.ConnectionString = Program.connstr;
-                    this.SinhvienTableAdapter.Update(this.DB_THI_TN.Sinhvien);
-                    bdsSinhvien.Position = bdsSinhvien.Find("MASV", maSV);
-
+                    this.SinhvienTableAdapter.Fill(this.DB_THI_TN.Sinhvien);
+                    bdsSinhvien.Position = crrPos;
                 }
             }
 
@@ -325,7 +329,17 @@ namespace QLThiTracNghiem
         {
             try
             {
-                LopTableAdapter.Fill(this.DB_THI_TN.Lop);
+                this.KhoaTableAdapter.Connection.ConnectionString = Program.connstr;
+                this.KhoaTableAdapter.Fill(this.DB_THI_TN.Khoa);
+
+                this.LopTableAdapter.Connection.ConnectionString = Program.connstr;
+                this.LopTableAdapter.Fill(this.DB_THI_TN.Lop);
+
+                this.SinhvienTableAdapter.Connection.ConnectionString = Program.connstr;
+                this.SinhvienTableAdapter.Fill(this.DB_THI_TN.Sinhvien);
+
+                this.bangDiemTableAdapter.Connection.ConnectionString = Program.connstr;
+                this.bangDiemTableAdapter.Fill(this.DB_THI_TN.BangDiem);
             }
             catch (Exception ex)
             {

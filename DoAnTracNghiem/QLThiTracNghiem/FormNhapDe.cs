@@ -26,8 +26,8 @@ namespace QLThiTracNghiem
             this.monhocTableAdapter.Connection.ConnectionString = Program.connstr;
             this.monhocTableAdapter.Fill(this.DB_THI_TN.Monhoc);
 
-            this.bodeTableAdapter.Connection.ConnectionString = Program.connstr;
-            this.bodeTableAdapter.Fill(this.DB_THI_TN.Bode);
+            this.sP_Lay_DS_CauHoiTableAdapter.Connection.ConnectionString = Program.connstr;
+            this.sP_Lay_DS_CauHoiTableAdapter.Fill(this.DB_THI_TN.SP_Lay_DS_CauHoi, Program.username, (string)CBMonhoc.SelectedValue);
 
             if (bdsBode.Count <= 0)
             {
@@ -58,6 +58,8 @@ namespace QLThiTracNghiem
 
         private void FormNhapDe_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'DB_THI_TN.Monhoc' table. You can move, or remove it, as needed.
+            this.monhocTableAdapter.Fill(this.DB_THI_TN.Monhoc);
             this.DB_THI_TN.EnforceConstraints = false;
             Reload();
             ReadMode();
@@ -106,7 +108,7 @@ namespace QLThiTracNghiem
 
                 if (result == 1)
                 {
-                    MessageBox.Show("Câu hỏi đã có sinh viên thi!", "", MessageBoxButtons.OK);
+                    MessageBox.Show("Câu hỏi đã có sinh viên thi! Không thể xoá!", "", MessageBoxButtons.OK);
                     return false;
                 }
             }
@@ -122,11 +124,7 @@ namespace QLThiTracNghiem
         {
             String maCauHoi = txtMaCauhoi.Text;
 
-            if (!canEraseCauhoi(maCauHoi))
-            {
-                MessageBox.Show("Không thể xóa câu hỏi này!", "", MessageBoxButtons.OK);
-                return;
-            }
+            if (!canEraseCauhoi(maCauHoi)) return;
 
             if (MessageBox.Show("Bạn có chắc chắn muốn xóa ?", "Xác nhận", MessageBoxButtons.OKCancel) == DialogResult.OK)
             {
@@ -134,14 +132,16 @@ namespace QLThiTracNghiem
                 {
                     bdsBode.RemoveCurrent();
 
-                    this.bodeTableAdapter.Connection.ConnectionString = Program.connstr;
-                    this.bodeTableAdapter.Update(this.DB_THI_TN.Bode);
+                    string idCauHoi = ((DataRowView)bdsBode[bdsBode.Position])["IDCAUHOI"].ToString();
+                    String cmd = "DELETE FROM Bode WHERE CAUHOI = " + idCauHoi;
+                    //Execute query
+                    Program.ExecSqlNonQuery(cmd);
                 }
                 catch (Exception ex)
                 {
                     MessageBox.Show("Lỗi xoá câu hỏi. Bạn hãy xoá lại\n" + ex.Message, "", MessageBoxButtons.OK);
-                    this.bodeTableAdapter.Fill(this.DB_THI_TN.Bode);
-                    bdsBode.Position = bdsBode.Find("CAUHOI", maCauHoi);
+                    this.sP_Lay_DS_CauHoiTableAdapter.Fill(this.DB_THI_TN.SP_Lay_DS_CauHoi, Program.username, (string)CBMonhoc.SelectedValue);
+                    bdsBode.Position = bdsBode.Find("IDCAUHOI", maCauHoi);
                     return;
                 }
             }
@@ -197,18 +197,7 @@ namespace QLThiTracNghiem
             {
                 if (isAddMode)
                 {
-                    String cmd = "INSERT INTO Bode(MAMH, TRINHDO, NOIDUNG, A, B, C, D, DAP_AN, MAGV) " +
-                             "VALUES ("
-                            + "'" + CBMonhoc.SelectedValue + "',"  //Mã môn học
-                            + "'" + CBTrinhDo.Text + "'," //Trình độ
-                            + "N'" + txtNoidung.Text + "',"  //Nội dung câu hỏi
-                            + "N'" + txtA.Text + "',"    //Đáp án A
-                            + "N'" + txtB.Text + "',"    //Đáp án B
-                            + "N'" + txtC.Text + "',"    //Đáp án C
-                            + "N'" + txtD.Text + "',"    //Đáp án D
-                            + "'" + CBDapAn.Text + "',"   //Đáp án đúng
-                            + "'" + Program.username + "'"  //Mã giảng viên tạo câu hỏi
-                            + ")";
+                    String cmd = $"Exec SP_Them_CauHoi {CBMonhoc.SelectedValue}, N'{CBTrinhDo.Text}', N'{txtNoidung.Text}', N'{txtA.Text}', N'{txtB.Text}',N'{txtC.Text}',N'{txtD.Text}', N'{CBDapAn.Text}', N'{Program.username}'";
                     //Execute query
                     Program.ExecSqlNonQuery(cmd);
                     isAddMode = false;
@@ -217,11 +206,12 @@ namespace QLThiTracNghiem
                 {
                     bdsBode.EndEdit();
                     bdsBode.ResetCurrentItem();
-                    this.bodeTableAdapter.Connection.ConnectionString = Program.connstr;
-                    this.bodeTableAdapter.Update(this.DB_THI_TN.Bode);
+                    String cmd = $"Exec SP_Sua_CauHoi {txtMaCauhoi.Text}, N'{CBTrinhDo.Text}', N'{txtNoidung.Text}', N'{txtA.Text}', N'{txtB.Text}',N'{txtC.Text}',N'{txtD.Text}', N'{CBDapAn.Text}'";
+                    //Execute query
+                    Program.ExecSqlNonQuery(cmd);
                 }
 
-                this.bodeTableAdapter.Fill(this.DB_THI_TN.Bode);
+                this.sP_Lay_DS_CauHoiTableAdapter.Fill(this.DB_THI_TN.SP_Lay_DS_CauHoi, Program.username, (string)CBMonhoc.SelectedValue);
             }
             catch (Exception ex)
             {
@@ -243,7 +233,9 @@ namespace QLThiTracNghiem
         {
             try
             {
+                int currMonhocPos = CBMonhoc.SelectedIndex;
                 Reload();
+                CBMonhoc.SelectedIndex = currMonhocPos;
                 ReadMode();
             }
             catch (Exception ex)
@@ -254,7 +246,9 @@ namespace QLThiTracNghiem
 
         private void CBMonhoc_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            this.sP_Lay_DS_CauHoiTableAdapter.Connection.ConnectionString = Program.connstr;
+            this.sP_Lay_DS_CauHoiTableAdapter.Fill(this.DB_THI_TN.SP_Lay_DS_CauHoi, Program.username, (string)CBMonhoc.SelectedValue);
+            ReadMode();
         }
     }
 }
