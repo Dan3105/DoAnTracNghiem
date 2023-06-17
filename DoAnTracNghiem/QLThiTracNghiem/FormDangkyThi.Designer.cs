@@ -517,7 +517,7 @@
             0,
             0});
             this.txtSOCAUTHI.Properties.MinValue = new decimal(new int[] {
-            15,
+            10,
             0,
             0,
             0});
