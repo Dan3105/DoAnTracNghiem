@@ -1,0 +1,30 @@
+/****** Object:  StoredProcedure [dbo].[SP_DS_Loc_DK_Thi]    Script Date: 6/17/2023 7:13:16 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE Proc [dbo].[SP_DS_Loc_DK_Thi]
+@tuNgay Date,
+@denNgay Date
+as
+begin
+
+Select * into #LocDate from Giaovien_Dangky where NGAYTHI between @tuNgay and @denNgay
+
+Select TENLOP, 
+TENMH, 
+TENGV = gv.Ho + ' ' + gv.Ten,
+SOCAUTHI,
+Format(NGAYTHI, 'dd-MM-yyyy hh:mm:ss') NGAYTHI,
+DATHI = (select case when exists(
+	select BangDiem.MaSV from Sinhvien 
+	Join BangDiem 
+	on MALOP = gd.MALOP 
+	and MAMH = gd.MAMH
+	and gd.LAN =BangDiem.LAN) then 1 else 0 end),
+CONCAT(N'Lần Thi: ', Lan) + N' Trình độ: ' + TRINHDO as GHICHU
+from #LocDate gd 
+Join Monhoc on gd.MAMH = Monhoc.MAMH
+Join Giaovien gv on gd.MAGV = gv.MAGV
+Join Lop on Lop.MALOP = gd.MALOP
+end

@@ -1,0 +1,14 @@
+/****** Object:  StoredProcedure [dbo].[SP_Kiem_Tra_MonHoc]    Script Date: 6/17/2023 7:13:16 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE proc [dbo].[SP_Kiem_Tra_MonHoc]
+@MaMH nvarchar(15)
+as
+begin
+if(exists(Select MAMH from Monhoc where MAMH = @MaMH))
+return 1;
+else
+return 0;
+end

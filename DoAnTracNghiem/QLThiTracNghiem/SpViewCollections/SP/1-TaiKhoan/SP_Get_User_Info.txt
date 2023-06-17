@@ -1,0 +1,17 @@
+/****** Object:  StoredProcedure [dbo].[SP_Get_User_Info]    Script Date: 6/17/2023 7:13:16 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+Create PROCEDURE [dbo].[SP_Get_User_Info] @Loginname nvarchar(50)
+AS
+Declare @Username nvarchar(50)
+Select @Username=Name from sys.sysusers where sid = SUSER_SID(@Loginname)
+Begin
+Select MaNV = @Username,
+		HoTen = (Select HO + ' ' + TEN from Giaovien where MAGV = @Username),
+		TenNhom = Name from sys.sysusers 
+where uid = (select GroupUID 
+from sys.sysmembers 
+where memberuid = (select uid from sys.sysusers where name = @Username))
+end

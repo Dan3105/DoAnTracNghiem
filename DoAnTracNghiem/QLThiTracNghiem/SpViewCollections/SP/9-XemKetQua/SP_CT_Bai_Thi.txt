@@ -1,0 +1,31 @@
+/****** Object:  StoredProcedure [dbo].[SP_CT_Bai_Thi]    Script Date: 6/17/2023 7:13:16 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE PROCEDURE [dbo].[SP_CT_Bai_Thi] (
+	@MASV nchar(8),
+	@MaMH nchar(5),
+	@Lanthi int)
+AS
+BEGIN
+	
+	declare @IDBAITHI varbinary(16) = HashBytes('MD5', CONCAT(@MaSV, @MaMH, @Lanthi))
+
+	SELECT 
+		ct.STT as STT,
+		ct.CAUHOI as CauSo,
+		bd.NOIDUNG as NoiDung,
+		'A.' + cast(bd.A as nvarchar(max)) + '\n' +
+		'B.' + cast(bd.B as nvarchar(max)) + '\n' +
+		'C.' + cast(bd.C as nvarchar(max)) + '\n' +
+		'D.' + cast(bd.D as nvarchar(max))
+		as CacChonLua,
+		bd.DAP_AN as DapAn,
+		ct.LUACHON as DaChon
+	FROM 
+		ChiTiet_BaiThi ct 
+		INNER JOIN Bode bd ON ct.CAUHOI = bd.CAUHOI
+	WHERE UKDK = @IDBAITHI
+	ORDER BY ct.STT
+END

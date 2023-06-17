@@ -1,0 +1,10 @@
+/****** Object:  StoredProcedure [dbo].[SP_Tim_MACS]    Script Date: 6/17/2023 7:13:16 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+Create Proc [dbo].[SP_Tim_MACS]
+as
+begin
+	Select MACS from CoSo
+end

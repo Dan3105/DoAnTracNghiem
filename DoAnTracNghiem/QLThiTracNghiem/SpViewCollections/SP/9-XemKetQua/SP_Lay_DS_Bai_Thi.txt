@@ -1,0 +1,27 @@
+/****** Object:  StoredProcedure [dbo].[SP_Lay_DS_Bai_Thi]    Script Date: 6/17/2023 7:13:16 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE PROC [dbo].[SP_Lay_DS_Bai_Thi]
+@username nvarchar(8) --masv
+AS
+BEGIN
+
+	SELECT 
+		bd.MAMH,
+		mh.TENMH,
+		bd.LAN,
+		bd.NGAYTHI,
+		bd.DIEM,
+		bd.MASV
+	FROM 
+		(SELECT 
+			MAMH,
+			LAN,
+			NGAYTHI,
+			DIEM,
+			MASV
+		FROM BangDiem WHERE MASV = @username) bd
+		INNER JOIN Monhoc mh ON bd.MAMH = mh.MAMH 
+END

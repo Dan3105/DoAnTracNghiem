@@ -1,0 +1,16 @@
+/****** Object:  StoredProcedure [dbo].[SP_Dang_Nhap_Cho_SV]    Script Date: 6/17/2023 7:13:16 PM ******/
+CREATE proc [dbo].[SP_Dang_Nhap_Cho_SV] 
+@Username nchar(8),
+@Password nvarchar(50)
+as
+begin
+
+	Select MASV, 
+	MALOP,
+	HOTEN = HO + ' ' + TEN, 
+	TenNhom = (select name from sys.sysusers where uid IN (
+	select groupuid from sys.sysmembers where memberuid IN 
+	(select uid from sys.sysusers where sid = SUSER_SID('SV'))))
+	from Sinhvien as dbtt 
+	where dbtt.MASV = @Username and dbtt.PASSWORD = @Password
+end

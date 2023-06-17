@@ -1,0 +1,21 @@
+/****** Object:  StoredProcedure [dbo].[SP_Lay_DS_CauHoi]    Script Date: 6/17/2023 7:13:16 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE PROC [dbo].[SP_Lay_DS_CauHoi](
+	@magv nchar(8), @mamh nchar(5))
+AS
+BEGIN
+	SELECT 
+		bd.CAUHOI as IDCAUHOI
+		, bd.TRINHDO
+		, bd.NOIDUNG
+		, bd.A
+		, bd.B
+		, bd.C
+		, bd.D
+		, bd.DAP_AN
+	FROM Bode bd
+	WHERE bd.MAGV = @magv and bd.MAMH = @mamh
+END

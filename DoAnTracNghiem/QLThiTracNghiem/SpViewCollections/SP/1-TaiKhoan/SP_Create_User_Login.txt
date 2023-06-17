@@ -1,0 +1,52 @@
+/****** Object:  StoredProcedure [dbo].[SP_Create_User_Login]    Script Date: 6/17/2023 7:13:16 PM ******/
+CREATE proc [dbo].[SP_Create_User_Login]
+@loginname nvarchar(10), @password nvarchar(50),
+@role nvarchar(10), @magv nvarchar(10)
+as
+begin
+	declare @res int
+	exec @res = sp_addlogin @loginname, @password, 'DB_THI_TN'
+	if(@res = 1)
+	begin 
+		raiserror('Login name bị trùng', 16, 1)
+		return
+	end
+
+	exec @res = sp_grantdbaccess @loginname, @magv
+	if(@res = 1)
+	begin
+		exec sp_droplogin @loginname
+		raiserror('Mã giảng viên đã tồn tại',16, 2)
+		return
+	end
+
+
+	begin try
+		exec sp_addrolemember @role, @magv
+	end try
+	begin catch
+		exec sp_droplogin @loginname
+		raiserror('Sai tên role', 16,2)
+		return
+	end catch
+
+	if(@role = 'Truong' OR @role = 'CoSo')
+	begin
+		exec sp_addsrvrolemember @loginname, 'securityadmin'
+		Declare @commandstr nvarchar(max)
+		set @commandstr = 'USE [msdb] CREATE USER [' + @magv + '] FOR LOGIN [' + @loginname + ']'
+		exec (@commandstr)
+
+		set @commandstr = 'USE [msdb] ALTER ROLE [db_owner] ADD MEMBER [' + @magv + ']'
+		exec (@commandstr)
+
+		set @commandstr = 'USE [msdb] ALTER ROLE [SQLAgentUserRole] ADD MEMBER [' + @magv + ']'
+		exec (@commandstr)
+
+		set @commandstr = 'USE [msdb] ALTER ROLE [SQLAgentReaderRole] ADD MEMBER [' + @magv + ']'
+		exec (@commandstr)
+
+		set @commandstr = 'USE [msdb] ALTER ROLE [SQLAgentOperatorRole] ADD MEMBER [' + @magv + ']'
+		exec (@commandstr)
+	end
+end

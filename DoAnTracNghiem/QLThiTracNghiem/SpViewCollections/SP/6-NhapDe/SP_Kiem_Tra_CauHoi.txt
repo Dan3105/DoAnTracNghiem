@@ -1,0 +1,29 @@
+/****** Object:  StoredProcedure [dbo].[SP_Kiem_Tra_CauHoi]    Script Date: 6/17/2023 7:13:16 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE PROC [dbo].[SP_Kiem_Tra_CauHoi](
+	@MACAUHOI int)
+AS
+BEGIN
+	DECLARE @cnt int
+	SELECT @cnt = COUNT(CAUHOI) FROM ChiTiet_BaiThi WHERE CAUHOI = @MACAUHOI
+
+	if(@cnt > 0) 
+	begin
+		print '1'
+		return 1 -- Cau hoi da co sinh vien thi
+	end
+
+	SELECT @cnt = COUNT(CAUHOI) FROM LINK1.DB_THI_TN.dbo.ChiTiet_BaiThi WHERE CAUHOI = @MACAUHOI
+	if(@cnt > 0) 
+	begin
+		print '1'
+		return 1 -- Cau hoi da co sinh vien thi
+	end
+
+	print '0'
+	return 0
+END

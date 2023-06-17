@@ -1,0 +1,14 @@
+/****** Object:  StoredProcedure [dbo].[SP_Them_CauHoi]    Script Date: 6/17/2023 7:13:16 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE PROC [dbo].[SP_Them_CauHoi](
+	@mamh nchar(5), @trinhdo nchar(1), @noidung ntext, 
+	@a ntext, @b ntext, @c ntext, @d ntext, @dapan nchar(1),
+	@magv nchar(8))
+AS
+BEGIN
+	INSERT INTO Bode(MAMH, TRINHDO, NOIDUNG, A, B, C, D, DAP_AN, MAGV)
+	VALUES (@mamh, @trinhdo, @noidung, @a, @b, @c, @d, @dapan, @magv)
+END

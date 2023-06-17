@@ -1,0 +1,19 @@
+/****** Object:  StoredProcedure [dbo].[SP_Sua_CauHoi]    Script Date: 6/17/2023 7:13:16 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE PROC [dbo].[SP_Sua_CauHoi](
+	@IDCauHoi int, @trinhdo nchar(1), @noidung ntext, 
+	@a ntext, @b ntext, @c ntext, @d ntext, @dapan nchar(1))
+AS
+BEGIN
+	UPDATE Bode
+	SET 
+		TRINHDO = @trinhdo
+		, NOIDUNG = @noidung
+		, A = @a, B = @b, C = @c, D = @d
+		, DAP_AN = @dapan
+	WHERE 
+		CAUHOI = @IDCauHoi
+END

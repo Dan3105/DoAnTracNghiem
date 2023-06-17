@@ -1,0 +1,16 @@
+/****** Object:  StoredProcedure [dbo].[SP_Kiem_Tra_SinhVien]    Script Date: 6/17/2023 7:13:16 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE Proc [dbo].[SP_Kiem_Tra_SinhVien]
+@MaSV nvarchar(10)
+as
+begin
+if exists(select MASV from Sinhvien where @MaSV = MASV) 
+	return 1;
+else if exists( Select MASV from LINK2.DB_THI_TN.DBO.Sinhvien sv where @MaSV = sv.MASV)
+	return 1;
+else 
+	return 0;
+end

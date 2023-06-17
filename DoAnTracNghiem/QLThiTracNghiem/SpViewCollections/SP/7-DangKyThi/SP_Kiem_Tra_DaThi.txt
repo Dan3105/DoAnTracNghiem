@@ -1,0 +1,22 @@
+/****** Object:  StoredProcedure [dbo].[SP_Kiem_Tra_DaThi]    Script Date: 6/17/2023 7:13:16 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+Create Proc [dbo].[SP_Kiem_Tra_DaThi]
+@MaMH nvarchar(10),
+@MaLop nvarchar(10),
+@LanThi int
+as
+begin
+ if( exists(
+	select BangDiem.MaSV from Sinhvien 
+	Join BangDiem 
+	on MALOP = @MaLop
+	and MAMH = @MaMH
+	and @LanThi =BangDiem.LAN)) 
+	
+	return 1; 
+else 
+	return 0;
+end
