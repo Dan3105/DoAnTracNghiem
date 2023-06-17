@@ -49,6 +49,7 @@
             this.barManager1 = new DevExpress.XtraBars.BarManager(this.components);
             this.bar1 = new DevExpress.XtraBars.Bar();
             this.btnXem = new DevExpress.XtraBars.BarButtonItem();
+            this.btnRefresh = new DevExpress.XtraBars.BarButtonItem();
             this.btnThoat = new DevExpress.XtraBars.BarButtonItem();
             this.bar3 = new DevExpress.XtraBars.Bar();
             this.barDockControlTop = new DevExpress.XtraBars.BarDockControl();
@@ -71,22 +72,19 @@
             this.panelCHON.Controls.Add(this.gcLichDaThi);
             this.panelCHON.Controls.Add(this.panelControl1);
             this.panelCHON.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelCHON.Location = new System.Drawing.Point(0, 30);
-            this.panelCHON.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panelCHON.Location = new System.Drawing.Point(0, 24);
             this.panelCHON.Name = "panelCHON";
-            this.panelCHON.Size = new System.Drawing.Size(1014, 450);
+            this.panelCHON.Size = new System.Drawing.Size(869, 362);
             this.panelCHON.TabIndex = 0;
             // 
             // gcLichDaThi
             // 
             this.gcLichDaThi.DataSource = this.bdsLichDaThi;
             this.gcLichDaThi.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gcLichDaThi.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.gcLichDaThi.Location = new System.Drawing.Point(2, 59);
+            this.gcLichDaThi.Location = new System.Drawing.Point(2, 48);
             this.gcLichDaThi.MainView = this.gvLichDaThi;
-            this.gcLichDaThi.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.gcLichDaThi.Name = "gcLichDaThi";
-            this.gcLichDaThi.Size = new System.Drawing.Size(1010, 389);
+            this.gcLichDaThi.Size = new System.Drawing.Size(865, 312);
             this.gcLichDaThi.TabIndex = 7;
             this.gcLichDaThi.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gvLichDaThi});
@@ -110,7 +108,6 @@
             this.colLAN,
             this.colMAMH,
             this.colMALOP});
-            this.gvLichDaThi.DetailHeight = 431;
             this.gvLichDaThi.GridControl = this.gcLichDaThi;
             this.gvLichDaThi.Name = "gvLichDaThi";
             // 
@@ -119,33 +116,30 @@
             this.colTENMH.AppearanceCell.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.colTENMH.AppearanceCell.Options.UseFont = true;
             this.colTENMH.FieldName = "TENMH";
-            this.colTENMH.MinWidth = 23;
             this.colTENMH.Name = "colTENMH";
             this.colTENMH.Visible = true;
             this.colTENMH.VisibleIndex = 1;
-            this.colTENMH.Width = 223;
+            this.colTENMH.Width = 191;
             // 
             // colTENLOP
             // 
             this.colTENLOP.AppearanceCell.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.colTENLOP.AppearanceCell.Options.UseFont = true;
             this.colTENLOP.FieldName = "TENLOP";
-            this.colTENLOP.MinWidth = 23;
             this.colTENLOP.Name = "colTENLOP";
             this.colTENLOP.Visible = true;
             this.colTENLOP.VisibleIndex = 3;
-            this.colTENLOP.Width = 261;
+            this.colTENLOP.Width = 224;
             // 
             // colNGAYTHI
             // 
             this.colNGAYTHI.AppearanceCell.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.colNGAYTHI.AppearanceCell.Options.UseFont = true;
             this.colNGAYTHI.FieldName = "NGAYTHI";
-            this.colNGAYTHI.MinWidth = 23;
             this.colNGAYTHI.Name = "colNGAYTHI";
             this.colNGAYTHI.Visible = true;
             this.colNGAYTHI.VisibleIndex = 4;
-            this.colNGAYTHI.Width = 257;
+            this.colNGAYTHI.Width = 220;
             // 
             // colLAN
             // 
@@ -153,33 +147,30 @@
             this.colLAN.AppearanceCell.Options.UseFont = true;
             this.colLAN.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.colLAN.FieldName = "LAN";
-            this.colLAN.MinWidth = 23;
             this.colLAN.Name = "colLAN";
             this.colLAN.Visible = true;
             this.colLAN.VisibleIndex = 5;
-            this.colLAN.Width = 33;
+            this.colLAN.Width = 28;
             // 
             // colMAMH
             // 
             this.colMAMH.AppearanceCell.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.colMAMH.AppearanceCell.Options.UseFont = true;
             this.colMAMH.FieldName = "MAMH";
-            this.colMAMH.MinWidth = 23;
             this.colMAMH.Name = "colMAMH";
             this.colMAMH.Visible = true;
             this.colMAMH.VisibleIndex = 0;
-            this.colMAMH.Width = 100;
+            this.colMAMH.Width = 86;
             // 
             // colMALOP
             // 
             this.colMALOP.AppearanceCell.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.colMALOP.AppearanceCell.Options.UseFont = true;
             this.colMALOP.FieldName = "MALOP";
-            this.colMALOP.MinWidth = 23;
             this.colMALOP.Name = "colMALOP";
             this.colMALOP.Visible = true;
             this.colMALOP.VisibleIndex = 2;
-            this.colMALOP.Width = 106;
+            this.colMALOP.Width = 91;
             // 
             // panelControl1
             // 
@@ -187,9 +178,9 @@
             this.panelControl1.Controls.Add(this.labelControl1);
             this.panelControl1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelControl1.Location = new System.Drawing.Point(2, 2);
-            this.panelControl1.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
+            this.panelControl1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panelControl1.Name = "panelControl1";
-            this.panelControl1.Size = new System.Drawing.Size(1010, 57);
+            this.panelControl1.Size = new System.Drawing.Size(865, 46);
             this.panelControl1.TabIndex = 7;
             // 
             // cbCoSo
@@ -199,10 +190,10 @@
             this.cbCoSo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbCoSo.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbCoSo.FormattingEnabled = true;
-            this.cbCoSo.Location = new System.Drawing.Point(71, 14);
-            this.cbCoSo.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
+            this.cbCoSo.Location = new System.Drawing.Point(61, 11);
+            this.cbCoSo.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cbCoSo.Name = "cbCoSo";
-            this.cbCoSo.Size = new System.Drawing.Size(204, 30);
+            this.cbCoSo.Size = new System.Drawing.Size(175, 27);
             this.cbCoSo.TabIndex = 1;
             this.cbCoSo.SelectedIndexChanged += new System.EventHandler(this.cbCoSo_SelectedIndexChanged);
             // 
@@ -212,10 +203,10 @@
             | System.Windows.Forms.AnchorStyles.Left)));
             this.labelControl1.Appearance.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelControl1.Appearance.Options.UseFont = true;
-            this.labelControl1.Location = new System.Drawing.Point(12, 14);
-            this.labelControl1.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
+            this.labelControl1.Location = new System.Drawing.Point(10, 11);
+            this.labelControl1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.labelControl1.Name = "labelControl1";
-            this.labelControl1.Size = new System.Drawing.Size(48, 22);
+            this.labelControl1.Size = new System.Drawing.Size(37, 19);
             this.labelControl1.TabIndex = 0;
             this.labelControl1.Text = "Cơ sở";
             // 
@@ -250,8 +241,9 @@
             this.barManager1.Form = this;
             this.barManager1.Items.AddRange(new DevExpress.XtraBars.BarItem[] {
             this.btnXem,
-            this.btnThoat});
-            this.barManager1.MaxItemId = 2;
+            this.btnThoat,
+            this.btnRefresh});
+            this.barManager1.MaxItemId = 3;
             this.barManager1.StatusBar = this.bar3;
             // 
             // bar1
@@ -262,6 +254,7 @@
             this.bar1.DockStyle = DevExpress.XtraBars.BarDockStyle.Top;
             this.bar1.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
             new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.btnXem, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
+            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.btnRefresh, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
             new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.btnThoat, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph)});
             this.bar1.Text = "Tools";
             // 
@@ -273,6 +266,15 @@
             this.btnXem.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnXem.ImageOptions.LargeImage")));
             this.btnXem.Name = "btnXem";
             this.btnXem.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnXem_ItemClick);
+            // 
+            // btnRefresh
+            // 
+            this.btnRefresh.Caption = "Refresh";
+            this.btnRefresh.Id = 2;
+            this.btnRefresh.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem1.ImageOptions.Image")));
+            this.btnRefresh.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonItem1.ImageOptions.LargeImage")));
+            this.btnRefresh.Name = "btnRefresh";
+            this.btnRefresh.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnRefresh_ItemClick);
             // 
             // btnThoat
             // 
@@ -301,47 +303,42 @@
             this.barDockControlTop.Dock = System.Windows.Forms.DockStyle.Top;
             this.barDockControlTop.Location = new System.Drawing.Point(0, 0);
             this.barDockControlTop.Manager = this.barManager1;
-            this.barDockControlTop.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.barDockControlTop.Size = new System.Drawing.Size(1014, 30);
+            this.barDockControlTop.Size = new System.Drawing.Size(869, 24);
             // 
             // barDockControlBottom
             // 
             this.barDockControlBottom.CausesValidation = false;
             this.barDockControlBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.barDockControlBottom.Location = new System.Drawing.Point(0, 480);
+            this.barDockControlBottom.Location = new System.Drawing.Point(0, 386);
             this.barDockControlBottom.Manager = this.barManager1;
-            this.barDockControlBottom.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.barDockControlBottom.Size = new System.Drawing.Size(1014, 20);
+            this.barDockControlBottom.Size = new System.Drawing.Size(869, 20);
             // 
             // barDockControlLeft
             // 
             this.barDockControlLeft.CausesValidation = false;
             this.barDockControlLeft.Dock = System.Windows.Forms.DockStyle.Left;
-            this.barDockControlLeft.Location = new System.Drawing.Point(0, 30);
+            this.barDockControlLeft.Location = new System.Drawing.Point(0, 24);
             this.barDockControlLeft.Manager = this.barManager1;
-            this.barDockControlLeft.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.barDockControlLeft.Size = new System.Drawing.Size(0, 450);
+            this.barDockControlLeft.Size = new System.Drawing.Size(0, 362);
             // 
             // barDockControlRight
             // 
             this.barDockControlRight.CausesValidation = false;
             this.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right;
-            this.barDockControlRight.Location = new System.Drawing.Point(1014, 30);
+            this.barDockControlRight.Location = new System.Drawing.Point(869, 24);
             this.barDockControlRight.Manager = this.barManager1;
-            this.barDockControlRight.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.barDockControlRight.Size = new System.Drawing.Size(0, 450);
+            this.barDockControlRight.Size = new System.Drawing.Size(0, 362);
             // 
             // FormBangDiem
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1014, 500);
+            this.ClientSize = new System.Drawing.Size(869, 406);
             this.Controls.Add(this.panelCHON);
             this.Controls.Add(this.barDockControlLeft);
             this.Controls.Add(this.barDockControlRight);
             this.Controls.Add(this.barDockControlBottom);
             this.Controls.Add(this.barDockControlTop);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "FormBangDiem";
             this.Text = "Báo cáo bảng điểm";
             this.Load += new System.EventHandler(this.FormBangDiem_Load);
@@ -387,5 +384,6 @@
         private DevExpress.XtraBars.BarDockControl barDockControlRight;
         private DevExpress.XtraBars.BarButtonItem btnXem;
         private DevExpress.XtraBars.BarButtonItem btnThoat;
+        private DevExpress.XtraBars.BarButtonItem btnRefresh;
     }
 }

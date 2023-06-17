@@ -42,6 +42,7 @@
             this.colLAN = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colNGAYTHI = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colDIEM = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colMASV = new DevExpress.XtraGrid.Columns.GridColumn();
             this.panelXuat = new DevExpress.XtraEditors.PanelControl();
             this.txtMonhoc = new System.Windows.Forms.ComboBox();
             this.btnThoat = new System.Windows.Forms.Button();
@@ -87,7 +88,7 @@
             // 
             this.bdsDSBaithi.DataMember = "SP_Lay_DS_Bai_Thi";
             this.bdsDSBaithi.DataSource = this.DB_THI_TN;
-            this.bdsDSBaithi.Filter = "MASV = \'\'";
+            this.bdsDSBaithi.Filter = "";
             // 
             // sP_Lay_DS_Bai_ThiTableAdapter
             // 
@@ -127,7 +128,8 @@
             this.colTENMH,
             this.colLAN,
             this.colNGAYTHI,
-            this.colDIEM});
+            this.colDIEM,
+            this.colMASV});
             this.gvDSBaithi.GridControl = this.gcDSBaithi;
             this.gvDSBaithi.Name = "gvDSBaithi";
             this.gvDSBaithi.OptionsBehavior.Editable = false;
@@ -136,9 +138,6 @@
             // 
             // colMAMH
             // 
-            this.colMAMH.AppearanceCell.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.colMAMH.AppearanceCell.Options.UseFont = true;
-            this.colMAMH.Caption = "Mã môn học";
             this.colMAMH.FieldName = "MAMH";
             this.colMAMH.Name = "colMAMH";
             this.colMAMH.Visible = true;
@@ -146,9 +145,6 @@
             // 
             // colTENMH
             // 
-            this.colTENMH.AppearanceCell.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.colTENMH.AppearanceCell.Options.UseFont = true;
-            this.colTENMH.Caption = "Tên môn học";
             this.colTENMH.FieldName = "TENMH";
             this.colTENMH.Name = "colTENMH";
             this.colTENMH.Visible = true;
@@ -156,9 +152,6 @@
             // 
             // colLAN
             // 
-            this.colLAN.AppearanceCell.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.colLAN.AppearanceCell.Options.UseFont = true;
-            this.colLAN.Caption = "Lần thi";
             this.colLAN.FieldName = "LAN";
             this.colLAN.Name = "colLAN";
             this.colLAN.Visible = true;
@@ -166,11 +159,6 @@
             // 
             // colNGAYTHI
             // 
-            this.colNGAYTHI.AppearanceCell.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.colNGAYTHI.AppearanceCell.Options.UseFont = true;
-            this.colNGAYTHI.Caption = "Ngày thi";
-            this.colNGAYTHI.DisplayFormat.FormatString = "dd/MM/yyyy";
-            this.colNGAYTHI.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
             this.colNGAYTHI.FieldName = "NGAYTHI";
             this.colNGAYTHI.Name = "colNGAYTHI";
             this.colNGAYTHI.Visible = true;
@@ -178,13 +166,17 @@
             // 
             // colDIEM
             // 
-            this.colDIEM.AppearanceCell.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.colDIEM.AppearanceCell.Options.UseFont = true;
-            this.colDIEM.Caption = "Điểm thi";
             this.colDIEM.FieldName = "DIEM";
             this.colDIEM.Name = "colDIEM";
             this.colDIEM.Visible = true;
             this.colDIEM.VisibleIndex = 4;
+            // 
+            // colMASV
+            // 
+            this.colMASV.FieldName = "MASV";
+            this.colMASV.Name = "colMASV";
+            this.colMASV.Visible = true;
+            this.colMASV.VisibleIndex = 5;
             // 
             // panelXuat
             // 
@@ -291,15 +283,16 @@
         private DB_THI_TNTableAdapters.TableAdapterManager tableAdapterManager;
         private DevExpress.XtraGrid.GridControl gcDSBaithi;
         private DevExpress.XtraGrid.Views.Grid.GridView gvDSBaithi;
-        private DevExpress.XtraGrid.Columns.GridColumn colMAMH;
-        private DevExpress.XtraGrid.Columns.GridColumn colTENMH;
-        private DevExpress.XtraGrid.Columns.GridColumn colLAN;
-        private DevExpress.XtraGrid.Columns.GridColumn colNGAYTHI;
-        private DevExpress.XtraGrid.Columns.GridColumn colDIEM;
         private DevExpress.XtraEditors.PanelControl panelXuat;
         private System.Windows.Forms.Button btnPreview;
         private DevExpress.XtraEditors.SpinEdit txtLanthi;
         private System.Windows.Forms.Button btnThoat;
         private System.Windows.Forms.ComboBox txtMonhoc;
+        private DevExpress.XtraGrid.Columns.GridColumn colMAMH;
+        private DevExpress.XtraGrid.Columns.GridColumn colTENMH;
+        private DevExpress.XtraGrid.Columns.GridColumn colLAN;
+        private DevExpress.XtraGrid.Columns.GridColumn colNGAYTHI;
+        private DevExpress.XtraGrid.Columns.GridColumn colDIEM;
+        private DevExpress.XtraGrid.Columns.GridColumn colMASV;
     }
 }

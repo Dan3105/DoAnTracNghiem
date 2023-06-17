@@ -23,11 +23,8 @@ namespace QLThiTracNghiem
 
         private void Reload()
         {
-            this.monhocTableAdapter.Connection.ConnectionString = Program.connstr;
-            this.monhocTableAdapter.Fill(this.DB_THI_TN.Monhoc);
-
             this.sP_Lay_DS_CauHoiTableAdapter.Connection.ConnectionString = Program.connstr;
-            this.sP_Lay_DS_CauHoiTableAdapter.Fill(this.DB_THI_TN.SP_Lay_DS_CauHoi, Program.username, (string)CBMonhoc.SelectedValue);
+            this.sP_Lay_DS_CauHoiTableAdapter.Fill(this.DB_THI_TN.SP_Lay_DS_CauHoi, Program.username, (string)CBMonhoc.SelectedValue, Program.groupLoginType.ToString());
 
             if (bdsBode.Count <= 0)
             {
@@ -54,13 +51,25 @@ namespace QLThiTracNghiem
             {
                 btnSua.Enabled = btnXoa.Enabled = false;
             }
+
+            if (Program.groupLoginType == Simple.GroupLoginType.Truong)
+            {
+                panelMonhoc.Enabled = true;
+                panelCauhoi.Enabled = false;
+                btnThem.Enabled = btnSua.Enabled = btnXoa.Enabled = false;
+                btnGhi.Enabled = btnUndo.Enabled = false;
+
+                btnReload.Enabled = true;
+            }
         }
 
         private void FormNhapDe_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'DB_THI_TN.Monhoc' table. You can move, or remove it, as needed.
-            this.monhocTableAdapter.Fill(this.DB_THI_TN.Monhoc);
             this.DB_THI_TN.EnforceConstraints = false;
+
+            this.monhocTableAdapter.Connection.ConnectionString = Program.connstr;
+            this.monhocTableAdapter.Fill(this.DB_THI_TN.Monhoc);
+
             Reload();
             ReadMode();
         }
@@ -140,7 +149,7 @@ namespace QLThiTracNghiem
                 catch (Exception ex)
                 {
                     MessageBox.Show("Lỗi xoá câu hỏi. Bạn hãy xoá lại\n" + ex.Message, "", MessageBoxButtons.OK);
-                    this.sP_Lay_DS_CauHoiTableAdapter.Fill(this.DB_THI_TN.SP_Lay_DS_CauHoi, Program.username, (string)CBMonhoc.SelectedValue);
+                    this.sP_Lay_DS_CauHoiTableAdapter.Fill(this.DB_THI_TN.SP_Lay_DS_CauHoi, Program.username, (string)CBMonhoc.SelectedValue, Program.groupLoginType.ToString());
                     bdsBode.Position = bdsBode.Find("IDCAUHOI", maCauHoi);
                     return;
                 }
@@ -211,7 +220,7 @@ namespace QLThiTracNghiem
                     Program.ExecSqlNonQuery(cmd);
                 }
 
-                this.sP_Lay_DS_CauHoiTableAdapter.Fill(this.DB_THI_TN.SP_Lay_DS_CauHoi, Program.username, (string)CBMonhoc.SelectedValue);
+                this.sP_Lay_DS_CauHoiTableAdapter.Fill(this.DB_THI_TN.SP_Lay_DS_CauHoi, Program.username, (string)CBMonhoc.SelectedValue, Program.groupLoginType.ToString());
             }
             catch (Exception ex)
             {
@@ -246,8 +255,7 @@ namespace QLThiTracNghiem
 
         private void CBMonhoc_SelectedIndexChanged(object sender, EventArgs e)
         {
-            this.sP_Lay_DS_CauHoiTableAdapter.Connection.ConnectionString = Program.connstr;
-            this.sP_Lay_DS_CauHoiTableAdapter.Fill(this.DB_THI_TN.SP_Lay_DS_CauHoi, Program.username, (string)CBMonhoc.SelectedValue);
+            Reload();
             ReadMode();
         }
     }

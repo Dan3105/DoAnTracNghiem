@@ -41,6 +41,13 @@ namespace QLThiTracNghiem
             this.cbLANTHI.Items.Add(1);
             this.cbLANTHI.Items.Add(2);
 
+            btnWrite.Enabled = btnUndo.Enabled = false;
+
+            if(Program.groupLoginType == Simple.GroupLoginType.CoSo && Program.groupLoginType != Simple.GroupLoginType.Giangvien)
+            {
+                btnDel.Enabled = btnThem.Enabled = btnUndo.Enabled = btnUpdate.Enabled = btnWrite.Enabled = btnRefresh.Enabled = false;
+            }
+
             SetCbServer();
         }
 
@@ -50,6 +57,15 @@ namespace QLThiTracNghiem
             this.cbServer.DisplayMember = "TenCS";
             this.cbServer.ValueMember = "MaCS";
             this.cbServer.SelectedIndex = Program.currentServerIndex;
+
+            if(Program.groupLoginType == Simple.GroupLoginType.Truong)
+            {
+                this.cbServer.Enabled = true;
+            }
+            else
+            {
+                this.cbServer.Enabled = false;
+            }
 
         }
 
@@ -161,8 +177,7 @@ namespace QLThiTracNghiem
 
                     if (result != 0)
                     {
-                        bdsGiaovien_Dangky.EndEdit();
-                        bdsGiaovien_Dangky.ResetCurrentItem();
+                   
                         MessageBox.Show($"Còn thiếu {result} trong bộ đề!", "", MessageBoxButtons.OK);
 
                         return;
@@ -178,18 +193,23 @@ namespace QLThiTracNghiem
 
             try
             {
-                  MessageBox.Show("Đã thêm thành công !", "", MessageBoxButtons.OK);
+                bdsGiaovien_Dangky.EndEdit();
+                bdsGiaovien_Dangky.ResetCurrentItem();
+                Giaovien_DangkyTableAdapter.Connection.ConnectionString = Program.connstr;
+                Giaovien_DangkyTableAdapter.Update(DB_THI_TN.Giaovien_Dangky);
+                MessageBox.Show("Đã thêm thành công !", "", MessageBoxButtons.OK);
             }
             catch (Exception ex)
             {
                 MessageBox.Show($"{ex.Message}", "", MessageBoxButtons.OK);
-
+                Giaovien_DangkyTableAdapter.Connection.ConnectionString = Program.connstr;
+                Giaovien_DangkyTableAdapter.Fill(DB_THI_TN.Giaovien_Dangky);
                 return;
             }
             finally
             {
-                Giaovien_DangkyTableAdapter.Connection.ConnectionString = Program.connstr;
-                Giaovien_DangkyTableAdapter.Update(DB_THI_TN.Giaovien_Dangky);
+                
+                
                 ActionAfterEdit();
             }
 
@@ -339,7 +359,7 @@ namespace QLThiTracNghiem
 
                     this.Giaovien_DangkyTableAdapter.Connection.ConnectionString = Program.connstr;
                     // TODO: This line of code loads data into the 'dB_TracNghiem.KHOA' table. You can move, or remove it, as needed.
-                    this.Giaovien_DangkyTableAdapter.Update(this.DB_THI_TN.Giaovien_Dangky);
+                    this.Giaovien_DangkyTableAdapter.Fill(this.DB_THI_TN.Giaovien_Dangky);
                 }
                 catch (Exception ex) { Console.WriteLine(ex); }
             }

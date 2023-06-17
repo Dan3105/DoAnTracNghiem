@@ -88,7 +88,7 @@ namespace QLThiTracNghiem
                     this.SP_Lay_DS_Lich_Thi_Da_ThiTableAdapter.Connection.ConnectionString = Program.connstr;
                     this.SP_Lay_DS_Lich_Thi_Da_ThiTableAdapter.Fill(this.DB_THI_TN.SP_Lay_DS_Lich_Thi_Da_Thi);
                 }
-                catch (Exception ex) { Console.WriteLine(ex); }
+                catch (Exception ex) { MessageBox.Show($"Lỗi kết nối {ex.Message}"); Console.WriteLine(ex); }
             }
         }
 
@@ -115,6 +115,18 @@ namespace QLThiTracNghiem
         private void btnThoat_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             this.Dispose();
+        }
+
+        private void btnRefresh_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            try
+            {
+                this.DB_THI_TN.EnforceConstraints = false;
+                // TODO: This line of code loads data into the 'DB_THI_TN.SP_Lay_DS_Lich_Thi_Da_Thi' table. You can move, or remove it, as needed.
+                this.SP_Lay_DS_Lich_Thi_Da_ThiTableAdapter.Connection.ConnectionString = Program.connstr;
+                this.SP_Lay_DS_Lich_Thi_Da_ThiTableAdapter.Fill(this.DB_THI_TN.SP_Lay_DS_Lich_Thi_Da_Thi);
+            }
+            catch (Exception ex) { MessageBox.Show($"Lỗi kết nối {ex.Message}"); Console.WriteLine(ex); }
         }
     }
 }

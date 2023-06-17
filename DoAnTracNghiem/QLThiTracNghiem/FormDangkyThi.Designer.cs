@@ -76,10 +76,10 @@
             this.btnRefresh = new DevExpress.XtraEditors.SimpleButton();
             this.btnThoat = new DevExpress.XtraEditors.SimpleButton();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
-            this.textEdit1 = new DevExpress.XtraEditors.TextEdit();
             this.panel1 = new System.Windows.Forms.Panel();
             this.cbServer = new System.Windows.Forms.ComboBox();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
             mAGVLabel = new System.Windows.Forms.Label();
             mALOPLabel = new System.Windows.Forms.Label();
             mAMHLabel = new System.Windows.Forms.Label();
@@ -107,7 +107,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtMAGV.Properties)).BeginInit();
             this.flowLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).BeginInit();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -444,6 +443,8 @@
             this.tHOIGIANSpinEdit.Properties.Appearance.Options.UseFont = true;
             this.tHOIGIANSpinEdit.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.tHOIGIANSpinEdit.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.tHOIGIANSpinEdit.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.tHOIGIANSpinEdit.Properties.MaxValue = new decimal(new int[] {
             60,
             0,
@@ -480,6 +481,7 @@
             // cbLANTHI
             // 
             this.cbLANTHI.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bdsGiaovien_Dangky, "LAN", true));
+            this.cbLANTHI.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbLANTHI.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbLANTHI.FormattingEnabled = true;
             this.cbLANTHI.Location = new System.Drawing.Point(441, 113);
@@ -511,6 +513,7 @@
             this.txtSOCAUTHI.Properties.Appearance.Options.UseFont = true;
             this.txtSOCAUTHI.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.txtSOCAUTHI.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.txtSOCAUTHI.Properties.MaxValue = new decimal(new int[] {
             100,
             0,
@@ -678,8 +681,8 @@
             this.tableLayoutPanel4.ColumnCount = 2;
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 893F));
-            this.tableLayoutPanel4.Controls.Add(this.textEdit1, 0, 0);
             this.tableLayoutPanel4.Controls.Add(this.panel1, 1, 0);
+            this.tableLayoutPanel4.Controls.Add(this.labelControl2, 0, 0);
             this.tableLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel4.Location = new System.Drawing.Point(3, 3);
             this.tableLayoutPanel4.Name = "tableLayoutPanel4";
@@ -687,18 +690,6 @@
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel4.Size = new System.Drawing.Size(1326, 53);
             this.tableLayoutPanel4.TabIndex = 3;
-            // 
-            // textEdit1
-            // 
-            this.textEdit1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textEdit1.EditValue = "Đăng ký thi";
-            this.textEdit1.Enabled = false;
-            this.textEdit1.Location = new System.Drawing.Point(3, 3);
-            this.textEdit1.Name = "textEdit1";
-            this.textEdit1.Properties.Appearance.Font = new System.Drawing.Font("Times New Roman", 16.2F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textEdit1.Properties.Appearance.Options.UseFont = true;
-            this.textEdit1.Size = new System.Drawing.Size(427, 32);
-            this.textEdit1.TabIndex = 0;
             // 
             // panel1
             // 
@@ -732,6 +723,18 @@
             this.labelControl1.TabIndex = 0;
             this.labelControl1.Text = "Cơ sở:";
             // 
+            // labelControl2
+            // 
+            this.labelControl2.Appearance.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelControl2.Appearance.Options.UseFont = true;
+            this.labelControl2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.labelControl2.Location = new System.Drawing.Point(3, 3);
+            this.labelControl2.Name = "labelControl2";
+            this.labelControl2.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.labelControl2.Size = new System.Drawing.Size(427, 47);
+            this.labelControl2.TabIndex = 2;
+            this.labelControl2.Text = "Lịch đăng ký thi";
+            // 
             // FormDangkyThi
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -762,7 +765,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtMAGV.Properties)).EndInit();
             this.flowLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel4.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).EndInit();
+            this.tableLayoutPanel4.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.ResumeLayout(false);
@@ -807,10 +810,10 @@
         private DevExpress.XtraEditors.TextEdit txtMAGV;
         private DevExpress.XtraEditors.SpinEdit tHOIGIANSpinEdit;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel4;
-        private DevExpress.XtraEditors.TextEdit textEdit1;
         private System.Windows.Forms.Panel panel1;
         private DevExpress.XtraEditors.LabelControl labelControl1;
         private System.Windows.Forms.ComboBox cbServer;
         private DevExpress.XtraEditors.SimpleButton btnRefresh;
+        private DevExpress.XtraEditors.LabelControl labelControl2;
     }
 }

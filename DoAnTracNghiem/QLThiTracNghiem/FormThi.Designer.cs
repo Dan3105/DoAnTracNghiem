@@ -173,7 +173,7 @@
             this.tableLayoutPanel6.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.Outset;
             this.tableLayoutPanel6.ColumnCount = 2;
             this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 380F));
+            this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 382F));
             this.tableLayoutPanel6.Controls.Add(this.panel1, 1, 0);
             this.tableLayoutPanel6.Controls.Add(this.lbTENMH, 0, 0);
             this.tableLayoutPanel6.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -190,10 +190,10 @@
             this.panel1.Controls.Add(this.lbTimer);
             this.panel1.Controls.Add(this.lbTimerText);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(404, 4);
+            this.panel1.Location = new System.Drawing.Point(402, 4);
             this.panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(374, 48);
+            this.panel1.Size = new System.Drawing.Size(376, 48);
             this.panel1.TabIndex = 0;
             // 
             // lbTimer
@@ -228,7 +228,7 @@
             this.lbTENMH.Location = new System.Drawing.Point(11, 10);
             this.lbTENMH.Margin = new System.Windows.Forms.Padding(9, 8, 9, 8);
             this.lbTENMH.Name = "lbTENMH";
-            this.lbTENMH.Size = new System.Drawing.Size(379, 36);
+            this.lbTENMH.Size = new System.Drawing.Size(377, 36);
             this.lbTENMH.TabIndex = 1;
             this.lbTENMH.Text = "Thi MÔ";
             this.lbTENMH.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
