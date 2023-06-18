@@ -197,7 +197,7 @@ namespace QLThiTracNghiem
                 bdsGiaovien_Dangky.ResetCurrentItem();
                 Giaovien_DangkyTableAdapter.Connection.ConnectionString = Program.connstr;
                 Giaovien_DangkyTableAdapter.Update(DB_THI_TN.Giaovien_Dangky);
-                MessageBox.Show("Đã thêm thành công !", "", MessageBoxButtons.OK);
+                MessageBox.Show("Đã ghi thành công !", "", MessageBoxButtons.OK);
             }
             catch (Exception ex)
             {
@@ -217,6 +217,18 @@ namespace QLThiTracNghiem
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
+            if(this.bdsGiaovien_Dangky.Count == 0)
+            {
+                MessageBox.Show("Không có lịch nào được chọn!");
+                return;
+            }
+
+            if(Program.username.Equals(txtMAGV.Text.Trim()) == false)
+            {
+                MessageBox.Show("Bạn không được chỉnh sửa lịch của giảng viên khác!");
+                return;
+            }
+
             crrPosition = this.bdsGiaovien_Dangky.Position;
             ActionBeforeEdit();
         }
@@ -254,6 +266,8 @@ namespace QLThiTracNghiem
 
         private bool ValidateBeforeXoa()
         {
+            if(bdsGiaovien_Dangky.Count == 0) { return false; }
+
             if (cbLANTHI.SelectedIndex == -1)
             {
                 return false;

@@ -44,6 +44,7 @@
             this.colDIEM = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colMASV = new DevExpress.XtraGrid.Columns.GridColumn();
             this.panelXuat = new DevExpress.XtraEditors.PanelControl();
+            this.btnReload = new System.Windows.Forms.Button();
             this.txtMonhoc = new System.Windows.Forms.ComboBox();
             this.btnThoat = new System.Windows.Forms.Button();
             this.txtLanthi = new DevExpress.XtraEditors.SpinEdit();
@@ -88,7 +89,6 @@
             // 
             this.bdsDSBaithi.DataMember = "SP_Lay_DS_Bai_Thi";
             this.bdsDSBaithi.DataSource = this.DB_THI_TN;
-            this.bdsDSBaithi.Filter = "";
             // 
             // sP_Lay_DS_Bai_ThiTableAdapter
             // 
@@ -159,6 +159,8 @@
             // 
             // colNGAYTHI
             // 
+            this.colNGAYTHI.DisplayFormat.FormatString = "dd/MM/yyyy HH:mm:ss";
+            this.colNGAYTHI.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
             this.colNGAYTHI.FieldName = "NGAYTHI";
             this.colNGAYTHI.Name = "colNGAYTHI";
             this.colNGAYTHI.Visible = true;
@@ -180,6 +182,7 @@
             // 
             // panelXuat
             // 
+            this.panelXuat.Controls.Add(this.btnReload);
             this.panelXuat.Controls.Add(this.txtMonhoc);
             this.panelXuat.Controls.Add(this.btnThoat);
             this.panelXuat.Controls.Add(this.txtLanthi);
@@ -191,6 +194,17 @@
             this.panelXuat.Name = "panelXuat";
             this.panelXuat.Size = new System.Drawing.Size(994, 282);
             this.panelXuat.TabIndex = 2;
+            // 
+            // btnReload
+            // 
+            this.btnReload.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnReload.Location = new System.Drawing.Point(432, 27);
+            this.btnReload.Name = "btnReload";
+            this.btnReload.Size = new System.Drawing.Size(104, 42);
+            this.btnReload.TabIndex = 8;
+            this.btnReload.Text = "Reload";
+            this.btnReload.UseVisualStyleBackColor = true;
+            this.btnReload.Click += new System.EventHandler(this.buttonReload_Click);
             // 
             // txtMonhoc
             // 
@@ -294,5 +308,6 @@
         private DevExpress.XtraGrid.Columns.GridColumn colNGAYTHI;
         private DevExpress.XtraGrid.Columns.GridColumn colDIEM;
         private DevExpress.XtraGrid.Columns.GridColumn colMASV;
+        private System.Windows.Forms.Button btnReload;
     }
 }

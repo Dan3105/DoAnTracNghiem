@@ -254,6 +254,8 @@ namespace QLThiTracNghiem
             catch (Exception ex)
             {
                 MessageBox.Show($"{ex}", "", MessageBoxButtons.OK);
+                this.KhoaTableAdapter.Connection.ConnectionString = Program.connstr;
+                this.KhoaTableAdapter.Fill(this.DB_THI_TN.Khoa);
                 return;
             }
 
@@ -394,9 +396,8 @@ namespace QLThiTracNghiem
                 {
                     MessageBox.Show($"{ex}", "", MessageBoxButtons.OK);
                     this.LopTableAdapter.Connection.ConnectionString = Program.connstr;
-                    this.LopTableAdapter.Update(this.DB_THI_TN.Lop);
-                    bdsLop.Position = bdsLop.Find("MALOP", maLOP);
-
+                    this.LopTableAdapter.Fill(this.DB_THI_TN.Lop);
+                   
                 }
             }
 
@@ -425,6 +426,8 @@ namespace QLThiTracNghiem
             catch (Exception ex)
             {
                 MessageBox.Show($"{ex}", "", MessageBoxButtons.OK);
+                this.LopTableAdapter.Connection.ConnectionString = Program.connstr;
+                this.LopTableAdapter.Fill(this.DB_THI_TN.Lop);
                 return;
             }
 

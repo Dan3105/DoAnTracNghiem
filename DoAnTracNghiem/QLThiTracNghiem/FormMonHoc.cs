@@ -103,7 +103,6 @@ namespace QLThiTracNghiem
                     MessageBox.Show($"{ex}", "", MessageBoxButtons.OK);
                     this.MonhocTableAdapter.Connection.ConnectionString = Program.connstr;
                     this.MonhocTableAdapter.Fill(this.DB_THI_TN.Monhoc);
-                    bdsMonhoc.Position = bdsMonhoc.Find("MAMH", maMH);
 
                 }
             }
@@ -172,17 +171,20 @@ namespace QLThiTracNghiem
             try
             {
                 bdsMonhoc.EndEdit();
-                bdsMonhoc.ResetCurrentItem();         
+                bdsMonhoc.ResetCurrentItem();
+                this.MonhocTableAdapter.Connection.ConnectionString = Program.connstr;
+                this.MonhocTableAdapter.Update(this.DB_THI_TN.Monhoc);
             }
             catch (Exception ex)
             {
                 MessageBox.Show($"{ex}", "", MessageBoxButtons.OK);
+                this.MonhocTableAdapter.Connection.ConnectionString = Program.connstr;
+                this.MonhocTableAdapter.Fill(this.DB_THI_TN.Monhoc);
             }
             finally
             {
                 ActionAfterEdit();
-                this.MonhocTableAdapter.Connection.ConnectionString = Program.connstr;
-                this.MonhocTableAdapter.Update(this.DB_THI_TN.Monhoc);
+                
             }
 
             

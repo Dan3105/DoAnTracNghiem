@@ -236,8 +236,9 @@ namespace QLThiTracNghiem
             }
             catch (Exception ex)
             {
-                bdsSinhvien.EndEdit();
                 MessageBox.Show($"{ex}", "", MessageBoxButtons.OK);
+                this.SinhvienTableAdapter.Connection.ConnectionString = Program.connstr;
+                this.SinhvienTableAdapter.Fill(this.DB_THI_TN.Sinhvien);
                 return;
             }
 
